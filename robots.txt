@@ -1,0 +1,105 @@
+# robots.txt — lovebirdgenetics.com
+# KinBird Aviary · Updated 2026-05-25
+# Policy: open to all reputable search and AI crawlers.
+
+# ---------- Default ----------
+User-agent: *
+Allow: /
+Disallow: /manifest.json
+Disallow: /sw.js
+Disallow: /.well-known/
+
+# ---------- Major Search Engines ----------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# ---------- AI Training & Answer Engines (explicit allow) ----------
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (Gemini, Bard, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Common Crawl (feeds most open-source LLMs)
+User-agent: CCBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Diffbot (used by many AI tools)
+User-agent: Diffbot
+Allow: /
+
+# ---------- Sitemap ----------
+Sitemap: https://lovebirdgenetics.com/sitemap.xml
