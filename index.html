@@ -391,8 +391,8 @@ body{
 /* Color row */
 .color-row{
   display:grid;
-  grid-template-columns:1fr 148px;
-  gap:10px;
+  grid-template-columns:1fr 182px;
+  gap:8px;
   align-items:center;
   margin-bottom:24px;
 }
@@ -514,6 +514,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 }
 .cbs-opt:hover{background:var(--bg-input-filled);}
 .cbs-opt.cbs-sel{background:var(--accent-dim);color:var(--accent);}
+.cbs-opt>span{flex:1;min-width:0;white-space:nowrap;}
 .cbs-opt .cbs-check{opacity:0;flex-shrink:0;color:var(--accent);}
 .cbs-opt.cbs-sel .cbs-check{opacity:1;}
 .cbs-opt:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
@@ -2147,6 +2148,27 @@ document.addEventListener('click',function(e){
   // outside tap closes any open custom dropdown
   if(!e.target.closest('details.cbs')){_cbsClose(null);_cbsSyncSheet();}
 });
+// Desktop: position the open menu as fixed under its trigger so it escapes the card's overflow/clipping
+function _cbsClearPos(menu){if(!menu)return;['position','top','left','right','bottom','width','minWidth','maxWidth','maxHeight','zIndex'].forEach(p=>menu.style[p]='');}
+function _cbsPositionDesktop(det){
+  const menu=det.querySelector('.cbs-menu'),sum=det.querySelector('summary');
+  if(!menu||!sum)return;
+  if(_cbsIsMobile()){_cbsClearPos(menu);return;}
+  const r=sum.getBoundingClientRect();
+  const spaceBelow=window.innerHeight-r.bottom-16,spaceAbove=r.top-16;
+  const openUp=spaceBelow<240&&spaceAbove>spaceBelow;
+  menu.style.position='fixed';menu.style.zIndex='2000';
+  menu.style.minWidth=r.width+'px';menu.style.width='max-content';menu.style.maxWidth='92vw';
+  menu.style.maxHeight=Math.min(440,Math.max(160,openUp?spaceAbove:spaceBelow))+'px';
+  if(openUp){menu.style.bottom=(window.innerHeight-r.top+6)+'px';menu.style.top='auto';}
+  else{menu.style.top=(r.bottom+6)+'px';menu.style.bottom='auto';}
+  menu.style.left='0px';
+  const mw=menu.getBoundingClientRect().width;
+  let left=r.left;if(left+mw>window.innerWidth-8)left=Math.max(8,window.innerWidth-8-mw);
+  menu.style.left=left+'px';
+}
+function _cbsRepos(){const d=document.querySelector('details.cbs[open]');if(d&&!_cbsIsMobile())_cbsPositionDesktop(d);}
+window.addEventListener('resize',_cbsRepos);window.addEventListener('scroll',_cbsRepos,true);
 // keep aria-expanded in sync & close siblings when one opens
 document.addEventListener('toggle',function(e){
   const d=e.target;
@@ -2154,6 +2176,7 @@ document.addEventListener('toggle',function(e){
   const s=d.querySelector('summary');if(s)s.setAttribute('aria-expanded',d.open?'true':'false');
   if(d.open)_cbsClose(d);
   _cbsSyncSheet();
+  if(d.open)_cbsPositionDesktop(d);else _cbsClearPos(d.querySelector('.cbs-menu'));
 },true);
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){const open=document.querySelector('details.cbs[open]');if(open){open.open=false;const s=open.querySelector('summary');if(s){s.setAttribute('aria-expanded','false');s.focus();}}return;}
