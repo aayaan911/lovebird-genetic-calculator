@@ -928,6 +928,9 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
     padding:6px 10px calc(18px + env(safe-area-inset-bottom)) 10px;
     animation:cbsSheetUp 0.22s cubic-bezier(0.22,0.61,0.36,1);
   }
+  /* Short menus (status Visual/Split, Opaline) center on screen instead of stubbing at the bottom */
+  .cbs-xs[open]>.cbs-menu,.cbs-op[open]>.cbs-menu{top:50%;bottom:auto;transform:translateY(-50%);animation:none;}
+  .cbs-xs[open]>.cbs-menu::before,.cbs-op[open]>.cbs-menu::before{display:none;}
   /* grab handle */
   .cbs[open]>.cbs-menu::before{
     content:"";
