@@ -134,6 +134,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .type-card p{font-size:13px;color:var(--text-2);line-height:1.55;margin:0;}
 .type-card .badge{font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--accent);margin-top:8px;display:block;}
 .pairing-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:24px;margin:24px 0;}
+.pairing-table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13px;}
+.pairing-table caption{text-align:left;font-weight:700;color:var(--text-1);padding:0 0 12px;font-size:14px;}
+.pairing-table thead th{text-align:left;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--border);}
+.pairing-table tbody td{padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.4;}
+.pairing-table tbody tr:last-child td{border-bottom:none;}
+.pairing-table td:first-child{color:var(--text-1);font-weight:600;}
+.pairing-table td.pct{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap;width:64px;}
 .pairing-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;}
 .pairing-title{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:12px;}
 .pairing-parents{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
@@ -291,47 +298,21 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">AR Pairing Type 1 — Most productive</div>
         <div class="pairing-title">Visual × Visual (same mutation)</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Visual Mutation</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Visual Mutation</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge high">25%</span><div class="offspring-name">Homo (two copies)<div class="offspring-note">The most sought-after outcome for most mutations</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Visual (one copy)</div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal (pure, no mutation allele)</div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Visual Mutation &nbsp;&times;&nbsp; &#9792; Visual Mutation</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Homo (two copies)</td><td class="pct">25%</td><td>The most sought-after outcome for most mutations</td></tr><tr><td>Visual (one copy)</td><td class="pct">50%</td><td></td></tr><tr><td>Normal (pure, no mutation allele)</td><td class="pct">25%</td><td></td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">This is the standard production pairing for AR mutations. 75% of offspring will carry the mutation visually or as Homo. For Aqua specifically, the Homo is the sought-after outcome — see the <a href="/blog/aqua-lovebird-genetics/" style="color:var(--accent);">Aqua genetics guide</a> for detail.</p>
       </div>
 
       <div class="pairing-box">
         <div class="pairing-box-label">AR Pairing Type 2 — Building the line</div>
         <div class="pairing-title">Visual × Split</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Visual Mutation</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Normal / Mutation (Split)</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Visual Mutation<div class="offspring-note">Half the nest shows the mutation visually</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Normal / Mutation (Split)<div class="offspring-note">Confirmed carriers — sought-after for next-generation breeding</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Visual Mutation &nbsp;&times;&nbsp; &#9792; Normal / Mutation (Split)</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Mutation</td><td class="pct">50%</td><td>Half the nest shows the mutation visually</td></tr><tr><td>Normal / Mutation (Split)</td><td class="pct">50%</td><td>Confirmed carriers — sought-after for next-generation breeding</td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">No Homo possible from this pairing — the split parent can only contribute one mutation copy. Useful when you have one visual and want to produce more splits to breed back with the following season.</p>
       </div>
 
       <div class="pairing-box">
         <div class="pairing-box-label">AR Pairing Type 3 — Long-odds Homo production</div>
         <div class="pairing-title">Split × Split (same mutation)</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Normal / Mutation (Split)</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Normal / Mutation (Split)</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Visual Mutation</div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Normal / Mutation (Split)<div class="offspring-note">Cannot distinguish from Normal without DNA or test pair</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal (pure)</div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Normal / Mutation (Split) &nbsp;&times;&nbsp; &#9792; Normal / Mutation (Split)</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Mutation</td><td class="pct">25%</td><td></td></tr><tr><td>Normal / Mutation (Split)</td><td class="pct">50%</td><td>Cannot distinguish from Normal without DNA or test pair</td></tr><tr><td>Normal (pure)</td><td class="pct">25%</td><td></td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">From two splits, only 25% of offspring show the mutation visually — and of those visuals, a fraction will be Homo. Use when you only have splits available and want to start producing visuals. No Homo production unless the mutation allows a homozygous visual state.</p>
       </div>
 
@@ -362,32 +343,14 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Opaline Pairing 1 — Auto-sexing outcome</div>
         <div class="pairing-title">Opaline Male × Normal Female</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Opaline (Homo)</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Normal</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Split Opaline males (visual normal)<div class="offspring-note">All sons are confirmed split Opaline — auto-sexed</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Visual Opaline females<div class="offspring-note">All daughters are visual Opaline — auto-sexed</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Opaline (Homo) &nbsp;&times;&nbsp; &#9792; Normal</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Split Opaline males (visual normal)</td><td class="pct">50%</td><td>All sons are confirmed split Opaline — auto-sexed</td></tr><tr><td>Visual Opaline females</td><td class="pct">50%</td><td>All daughters are visual Opaline — auto-sexed</td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">Every chick is sexable by mutation status — Opaline = female, normal-looking = male. A powerful tool for breeders who want confirmed split males without DNA testing.</p>
       </div>
 
       <div class="pairing-box">
         <div class="pairing-box-label">Opaline Pairing 2 — Best Opaline production</div>
         <div class="pairing-title">Split Opaline Male × Opaline Female</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Split Opaline</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Visual Opaline</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Opaline Male (Homo)<div class="offspring-note">Visual Opaline males — rare and sought-after</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal / Split Opaline males</div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Opaline females</div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal females</div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Split Opaline &nbsp;&times;&nbsp; &#9792; Visual Opaline</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Opaline Male (Homo)</td><td class="pct">25%</td><td>Visual Opaline males — rare and sought-after</td></tr><tr><td>Normal / Split Opaline males</td><td class="pct">25%</td><td></td></tr><tr><td>Opaline females</td><td class="pct">25%</td><td></td></tr><tr><td>Normal females</td><td class="pct">25%</td><td></td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">25% chance of a visual Opaline male per chick, the most sought-after outcome. Opaline males are significantly rarer than Opaline females because males need two copies to show visually.</p>
       </div>
 

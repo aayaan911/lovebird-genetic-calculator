@@ -132,6 +132,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .type-card p{font-size:13px;color:var(--text-2);line-height:1.55;margin:0;}
 .type-card .geno-tag{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);margin-top:8px;display:block;}
 .pairing-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:24px;margin:24px 0;}
+.pairing-table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13px;}
+.pairing-table caption{text-align:left;font-weight:700;color:var(--text-1);padding:0 0 12px;font-size:14px;}
+.pairing-table thead th{text-align:left;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--border);}
+.pairing-table tbody td{padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.4;}
+.pairing-table tbody tr:last-child td{border-bottom:none;}
+.pairing-table td:first-child{color:var(--text-1);font-weight:600;}
+.pairing-table td.pct{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap;width:64px;}
 .pairing-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;}
 .pairing-title{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:12px;}
 .pairing-parents{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
@@ -307,61 +314,19 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 1 — The Safest Route to Visual Bronze Fallows</div>
         <div class="pairing-title">Split × Split</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Parent A</small>Green / Bronze Fallow (split)</div>
-          <span class="pairing-x">×</span>
-          <div class="parent-pill"><small>Parent B</small>Green / Bronze Fallow (split)</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item">
-            <span class="pct-badge">25%</span>
-            <div><div class="offspring-name">Visual Bronze Fallow</div><div class="offspring-note">Homozygous — shows full phenotype. Safe offspring (not a bronze × bronze pairing).</div></div>
-          </li>
-          <li class="offspring-item">
-            <span class="pct-badge">50%</span>
-            <div><div class="offspring-name">Green / Bronze Fallow (split)</div><div class="offspring-note">Visually normal carriers. Must be test-paired to confirm split status.</div></div>
-          </li>
-          <li class="offspring-item">
-            <span class="pct-badge">25%</span>
-            <div><div class="offspring-name">Pure Green (no bronze fallow)</div><div class="offspring-note">Visually identical to splits. DNA test or test pairing needed to distinguish.</div></div>
-          </li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Green / Bronze Fallow (split) &nbsp;&times;&nbsp; &#9792; Green / Bronze Fallow (split)</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Bronze Fallow</td><td class="pct">25%</td><td>Homozygous — shows full phenotype. Safe offspring (not a bronze × bronze pairing).</td></tr><tr><td>Green / Bronze Fallow (split)</td><td class="pct">50%</td><td>Visually normal carriers. Must be test-paired to confirm split status.</td></tr><tr><td>Pure Green (no bronze fallow)</td><td class="pct">25%</td><td>Visually identical to splits. DNA test or test pairing needed to distinguish.</td></tr></tbody></table>
       </div>
 
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 2 — Maximum Split Production</div>
         <div class="pairing-title">Visual Bronze Fallow × Pure Green Normal</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Parent A</small>Visual Bronze Fallow</div>
-          <span class="pairing-x">×</span>
-          <div class="parent-pill"><small>Parent B</small>Pure Green Normal</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item">
-            <span class="pct-badge">100%</span>
-            <div><div class="offspring-name">Green / Bronze Fallow (split)</div><div class="offspring-note">All offspring are visually normal but carry one bronze fallow allele. No visual bronze fallow chicks from this pairing.</div></div>
-          </li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Visual Bronze Fallow &nbsp;&times;&nbsp; &#9792; Pure Green Normal</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Green / Bronze Fallow (split)</td><td class="pct">100%</td><td>All offspring are visually normal but carry one bronze fallow allele. No visual bronze fallow chicks from this pairing.</td></tr></tbody></table>
       </div>
 
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 3 — Fastest Route to Visuals (Advanced)</div>
         <div class="pairing-title">Visual Bronze Fallow × Split Green</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Parent A</small>Visual Bronze Fallow</div>
-          <span class="pairing-x">×</span>
-          <div class="parent-pill"><small>Parent B</small>Green / Bronze Fallow (split)</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item">
-            <span class="pct-badge">50%</span>
-            <div><div class="offspring-name">Visual Bronze Fallow</div><div class="offspring-note">Homozygous. Visually bronze fallow. Safe — this is not a bronze × bronze outcome.</div></div>
-          </li>
-          <li class="offspring-item">
-            <span class="pct-badge">50%</span>
-            <div><div class="offspring-name">Green / Bronze Fallow (split)</div><div class="offspring-note">Visually normal carriers. Build your split stock from these.</div></div>
-          </li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Visual Bronze Fallow &nbsp;&times;&nbsp; &#9792; Green / Bronze Fallow (split)</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Bronze Fallow</td><td class="pct">50%</td><td>Homozygous. Visually bronze fallow. Safe — this is not a bronze × bronze outcome.</td></tr><tr><td>Green / Bronze Fallow (split)</td><td class="pct">50%</td><td>Visually normal carriers. Build your split stock from these.</td></tr></tbody></table>
       </div>
 
       <div class="warn-box">
