@@ -443,6 +443,83 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .op-sel.op-set{background-color:var(--bg-op-set);border-color:rgba(76,161,84,0.4);color:var(--op-color);}
 [data-theme="dark"] .op-sel.op-set{border-color:rgba(76,161,84,0.25);}
 
+/* ── CUSTOM BASE-COLOR DROPDOWN (full-width, replaces native popup) ─── */
+.cbs{position:relative;width:100%;min-width:0;}
+.cbs>summary{
+  list-style:none;
+  height:52px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:0 40px 0 16px;
+  border-radius:var(--radius-input);
+  border:1.5px solid var(--border);
+  background-color:var(--bg-input);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M0 0l6 7 6-7z' fill='%23999'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:calc(100% - 14px) center;
+  font-family:var(--font);
+  font-size:14px;
+  font-weight:600;
+  color:var(--text-1);
+  cursor:pointer;
+  outline:none;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+  transition:border-color var(--transition),background-color var(--transition);
+}
+.cbs>summary::-webkit-details-marker{display:none;}
+.cbs.cbs-filled>summary{background-color:var(--bg-input-filled);border-color:var(--border-strong);}
+.cbs[open]>summary{border-color:var(--accent);background-color:var(--bg-input-filled);}
+.cbs>summary .cbs-val{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0;}
+.cbs>summary .cbs-val.cbs-placeholder{color:var(--text-3);}
+.cbs-menu{
+  position:absolute;
+  z-index:60;
+  top:calc(100% + 6px);
+  left:0;
+  width:100%;
+  max-height:min(60vh,420px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  background:var(--bg-card);
+  border:1.5px solid var(--border-strong);
+  border-radius:var(--radius-input);
+  box-shadow:var(--shadow-card-hover);
+  padding:6px;
+}
+.cbs-grp-lbl{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-3);
+  font-weight:700;
+  padding:10px 12px 5px;
+}
+.cbs-opt{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  min-height:46px;
+  padding:0 12px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--text-1);
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.cbs-opt:hover{background:var(--bg-input-filled);}
+.cbs-opt.cbs-sel{background:var(--accent-dim);color:var(--accent);}
+.cbs-opt .cbs-check{opacity:0;flex-shrink:0;color:var(--accent);}
+.cbs-opt.cbs-sel .cbs-check{opacity:1;}
+.cbs-opt:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+/* Hide native base select but keep it as source of truth */
+.cbs-native{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
 /* Divider */
 .section-divider{height:1px;background:var(--border);margin:24px 0;}
 
@@ -1622,9 +1699,30 @@ const MALE_ICO=`<svg width="14" height="14" viewBox="0 0 13 13" fill="none"><cir
 const FEM_ICO=`<svg width="14" height="14" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="5" r="3.5" stroke="rgba(228,227,224,0.9)" stroke-width="1.4"/><line x1="6.5" y1="8.5" x2="6.5" y2="12.5" stroke="rgba(228,227,224,0.9)" stroke-width="1.4" stroke-linecap="round"/><line x1="4" y1="10.5" x2="9" y2="10.5" stroke="rgba(228,227,224,0.9)" stroke-width="1.4" stroke-linecap="round"/></svg>`;
 const BAR_ICO=`<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="9" width="3.2" height="6" rx="1" fill="rgba(228,227,224,0.45)"/><rect x="6.4" y="5" width="3.2" height="10" rx="1" fill="rgba(228,227,224,0.7)"/><rect x="11.8" y="1" width="3.2" height="14" rx="1" fill="rgba(228,227,224,0.95)"/></svg>`;
 
+// Shared base-color data: groups -> [value,label]. Source of truth for both
+// the native <select> and the custom full-width dropdown.
+const BASE_GROUPS=[
+  ["Green Series",[["Green","Green"]]],
+  ["Blue Series",[["Blue 1","Blue 1"],["Blue 2","Blue 2"],["Parblue (B1B2)","Parblue (B1B2)"]]],
+  ["Aqua Series",[["Aqua B1","Aqua B1"],["Aqua B2","Aqua B2"],["Aqua Homo","Aqua Homo"]]],
+  ["Yellow Face Series",[["Green Yellow Face","Green Yellow Face"],["Blue 1 Yellow Face","Blue 1 Yellow Face"],["Blue 2 Yellow Face","Blue 2 Yellow Face"],["Parblue (B1B2) Yellow Face","Parblue Yellow Face"],["Aqua B1 Yellow Face","Aqua B1 Yellow Face"],["Aqua B2 Yellow Face","Aqua B2 Yellow Face"],["Aqua Homo Yellow Face","Aqua Homo Yellow Face"]]]
+];
+const BASE_LABEL=v=>{for(const[,opts]of BASE_GROUPS)for(const[val,lbl]of opts)if(val===v)return lbl;return "";};
 function baseOpts(v){
 const o=(val,lbl)=>`<option value="${val}" ${v===val?'selected':''}>${lbl}</option>`;
-return `<option value="">— Choose Bird Series —</option><optgroup label="Green Series">${o('Green','Green')}</optgroup><optgroup label="Blue Series">${o('Blue 1','Blue 1')}${o('Blue 2','Blue 2')}${o('Parblue (B1B2)','Parblue (B1B2)')}</optgroup><optgroup label="Aqua Series">${o('Aqua B1','Aqua B1')}${o('Aqua B2','Aqua B2')}${o('Aqua Homo','Aqua Homo')}</optgroup><optgroup label="Yellow Face Series">${o('Green Yellow Face','Green Yellow Face')}${o('Blue 1 Yellow Face','Blue 1 Yellow Face')}${o('Blue 2 Yellow Face','Blue 2 Yellow Face')}${o('Parblue (B1B2) Yellow Face','Parblue Yellow Face')}${o('Aqua B1 Yellow Face','Aqua B1 Yellow Face')}${o('Aqua B2 Yellow Face','Aqua B2 Yellow Face')}${o('Aqua Homo Yellow Face','Aqua Homo Yellow Face')}</optgroup>`;
+let s=`<option value="">— Choose Bird Series —</option>`;
+for(const[grp,opts]of BASE_GROUPS)s+=`<optgroup label="${grp}">${opts.map(([val,lbl])=>o(val,lbl)).join('')}</optgroup>`;
+return s;
+}
+// Custom full-width dropdown menu items (mirrors the native select).
+const _cbsCheck=`<svg class="cbs-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+function baseMenu(pid,v){
+let s='';
+for(const[grp,opts]of BASE_GROUPS){
+s+=`<div class="cbs-grp-lbl">${grp}</div>`;
+s+=opts.map(([val,lbl])=>`<div class="cbs-opt${v===val?' cbs-sel':''}" role="option" tabindex="0" aria-selected="${v===val?'true':'false'}" data-cbs-pid="${pid}" data-cbs-val="${val}"><span>${lbl}</span>${_cbsCheck}</div>`).join('');
+}
+return s;
 }
 function buildOpalineMaleSel(val){
 const isSet=val!=="normal";
@@ -1688,7 +1786,11 @@ return `<div class="pcard">
 <div class="pb">
   <span class="field-label">Bird Series</span>
   <div class="color-row">
-    <select id="${pid}-base" aria-label="${isMale?'Male':'Female'} base color" class="${primary?'filled':''}">${baseOpts(primary)}</select>
+    <details class="cbs${primary?' cbs-filled':''}" data-cbs="${pid}">
+      <summary aria-label="${isMale?'Male':'Female'} base color" role="button" aria-haspopup="listbox" aria-expanded="false"><span class="cbs-val${primary?'':' cbs-placeholder'}">${primary?BASE_LABEL(primary):'— Choose Bird Series —'}</span></summary>
+      <div class="cbs-menu" role="listbox" aria-label="${isMale?'Male':'Female'} base color">${baseMenu(pid,primary)}</div>
+      <select id="${pid}-base" class="cbs-native ${primary?'filled':''}" tabindex="-1" aria-hidden="true">${baseOpts(primary)}</select>
+    </details>
     ${oplineSel}
   </div>
   <div class="section-divider"></div>
@@ -1883,6 +1985,33 @@ if(lbtn)lbtn.addEventListener('click',()=>{
 });
 }
 const TRASH_ICO=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>`;
+/* ─── CUSTOM BASE-COLOR DROPDOWN (delegated, survives re-renders) ─── */
+function _cbsClose(except){document.querySelectorAll('details.cbs[open]').forEach(d=>{if(d!==except){d.open=false;const s=d.querySelector('summary');if(s)s.setAttribute('aria-expanded','false');}});}
+function _cbsPick(opt){
+  const pid=opt.getAttribute('data-cbs-pid'),val=opt.getAttribute('data-cbs-val');
+  const sel=document.getElementById(`${pid}-base`);
+  if(!sel)return;
+  sel.value=val;
+  sel.dispatchEvent(new Event('change',{bubbles:true}));
+}
+document.addEventListener('click',function(e){
+  const opt=e.target.closest('.cbs-opt');
+  if(opt){e.preventDefault();_cbsPick(opt);return;}
+  // outside tap closes any open custom dropdown
+  if(!e.target.closest('details.cbs'))_cbsClose(null);
+});
+// keep aria-expanded in sync & close siblings when one opens
+document.addEventListener('toggle',function(e){
+  const d=e.target;
+  if(!(d.classList&&d.classList.contains('cbs')))return;
+  const s=d.querySelector('summary');if(s)s.setAttribute('aria-expanded',d.open?'true':'false');
+  if(d.open)_cbsClose(d);
+},true);
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){const open=document.querySelector('details.cbs[open]');if(open){open.open=false;const s=open.querySelector('summary');if(s){s.setAttribute('aria-expanded','false');s.focus();}}return;}
+  if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('cbs-opt')){e.preventDefault();_cbsPick(e.target);}
+});
+
 restoreFromURL();
 render();
 /* ─── SERVICE WORKER ─────────────────────────────── */
