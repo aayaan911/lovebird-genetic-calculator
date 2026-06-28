@@ -520,6 +520,26 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 /* Hide native base select but keep it as source of truth */
 .cbs-native{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 
+/* ── GENERALIZED CUSTOM DROPDOWN VARIANTS (mutation / status / opaline) ── */
+/* Smaller trigger height to match native .tr select (48px) */
+.cbs.cbs-sm{width:100%;}
+.cbs.cbs-sm>summary{height:48px;font-size:13px;}
+.cbs.cbs-xs>summary{height:48px;font-size:12px;padding:0 32px 0 12px;background-position:calc(100% - 11px) center;}
+/* Opaline-flavoured trigger (mirrors .op-sel look) */
+.cbs.cbs-op>summary{
+  height:52px;
+  padding:0 38px 0 14px;
+  font-size:13px;
+  background-color:var(--bg-op);
+  background-position:calc(100% - 12px) center;
+}
+.cbs.cbs-op.cbs-opset>summary{background-color:var(--bg-op-set);border-color:rgba(76,161,84,0.4);color:var(--op-color);}
+[data-theme="dark"] .cbs.cbs-op.cbs-opset>summary{border-color:rgba(76,161,84,0.25);}
+.cbs.cbs-op[open]>summary{border-color:var(--accent);background-color:var(--bg-op);}
+@media(max-width:390px){
+  .cbs.cbs-sm>summary,.cbs.cbs-xs>summary{height:44px;}
+}
+
 /* Divider */
 .section-divider{height:1px;background:var(--border);margin:24px 0;}
 
@@ -1726,7 +1746,7 @@ return s;
 }
 function buildOpalineMaleSel(val){
 const isSet=val!=="normal";
-return `<select id="p1-opaline" class="op-sel${isSet?' op-set':''}">
+return `<select id="p1-opaline" class="op-sel js-cbs cbs-op-flavor${isSet?' op-set':''}">
 <option value="normal"${val==="normal"?' selected':''}>Fischer</option>
 <option value="split"${val==="split"?' selected':''}>Split Opaline</option>
 <option value="visual"${val==="visual"?' selected':''}>Opaline</option>
@@ -1734,7 +1754,7 @@ return `<select id="p1-opaline" class="op-sel${isSet?' op-set':''}">
 }
 function buildOpalineFemaleSel(val){
 const isSet=val!=="normal";
-return `<select id="p2-opaline" class="op-sel${isSet?' op-set':''}">
+return `<select id="p2-opaline" class="op-sel js-cbs cbs-op-flavor${isSet?' op-set':''}">
 <option value="normal"${val==="normal"?' selected':''}>Fischer</option>
 <option value="visual"${val==="visual"?' selected':''}>Opaline</option>
 </select>`;
@@ -1754,11 +1774,11 @@ if(avSL.length)tOpts+=`<optgroup label="Sex-Linked">${avSL.map(m=>`<option value
 if(avSLD.length)tOpts+=`<optgroup label="Sex-Linked Dominant">${avSLD.map(m=>`<option value="${m.id}"${tid===m.id?' selected':''}>${m.label}</option>`).join('')}</optgroup>`;
 if(avAD.length)tOpts+=`<optgroup label="Dominant">${avAD.map(m=>`<option value="${m.id}"${tid===m.id?' selected':''}>${m.label}</option>`).join('')}</optgroup>`;
 let ssSel="";
-if(isBs)ssSel=`<select class="ss" data-pid="${pid}" data-idx="${i}"><option value="split">/ Split</option></select>`;
-else if(mut&&sOpts.length)ssSel=`<select class="ss" data-pid="${pid}" data-idx="${i}">${sOpts.map(o=>`<option value="${o.v}"${t.status===o.v?' selected':''}>${o.l}</option>`).join('')}</select>`;
-else{const defOpts=[{v:'visual',l:'Visual'},{v:'split',l:'/ Split'}];ssSel=`<select class="ss" data-pid="${pid}" data-idx="${i}">${defOpts.map(o=>`<option value="${o.v}"${(t.status===o.v||(!t.status&&o.v==='visual'))?'selected':''}>  ${o.l}</option>`).join('')}</select>`;}
+if(isBs)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}"><option value="split">/ Split</option></select>`;
+else if(mut&&sOpts.length)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${sOpts.map(o=>`<option value="${o.v}"${t.status===o.v?' selected':''}>${o.l}</option>`).join('')}</select>`;
+else{const defOpts=[{v:'visual',l:'Visual'},{v:'split',l:'/ Split'}];ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${defOpts.map(o=>`<option value="${o.v}"${(t.status===o.v||(!t.status&&o.v==='visual'))?'selected':''}>  ${o.l}</option>`).join('')}</select>`;}
 const mutHint=(tid!=='None'&&!isBs&&MUT_INFO[tid])?`<p class="mut-hint">${MUT_INFO[tid]}</p>`:'';
-return `<div class="tr"><select aria-label="Mutation ${i+1}" class="${tid!=='None'?'filled':''}" data-pid="${pid}" data-idx="${i}" data-role="trait">${tOpts}</select>${ssSel}<button class="rm" data-pid="${pid}" data-idx="${i}" aria-label="Remove mutation" title="Remove">×</button></div>${mutHint}`;
+return `<div class="tr"><select aria-label="Mutation ${i+1}" class="js-cbs cbs-sm-flavor ${tid!=='None'?'filled':''}" data-pid="${pid}" data-idx="${i}" data-role="trait" data-cbs-placeholder="— Select mutation —">${tOpts}</select>${ssSel}<button class="rm" data-pid="${pid}" data-idx="${i}" aria-label="Remove mutation" title="Remove">×</button></div>${mutHint}`;
 }
 function buildCard(sex){
 const isMale=sex==="male",pid=isMale?"p1":"p2";
@@ -1786,11 +1806,7 @@ return `<div class="pcard">
 <div class="pb">
   <span class="field-label">Bird Series</span>
   <div class="color-row">
-    <details class="cbs${primary?' cbs-filled':''}" data-cbs="${pid}">
-      <summary aria-label="${isMale?'Male':'Female'} base color" role="button" aria-haspopup="listbox" aria-expanded="false"><span class="cbs-val${primary?'':' cbs-placeholder'}">${primary?BASE_LABEL(primary):'— Choose Bird Series —'}</span></summary>
-      <div class="cbs-menu" role="listbox" aria-label="${isMale?'Male':'Female'} base color">${baseMenu(pid,primary)}</div>
-      <select id="${pid}-base" class="cbs-native ${primary?'filled':''}" tabindex="-1" aria-hidden="true">${baseOpts(primary)}</select>
-    </details>
+    <select id="${pid}-base" class="js-cbs ${primary?'filled':''}" aria-label="${isMale?'Male':'Female'} base color" data-cbs-placeholder="— Choose Bird Series —">${baseOpts(primary)}</select>
     ${oplineSel}
   </div>
   <div class="section-divider"></div>
@@ -1877,6 +1893,12 @@ document.getElementById('pc').innerHTML=
   buildCard('female')+
   `<button class="clear-btn" id="clrb">${TRASH_ICO} Clear All</button>`;
 document.getElementById('rc').innerHTML=renderResults(res,p1L,p2L);
+
+/* Wrap all native selects (base, mutation, status, opaline) in the
+   full-width custom dropdown. Runs every render so dynamic options stay
+   correct and newly-added mutation rows get enhanced too. Moving the native
+   node preserves its change listeners attached below. */
+enhanceSelects(document.getElementById('pc'));
 
 ['p1','p2'].forEach(pid=>{
 const bEl=document.getElementById(`${pid}-base`);
@@ -1985,13 +2007,75 @@ if(lbtn)lbtn.addEventListener('click',()=>{
 });
 }
 const TRASH_ICO=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>`;
-/* ─── CUSTOM BASE-COLOR DROPDOWN (delegated, survives re-renders) ─── */
+/* ─── GENERALIZED CUSTOM DROPDOWN (delegated, survives re-renders) ───
+   A single helper wraps ANY native <select class="js-cbs"> in a full-width
+   <details class="cbs"> custom dropdown built from the select's LIVE
+   <option>/<optgroup> nodes. Used by base color, mutation, status, and
+   opaline selects. The native select stays the per-instance source of truth
+   (hidden, .cbs-native) — picking an option sets its .value + fires a bubbling
+   'change' so every existing handler runs. No global IDs, no per-element
+   listeners: enhanceSelects() re-runs after each render. */
+function _cbsEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function _cbsMenuFromSelect(sel){
+  const cur=sel.value;
+  let s='';
+  for(const node of sel.children){
+    if(node.tagName==='OPTGROUP'){
+      s+=`<div class="cbs-grp-lbl">${_cbsEsc(node.label)}</div>`;
+      for(const o of node.children) s+=_cbsOptHTML(o,cur);
+    }else if(node.tagName==='OPTION'){
+      s+=_cbsOptHTML(node,cur);
+    }
+  }
+  return s;
+}
+function _cbsOptHTML(o,cur){
+  const val=o.value, lbl=(o.textContent||'').trim();
+  const seld=(val===cur);
+  return `<div class="cbs-opt${seld?' cbs-sel':''}" role="option" tabindex="0" aria-selected="${seld?'true':'false'}" data-cbs-val="${_cbsEsc(val)}"><span>${_cbsEsc(lbl)}</span>${_cbsCheck}</div>`;
+}
+function _cbsCurrentLabel(sel){
+  const o=sel.options[sel.selectedIndex];
+  return o?(o.textContent||'').trim():'';
+}
+/* Wrap one native select; returns the .cbs details element */
+function _cbsEnhance(sel){
+  if(sel.dataset.cbsDone==='1')return;
+  sel.dataset.cbsDone='1';
+  const det=document.createElement('details');
+  det.className='cbs';
+  /* size / flavour variants based on marker classes */
+  if(sel.classList.contains('cbs-sm-flavor'))det.classList.add('cbs-sm');
+  if(sel.classList.contains('cbs-xs-flavor'))det.classList.add('cbs-sm','cbs-xs');
+  const isOp=sel.classList.contains('cbs-op-flavor');
+  if(isOp)det.classList.add('cbs-op');
+  const ph=sel.getAttribute('data-cbs-placeholder')||'';
+  const curVal=sel.value, curLbl=_cbsCurrentLabel(sel);
+  const isPlaceholder=ph&&(curVal===''||(curLbl===ph));
+  const filled=!isPlaceholder&&curVal!=='';
+  if(filled&&!isOp)det.classList.add('cbs-filled');
+  if(isOp&&sel.classList.contains('op-set'))det.classList.add('cbs-opset');
+  const aria=sel.getAttribute('aria-label')||'Select';
+  det.innerHTML=
+    `<summary aria-label="${_cbsEsc(aria)}" role="button" aria-haspopup="listbox" aria-expanded="false"><span class="cbs-val${isPlaceholder?' cbs-placeholder':''}">${_cbsEsc(isPlaceholder?ph:curLbl)}</span></summary>`+
+    `<div class="cbs-menu" role="listbox" aria-label="${_cbsEsc(aria)}">${_cbsMenuFromSelect(sel)}</div>`;
+  /* insert wrapper before the native select, then move the native select inside */
+  sel.parentNode.insertBefore(det,sel);
+  sel.classList.add('cbs-native');
+  det.appendChild(sel);
+}
+function enhanceSelects(root){
+  (root||document).querySelectorAll('select.js-cbs:not(.cbs-native)').forEach(_cbsEnhance);
+}
 function _cbsClose(except){document.querySelectorAll('details.cbs[open]').forEach(d=>{if(d!==except){d.open=false;const s=d.querySelector('summary');if(s)s.setAttribute('aria-expanded','false');}});}
 function _cbsPick(opt){
-  const pid=opt.getAttribute('data-cbs-pid'),val=opt.getAttribute('data-cbs-val');
-  const sel=document.getElementById(`${pid}-base`);
+  const det=opt.closest('details.cbs');
+  if(!det)return;
+  const sel=det.querySelector('select.cbs-native');
   if(!sel)return;
+  const val=opt.getAttribute('data-cbs-val');
   sel.value=val;
+  det.open=false;
   sel.dispatchEvent(new Event('change',{bubbles:true}));
 }
 document.addEventListener('click',function(e){
