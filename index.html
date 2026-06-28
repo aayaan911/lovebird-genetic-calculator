@@ -1719,7 +1719,7 @@ return{combined:_0xA8(_0xA7(_0xD7,_0xD3)),slMut:_0xD9,adMuts:_0xD5};
 }
 
 /* ─── APP STATE ──────────────────────────────────── */
-const S={p1p:"",p1t:[],p1Op:"visual",p2p:"",p2t:[],p2Op:"visual"};
+const S={p1p:"",p1t:[],p1Op:"normal",p2p:"",p2t:[],p2Op:"normal"};
 let copied=false,linkedCopied=false,_autoScrollDone=false;
 
 /* ─── URL STATE ─────────────────────────────────── */
@@ -2018,7 +2018,7 @@ if(clrb)clrb.addEventListener('click',()=>{
   }else{
     clearTimeout(clrTimer);clrPending=false;
     track('clear_all',{father:S.p1p,mother:S.p2p});
-    S.p1p='';S.p1t=[];S.p1Op='visual';S.p2p='';S.p2t=[];S.p2Op='visual';_autoScrollDone=false;
+    S.p1p='';S.p1t=[];S.p1Op='normal';S.p2p='';S.p2t=[];S.p2Op='normal';_autoScrollDone=false;
     render();
     if(window.innerWidth<1024){setTimeout(()=>{const pc=document.getElementById('pc');if(pc)pc.scrollIntoView({behavior:'smooth',block:'start'});},80);}
     const nb=document.getElementById('clrb');
