@@ -519,6 +519,9 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .cbs-opt:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
 /* Hide native base select but keep it as source of truth */
 .cbs-native{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+/* Mobile bottom-sheet backdrop — hidden by default (desktop never shows it) */
+#cbs-backdrop{display:none;}
+@media(max-width:768px){#cbs-backdrop{display:block;}}
 
 /* ── GENERALIZED CUSTOM DROPDOWN VARIANTS (mutation / status / opaline) ── */
 /* Smaller trigger height to match native .tr select (48px) */
@@ -906,6 +909,49 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   .footer-inner{max-width:100%;}
   .flags-badge-txt{display:none;}
   .flags-badge{gap:4px;padding:0 12px;}
+  /* ── MOBILE BOTTOM SHEET for custom dropdowns (.cbs) ── */
+  .cbs[open]>.cbs-menu{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    top:auto;
+    width:100%;
+    max-width:100%;
+    max-height:80vh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    border-radius:20px 20px 0 0;
+    border:none;
+    border-top:1.5px solid var(--border-strong);
+    box-shadow:0 -8px 40px rgba(0,0,0,0.28);
+    z-index:1001;
+    padding:6px 10px calc(18px + env(safe-area-inset-bottom)) 10px;
+    animation:cbsSheetUp 0.22s cubic-bezier(0.22,0.61,0.36,1);
+  }
+  /* grab handle */
+  .cbs[open]>.cbs-menu::before{
+    content:"";
+    display:block;
+    width:40px;height:4px;
+    border-radius:999px;
+    background:var(--border-strong);
+    margin:6px auto 10px;
+  }
+  .cbs[open]>.cbs-menu .cbs-opt{min-height:48px;}
+  @keyframes cbsSheetUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+  /* full-screen dimmed backdrop */
+  #cbs-backdrop{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:1000;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.2s ease;
+  }
+  body.cbs-sheet-open #cbs-backdrop{opacity:1;pointer-events:auto;}
+  /* lock background scroll while a sheet is open */
+  body.cbs-sheet-open{overflow:hidden;}
 }
 @media(max-width:480px){
   .flags-badge{display:none;}
@@ -2067,6 +2113,23 @@ function _cbsEnhance(sel){
 function enhanceSelects(root){
   (root||document).querySelectorAll('select.js-cbs:not(.cbs-native)').forEach(_cbsEnhance);
 }
+/* Mobile bottom-sheet: backdrop element + body-scroll-lock sync */
+function _cbsIsMobile(){return window.matchMedia('(max-width:768px)').matches;}
+function _cbsBackdrop(){
+  let b=document.getElementById('cbs-backdrop');
+  if(!b){
+    b=document.createElement('div');
+    b.id='cbs-backdrop';
+    b.addEventListener('click',function(){_cbsClose(null);_cbsSyncSheet();});
+    (document.body||document.documentElement).appendChild(b);
+  }
+  return b;
+}
+function _cbsSyncSheet(){
+  _cbsBackdrop();
+  const anyOpen=!!document.querySelector('details.cbs[open]');
+  document.body.classList.toggle('cbs-sheet-open',anyOpen&&_cbsIsMobile());
+}
 function _cbsClose(except){document.querySelectorAll('details.cbs[open]').forEach(d=>{if(d!==except){d.open=false;const s=d.querySelector('summary');if(s)s.setAttribute('aria-expanded','false');}});}
 function _cbsPick(opt){
   const det=opt.closest('details.cbs');
@@ -2079,10 +2142,11 @@ function _cbsPick(opt){
   sel.dispatchEvent(new Event('change',{bubbles:true}));
 }
 document.addEventListener('click',function(e){
+  if(e.target&&e.target.id==='cbs-backdrop')return; // handled by its own listener
   const opt=e.target.closest('.cbs-opt');
-  if(opt){e.preventDefault();_cbsPick(opt);return;}
+  if(opt){e.preventDefault();_cbsPick(opt);_cbsSyncSheet();return;}
   // outside tap closes any open custom dropdown
-  if(!e.target.closest('details.cbs'))_cbsClose(null);
+  if(!e.target.closest('details.cbs')){_cbsClose(null);_cbsSyncSheet();}
 });
 // keep aria-expanded in sync & close siblings when one opens
 document.addEventListener('toggle',function(e){
@@ -2090,6 +2154,7 @@ document.addEventListener('toggle',function(e){
   if(!(d.classList&&d.classList.contains('cbs')))return;
   const s=d.querySelector('summary');if(s)s.setAttribute('aria-expanded',d.open?'true':'false');
   if(d.open)_cbsClose(d);
+  _cbsSyncSheet();
 },true);
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){const open=document.querySelector('details.cbs[open]');if(open){open.open=false;const s=open.querySelector('summary');if(s){s.setAttribute('aria-expanded','false');s.focus();}}return;}
