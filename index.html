@@ -912,15 +912,15 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   /* ── MOBILE BOTTOM SHEET for custom dropdowns (.cbs) ── */
   .cbs[open]>.cbs-menu{
     position:fixed;
-    left:0;right:0;bottom:0;
+    left:5%;right:5%;bottom:calc(14px + env(safe-area-inset-bottom));
     top:auto;
-    width:100%;
+    width:auto;
     max-width:100%;
     max-height:80vh;
     overflow-y:auto;
     -webkit-overflow-scrolling:touch;
     overscroll-behavior:contain;
-    border-radius:20px 20px 0 0;
+    border-radius:20px;
     border:none;
     border-top:1.5px solid var(--border-strong);
     box-shadow:0 -8px 40px rgba(0,0,0,0.28);
