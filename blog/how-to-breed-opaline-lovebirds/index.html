@@ -186,7 +186,7 @@ a{color:inherit;text-decoration:none;}
 .art-content li{font-size:15px;color:var(--text-2);line-height:1.75;margin-bottom:6px;}
 .art-content strong{color:var(--text-1);font-weight:600;}
 .art-content em{font-style:italic;}
-.art-content a{color:var(--accent);border-bottom:1px solid var(--accent-border);}
+.art-content a{color:var(--accent);}
 a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important;text-decoration:none !important;}
 
 /* ── CALLOUT BOXES ── */
@@ -267,6 +267,26 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
   .related-grid{grid-template-columns:1fr;}
   .pairing-parents{flex-direction:column;gap:6px;}
 }
+
+.art-layout{grid-template-columns:1fr !important;max-width:760px;margin:0 auto;}
+.art-header{max-width:760px;margin-left:auto;margin-right:auto;border-bottom:none;padding:28px 0 8px;margin-bottom:20px;}
+.breadcrumb{max-width:760px;margin-left:auto;margin-right:auto;padding:26px 0 0;}
+.breadcrumb a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:var(--text-3);}
+.breadcrumb a:hover{color:var(--accent);text-decoration-color:var(--accent);}
+.art-lede{font-size:16px;color:var(--text-2);line-height:1.7;margin:14px 0 2px;}
+.art-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:22px 0 0;}
+.art-meta-cell{background:var(--bg-card);padding:13px 16px;}
+.art-meta-label{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;}
+.art-meta-label svg{width:12px;height:12px;opacity:0.65;flex-shrink:0;}
+.art-meta-val{font-size:14px;font-weight:700;color:var(--text-1);}
+.art-byline{display:flex;align-items:center;gap:12px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:16px;}
+.art-byline-av{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid var(--border);}
+.art-byline-txt{flex:1;min-width:0;}
+.art-byline-name{font-size:13.5px;font-weight:700;color:var(--text-1);}
+.art-byline-role{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3);margin-top:3px;}
+.art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
+.art-follow:hover{background:rgba(76,161,84,0.18);}
+@media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
 </style>
 <!-- Pirsch Analytics -->
 <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="PmgCyoZ9lZCHjGqtPFie2ZsNRN9xTUEp"></script>
@@ -309,7 +329,6 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
   </nav>
 
   <div class="art-header">
-    <p class="art-eyebrow">Breeding Guide · Sex-Linked · Fischer's Lovebird · 14 min read</p>
     <h1>How to Breed Opaline Lovebirds:<br>Pairings, Split Cocks, and Expected Offspring</h1>
     <div class="art-byline">
       <div class="byline-avatar">AS</div>
@@ -317,10 +336,8 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
         <strong>Ayaan Shohan</strong> · KinBird Aviary
       </div>
       <div class="byline-sep"></div>
-      <div class="byline-meta">
-        <span>Published June 2026</span>
-        <span>Based on <em>Lovebird Compendium</em>, Dirk Van den Abeele (2016)</span>
-      </div>
+      <div class="art-meta-grid"><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Published</div><div class="art-meta-val">June 2026</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>Read time</div><div class="art-meta-val">16 min</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3c0 6 16 6 16 12M4 21c0-6 16-6 16-12"/><line x1="7" y1="6" x2="17" y2="6"/><line x1="7" y1="18" x2="17" y2="18"/></svg>Inheritance</div><div class="art-meta-val">Sex-linked recessive</div></div></div>
+    <div class="art-byline"><img class="art-byline-av" src="/avatar-ayaan.png" alt="Ayaan Shohan, founder of KinBird Aviary" width="42" height="42"><div class="art-byline-txt"><div class="art-byline-name">Written by Ayaan Shohan</div><div class="art-byline-role">Founder, KinBird Aviary &middot; Bangladesh</div></div><a class="art-follow" href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.75-1.6 1.5V12h2.7l-.43 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg> Follow</a></div>
     </div>
   </div>
 
@@ -582,24 +599,6 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       </div>
 
     </div>
-
-    <aside class="art-sidebar" aria-label="Table of contents">
-      <nav class="toc-box">
-        <div class="toc-label">In this article</div>
-        <ul class="toc-list">
-          <li><a href="#before-you-start" class="active"><span class="toc-num">01</span>Before you start</a></li>
-          <li><a href="#split-opaline-males"><span class="toc-num">02</span>Split Opaline males</a></li>
-          <li><a href="#pairing-1"><span class="toc-num">03</span>Pairing 1, Opaline ♀ × Normal ♂</a></li>
-          <li><a href="#pairing-2"><span class="toc-num">04</span>Pairing 2, Split ♂ × Normal ♀</a></li>
-          <li><a href="#pairing-3"><span class="toc-num">05</span>Pairing 3, Split ♂ × Opaline ♀</a></li>
-          <li><a href="#pairing-4"><span class="toc-num">06</span>Pairing 4, Opaline ♂ × Normal ♀</a></li>
-          <li><a href="#pairing-5"><span class="toc-num">07</span>Pairing 5, Opaline ♂ × Opaline ♀</a></li>
-          <li><a href="#identify-split"><span class="toc-num">08</span>Identify a split male</a></li>
-          <li><a href="#combining-mutations"><span class="toc-num">09</span>Combining mutations</a></li>
-          <li><a href="#faq"><span class="toc-num">10</span>FAQ</a></li>
-        </ul>
-      </nav>
-    </aside>
   </div>
 </div>
 

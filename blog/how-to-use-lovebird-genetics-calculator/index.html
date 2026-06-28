@@ -134,7 +134,7 @@ a{color:inherit;text-decoration:none;}
 .art-content li{font-size:15px;color:var(--text-2);line-height:1.75;margin-bottom:6px;}
 .art-content strong{color:var(--text-1);font-weight:600;}
 .art-content em{font-style:italic;}
-.art-content a{color:var(--accent);border-bottom:1px solid var(--accent-border);}
+.art-content a{color:var(--accent);}
 a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important;}
 .key-box{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-sm);padding:18px 20px;margin:24px 0;}
 .key-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
@@ -188,6 +188,26 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .footer-inner a:hover{color:var(--accent);}
 @media(max-width:820px){.art-layout{grid-template-columns:1fr;}.art-sidebar{display:none;}}
 @media(max-width:540px){.header-nav{gap:12px;}.related-grid{grid-template-columns:1fr;}.step-item{gap:14px;}}
+
+.art-layout{grid-template-columns:1fr !important;max-width:760px;margin:0 auto;}
+.art-header{max-width:760px;margin-left:auto;margin-right:auto;border-bottom:none;padding:28px 0 8px;margin-bottom:20px;}
+.breadcrumb{max-width:760px;margin-left:auto;margin-right:auto;padding:26px 0 0;}
+.breadcrumb a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:var(--text-3);}
+.breadcrumb a:hover{color:var(--accent);text-decoration-color:var(--accent);}
+.art-lede{font-size:16px;color:var(--text-2);line-height:1.7;margin:14px 0 2px;}
+.art-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:22px 0 0;}
+.art-meta-cell{background:var(--bg-card);padding:13px 16px;}
+.art-meta-label{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;}
+.art-meta-label svg{width:12px;height:12px;opacity:0.65;flex-shrink:0;}
+.art-meta-val{font-size:14px;font-weight:700;color:var(--text-1);}
+.art-byline{display:flex;align-items:center;gap:12px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:16px;}
+.art-byline-av{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid var(--border);}
+.art-byline-txt{flex:1;min-width:0;}
+.art-byline-name{font-size:13.5px;font-weight:700;color:var(--text-1);}
+.art-byline-role{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3);margin-top:3px;}
+.art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
+.art-follow:hover{background:rgba(76,161,84,0.18);}
+@media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
 </style>
 <!-- Google Analytics 4, deferred -->
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-08CWVZ2806"></script>
@@ -240,19 +260,16 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
   </nav>
 
   <div class="art-header">
-    <p class="art-eyebrow">Getting Started</p>
     <h1>How to Use the Lovebird<br>Genetics Calculator</h1>
-    <div class="byline-meta">
-      <span>By Ayaan Shohan · KinBird Aviary</span>
-      <span>June 2026</span>
-      <span>5 min read</span>
-    </div>
+    <p class="art-lede">The free lovebird genetics calculator at <a href="/">lovebirdgenetics.com</a> predicts exactly what chicks you can expect from any Fischer's lovebird pairing, including percentages for every possible mutation combination, with sex-linked mutations split by male and female chick. Here's how to use it in under three minutes.</p>
+    <div class="art-meta-grid"><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Published</div><div class="art-meta-val">June 2026</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>Read time</div><div class="art-meta-val">5 min</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Type</div><div class="art-meta-val">Tool guide</div></div></div>
+    <div class="art-byline"><img class="art-byline-av" src="/avatar-ayaan.png" alt="Ayaan Shohan, founder of KinBird Aviary" width="42" height="42"><div class="art-byline-txt"><div class="art-byline-name">Written by Ayaan Shohan</div><div class="art-byline-role">Founder, KinBird Aviary &middot; Bangladesh</div></div><a class="art-follow" href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.75-1.6 1.5V12h2.7l-.43 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg> Follow</a></div>
   </div>
 
   <div class="art-layout">
     <article class="art-content">
 
-      <p>The free lovebird genetics calculator at <a href="/">lovebirdgenetics.com</a> predicts exactly what chicks you can expect from any Fischer's lovebird pairing, including percentages for every possible mutation combination, with sex-linked mutations split by male and female chick. Here's how to use it in under three minutes.</p>
+      
 
       <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--bg-card);border-left:4px solid var(--accent,#4CA154);border-radius:0 10px 10px 0;">
         <strong>TL;DR</strong>
@@ -524,29 +541,6 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       </div>
 
     </article>
-
-    <aside class="art-sidebar">
-      <div class="toc-box">
-        <div class="toc-label">Steps</div>
-        <ul class="toc-list">
-          <li><a href="#step-1"><span class="toc-num">1</span>Open the calculator</a></li>
-          <li><a href="#step-2"><span class="toc-num">2</span>Male visual mutations</a></li>
-          <li><a href="#step-3"><span class="toc-num">3</span>Male splits</a></li>
-          <li><a href="#step-4"><span class="toc-num">4</span>Set female parent</a></li>
-          <li><a href="#step-5"><span class="toc-num">5</span>Press Calculate</a></li>
-          <li><a href="#step-6"><span class="toc-num">6</span>Read results</a></li>
-          <li><a href="#step-7"><span class="toc-num">7</span>Try more pairings</a></li>
-          <li><a href="#tips"><span class="toc-num">✦</span>Tips</a></li>
-          <li><a href="#mutation-input-fields"><span class="toc-num">✦</span>Input field guide</a></li>
-          <li><a href="#walkthrough-aqua"><span class="toc-num">✦</span>Aqua pairing walkthrough</a></li>
-          <li><a href="#walkthrough-opaline"><span class="toc-num">✦</span>Opaline auto-sex walkthrough</a></li>
-          <li><a href="#multi-mutation-pairings"><span class="toc-num">✦</span>Multi-mutation pairings</a></li>
-          <li><a href="#reading-probability-table"><span class="toc-num">✦</span>Reading percentages</a></li>
-          <li><a href="#common-input-errors"><span class="toc-num">✦</span>Common input errors</a></li>
-          <li><a href="#planning-breeding-season"><span class="toc-num">✦</span>Season planning</a></li>
-        </ul>
-      </div>
-    </aside>
   </div>
 </div>
 
