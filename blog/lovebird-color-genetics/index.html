@@ -156,6 +156,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .warn-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#dc2626;margin-bottom:8px;}
 .warn-box p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .pairing-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:24px;margin:24px 0;}
+.pairing-table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13px;}
+.pairing-table caption{text-align:left;font-weight:700;color:var(--text-1);padding:0 0 12px;font-size:14px;}
+.pairing-table thead th{text-align:left;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--border);}
+.pairing-table tbody td{padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.4;}
+.pairing-table tbody tr:last-child td{border-bottom:none;}
+.pairing-table td:first-child{color:var(--text-1);font-weight:600;}
+.pairing-table td.pct{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap;width:64px;}
 .pairing-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;}
 .pairing-title{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:12px;}
 .pairing-parents{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
@@ -328,16 +335,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Classic AR pairing</div>
         <div class="pairing-title">Split × Split (e.g. Normal / Aqua × Normal / Aqua)</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Normal / Aqua</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Normal / Aqua</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Visual Aqua<div class="offspring-note">Two mutant copies — the mutation is expressed fully</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Normal / Aqua (split)<div class="offspring-note">One normal + one mutant copy — looks normal, carries the gene</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal (pure)<div class="offspring-note">Two normal copies — no Aqua gene at all; looks identical to splits</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Normal / Aqua &nbsp;&times;&nbsp; &#9792; Normal / Aqua</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Aqua</td><td class="pct">25%</td><td>Two mutant copies — the mutation is expressed fully</td></tr><tr><td>Normal / Aqua (split)</td><td class="pct">50%</td><td>One normal + one mutant copy — looks normal, carries the gene</td></tr><tr><td>Normal (pure)</td><td class="pct">25%</td><td>Two normal copies — no Aqua gene at all; looks identical to splits</td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin:0;">You cannot distinguish splits from pure normals by looking. DNA testing or test pairings are required for confirmation.</p>
         <a href="/" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open Aqua split × split pairing in calculator">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
@@ -360,17 +358,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Sex-linked pairing — auto-sexing example</div>
         <div class="pairing-title">Split Opaline Male × Normal Female</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male (ZZ)</small>Normal / Opaline</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female (ZW)</small>Normal</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Visual Opaline Female<div class="offspring-note">Received the Opaline Z from father — automatically female</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal Female<div class="offspring-note">Received the normal Z from father — automatically female</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal / Opaline Male (split)<div class="offspring-note">Two Z chromosomes — one Opaline, one normal; looks normal</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal Male (pure)<div class="offspring-note">Two normal Z chromosomes</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Normal / Opaline &nbsp;&times;&nbsp; &#9792; Normal</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Opaline Female</td><td class="pct">25%</td><td>Received the Opaline Z from father — automatically female</td></tr><tr><td>Normal Female</td><td class="pct">25%</td><td>Received the normal Z from father — automatically female</td></tr><tr><td>Normal / Opaline Male (split)</td><td class="pct">25%</td><td>Two Z chromosomes — one Opaline, one normal; looks normal</td></tr><tr><td>Normal Male (pure)</td><td class="pct">25%</td><td>Two normal Z chromosomes</td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin:0;">Every visual Opaline chick from this pairing is guaranteed female. A powerful auto-sexing result.</p>
       </div>
 
@@ -391,16 +379,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Incomplete dominant inheritance</div>
         <div class="pairing-title">SF Violet × SF Violet</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>SF Violet</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>SF Violet</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">DF Violet<div class="offspring-note">Two copies of Violet — visually distinct, more intense</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">SF Violet<div class="offspring-note">One copy — standard visual violet form</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Non-Violet<div class="offspring-note">No Violet gene — normal for the base colour</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; SF Violet &nbsp;&times;&nbsp; &#9792; SF Violet</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>DF Violet</td><td class="pct">25%</td><td>Two copies of Violet — visually distinct, more intense</td></tr><tr><td>SF Violet</td><td class="pct">50%</td><td>One copy — standard visual violet form</td></tr><tr><td>Non-Violet</td><td class="pct">25%</td><td>No Violet gene — normal for the base colour</td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin:0;">All DF Violet chicks are visually distinguishable from SF. There are no hidden non-violet carriers — every bird either shows it or doesn't have it.</p>
         <a href="/blog/violet-lovebird-genetics/" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Read full Violet genetics guide">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>

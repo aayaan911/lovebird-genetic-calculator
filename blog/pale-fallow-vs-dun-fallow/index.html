@@ -121,6 +121,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .compare-table tr:last-child td{border-bottom:none;}
 .compare-table td:first-child{color:var(--text-1);font-weight:500;}
 .pairing-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:24px;margin:24px 0;}
+.pairing-table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13px;}
+.pairing-table caption{text-align:left;font-weight:700;color:var(--text-1);padding:0 0 12px;font-size:14px;}
+.pairing-table thead th{text-align:left;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--border);}
+.pairing-table tbody td{padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.4;}
+.pairing-table tbody tr:last-child td{border-bottom:none;}
+.pairing-table td:first-child{color:var(--text-1);font-weight:600;}
+.pairing-table td.pct{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap;width:64px;}
 .pairing-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;}
 .pairing-title{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:12px;}
 .pairing-parents{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
@@ -277,16 +284,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Standard AR split pairing — applies to both mutations</div>
         <div class="pairing-title">Split Pale Fallow × Split Pale Fallow</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Normal / Pale Fallow</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Normal / Pale Fallow</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Visual Pale Fallow<div class="offspring-note">Homozygous — shows pink-red eyes and pale plumage</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Normal / Pale Fallow (split)<div class="offspring-note">Looks normal — carries one copy of the gene</div></div></li>
-          <li class="offspring-item"><span class="pct-badge">25%</span><div class="offspring-name">Normal (pure)<div class="offspring-note">No Pale Fallow gene</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Normal / Pale Fallow &nbsp;&times;&nbsp; &#9792; Normal / Pale Fallow</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Pale Fallow</td><td class="pct">25%</td><td>Homozygous — shows pink-red eyes and pale plumage</td></tr><tr><td>Normal / Pale Fallow (split)</td><td class="pct">50%</td><td>Looks normal — carries one copy of the gene</td></tr><tr><td>Normal (pure)</td><td class="pct">25%</td><td>No Pale Fallow gene</td></tr></tbody></table>
       
         <a href="/?m=Green&mt=PaleFallow%3Asplit&f=Green&ft=PaleFallow%3Asplit" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open split Pale Fallow × split Pale Fallow in calculator">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
@@ -297,14 +295,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 2 — Visual × Normal (introducing into a line)</div>
         <div class="pairing-title">Visual Pale Fallow × Normal (pure)</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Visual Pale Fallow</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Normal (pure)</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">100%</span><div class="offspring-name">Normal / Pale Fallow (split)<div class="offspring-note">All offspring are confirmed carriers — both male and female</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Visual Pale Fallow &nbsp;&times;&nbsp; &#9792; Normal (pure)</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Normal / Pale Fallow (split)</td><td class="pct">100%</td><td>All offspring are confirmed carriers — both male and female</td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">Used to introduce Pale Fallow genetics into a new line or widen the gene pool. All offspring are confirmed splits. In the next season, breed two of these splits together to produce 25% visual Pale Fallow (Pairing 1).</p>
       
         <a href="/?m=Green&mt=PaleFallow%3Avisual&f=Green" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open visual Pale Fallow × normal in calculator">
@@ -316,14 +307,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 3 — Visual × Visual (maximum output)</div>
         <div class="pairing-title">Visual Pale Fallow × Visual Pale Fallow</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Visual Pale Fallow</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Visual Pale Fallow</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">100%</span><div class="offspring-name">Visual Pale Fallow<div class="offspring-note">Every chick in every nest is Pale Fallow visual — maximum efficiency</div></div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Visual Pale Fallow &nbsp;&times;&nbsp; &#9792; Visual Pale Fallow</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Pale Fallow</td><td class="pct">100%</td><td>Every chick in every nest is Pale Fallow visual — maximum efficiency</td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">Once you have two Visual Pale Fallow birds of the same line, pair them for 100% visual offspring. This is the standard established-line pairing.</p>
       
         <a href="/?m=Green&mt=PaleFallow%3Avisual&f=Green&ft=PaleFallow%3Avisual" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open visual Pale Fallow × visual in calculator">
@@ -335,15 +319,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 4 — Split × Visual</div>
         <div class="pairing-title">Split Pale Fallow × Visual Pale Fallow</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>Male</small>Normal / Pale Fallow</div>
-          <div class="pairing-x">×</div>
-          <div class="parent-pill"><small>Female</small>Visual Pale Fallow</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Visual Pale Fallow</div></li>
-          <li class="offspring-item"><span class="pct-badge">50%</span><div class="offspring-name">Normal / Pale Fallow (split)</div></li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Normal / Pale Fallow &nbsp;&times;&nbsp; &#9792; Visual Pale Fallow</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Visual Pale Fallow</td><td class="pct">50%</td><td></td></tr><tr><td>Normal / Pale Fallow (split)</td><td class="pct">50%</td><td></td></tr></tbody></table>
         <p style="font-size:12px;color:var(--text-3);margin-top:10px;">50% visual per clutch — a productive pairing for Pale Fallow lines. No pure normals — all non-visual offspring are confirmed splits.</p>
       
         <a href="/?m=Green&mt=PaleFallow%3Asplit&f=Green&ft=PaleFallow%3Avisual" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open split × visual Pale Fallow in calculator">

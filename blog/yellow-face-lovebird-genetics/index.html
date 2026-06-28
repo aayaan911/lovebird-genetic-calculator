@@ -115,6 +115,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .warn-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#dc2626;margin-bottom:8px;}
 .warn-box p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .pairing-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:24px;margin:24px 0;}
+.pairing-table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13px;}
+.pairing-table caption{text-align:left;font-weight:700;color:var(--text-1);padding:0 0 12px;font-size:14px;}
+.pairing-table thead th{text-align:left;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--border);}
+.pairing-table tbody td{padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.4;}
+.pairing-table tbody tr:last-child td{border-bottom:none;}
+.pairing-table td:first-child{color:var(--text-1);font-weight:600;}
+.pairing-table td.pct{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap;width:64px;}
 .pairing-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;}
 .pairing-title{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:12px;}
 .pairing-parents{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
@@ -243,17 +250,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 1 — Fastest route to YF visual</div>
         <div class="pairing-title">YF Visual × YF Visual</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>♂ Male</small>Yellow Face</div>
-          <span class="pairing-x">×</span>
-          <div class="parent-pill"><small>♀ Female</small>Yellow Face</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item">
-            <span class="pct-badge gold">100%</span>
-            <div><div class="offspring-name">Yellow Face visual</div><div class="offspring-note">All chicks show yellow face — guaranteed</div></div>
-          </li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Yellow Face &nbsp;&times;&nbsp; &#9792; Yellow Face</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Yellow Face visual</td><td class="pct">100%</td><td>All chicks show yellow face — guaranteed</td></tr></tbody></table>
       
         <a href="/?m=Green Yellow Face&f=Green Yellow Face" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open YF Visual × YF Visual in calculator">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
@@ -264,21 +261,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 2 — YF visual from one confirmed parent</div>
         <div class="pairing-title">YF Visual × Split YF</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>♂ Male</small>Yellow Face</div>
-          <span class="pairing-x">×</span>
-          <div class="parent-pill"><small>♀ Female</small>Normal / YF split</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item">
-            <span class="pct-badge gold">50%</span>
-            <div><div class="offspring-name">Yellow Face visual</div><div class="offspring-note">Shows yellow face</div></div>
-          </li>
-          <li class="offspring-item">
-            <span class="pct-badge">50%</span>
-            <div><div class="offspring-name">Split YF (normal appearance)</div><div class="offspring-note">Carries one YF gene, orange-red face</div></div>
-          </li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Yellow Face &nbsp;&times;&nbsp; &#9792; Normal / YF split</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Yellow Face visual</td><td class="pct">50%</td><td>Shows yellow face</td></tr><tr><td>Split YF (normal appearance)</td><td class="pct">50%</td><td>Carries one YF gene, orange-red face</td></tr></tbody></table>
       
         <a href="/?m=Green Yellow Face&f=Green&ft=YellowFace%3Asplit" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open YF Visual × Split YF in calculator">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
@@ -289,25 +272,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div class="pairing-box">
         <div class="pairing-box-label">Pairing 3 — Two split parents</div>
         <div class="pairing-title">Split YF × Split YF</div>
-        <div class="pairing-parents">
-          <div class="parent-pill"><small>♂ Male</small>Normal / YF split</div>
-          <span class="pairing-x">×</span>
-          <div class="parent-pill"><small>♀ Female</small>Normal / YF split</div>
-        </div>
-        <ul class="offspring-list">
-          <li class="offspring-item">
-            <span class="pct-badge gold">25%</span>
-            <div><div class="offspring-name">Yellow Face visual</div><div class="offspring-note">Shows yellow face</div></div>
-          </li>
-          <li class="offspring-item">
-            <span class="pct-badge">50%</span>
-            <div><div class="offspring-name">Split YF (normal appearance)</div><div class="offspring-note">Carries one copy — undetectable visually</div></div>
-          </li>
-          <li class="offspring-item">
-            <span class="pct-badge">25%</span>
-            <div><div class="offspring-name">Normal non-carrier</div><div class="offspring-note">No YF gene</div></div>
-          </li>
-        </ul>
+        <table class="pairing-table"><caption>&#9794; Normal / YF split &nbsp;&times;&nbsp; &#9792; Normal / YF split</caption><thead><tr><th>Offspring</th><th>Chance</th><th>Note</th></tr></thead><tbody><tr><td>Yellow Face visual</td><td class="pct">25%</td><td>Shows yellow face</td></tr><tr><td>Split YF (normal appearance)</td><td class="pct">50%</td><td>Carries one copy — undetectable visually</td></tr><tr><td>Normal non-carrier</td><td class="pct">25%</td><td>No YF gene</td></tr></tbody></table>
       
         <a href="/?m=Green&mt=YellowFace%3Asplit&f=Green&ft=YellowFace%3Asplit" class="calc-cta-btn" style="margin-top:14px;display:inline-flex;font-size:12px;padding:9px 14px;" aria-label="Open Split YF × Split YF in calculator">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
