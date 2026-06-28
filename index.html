@@ -1481,7 +1481,7 @@ return out;
 function _0xA7(baseRes,arMuts){
 let pool=baseRes.map(r=>{const{name,conf,poss}=_0xA3(r.color);return{baseName:name,pct:r.pct,vis:[],conf:[...conf],poss:[...poss]};});
 for(const mut of arMuts){const next=[];for(const curr of pool)for(const o of mut.offspring){const n={...curr,pct:curr.pct*o.pct/100,vis:[...curr.vis],conf:[...curr.conf],poss:[...curr.poss]};if(o.status==="visual")n.vis.push(mut.label);else if(o.status==="split")n.conf.push(mut.label);else if(o.status==="possibleSplit")n.poss.push(mut.label);next.push(n);}pool=next;}
-const INO={"":"Albino","Green":"Lutino","Parblue (B1B2)":"Creamino","Blue 1":"Blue 1 Albino","Blue 2":"Blue 2 Albino","Aqua B1":"Aqua B1 Ino","Aqua B2":"Aqua B2 Ino","Aqua Homo":"Aqua Homo Ino"};
+const INO={"":"Albino","Green":"Lutino","Parblue (B1B2)":"Creamino","Blue 1":"Albino","Blue 2":"Blue 2 Albino","Aqua B1":"Aqua B1 Ino","Aqua B2":"Aqua B2 Ino","Aqua Homo":"Aqua Homo Ino"};
 const named=pool.map(c=>{let base=c.baseName,vis=[...c.vis],conf=[...c.conf],poss=[...c.poss];if(vis.includes("Ino")&&INO[base]!==undefined){base=INO[base];vis=vis.filter(v=>v!=="Ino");}let name=base;if(vis.length)name+=" "+vis.join(" ");if(conf.length)name+=" / "+conf.join(" / ");if(poss.length)name+=" // "+poss.join(" // ");return{name,pct:c.pct};});
 const merged=[];for(const r of named){const ex=merged.find(x=>x.name===r.name);if(ex)ex.pct+=r.pct;else merged.push({...r});}
 return merged.sort((a,b)=>b.pct-a.pct);
@@ -1607,7 +1607,7 @@ return traits;
 function mkLabel(pp,pid){
 const tr=effectiveTraits(pid);const vis=[],spl=[];
 for(const t of tr){if(!t.id||t.id==="None")continue;if(_0xC8(t.id)){const b=_0xC6.find(x=>x.id===t.id);if(b)spl.push(b.label);}else{const m=_0xC9.find(x=>x.id===t.id);if(m){const isADshown=(m.type==="AD"||m.type==="SLD")&&(t.status==="SF"||t.status==="DF"||t.status==="visual"||t.status==="split");if(t.status==="visual"||isADshown)vis.push((m.type==="AD"||m.type==="SLD")?(t.status==="DF"?"DF "+m.label:"SF "+m.label):m.label);else spl.push(m.label);}}}
-let base=pp,fv=[...vis];if(base==="Parblue (B1B2)"&&fv.includes("Ino")){base="Creamino";fv.splice(fv.indexOf("Ino"),1);}let l=base;if(fv.length)l+=" "+fv.join(" ");if(spl.length)l+=" / "+spl.join(" / ");return l;
+let base=pp,fv=[...vis];const _INO={"":"Albino","Green":"Lutino","Parblue (B1B2)":"Creamino","Blue 1":"Albino","Blue 2":"Blue 2 Albino","Aqua B1":"Aqua B1 Ino","Aqua B2":"Aqua B2 Ino","Aqua Homo":"Aqua Homo Ino"};if(fv.includes("Ino")&&_INO[base]!==undefined){base=_INO[base];fv.splice(fv.indexOf("Ino"),1);}let l=base;if(fv.length)l+=" "+fv.join(" ");if(spl.length)l+=" / "+spl.join(" / ");return l;
 }
 function defSt(type){return type==="AD"||type==="SLD"?"SF":"visual";}
 function getSO(type,sex){
