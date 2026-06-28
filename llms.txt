@@ -59,6 +59,13 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - Lovebird breeding guide (cage setup, rotation method, combination planning, candling, chick rearing, record-keeping): https://lovebirdgenetics.com/blog/lovebird-breeding-guide/
 - Sitemap: https://lovebirdgenetics.com/sitemap.xml
 
+## Category pages
+Each blog category has its own indexable hub page listing all articles in that group:
+- Mutation guides (Opaline, Aqua, Yellow Face, Cinnamon, Violet, Dark Factor, and more): https://lovebirdgenetics.com/blog/mutations/
+- Pairing guides (step-by-step crosses with offspring outcomes and percentages): https://lovebirdgenetics.com/blog/pairings/
+- Guides & tools (master genetics guide, calculator comparisons, breeding guide): https://lovebirdgenetics.com/blog/guides/
+- Genetics basics (splits, sex-linked inheritance, hen genetics, color genetics): https://lovebirdgenetics.com/blog/basics/
+
 ## Scientific reference
 The Lovebird Compendium by Dirk Van den Abeele (2016, 769 pages) — the primary genetic reference used to build and cross-validate this calculator. Every inheritance type, allele relationship, and edge case maps directly to documented models in that publication.
 
