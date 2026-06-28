@@ -970,7 +970,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   .tr{grid-template-columns:1fr 88px 40px;}
   .tr select,.tr .ss{height:44px;}
   .rm{width:40px;height:40px;}
-  .add-btn{padding:8px 14px;font-size:12px;}
+  .add-btn{padding:8px 14px;}
   .clear-btn{height:44px;font-size:13px;}
   /* Result panel */
   .rp{min-height:220px;padding:16px 14px 12px;}
@@ -1223,8 +1223,8 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
     </div>
     <div class="footer-bar">
-      <p class="footer-bar-text">© 2026 KinBird Aviary · <a href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer">Facebook</a> · 🇧🇩 Bangladesh</p>
-      <p class="footer-bar-text"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a></p>
+      <p class="footer-bar-text">© <span class="cur-year">2026</span> KinBird Aviary · <a href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer">Facebook</a> · 🇧🇩 Bangladesh</p>
+      <p class="footer-bar-text"><a href="/blog/">Blog</a> · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a></p>
     </div>
     <p class="footer-bar-text" style="padding-top:10px;padding-bottom:4px;border-top:1px solid rgba(255,255,255,0.04);">Original work of KinBird Aviary &amp; Ayaan Shohan. All rights reserved. Unauthorized reproduction of the source code, calculator logic, or written content is prohibited. Scientific reference: <em>Lovebird Compendium</em>, Dirk Van den Abeele (2016).</p>
 
@@ -2220,5 +2220,6 @@ btn.addEventListener('click',function(){const isDark=html.getAttribute('data-the
 /* Twemoji — replace emoji with cross-platform SVG images */
 if(typeof twemoji!=='undefined'){twemoji.parse(document.body,{folder:'svg',ext:'.svg'});}
 </script>
+<script>document.querySelectorAll(".cur-year").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
 </html>
