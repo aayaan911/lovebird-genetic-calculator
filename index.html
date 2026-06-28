@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Lovebird Genetics Calculator — Fischer's Lovebird Pairing & Mutations | KinBird Aviary</title>
+<title>Lovebird Genetics Calculator — KinBird Aviary</title>
 <meta name="description" content="The most complete lovebird genetics calculator online. Predict offspring for any pairing — Opaline, Aqua, Parblue, Pale Fallow, Ino, Cinnamon and more."/><meta name="author" content="Ayaan Shohan, KinBird Aviary"/>
 <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)"/>
 <meta name="theme-color" content="#f5f4f1" media="(prefers-color-scheme: light)"/>
@@ -1607,7 +1607,7 @@ return traits;
 function mkLabel(pp,pid){
 const tr=effectiveTraits(pid);const vis=[],spl=[];
 for(const t of tr){if(!t.id||t.id==="None")continue;if(_0xC8(t.id)){const b=_0xC6.find(x=>x.id===t.id);if(b)spl.push(b.label);}else{const m=_0xC9.find(x=>x.id===t.id);if(m){const isADshown=(m.type==="AD"||m.type==="SLD")&&(t.status==="SF"||t.status==="DF"||t.status==="visual"||t.status==="split");if(t.status==="visual"||isADshown)vis.push((m.type==="AD"||m.type==="SLD")?(t.status==="DF"?"DF "+m.label:"SF "+m.label):m.label);else spl.push(m.label);}}}
-let l=pp;if(vis.length)l+=" "+vis.join(" ");if(spl.length)l+=" / "+spl.join(" / ");return l;
+let base=pp,fv=[...vis];if(base==="Parblue (B1B2)"&&fv.includes("Ino")){base="Creamino";fv.splice(fv.indexOf("Ino"),1);}let l=base;if(fv.length)l+=" "+fv.join(" ");if(spl.length)l+=" / "+spl.join(" / ");return l;
 }
 function defSt(type){return type==="AD"||type==="SLD"?"SF":"visual";}
 function getSO(type,sex){
