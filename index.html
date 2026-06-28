@@ -512,16 +512,31 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   cursor:pointer;
   -webkit-tap-highlight-color:transparent;
 }
+.cbs-opt>span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .cbs-opt:hover{background:var(--bg-input-filled);}
 .cbs-opt.cbs-sel{background:var(--accent-dim);color:var(--accent);}
 .cbs-opt .cbs-check{opacity:0;flex-shrink:0;color:var(--accent);}
 .cbs-opt.cbs-sel .cbs-check{opacity:1;}
 .cbs-opt:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
-/* Hide native base select but keep it as source of truth */
-.cbs-native{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+/* ── DESKTOP (>768px): show ORIGINAL native <select>, hide custom .cbs UI ── */
+/* Collapse the .cbs wrapper so the native select sits in the layout exactly
+   like the original field; the native select keeps its original styling
+   (base select{} rule + .filled/.op-sel/.ss classes it still carries). */
+.cbs{display:contents;}
+.cbs>summary,.cbs-menu{display:none!important;}
+/* Undo the visually-hidden clip; the base select{} rule (+ .filled/.op-sel/.ss)
+   supplies height, padding, border, arrow and appearance for the native field. */
+.cbs-native{position:static;width:100%;margin:0;overflow:visible;clip:auto;white-space:normal;-webkit-appearance:none;appearance:none;}
 /* Mobile bottom-sheet backdrop — hidden by default (desktop never shows it) */
 #cbs-backdrop{display:none;}
-@media(max-width:768px){#cbs-backdrop{display:block;}}
+@media(max-width:768px){
+  /* Restore the custom dropdown UI on mobile, hide native select */
+  .cbs{display:block;position:relative;width:100%;min-width:0;}
+  .cbs>summary{display:flex;}
+  .cbs-menu{display:block;}
+  .cbs-native{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+  #cbs-backdrop{display:block;}
+}
 
 /* ── GENERALIZED CUSTOM DROPDOWN VARIANTS (mutation / status / opaline) ── */
 /* Smaller trigger height to match native .tr select (48px) */
