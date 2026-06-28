@@ -1789,7 +1789,7 @@ const BASE_GROUPS=[
 const BASE_LABEL=v=>{for(const[,opts]of BASE_GROUPS)for(const[val,lbl]of opts)if(val===v)return lbl;return "";};
 function baseOpts(v){
 const o=(val,lbl)=>`<option value="${val}" ${v===val?'selected':''}>${lbl}</option>`;
-let s=`<option value="">, Choose Bird Series, </option>`;
+let s=`<option value="">Choose Bird Series</option>`;
 for(const[grp,opts]of BASE_GROUPS)s+=`<optgroup label="${grp}">${opts.map(([val,lbl])=>o(val,lbl)).join('')}</optgroup>`;
 return s;
 }
@@ -1826,7 +1826,7 @@ const avSLD=_0xC9.filter(m=>m.type==="SLD"&&(m.id===tid||!used.includes(m.id)));
 const avAD=_0xC9.filter(m=>m.type==="AD"&&(m.id===tid||!used.includes(m.id)));
 const isBs=_0xC8(tid),mut=!isBs?_0xC9.find(m=>m.id===tid):null,sOpts=mut?getSO(mut.type,sex):[];
 const avBS=isGr?(isBs?_0xC6.filter(b=>b.id===tid):usedBS.length===0?_0xC6:[]):[];
-let tOpts=`<option value="None">, Select mutation, </option>`;
+let tOpts=`<option value="None">Select mutation</option>`;
 if(avBS.length)tOpts+=`<optgroup label="Blue Splits">${avBS.map(b=>`<option value="${b.id}"${tid===b.id?' selected':''}>${b.label}</option>`).join('')}</optgroup>`;
 if(avAR.length)tOpts+=`<optgroup label="Autosomal Recessive">${avAR.map(m=>`<option value="${m.id}"${tid===m.id?' selected':''}>${m.label}</option>`).join('')}</optgroup>`;
 if(avSL.length)tOpts+=`<optgroup label="Sex-Linked">${avSL.map(m=>`<option value="${m.id}"${tid===m.id?' selected':''}>${m.label}</option>`).join('')}</optgroup>`;
@@ -1837,7 +1837,7 @@ if(isBs)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-id
 else if(mut&&sOpts.length)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${sOpts.map(o=>`<option value="${o.v}"${t.status===o.v?' selected':''}>${o.l}</option>`).join('')}</select>`;
 else{const defOpts=[{v:'visual',l:'Visual'},{v:'split',l:'/ Split'}];ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${defOpts.map(o=>`<option value="${o.v}"${(t.status===o.v||(!t.status&&o.v==='visual'))?'selected':''}>  ${o.l}</option>`).join('')}</select>`;}
 const mutHint=(tid!=='None'&&!isBs&&MUT_INFO[tid])?`<p class="mut-hint">${MUT_INFO[tid]}</p>`:'';
-return `<div class="tr"><select aria-label="Mutation ${i+1}" class="js-cbs cbs-sm-flavor ${tid!=='None'?'filled':''}" data-pid="${pid}" data-idx="${i}" data-role="trait" data-cbs-placeholder=", Select mutation, ">${tOpts}</select>${ssSel}<button class="rm" data-pid="${pid}" data-idx="${i}" aria-label="Remove mutation" title="Remove">×</button></div>${mutHint}`;
+return `<div class="tr"><select aria-label="Mutation ${i+1}" class="js-cbs cbs-sm-flavor ${tid!=='None'?'filled':''}" data-pid="${pid}" data-idx="${i}" data-role="trait" data-cbs-placeholder="Select mutation">${tOpts}</select>${ssSel}<button class="rm" data-pid="${pid}" data-idx="${i}" aria-label="Remove mutation" title="Remove">×</button></div>${mutHint}`;
 }
 function buildCard(sex){
 const isMale=sex==="male",pid=isMale?"p1":"p2";
@@ -1865,7 +1865,7 @@ return `<div class="pcard">
 <div class="pb">
   <span class="field-label">Bird Series</span>
   <div class="color-row">
-    <select id="${pid}-base" class="js-cbs ${primary?'filled':''}" aria-label="${isMale?'Male':'Female'} base color" data-cbs-placeholder=", Choose Bird Series, ">${baseOpts(primary)}</select>
+    <select id="${pid}-base" class="js-cbs ${primary?'filled':''}" aria-label="${isMale?'Male':'Female'} base color" data-cbs-placeholder="Choose Bird Series">${baseOpts(primary)}</select>
     ${oplineSel}
   </div>
   <div class="section-divider"></div>
