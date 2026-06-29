@@ -1720,7 +1720,7 @@ return{combined:_0xA8(_0xA7(_0xD7,_0xD3)),slMut:_0xD9,adMuts:_0xD5};
 }
 
 /* ─── APP STATE ──────────────────────────────────── */
-const S={p1p:"",p1t:[],p1Op:"normal",p2p:"",p2t:[],p2Op:"normal"};
+const S={p1p:"",p1t:[],p1Op:"visual",p2p:"",p2t:[],p2Op:"visual"};
 let copied=false,linkedCopied=false,_autoScrollDone=false;
 
 /* ─── URL STATE ─────────────────────────────────── */
@@ -1728,11 +1728,11 @@ function updateURL(){
   try{
     const p=new URLSearchParams();
     if(S.p1p)p.set('m',S.p1p);
-    if(S.p1Op&&S.p1Op!=='normal')p.set('mo',S.p1Op);
+    if(S.p1Op&&S.p1Op!=='visual')p.set('mo',S.p1Op);
     const mt=(S.p1t||[]).filter(t=>t.id&&t.id!=='None').map(t=>`${t.id}:${t.status||'visual'}`).join(',');
     if(mt)p.set('mt',mt);
     if(S.p2p)p.set('f',S.p2p);
-    if(S.p2Op&&S.p2Op!=='normal')p.set('fo',S.p2Op);
+    if(S.p2Op&&S.p2Op!=='visual')p.set('fo',S.p2Op);
     const ft=(S.p2t||[]).filter(t=>t.id&&t.id!=='None').map(t=>`${t.id}:${t.status||'visual'}`).join(',');
     if(ft)p.set('ft',ft);
     const qs=p.toString();
@@ -2019,7 +2019,7 @@ if(clrb)clrb.addEventListener('click',()=>{
   }else{
     clearTimeout(clrTimer);clrPending=false;
     track('clear_all',{father:S.p1p,mother:S.p2p});
-    S.p1p='';S.p1t=[];S.p1Op='normal';S.p2p='';S.p2t=[];S.p2Op='normal';_autoScrollDone=false;
+    S.p1p='';S.p1t=[];S.p1Op='visual';S.p2p='';S.p2t=[];S.p2Op='visual';_autoScrollDone=false;
     render();
     if(window.innerWidth<1024){setTimeout(()=>{const pc=document.getElementById('pc');if(pc)pc.scrollIntoView({behavior:'smooth',block:'start'});},80);}
     const nb=document.getElementById('clrb');
