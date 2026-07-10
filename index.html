@@ -1534,6 +1534,7 @@ const _0xC9=[
 {id:"BronzeFallow",label:"Bronze Fallow",type:"AR"},
 {id:"PaleFallow",label:"Pale Fallow",type:"AR"},
 {id:"Ino",label:"Ino",type:"AR"},
+{id:"Dec",label:"DEC",type:"AR"},
 {id:"Dilute",label:"Dilute",type:"AR"},
 {id:"YellowFace",label:"Yellow Face",type:"AR"},
 {id:"RedFactor",label:"Red Factor",type:"AR"},
@@ -1549,6 +1550,7 @@ const MUT_INFO={
   BronzeFallow:"Autosomal recessive · Brown-toned feathers with dark reddish-brown eyes",
   PaleFallow:"Autosomal recessive · 90-95% eumelanin reduction · Clear ruby-red eyes",
   Ino:"Autosomal recessive · Full melanin removal → Lutino (green) / Albino (blue)",
+  Dec:"Autosomal recessive · Dark Eyed Clear: ~95% eumelanin gone → mostly yellow body, DARK eyes, light blue rump · Allele of the Ino gene · Add BOTH Ino and DEC to one bird to make a DecIno (the DEC+Ino compound)",
   Dilute:"Autosomal recessive · Dilutes all feather pigment, softens overall colour intensity",
   YellowFace:"Autosomal recessive · Adds yellow facial mask over blue-series birds",
   RedFactor:"Autosomal recessive · Introduces red / orange tones into the plumage",
@@ -1622,9 +1624,9 @@ return out;
 }
 function _0xA7(baseRes,arMuts){
 let pool=baseRes.map(r=>{const{name,conf,poss}=_0xA3(r.color);return{baseName:name,pct:r.pct,vis:[],conf:[...conf],poss:[...poss]};});
-for(const mut of arMuts){const next=[];for(const curr of pool)for(const o of mut.offspring){const n={...curr,pct:curr.pct*o.pct/100,vis:[...curr.vis],conf:[...curr.conf],poss:[...curr.poss]};if(o.status==="visual")n.vis.push(mut.label);else if(o.status==="split")n.conf.push(mut.label);else if(o.status==="possibleSplit")n.poss.push(mut.label);next.push(n);}pool=next;}
+for(const mut of arMuts){const next=[];for(const curr of pool)for(const o of mut.offspring){const n={...curr,pct:curr.pct*o.pct/100,vis:[...curr.vis],conf:[...curr.conf],poss:[...curr.poss]};if(o.vis||o.conf||o.poss){if(o.vis)n.vis.push(...o.vis);if(o.conf)n.conf.push(...o.conf);if(o.poss)n.poss.push(...o.poss);}else if(o.status==="visual")n.vis.push(mut.label);else if(o.status==="split")n.conf.push(mut.label);else if(o.status==="possibleSplit")n.poss.push(mut.label);next.push(n);}pool=next;}
 const INO={"":"Albino","Green":"Lutino","Parblue (B1B2)":"Creamino","Blue 1":"Albino","Blue 2":"Blue 2 Albino","Aqua B1":"Aqua B1 Ino","Aqua B2":"Aqua B2 Ino","Aqua Homo":"Aqua Homo Ino"};
-const named=pool.map(c=>{let base=c.baseName,vis=[...c.vis],conf=[...c.conf],poss=[...c.poss];if(vis.includes("Ino")&&INO[base]!==undefined){base=INO[base];vis=vis.filter(v=>v!=="Ino");}let name=base;if(vis.length)name+=" "+vis.join(" ");if(conf.length)name+=" / "+conf.join(" / ");if(poss.length)name+=" // "+poss.join(" // ");return{name,pct:c.pct};});
+const named=pool.map(c=>{let base=c.baseName,vis=[...c.vis],conf=[...c.conf],poss=[...c.poss];const DECINO={"":"DecIno","Green":"DecIno","Parblue (B1B2)":"Parblue DecIno","Blue 1":"Blue 1 DecIno","Blue 2":"Blue 2 DecIno","Aqua B1":"Aqua B1 DecIno","Aqua B2":"Aqua B2 DecIno","Aqua Homo":"Aqua Homo DecIno"};if(vis.includes("Ino")&&INO[base]!==undefined){base=INO[base];vis=vis.filter(v=>v!=="Ino");}if(vis.includes("DecIno")&&DECINO[base]!==undefined){base=DECINO[base];vis=vis.filter(v=>v!=="DecIno");}if(vis.includes("DEC")){base=(base==="Green"||base==="")?"DEC":base+" DEC";vis=vis.filter(v=>v!=="DEC");}let name=base;if(vis.length)name+=" "+vis.join(" ");if(conf.length)name+=" / "+conf.join(" / ");if(poss.length)name+=" // "+poss.join(" // ");return{name,pct:c.pct};});
 const merged=[];for(const r of named){const ex=merged.find(x=>x.name===r.name);if(ex)ex.pct+=r.pct;else merged.push({...r});}
 return merged.sort((a,b)=>b.pct-a.pct);
 }
@@ -1645,6 +1647,8 @@ const name=blues.length?k.replace(/__BLU__/g,blues.join(' or ')):k;
 return{name,pct};
 }).sort((a,b)=>b.pct-a.pct);
 }
+function aAlleles(iSt,dSt){const hI=iSt==="visual"||iSt==="split",hD=dSt==="visual"||dSt==="split";if(hI&&hD)return["d","i"];if(iSt==="visual")return["i","i"];if(dSt==="visual")return["d","d"];if(iSt==="split")return["+","i"];if(dSt==="split")return["+","d"];return["+","+"];}
+function aLocusCross(mI,mD,fI,fD){const A=aAlleles(mI,mD),B=aAlleles(fI,fD),cnt={};for(const a of A)for(const b of B){const k=[a,b].sort().join("");cnt[k]=(cnt[k]||0)+1;}const M={"++":{},"+i":{conf:["Ino"]},"+d":{conf:["DEC"]},"ii":{vis:["Ino"]},"dd":{vis:["DEC"]},"di":{vis:["DecIno"]}};const out=[];for(const[k,c]of Object.entries(cnt)){const o=M[k]||{};out.push({vis:o.vis||[],conf:o.conf||[],poss:o.poss||[],pct:c/4*100});}return out;}
 function _0xB1(p1p,p1t,p2p,p2t){
 if(!p1p||!p2p)return null;
 const _0xD1=(pp,tr)=>{let b=_0xC4(pp);if(b==="Green"){const s=(tr||[]).find(t=>_0xC8(t.id));if(s)b=_0xC7[s.id];}return b;};
@@ -1652,8 +1656,9 @@ const b1=_0xD1(p1p,p1t),b2=_0xD1(p2p,p2t),_0xD8=_0xA1(b1,b2),_0xD7=_0xA2(_0xD8);
 const mt={},_0xD2=(id,side,st)=>{if(!id||id==="None"||_0xC8(id))return;if(!mt[id])mt[id]={m:"normal",f:"normal"};const rank={DF:4,SF:3,visual:3,split:2,possibleSplit:1,normal:0},cur=mt[id][side];if((rank[st]||0)>(rank[cur]||0))mt[id][side]=st||"normal";};
 if(_0xC5(p1p))_0xD2("YellowFace","m","visual");if(_0xC5(p2p))_0xD2("YellowFace","f","visual");
 for(const t of(p1t||[]))_0xD2(t.id,"m",t.status);for(const t of(p2t||[]))_0xD2(t.id,"f",t.status);
-const _0xD3=[];
-for(const[id,{m,f}]of Object.entries(mt)){const mut=_0xC9.find(x=>x.id===id);if(!mut)continue;if(mut.type==="AR")_0xD3.push({label:mut.label,offspring:_0xA4(m,f)});}
+const _0xD3=[];const hasALoc=!!mt["Dec"];
+for(const[id,{m,f}]of Object.entries(mt)){const mut=_0xC9.find(x=>x.id===id);if(!mut)continue;if(mut.type!=="AR")continue;if(hasALoc&&(id==="Ino"||id==="Dec"))continue;_0xD3.push({label:mut.label,offspring:_0xA4(m,f)});}
+if(hasALoc){const iM=(mt["Ino"]||{}).m||"normal",iF=(mt["Ino"]||{}).f||"normal",dM=(mt["Dec"]||{}).m||"normal",dF=(mt["Dec"]||{}).f||"normal";_0xD3.unshift({label:"__ALOCUS__",offspring:aLocusCross(iM,dM,iF,dF)});}
 const _0xD4=[],_0xD4b=[],_0xD5=[];
 for(const[id,{m,f}]of Object.entries(mt)){const mut=_0xC9.find(x=>x.id===id);if(!mut)continue;if(mut.type==="SL")_0xD4.push({label:mut.label,m,f});else if(mut.type==="SLD")_0xD4b.push({label:mut.label,m,f});else if(mut.type==="AD")_0xD5.push({label:mut.label,offspring:_0xA6(m,f)});}
 let _0xD9=null;
