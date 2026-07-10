@@ -752,8 +752,6 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   margin-bottom:5px;
 }
 .oc-name{font-size:14px;font-weight:500;color:#fff;line-height:1.4;word-break:break-word;letter-spacing:-0.01em;}
-.oc-guide{display:inline-block;margin-top:5px;font-size:11px;font-weight:600;color:#7fd88a;text-decoration:none;letter-spacing:0.01em;}
-.oc-guide:hover{text-decoration:underline;color:#9fe6a8;}
 .oc-pct{
   font-family:var(--mono);
   font-size:28px;
@@ -1872,14 +1870,12 @@ return `<div class="pcard">
 </div>`;
 }
 
-var GUIDE_MAP=[['Yellow Face','/blog/yellow-face-lovebird-genetics/','Yellow Face'],['DEC','/blog/dark-eyed-clear-decino-lovebirds/','DEC / Ino'],['Aqua','/blog/aqua-mutation-in-lovebirds/','Aqua'],['Opaline','/blog/opaline-lovebird-genetics/','Opaline'],['Bronze','/blog/bronze-fallow-lovebird-genetics/','Bronze Fallow'],['Cinnamon','/blog/cinnamon-lovebird-genetics/','Cinnamon'],['Pale Fallow','/blog/pale-fallow-vs-dun-fallow/','Pale Fallow'],['Dun Fallow','/blog/pale-fallow-vs-dun-fallow/','Dun Fallow'],['Dilute','/blog/dilute-lovebird-genetics/','Dilute'],['Violet','/blog/violet-lovebird-genetics/','Violet'],['Creamino','/blog/lutino-albino-lovebird-genetics/','Creamino'],['Albino','/blog/lutino-albino-lovebird-genetics/','Albino'],['Lutino','/blog/lutino-albino-lovebird-genetics/','Lutino'],['Ino','/blog/lutino-albino-lovebird-genetics/','Ino'],['Parblue','/blog/aqua-parblue-yellowface-combinations/','Parblue'],['Blue','/blog/blue-lovebird-genetics/','Blue']];
-function guideLink(nm){if(!nm)return'';for(var i=0;i<GUIDE_MAP.length;i++){if(nm.indexOf(GUIDE_MAP[i][0])!==-1){return '<a class="oc-guide" href="'+GUIDE_MAP[i][1]+'">Read the '+GUIDE_MAP[i][2]+' guide &rarr;</a>';}}return'';}
 function buildOCards(items,max,startIdx=0){
 return items.map((r,i)=>{
 const nm=r.name||r.label||'';
 const pct=r.pct;
 const isHigh=pct>=25;
-return `<div class="oc"><div class="oc-inner"><div class="oc-info"><p class="oc-idx">Offspring ${startIdx+i+1}</p><p class="oc-name">${nm}</p>${guideLink(nm)}</div><span class="oc-pct${isHigh?' oc-pct-high':''}">${fmt(pct)}%</span></div><div class="oc-bar"><div class="oc-bar-fill${isHigh?' high':''}" style="width:${Math.round((pct/max)*100)}%"></div></div></div>`;
+return `<div class="oc"><div class="oc-inner"><div class="oc-info"><p class="oc-idx">Offspring ${startIdx+i+1}</p><p class="oc-name">${nm}</p></div><span class="oc-pct${isHigh?' oc-pct-high':''}">${fmt(pct)}%</span></div><div class="oc-bar"><div class="oc-bar-fill${isHigh?' high':''}" style="width:${Math.round((pct/max)*100)}%"></div></div></div>`;
 }).join('');
 }
 
