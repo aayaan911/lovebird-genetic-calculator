@@ -754,9 +754,11 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .oc-name{font-size:14px;font-weight:500;color:#fff;line-height:1.4;word-break:break-word;letter-spacing:-0.01em;}
 .guide-box{margin-top:22px;padding:16px 16px 17px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.08);border-radius:16px;}
 .guide-box-lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7fd88a;font-weight:700;margin:0 0 12px;}
-.guide-box-links{display:flex;flex-wrap:wrap;gap:8px;}
-.guide-box-links a{display:inline-flex;align-items:center;font-size:12px;font-weight:600;color:#e4efe3;text-decoration:none;padding:8px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:999px;transition:background .15s,color .15s,border-color .15s,transform .15s;}
-.guide-box-links a:hover{background:var(--accent-dim);color:#fff;border-color:var(--accent);transform:translateY(-1px);}
+.guide-box-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px;}
+.guide-box-links a{display:block;text-decoration:none;background:var(--accent-dim);border:1px solid rgba(76,161,84,0.22);border-radius:12px;padding:12px 14px;transition:background .15s,border-color .15s,transform .15s;}
+.guide-box-links a:hover{background:rgba(76,161,84,0.18);border-color:var(--accent);transform:translateY(-1px);}
+.guide-box-links a .gc-name{display:block;color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;}
+.guide-box-links a .gc-cta{color:#7fd88a;font-size:11px;font-weight:600;}
 .oc-pct{
   font-family:var(--mono);
   font-size:28px;
@@ -889,6 +891,15 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .footer-bar-text{font-size:12px;color:#444;}
 .footer-bar-text a{color:#777;font-weight:600;text-decoration:none;}
 .footer-bar-text a:hover{color:#ccc;}
+.footer-cols{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-col-lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7fd88a;font-weight:700;margin:0 0 12px;}
+.footer-col>a{display:block;font-size:12.5px;padding:4px 0;color:rgba(255,255,255,0.6);text-decoration:none;}
+.footer-col>a:hover{color:var(--accent);}
+.footer-brand-name{font-size:14px;font-weight:700;color:#f0f0ee;margin:0 0 6px;}
+.footer-brand-sub{font-size:12px;color:#666;line-height:1.75;margin:0;}
+.footer-brand-fb{display:inline-block;margin-top:10px;font-size:12px;color:var(--accent);text-decoration:none;font-weight:600;}
+.footer-legal{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);font-size:11px;color:#444;line-height:1.7;}
+@media(max-width:600px){.footer-cols{grid-template-columns:1fr;gap:24px;}}
 
 /* ── RESPONSIVE ─────────────────────────────────── */
 @media(max-width:1024px){
@@ -1229,12 +1240,31 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
         </a>
       </div>
     </div>
-    <div class="footer-bar">
-      <p class="footer-bar-text">© <span class="cur-year">2026</span> KinBird Aviary · <a href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer">Facebook</a> · <img src="https://flagcdn.com/bd.svg" alt="Bangladesh" loading="lazy" style="height:0.85em;width:auto;vertical-align:-0.1em;border-radius:2px;margin:0 1px;display:inline-block;"> Bangladesh</p>
-      <p class="footer-bar-text">Popular guides: <a href="/blog/aqua-mutation-in-lovebirds/">Aqua</a> · <a href="/blog/yellow-face-lovebird-genetics/">Yellow Face</a> · <a href="/blog/opaline-lovebird-genetics/">Opaline</a> · <a href="/blog/dark-eyed-clear-decino-lovebirds/">DEC / DecIno</a> · <a href="/blog/lutino-albino-lovebird-genetics/">Lutino &amp; Albino</a> · <a href="/blog/what-is-a-split-lovebird/">What is a Split</a> · <a href="/blog/how-many-eggs-do-lovebirds-lay/">Eggs per Year</a></p>
-      <p class="footer-bar-text"><a href="/blog/">Blog &amp; Mutation Guides</a> · <a href="https://budgerigargenetics.com/" rel="noopener" target="_blank">Sister site: Budgerigar Genetics</a> · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a></p>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <p class="footer-brand-name">Lovebird Genetics</p>
+        <p class="footer-brand-sub">by KinBird Aviary<br><img src="https://flagcdn.com/bd.svg" alt="Bangladesh" loading="lazy" style="height:0.85em;width:auto;vertical-align:-0.1em;border-radius:2px;margin:0 3px 0 0;display:inline-block;">Bangladesh</p>
+        <a class="footer-brand-fb" href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-lbl">Popular guides</p>
+        <a href="/blog/aqua-mutation-in-lovebirds/">Aqua Mutation</a>
+        <a href="/blog/yellow-face-lovebird-genetics/">Yellow Face</a>
+        <a href="/blog/opaline-lovebird-genetics/">Opaline</a>
+        <a href="/blog/dark-eyed-clear-decino-lovebirds/">DEC / DecIno</a>
+        <a href="/blog/lutino-albino-lovebird-genetics/">Lutino &amp; Albino</a>
+        <a href="/blog/what-is-a-split-lovebird/">What is a Split</a>
+        <a href="/blog/how-many-eggs-do-lovebirds-lay/">Eggs per Year</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-lbl">Site</p>
+        <a href="/blog/">Blog &amp; Mutation Guides</a>
+        <a href="https://budgerigargenetics.com/" rel="noopener" target="_blank">Budgerigar Genetics</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+      </div>
     </div>
-    <p class="footer-bar-text" style="padding-top:10px;padding-bottom:4px;border-top:1px solid rgba(255,255,255,0.04);">Original work of KinBird Aviary &amp; Ayaan Shohan. All rights reserved. Unauthorized reproduction of the source code, calculator logic, or written content is prohibited. Scientific reference: <em>Lovebird Compendium</em>, Dirk Van den Abeele (2016).</p>  </div>
+    <p class="footer-legal">© <span class="cur-year">2026</span> KinBird Aviary &amp; Ayaan Shohan. All rights reserved. Unauthorized reproduction of the source code, calculator logic, or written content is prohibited. Scientific reference: <em>Lovebird Compendium</em>, Dirk Van den Abeele (2016).</p>  </div>
 </footer>
 
 <!-- SEO CONTENT, static, crawler-readable -->
@@ -1876,7 +1906,7 @@ return `<div class="pcard">
 }
 
 var GUIDE_MAP=[['Yellow Face','/blog/yellow-face-lovebird-genetics/','Yellow Face'],['DEC','/blog/dark-eyed-clear-decino-lovebirds/','DEC / Ino'],['Aqua','/blog/aqua-mutation-in-lovebirds/','Aqua'],['Opaline','/blog/opaline-lovebird-genetics/','Opaline'],['Bronze','/blog/bronze-fallow-lovebird-genetics/','Bronze Fallow'],['Cinnamon','/blog/cinnamon-lovebird-genetics/','Cinnamon'],['Pale Fallow','/blog/pale-fallow-vs-dun-fallow/','Pale Fallow'],['Dun Fallow','/blog/pale-fallow-vs-dun-fallow/','Dun Fallow'],['Dilute','/blog/dilute-lovebird-genetics/','Dilute'],['Violet','/blog/violet-lovebird-genetics/','Violet'],['Creamino','/blog/lutino-albino-lovebird-genetics/','Creamino'],['Albino','/blog/lutino-albino-lovebird-genetics/','Albino'],['Lutino','/blog/lutino-albino-lovebird-genetics/','Lutino'],['Ino','/blog/lutino-albino-lovebird-genetics/','Ino'],['Parblue','/blog/aqua-parblue-yellowface-combinations/','Parblue'],['Blue','/blog/blue-lovebird-genetics/','Blue']];
-function guideBox(res){var names=[];if(res&&res.combined)res.combined.forEach(function(x){names.push(x.name);});if(res&&res.slMut){['maleOffspring','femaleOffspring'].forEach(function(k){(res.slMut[k]||[]).forEach(function(o){names.push(o.name);});});}var j=names.join(' '),seen={},links=[];for(var i=0;i<GUIDE_MAP.length;i++){var k=GUIDE_MAP[i][0],u=GUIDE_MAP[i][1],l=GUIDE_MAP[i][2];if(j.indexOf(k)!==-1&&!seen[u]){seen[u]=1;links.push('<a href="'+u+'">'+l+' &rarr;</a>');}}if(!links.length)return '';return '<div class="guide-box"><p class="guide-box-lbl">Learn more about these mutations</p><div class="guide-box-links">'+links.join('')+'</div></div>';}
+function guideBox(res){var names=[];if(res&&res.combined)res.combined.forEach(function(x){names.push(x.name);});if(res&&res.slMut){['maleOffspring','femaleOffspring'].forEach(function(k){(res.slMut[k]||[]).forEach(function(o){names.push(o.name);});});}var j=names.join(' '),seen={},links=[];for(var i=0;i<GUIDE_MAP.length;i++){var k=GUIDE_MAP[i][0],u=GUIDE_MAP[i][1],l=GUIDE_MAP[i][2];if(j.indexOf(k)!==-1&&!seen[u]){seen[u]=1;links.push('<a href="'+u+'"><span class="gc-name">'+l+'</span><span class="gc-cta">Read guide &rarr;</span></a>');}}if(!links.length)return '';return '<div class="guide-box"><p class="guide-box-lbl">Learn more about these mutations</p><div class="guide-box-links">'+links.join('')+'</div></div>';}
 function buildOCards(items,max,startIdx=0){
 return items.map((r,i)=>{
 const nm=r.name||r.label||'';
