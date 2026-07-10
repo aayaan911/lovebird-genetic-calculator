@@ -1550,7 +1550,7 @@ const MUT_INFO={
   BronzeFallow:"Autosomal recessive · Brown-toned feathers with dark reddish-brown eyes",
   PaleFallow:"Autosomal recessive · 90-95% eumelanin reduction · Clear ruby-red eyes",
   Ino:"Autosomal recessive · Full melanin removal → Lutino (green) / Albino (blue)",
-  Dec:"Autosomal recessive · Dark Eyed Clear: ~95% eumelanin gone → mostly yellow body, DARK eyes, light blue rump · Allele of the Ino gene · Add BOTH Ino and DEC to one bird to make a DecIno (the DEC+Ino compound)",
+  Dec:"Autosomal recessive · Dark Eyed Clear: ~95% eumelanin gone → mostly yellow body, DARK eyes, light blue rump · Allele of the Ino gene · Add BOTH Ino and DEC to one bird to make a "DEC / Ino" (a DEC carrying Ino). Paired together, DEC / Ino x DEC / Ino gives 75% DEC // Ino + 25% Lutino",
   Dilute:"Autosomal recessive · Dilutes all feather pigment, softens overall colour intensity",
   YellowFace:"Autosomal recessive · Adds yellow facial mask over blue-series birds",
   RedFactor:"Autosomal recessive · Introduces red / orange tones into the plumage",
@@ -1648,7 +1648,7 @@ return{name,pct};
 }).sort((a,b)=>b.pct-a.pct);
 }
 function aAlleles(iSt,dSt){const hI=iSt==="visual"||iSt==="split",hD=dSt==="visual"||dSt==="split";if(hI&&hD)return["d","i"];if(iSt==="visual")return["i","i"];if(dSt==="visual")return["d","d"];if(iSt==="split")return["+","i"];if(dSt==="split")return["+","d"];return["+","+"];}
-function aLocusCross(mI,mD,fI,fD){const A=aAlleles(mI,mD),B=aAlleles(fI,fD),cnt={};for(const a of A)for(const b of B){const k=[a,b].sort().join("");cnt[k]=(cnt[k]||0)+1;}const M={"++":{},"+i":{conf:["Ino"]},"+d":{conf:["DEC"]},"ii":{vis:["Ino"]},"dd":{vis:["DEC"]},"di":{vis:["DecIno"]}};const out=[];for(const[k,c]of Object.entries(cnt)){const o=M[k]||{};out.push({vis:o.vis||[],conf:o.conf||[],poss:o.poss||[],pct:c/4*100});}return out;}
+function aLocusCross(mI,mD,fI,fD){const A=aAlleles(mI,mD),B=aAlleles(fI,fD),cnt={};for(const a of A)for(const b of B){const k=[a,b].sort().join("");cnt[k]=(cnt[k]||0)+1;}const g=k=>(cnt[k]||0)/4*100;const nn=g("++"),sd=g("+d"),si=g("+i"),ll=g("ii"),dd=g("dd"),di=g("di");const out=[];const dv=dd+di;if(dv>0)out.push({vis:["DEC"],conf:(dd===0&&di>0)?["Ino"]:[],poss:(dd>0&&di>0)?["Ino"]:[],pct:dv});if(ll>0)out.push({vis:["Ino"],conf:[],poss:[],pct:ll});if(sd>0&&nn>0&&si===0){out.push({vis:[],conf:[],poss:["DEC"],pct:sd+nn});}else if(si>0&&nn>0&&sd===0){out.push({vis:[],conf:[],poss:["Ino"],pct:si+nn});}else{if(sd>0)out.push({vis:[],conf:["DEC"],poss:[],pct:sd});if(si>0)out.push({vis:[],conf:["Ino"],poss:[],pct:si});if(nn>0)out.push({vis:[],conf:[],poss:[],pct:nn});}return out;}
 function _0xB1(p1p,p1t,p2p,p2t){
 if(!p1p||!p2p)return null;
 const _0xD1=(pp,tr)=>{let b=_0xC4(pp);if(b==="Green"){const s=(tr||[]).find(t=>_0xC8(t.id));if(s)b=_0xC7[s.id];}return b;};
