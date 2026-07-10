@@ -752,6 +752,11 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   margin-bottom:5px;
 }
 .oc-name{font-size:14px;font-weight:500;color:#fff;line-height:1.4;word-break:break-word;letter-spacing:-0.01em;}
+.guide-box{margin-top:14px;padding:14px 16px;background:rgba(76,161,84,0.07);border:1px solid rgba(76,161,84,0.2);border-radius:12px;}
+.guide-box-lbl{font-size:10.5px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#7fd88a;margin:0 0 10px;}
+.guide-box-links{display:flex;flex-wrap:wrap;gap:8px;}
+.guide-box-links a{font-size:12px;font-weight:600;color:#dfeede;text-decoration:none;padding:6px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:999px;transition:background .15s,color .15s,border-color .15s;}
+.guide-box-links a:hover{background:rgba(76,161,84,0.2);color:#fff;border-color:rgba(76,161,84,0.45);}
 .oc-pct{
   font-family:var(--mono);
   font-size:28px;
@@ -1870,6 +1875,8 @@ return `<div class="pcard">
 </div>`;
 }
 
+var GUIDE_MAP=[['Yellow Face','/blog/yellow-face-lovebird-genetics/','Yellow Face'],['DEC','/blog/dark-eyed-clear-decino-lovebirds/','DEC / Ino'],['Aqua','/blog/aqua-mutation-in-lovebirds/','Aqua'],['Opaline','/blog/opaline-lovebird-genetics/','Opaline'],['Bronze','/blog/bronze-fallow-lovebird-genetics/','Bronze Fallow'],['Cinnamon','/blog/cinnamon-lovebird-genetics/','Cinnamon'],['Pale Fallow','/blog/pale-fallow-vs-dun-fallow/','Pale Fallow'],['Dun Fallow','/blog/pale-fallow-vs-dun-fallow/','Dun Fallow'],['Dilute','/blog/dilute-lovebird-genetics/','Dilute'],['Violet','/blog/violet-lovebird-genetics/','Violet'],['Creamino','/blog/lutino-albino-lovebird-genetics/','Creamino'],['Albino','/blog/lutino-albino-lovebird-genetics/','Albino'],['Lutino','/blog/lutino-albino-lovebird-genetics/','Lutino'],['Ino','/blog/lutino-albino-lovebird-genetics/','Ino'],['Parblue','/blog/aqua-parblue-yellowface-combinations/','Parblue'],['Blue','/blog/blue-lovebird-genetics/','Blue']];
+function guideBox(res){var names=[];if(res&&res.combined)res.combined.forEach(function(x){names.push(x.name);});if(res&&res.slMut){['maleOffspring','femaleOffspring'].forEach(function(k){(res.slMut[k]||[]).forEach(function(o){names.push(o.name);});});}var j=names.join(' '),seen={},links=[];for(var i=0;i<GUIDE_MAP.length;i++){var k=GUIDE_MAP[i][0],u=GUIDE_MAP[i][1],l=GUIDE_MAP[i][2];if(j.indexOf(k)!==-1&&!seen[u]){seen[u]=1;links.push('<a href="'+u+'">'+l+' &rarr;</a>');}}if(!links.length)return '';return '<div class="guide-box"><p class="guide-box-lbl">Learn more about these mutations</p><div class="guide-box-links">'+links.join('')+'</div></div>';}
 function buildOCards(items,max,startIdx=0){
 return items.map((r,i)=>{
 const nm=r.name||r.label||'';
@@ -1911,7 +1918,7 @@ else{const maleM=mergeAD(res.slMut.maleOffspring,res.adMuts);const femaleM=merge
 }else{const merged=mergeAD(res.combined,res.adMuts);sumRows=merged.map(r=>`<p class="sum-row"><span class="sum-dash">— </span>${fmt(r.pct)}% ${r.name}</p>`).join('');}
 const shareAvail=typeof navigator!=='undefined'&&!!navigator.share;
 body+=`<div class="sum-box"><div class="sum-hr"></div><div class="sum-inner"><div class="sum-top"><p class="sum-lbl">Summary</p><div class="sum-top-btns"><button class="link-btn ${linkedCopied?'lkd':''}" id="lbtn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> ${linkedCopied?'Link Copied!':'Share Result Link'}</button><button class="copy-btn ${copied?'cpd':''}" id="cbtn">${copied?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>':'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'}${copied?"Copied!":"Copy"}</button></div></div><div class="pair-txt" style="margin-bottom:16px;justify-content:flex-start;flex-wrap:wrap;gap:4px;font-size:12px;"><span><span class="gtag" style="font-weight:700">1.0 </span>${p1L}</span><span style="color:rgba(255,255,255,0.5);font-size:14px;font-weight:700;padding:0 2px">×</span><span><span class="rtag" style="font-weight:700">0.1 </span>${p2L}</span></div>${sumRows}</div></div>`;
-return hdr+pairBox+`<div class="off-list">${body}</div>`+`<div class="pct-footer">All percentages sum to 100%</div>`;
+return hdr+pairBox+`<div class="off-list">${body}</div>`+`<div class="pct-footer">All percentages sum to 100%</div>`+guideBox(res);
 }
 
 function track(n,p){try{if(typeof gtag==='function')gtag('event',n,p||{});}catch(e){}}
