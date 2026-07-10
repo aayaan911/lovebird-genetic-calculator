@@ -752,13 +752,14 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   margin-bottom:5px;
 }
 .oc-name{font-size:14px;font-weight:500;color:#fff;line-height:1.4;word-break:break-word;letter-spacing:-0.01em;}
-.guide-box{margin-top:22px;padding:16px 16px 17px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.08);border-radius:16px;}
-.guide-box-lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7fd88a;font-weight:700;margin:0 0 12px;}
-.guide-box-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px;}
-.guide-box-links a{display:block;text-decoration:none;background:var(--accent-dim);border:1px solid rgba(76,161,84,0.22);border-radius:12px;padding:12px 14px;transition:background .15s,border-color .15s,transform .15s;}
-.guide-box-links a:hover{background:rgba(76,161,84,0.18);border-color:var(--accent);transform:translateY(-1px);}
-.guide-box-links a .gc-name{display:block;color:#fff;font-size:13px;font-weight:600;margin-bottom:3px;}
-.guide-box-links a .gc-cta{color:#7fd88a;font-size:11px;font-weight:600;}
+.guide-box{margin-top:22px;padding:16px 6px 6px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.08);border-radius:16px;}
+.guide-box-lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7fd88a;font-weight:700;margin:0 16px 10px;}
+.guide-box-links{display:block;}
+.guide-box-links a{display:flex;align-items:center;gap:11px;text-decoration:none;padding:12px 16px;border-top:1px solid rgba(255,255,255,0.06);transition:background .15s;}
+.guide-box-links a:hover{background:rgba(255,255,255,0.03);}
+.guide-box-links a .gc-name{flex:1;color:#f0f0ee;font-size:13px;font-weight:500;}
+.guide-box-links a .gc-ico{font-size:16px;line-height:0;color:#7fd88a;flex-shrink:0;}
+.guide-box-links a .gc-arrow{font-size:15px;color:rgba(255,255,255,0.35);flex-shrink:0;}
 .oc-pct{
   font-family:var(--mono);
   font-size:28px;
@@ -1906,7 +1907,7 @@ return `<div class="pcard">
 }
 
 var GUIDE_MAP=[['Yellow Face','/blog/yellow-face-lovebird-genetics/','Yellow Face'],['DEC','/blog/dark-eyed-clear-decino-lovebirds/','DEC / Ino'],['Aqua','/blog/aqua-mutation-in-lovebirds/','Aqua'],['Opaline','/blog/opaline-lovebird-genetics/','Opaline'],['Bronze','/blog/bronze-fallow-lovebird-genetics/','Bronze Fallow'],['Cinnamon','/blog/cinnamon-lovebird-genetics/','Cinnamon'],['Pale Fallow','/blog/pale-fallow-vs-dun-fallow/','Pale Fallow'],['Dun Fallow','/blog/pale-fallow-vs-dun-fallow/','Dun Fallow'],['Dilute','/blog/dilute-lovebird-genetics/','Dilute'],['Violet','/blog/violet-lovebird-genetics/','Violet'],['Creamino','/blog/lutino-albino-lovebird-genetics/','Creamino'],['Albino','/blog/lutino-albino-lovebird-genetics/','Albino'],['Lutino','/blog/lutino-albino-lovebird-genetics/','Lutino'],['Ino','/blog/lutino-albino-lovebird-genetics/','Ino'],['Parblue','/blog/aqua-parblue-yellowface-combinations/','Parblue'],['Blue','/blog/blue-lovebird-genetics/','Blue']];
-function guideBox(res){var names=[];if(res&&res.combined)res.combined.forEach(function(x){names.push(x.name);});if(res&&res.slMut){['maleOffspring','femaleOffspring'].forEach(function(k){(res.slMut[k]||[]).forEach(function(o){names.push(o.name);});});}var j=names.join(' '),seen={},links=[];for(var i=0;i<GUIDE_MAP.length;i++){var k=GUIDE_MAP[i][0],u=GUIDE_MAP[i][1],l=GUIDE_MAP[i][2];if(j.indexOf(k)!==-1&&!seen[u]){seen[u]=1;links.push('<a href="'+u+'"><span class="gc-name">'+l+'</span><span class="gc-cta">Read guide &rarr;</span></a>');}}if(!links.length)return '';return '<div class="guide-box"><p class="guide-box-lbl">Learn more about these mutations</p><div class="guide-box-links">'+links.join('')+'</div></div>';}
+function guideBox(res){var names=[];if(res&&res.combined)res.combined.forEach(function(x){names.push(x.name);});if(res&&res.slMut){['maleOffspring','femaleOffspring'].forEach(function(k){(res.slMut[k]||[]).forEach(function(o){names.push(o.name);});});}var j=names.join(' '),seen={},links=[];for(var i=0;i<GUIDE_MAP.length;i++){var k=GUIDE_MAP[i][0],u=GUIDE_MAP[i][1],l=GUIDE_MAP[i][2];if(j.indexOf(k)!==-1&&!seen[u]){seen[u]=1;links.push('<a href="'+u+'"><svg class="gc-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19a2 2 0 0 1 2-2h7V4H5a2 2 0 0 0-2 2z"/><path d="M21 19a2 2 0 0 0-2-2h-7V4h7a2 2 0 0 1 2 2z"/></svg><span class="gc-name">'+l+' guide</span><span class="gc-arrow">&rsaquo;</span></a>');}}if(!links.length)return '';return '<div class="guide-box"><p class="guide-box-lbl">Learn more about these mutations</p><div class="guide-box-links">'+links.join('')+'</div></div>';}
 function buildOCards(items,max,startIdx=0){
 return items.map((r,i)=>{
 const nm=r.name||r.label||'';
