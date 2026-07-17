@@ -1952,7 +1952,8 @@ body+=`<div class="sum-box"><div class="sum-hr"></div><div class="sum-inner"><di
 return hdr+pairBox+`<div class="off-list">${body}</div>`+`<div class="pct-footer">All percentages sum to 100%</div>`+guideBox(res);
 }
 
-function track(n,p){try{if(typeof gtag==='function')gtag('event',n,p||{});}catch(e){}}
+function track(n,p){try{if(typeof gtag==='function')gtag('event',n,p||{});}catch(e){}try{if(typeof window.clarity==='function'){window.clarity('event',n);if(p&&typeof p.mutation_count!=='undefined')window.clarity('set','mutation_count',String(p.mutation_count));if(p&&p.father_base)window.clarity('set','father_base',String(p.father_base));if(p&&p.mother_base)window.clarity('set','mother_base',String(p.mother_base));}}catch(e){}}
+document.addEventListener('click',function(e){try{var t=e.target;if(!t||!t.closest)return;var g=t.closest('.guide-box-links a');if(g){track('guide_link_clicked',{guide:(g.textContent||'').trim(),href:g.getAttribute('href')||''});return;}var f=t.closest('.footer-col a');if(f){track('footer_guide_clicked',{guide:(f.textContent||'').trim()});}}catch(err){}});
 
 let _pairingTimer=null;
 function trackPairing(){
