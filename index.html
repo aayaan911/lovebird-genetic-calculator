@@ -1070,7 +1070,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .seo-section{margin-top:10px;}
 
 /* ---- Authority ticker bar ---- */
-.vbar-wrap{max-width:1480px;margin:0 auto;padding:14px clamp(16px,4vw,48px) 0;}
+.vbar-wrap{max-width:1080px;margin:0 auto;padding:14px clamp(16px,4vw,48px) 0;}
 .vbar{background:rgba(76,161,84,0.09);border:1px solid rgba(76,161,84,0.26);border-radius:12px;padding:10px 18px;text-align:center;}
 .vbar span{font-size:12.5px;color:#e4efe3;font-weight:500;line-height:1.5;font-family:var(--font);}
 .vbar .vg{color:#7fd88a;font-weight:600;}
@@ -1081,7 +1081,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .trust-h2{font-size:24px;font-weight:700;color:var(--text-1);margin:0 0 6px;letter-spacing:-0.02em;}
 .trust-sub{font-size:14px;color:var(--text-3);margin:0 auto 22px;max-width:470px;line-height:1.6;}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.trust-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px 14px;}
+.trust-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px 16px;display:flex;flex-direction:column;height:100%;}
 .trust-num{font-size:34px;font-weight:700;color:var(--accent);margin:0;line-height:1;}
 .trust-lbl{font-size:12.5px;color:var(--text-3);margin:9px 0 0;line-height:1.45;}
 @media(max-width:640px){.trust-grid{grid-template-columns:1fr 1fr;}.trust-h2{font-size:20px;}}
@@ -1145,7 +1145,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 </div>
 </noscript>
 
-<div class="vbar-wrap"><div class="vbar" role="note" aria-label="Verified"><span>&#10003; <span class="vg">The verified</span> Fischer's lovebird genetics calculator, cross-checked against Van den Abeele's <em>Lovebird Compendium</em> (2016 book)</span></div></div>
+<div class="vbar-wrap"><div class="vbar" role="note" aria-label="Verified"><span>&#10003; <span class="vg">The verified</span> Fischer's lovebird genetics calculator, cross-checked against Van den Abeele's <em>Lovebird Compendium</em> Book (2016)</span></div></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1182,10 +1182,10 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       <h2 class="trust-h2">The most accurate Fischer's lovebird calculator</h2>
       <p class="trust-sub">Every result is cross-checked against the definitive scientific reference, so a prediction here is a prediction you can breed on.</p>
       <div class="trust-grid">
-        <div class="trust-card"><p class="trust-num" data-count="17">17</p><p class="trust-lbl">mutations modelled, including DEC &amp; SF/DF</p></div>
-        <div class="trust-card"><p class="trust-num" data-count="2016">2016</p><p class="trust-lbl">verified against Van den Abeele's Lovebird Compendium</p></div>
-        <div class="trust-card"><p class="trust-num" data-count="6">6</p><p class="trust-lbl">countries of active breeders</p></div>
-        <div class="trust-card"><p class="trust-num">Free</p><p class="trust-lbl">no account, no ads, forever</p></div>
+        <div class="trust-card"><p class="trust-num" data-count="17">17</p><p class="trust-lbl">mutations modelled, from Green, Blue and Aqua to Yellow Face, Opaline, Cinnamon, Pallid, Red Factor, the DEC / Ino compound and the SF/DF dominants most tools get wrong.</p></div>
+        <div class="trust-card"><p class="trust-num" data-count="2016">2016</p><p class="trust-lbl">every result is cross-checked against Dirk Van den Abeele's <em>Lovebird Compendium</em>, the 769-page book that is the definitive scientific reference for lovebird genetics.</p></div>
+        <div class="trust-card"><p class="trust-num" data-count="6">6</p><p class="trust-lbl">countries of active breeders use it daily: Bangladesh, Pakistan, India, UAE, Indonesia and the Philippines.</p></div>
+        <div class="trust-card"><p class="trust-num">Free</p><p class="trust-lbl">no account, no ads, no paywall, forever. Open it on any phone or computer and breed with confidence.</p></div>
       </div>
     </div>
     <div style="height:1px;background:var(--border);margin:26px auto 4px;"></div>
@@ -1245,36 +1245,9 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
         <p class="fcard-bio">One of Pakistan's leading specialists in Aqua and Parblue Fischer's lovebird genetics. Provided hands-on cross-validation for the calculator's Aqua series, Aqua B1, Aqua B2, Aqua Homo, and Parblue combinations, catching edge cases in multi-mutation pairings that pure theoretical modelling would have missed. His real-world verification is why the Aqua series results can be trusted.</p>
       </div>
     </div>
-    <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06);">
-      <p style="font-size:13px;font-weight:700;letter-spacing:0.01em;color:#f0f0ee;margin:0 0 4px;">Scientific References</p>
-      <p style="font-size:11px;color:#666;margin:0 0 16px;">Authoritative sources on Agapornis fischeri genetics and mutations</p>
-      <div class="ref-cards" style="display:flex;flex-wrap:wrap;gap:10px;">
-        <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-          <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          <div>
-            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">MutaBase, Full Lovebird Mutation Database</p>
-            <p style="font-size:11px;color:#555;margin:0;">mutabase.ogvzw.org/mutations.php</p>
-          </div>
-        </a>
-        <a href="https://en.wikipedia.org/wiki/Agapornis" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-          <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          <div>
-            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">Agapornis, Wikipedia</p>
-            <p style="font-size:11px;color:#555;margin:0;">en.wikipedia.org/wiki/Agapornis</p>
-          </div>
-        </a>
-        <a href="https://www.ogvzw.org/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-          <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          <div>
-            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">Ornitho-Genetics VZW</p>
-            <p style="font-size:11px;color:#555;margin:0;">ogvzw.org</p>
-          </div>
-        </a>
-      </div>
-    </div>
     <div class="footer-cols">
       <div class="footer-col">
-        <p class="footer-brand-name">Lovebird Genetics</p>
+        <p class="footer-brand-name">Lovebird Genetics Calculator</p>
         <p class="footer-brand-sub">by KinBird Aviary<br><img src="https://flagcdn.com/bd.svg" alt="Bangladesh" loading="lazy" style="height:0.85em;width:auto;vertical-align:-0.1em;border-radius:2px;margin:0 3px 0 0;display:inline-block;">Bangladesh</p>
         <a class="footer-brand-fb" href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
@@ -1571,6 +1544,34 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
         <li class="seo-validator-item"><strong style="color:#4ca154;font-weight:600;">Adnan Younus</strong> · Pakistan, specialises in advanced Aqua and Parblue series pairings.</li>
       </ul>
       <p class="seo-lead" style="margin-bottom:0;">Their combined real-world validation caught edge cases that pure theory alone would have missed.</p>
+    </div>
+
+    <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06);">
+      <p style="font-size:13px;font-weight:700;letter-spacing:0.01em;color:#f0f0ee;margin:0 0 4px;">Scientific References</p>
+      <p style="font-size:11px;color:#666;margin:0 0 16px;">Authoritative sources on Agapornis fischeri genetics and mutations</p>
+      <div class="ref-cards" style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">MutaBase, Full Lovebird Mutation Database</p>
+            <p style="font-size:11px;color:#555;margin:0;">mutabase.ogvzw.org/mutations.php</p>
+          </div>
+        </a>
+        <a href="https://en.wikipedia.org/wiki/Agapornis" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">Agapornis, Wikipedia</p>
+            <p style="font-size:11px;color:#555;margin:0;">en.wikipedia.org/wiki/Agapornis</p>
+          </div>
+        </a>
+        <a href="https://www.ogvzw.org/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">Ornitho-Genetics VZW</p>
+            <p style="font-size:11px;color:#555;margin:0;">ogvzw.org</p>
+          </div>
+        </a>
+      </div>
     </div>
 
     <!-- 6. External Authority Links (SEO) -->
