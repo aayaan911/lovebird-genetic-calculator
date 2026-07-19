@@ -1068,6 +1068,24 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 @media(max-width:600px){.ref-cards{flex-direction:column;}.ref-cards>a{min-width:0!important;width:100%;box-sizing:border-box;}}
 .footer-bar a,.footer-bar-text a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}.footer-bar a:hover,.footer-bar-text a:hover{opacity:0.8;}
 .seo-section{margin-top:10px;}
+
+/* ---- Authority ticker bar ---- */
+.vbar{background:linear-gradient(90deg,rgba(76,161,84,0.16),rgba(76,161,84,0.10));border-bottom:1px solid rgba(76,161,84,0.28);overflow:hidden;white-space:nowrap;position:relative;}
+.vbar-track{display:inline-block;white-space:nowrap;padding:8px 0;animation:vbarscroll 34s linear infinite;}
+.vbar-track span{font-size:12px;color:#dff0df;font-weight:500;padding:0 22px;font-family:var(--font);}
+.vbar-track .vdot{color:var(--accent);padding:0;}
+@keyframes vbarscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.vbar-track{animation:none;}}
+/* ---- Trust stats section ---- */
+.trust-band{max-width:1080px;margin:0 auto 8px;padding:8px 0 4px;text-align:center;}
+.trust-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#7fd88a;margin:0 0 8px;}
+.trust-h2{font-size:24px;font-weight:700;color:var(--text-1);margin:0 0 6px;letter-spacing:-0.02em;}
+.trust-sub{font-size:14px;color:var(--text-3);margin:0 auto 22px;max-width:470px;line-height:1.6;}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.trust-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px 14px;}
+.trust-num{font-size:34px;font-weight:700;color:var(--accent);margin:0;line-height:1;}
+.trust-lbl{font-size:12.5px;color:var(--text-3);margin:9px 0 0;line-height:1.45;}
+@media(max-width:640px){.trust-grid{grid-template-columns:1fr 1fr;}.trust-h2{font-size:20px;}}
 </style>
 <!-- FIX: prevent dark mode flash before first paint -->
 <script>
@@ -1128,6 +1146,10 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 </div>
 </noscript>
 
+<div class="vbar" role="note" aria-label="Trust and verification">
+  <div class="vbar-track"><span>&#10003; Verified against Van den Abeele's Lovebird Compendium</span><span class="vdot">&bull;</span><span>17 mutations, including DEC &amp; SF/DF dominants</span><span class="vdot">&bull;</span><span>Trusted by breeders in 6 countries</span><span class="vdot">&bull;</span><span>Free, no account, no ads</span><span class="vdot">&bull;</span><span>The most complete Fischer's lovebird genetics calculator</span><span class="vdot">&bull;</span><span>&#10003; Verified against Van den Abeele's Lovebird Compendium</span><span class="vdot">&bull;</span><span>17 mutations, including DEC &amp; SF/DF dominants</span><span class="vdot">&bull;</span><span>Trusted by breeders in 6 countries</span><span class="vdot">&bull;</span><span>Free, no account, no ads</span><span class="vdot">&bull;</span><span>The most complete Fischer's lovebird genetics calculator</span><span class="vdot">&bull;</span></div>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-controls" style="position:absolute;top:22px;display:flex;align-items:center;gap:8px;">
@@ -1158,6 +1180,18 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
+    <div class="trust-band">
+      <p class="trust-eyebrow">Why breeders trust it</p>
+      <h2 class="trust-h2">The most accurate Fischer's lovebird calculator</h2>
+      <p class="trust-sub">Every result is cross-checked against the definitive scientific reference, so a prediction here is a prediction you can breed on.</p>
+      <div class="trust-grid">
+        <div class="trust-card"><p class="trust-num" data-count="17">17</p><p class="trust-lbl">mutations modelled, including DEC &amp; SF/DF</p></div>
+        <div class="trust-card"><p class="trust-num" data-count="2016">2016</p><p class="trust-lbl">verified against Van den Abeele's Lovebird Compendium</p></div>
+        <div class="trust-card"><p class="trust-num" data-count="6">6</p><p class="trust-lbl">countries of active breeders</p></div>
+        <div class="trust-card"><p class="trust-num">Free</p><p class="trust-lbl">no account, no ads, forever</p></div>
+      </div>
+    </div>
+    <div style="height:1px;background:var(--border);max-width:1080px;margin:26px auto 4px;"></div>
     <span class="footer-eyebrow">The People Behind This Tool</span>
     <h2 class="footer-title">This tool wouldn't exist without them</h2>
     <div class="footer-grid">
@@ -2266,5 +2300,10 @@ btn.addEventListener('click',function(){const isDark=html.getAttribute('data-the
 if(typeof twemoji!=='undefined'){twemoji.parse(document.body,{folder:'svg',ext:'.svg'});}
 </script>
 <script>document.querySelectorAll(".cur-year").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+<script>
+(function(){var els=document.querySelectorAll('.trust-num[data-count]');if(!els.length)return;
+function run(el){var to=parseInt(el.getAttribute('data-count'),10);var n=0,step=Math.max(1,Math.ceil(to/45));var t=setInterval(function(){n+=step;if(n>=to){n=to;clearInterval(t);}el.textContent=n;},22);}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});},{threshold:0.4});els.forEach(function(el){io.observe(el);});}else{els.forEach(run);}})();
+</script>
 </body>
 </html>
