@@ -1070,14 +1070,12 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .seo-section{margin-top:10px;}
 
 /* ---- Authority ticker bar ---- */
-.vbar{background:linear-gradient(90deg,rgba(76,161,84,0.16),rgba(76,161,84,0.10));border-bottom:1px solid rgba(76,161,84,0.28);overflow:hidden;white-space:nowrap;position:relative;}
-.vbar-track{display:inline-block;white-space:nowrap;padding:8px 0;animation:vbarscroll 34s linear infinite;}
-.vbar-track span{font-size:12px;color:#dff0df;font-weight:500;padding:0 22px;font-family:var(--font);}
-.vbar-track .vdot{color:var(--accent);padding:0;}
-@keyframes vbarscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.vbar-track{animation:none;}}
+.vbar{background:rgba(76,161,84,0.10);border-bottom:1px solid rgba(76,161,84,0.24);padding:9px 16px;text-align:center;}
+.vbar span{font-size:12.5px;color:#e4efe3;font-weight:500;line-height:1.5;font-family:var(--font);}
+.vbar .vg{color:#7fd88a;font-weight:600;}
+@media(max-width:600px){.vbar span{font-size:11.5px;}}
 /* ---- Trust stats section ---- */
-.trust-band{max-width:1080px;margin:0 auto 8px;padding:8px 0 4px;text-align:center;}
+.trust-band{margin:0 auto 8px;padding:8px 0 4px;text-align:center;}
 .trust-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#7fd88a;margin:0 0 8px;}
 .trust-h2{font-size:24px;font-weight:700;color:var(--text-1);margin:0 0 6px;letter-spacing:-0.02em;}
 .trust-sub{font-size:14px;color:var(--text-3);margin:0 auto 22px;max-width:470px;line-height:1.6;}
@@ -1146,9 +1144,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 </div>
 </noscript>
 
-<div class="vbar" role="note" aria-label="Trust and verification">
-  <div class="vbar-track"><span>&#10003; Verified against Van den Abeele's Lovebird Compendium</span><span class="vdot">&bull;</span><span>17 mutations, including DEC &amp; SF/DF dominants</span><span class="vdot">&bull;</span><span>Trusted by breeders in 6 countries</span><span class="vdot">&bull;</span><span>Free, no account, no ads</span><span class="vdot">&bull;</span><span>The most complete Fischer's lovebird genetics calculator</span><span class="vdot">&bull;</span><span>&#10003; Verified against Van den Abeele's Lovebird Compendium</span><span class="vdot">&bull;</span><span>17 mutations, including DEC &amp; SF/DF dominants</span><span class="vdot">&bull;</span><span>Trusted by breeders in 6 countries</span><span class="vdot">&bull;</span><span>Free, no account, no ads</span><span class="vdot">&bull;</span><span>The most complete Fischer's lovebird genetics calculator</span><span class="vdot">&bull;</span></div>
-</div>
+<div class="vbar" role="note" aria-label="Verified"><span>&#10003; <span class="vg">The verified</span> Fischer's lovebird genetics calculator, cross-checked against Van den Abeele's <em>Lovebird Compendium</em></span></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1191,7 +1187,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
         <div class="trust-card"><p class="trust-num">Free</p><p class="trust-lbl">no account, no ads, forever</p></div>
       </div>
     </div>
-    <div style="height:1px;background:var(--border);max-width:1080px;margin:26px auto 4px;"></div>
+    <div style="height:1px;background:var(--border);margin:26px auto 4px;"></div>
     <span class="footer-eyebrow">The People Behind This Tool</span>
     <h2 class="footer-title">This tool wouldn't exist without them</h2>
     <div class="footer-grid">
