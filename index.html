@@ -1070,10 +1070,11 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .seo-section{margin-top:10px;}
 
 /* ---- Authority ticker bar ---- */
-.vbar{background:rgba(76,161,84,0.10);border-bottom:1px solid rgba(76,161,84,0.24);padding:9px 16px;text-align:center;}
+.vbar-wrap{max-width:1480px;margin:0 auto;padding:14px clamp(16px,4vw,48px) 0;}
+.vbar{background:rgba(76,161,84,0.09);border:1px solid rgba(76,161,84,0.26);border-radius:12px;padding:10px 18px;text-align:center;}
 .vbar span{font-size:12.5px;color:#e4efe3;font-weight:500;line-height:1.5;font-family:var(--font);}
 .vbar .vg{color:#7fd88a;font-weight:600;}
-@media(max-width:600px){.vbar span{font-size:11.5px;}}
+@media(max-width:600px){.vbar span{font-size:11.5px;}.vbar{padding:9px 14px;}}
 /* ---- Trust stats section ---- */
 .trust-band{margin:0 auto 8px;padding:8px 0 4px;text-align:center;}
 .trust-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#7fd88a;margin:0 0 8px;}
@@ -1144,7 +1145,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 </div>
 </noscript>
 
-<div class="vbar" role="note" aria-label="Verified"><span>&#10003; <span class="vg">The verified</span> Fischer's lovebird genetics calculator, cross-checked against Van den Abeele's <em>Lovebird Compendium</em></span></div>
+<div class="vbar-wrap"><div class="vbar" role="note" aria-label="Verified"><span>&#10003; <span class="vg">The verified</span> Fischer's lovebird genetics calculator, cross-checked against Van den Abeele's <em>Lovebird Compendium</em> (2016 book)</span></div></div>
 
 <!-- HERO -->
 <section class="hero">
