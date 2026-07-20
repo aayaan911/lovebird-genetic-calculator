@@ -1079,12 +1079,12 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 /* ---- Trust stats section ---- */
 .trust-band{margin:0 auto 8px;padding:8px 0 4px;text-align:center;}
 .trust-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#7fd88a;margin:0 0 8px;}
-.trust-h2{font-size:24px;font-weight:700;color:var(--text-1);margin:0 0 6px;letter-spacing:-0.02em;}
-.trust-sub{font-size:14px;color:var(--text-3);margin:0 auto 22px;max-width:470px;line-height:1.6;}
+.trust-h2{font-size:24px;font-weight:700;color:#f0f0ee;margin:0 0 6px;letter-spacing:-0.02em;}
+.trust-sub{font-size:14px;color:#a0a09a;margin:0 auto 22px;max-width:470px;line-height:1.6;}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.trust-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px 16px;display:flex;flex-direction:column;height:100%;}
+.trust-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:22px 16px;display:flex;flex-direction:column;height:100%;}
 .trust-num{font-size:34px;font-weight:700;color:var(--accent);margin:0;line-height:1;}
-.trust-lbl{font-size:12.5px;color:var(--text-3);margin:9px 0 0;line-height:1.45;}
+.trust-lbl{font-size:12.5px;color:#a0a09a;margin:9px 0 0;line-height:1.45;}
 @media(max-width:640px){.trust-grid{grid-template-columns:1fr 1fr;}.trust-h2{font-size:20px;}}
 </style>
 <!-- FIX: prevent dark mode flash before first paint -->
@@ -1189,7 +1189,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
         <div class="trust-card"><p class="trust-num">Free</p><p class="trust-lbl">No account, no ads, no paywall. Open it on any phone or computer and pair with confidence.</p></div>
       </div>
     </div>
-    <div style="height:1px;background:var(--border);margin:26px auto 50px;"></div>
+    <div style="height:1px;background:rgba(255,255,255,0.08);margin:26px auto 50px;"></div>
     <span class="footer-eyebrow">The People Behind This Tool</span>
     <h2 class="footer-title">This tool wouldn't exist without them</h2>
     <div class="footer-grid">
