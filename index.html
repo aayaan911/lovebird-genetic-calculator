@@ -149,6 +149,9 @@
   if(location.hostname==='genetic-calculator-v1.netlify.app'){
     location.replace('https://lovebirdgenetics.com'+location.pathname+location.search);
   }
+  if(location.hostname==='lovebird-genetic-calculator.pages.dev'){
+    location.replace('https://lovebirdgenetics.com'+location.pathname+location.search);
+  }
   if('serviceWorker' in navigator){
     window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js');});
   }
@@ -1091,7 +1094,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 <script>
   (function(){var t=localStorage.getItem('lb-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
 </script>
-<!--rebuild--></head>
+</head>
 <body>
 
 <!-- NOSCRIPT: Static content for search engine crawlers -->
