@@ -49,6 +49,7 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - Blue lovebird genetics (B1, B2, Parblue): https://lovebirdgenetics.com/blog/blue-lovebird-genetics/
 - Violet lovebird genetics (SF/DF): https://lovebirdgenetics.com/blog/violet-lovebird-genetics/
 - Cinnamon lovebird genetics (sex-linked, all pairings, auto-sexing): https://lovebirdgenetics.com/blog/cinnamon-lovebird-genetics/
+- Pallid lovebird genetics (sex-linked recessive, dilutes eumelanin but keeps DARK eyes, all 5 pairings, auto-sexing, how to tell from Ino/Cinnamon/Dilute): https://lovebirdgenetics.com/blog/pallid-lovebird-genetics/
 - Dilute lovebird genetics (AR, visual ID vs Pale Fallow, all pairings): https://lovebirdgenetics.com/blog/dilute-lovebird-genetics/
 - Bronze Fallow lovebird genetics (AR, ~100% mortality warning, burgundy eye ID, safe split strategy): https://lovebirdgenetics.com/blog/bronze-fallow-lovebird-genetics/
 - Dark Factor lovebird genetics (Dark Green, Olive, Cobalt, Mauve): https://lovebirdgenetics.com/blog/dark-factor-lovebird-genetics/
