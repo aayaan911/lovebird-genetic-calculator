@@ -76,6 +76,7 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - Red Factor lovebird genetics (what is confirmed vs claimed, psittacofulvin and diet explained, modelled autosomal recessive in the calculator, all cock x hen pairings): https://lovebirdgenetics.com/blog/red-factor-lovebird-genetics/
 - Recessive Pied lovebird genetics (autosomal recessive, hides in splits, how it differs from Dominant Pied, all cock x hen pairings): https://lovebirdgenetics.com/blog/recessive-pied-lovebird-genetics/
 - Dominant Pied lovebird genetics (autosomal dominant, SF and DF, no split form, how it differs from Recessive Pied, all cock x hen pairings): https://lovebirdgenetics.com/blog/dominant-pied-lovebird-genetics/
+- Pale lovebird genetics (proven sex-linked mutation allelic to SL ino per OGVZW, ~20% eumelanin reduction vs pallid ~50%, red eyes at hatch, male-only PaleIno and PalePallid compounds, all cock x hen pairings): https://lovebirdgenetics.com/blog/pale-lovebird-genetics/
 - Sitemap: https://lovebirdgenetics.com/sitemap.xml
 
 ## Category pages
