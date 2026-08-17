@@ -2214,11 +2214,23 @@ function trackPairing(){
     if(_has(/YellowFace|Yellow Face/i))_watch.push('yellowface');
     if(_has(/Aqua/i))_watch.push('aqua');
     if(_has(/DunFallow|Dun Fallow/i))_watch.push('dunfallow');
+    if(_has(/BronzeFallow|Bronze Fallow/i))_watch.push('bronzefallow');
+    if(_has(/PaleFallow|Pale Fallow/i))_watch.push('palefallow');
+    if(_has(/Parblue/i))_watch.push('parblue');
+    if(_has(/Opaline/i))_watch.push('opaline');
     let _combo=[];
     try{
       const _rt=(document.getElementById('rc')||{}).innerText||'';
-      if(/Parblue[^\n]*Yellow Face|Yellow Face[^\n]*Parblue/i.test(_rt))_combo.push('parblue_yellowface');
-      if(/Aqua[^\n]*Yellow Face|Yellow Face[^\n]*Aqua/i.test(_rt))_combo.push('aqua_yellowface');
+      const _line=(re)=>_rt.split('\n').some(l=>re.test(l));
+      if(_line(/Parblue.*Yellow Face|Yellow Face.*Parblue/i))_combo.push('parblue_yellowface');
+      if(_line(/Aqua.*Yellow Face|Yellow Face.*Aqua/i))_combo.push('aqua_yellowface');
+      if(_line(/Yellow Face.*Dun Fallow|Dun Fallow.*Yellow Face/i))_combo.push('yellowface_dunfallow');
+      if(_line(/Aqua.*Dun Fallow|Dun Fallow.*Aqua/i))_combo.push('aqua_dunfallow');
+      if(_line(/Aqua.*Yellow Face.*Dun Fallow|Aqua.*Dun Fallow.*Yellow Face/i))_combo.push('aqua_yf_dunfallow');
+      if(_line(/Aqua Homo/i))_combo.push('aqua_homo_produced');
+      if(/Bronze Fallow/i.test(_rt)&&!/\/\s*Bronze Fallow|\/\/\s*Bronze Fallow/i.test(_rt.split('\n').find(l=>/Bronze Fallow/i.test(l))||''))_combo.push('bronzefallow_visual_produced');
+      else if(/Bronze Fallow/i.test(_rt))_combo.push('bronzefallow_split_produced');
+      if(_line(/Pale Fallow.*Aqua|Aqua.*Pale Fallow/i))_combo.push('aqua_palefallow');
     }catch(e){}
     track('pairing_completed',{
       pairing:p1L+' × '+p2L,
