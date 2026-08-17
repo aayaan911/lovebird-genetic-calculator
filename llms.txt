@@ -12,7 +12,7 @@ Instantly predicts offspring mutation percentages for any Fischer's lovebird pai
 ## Key differentiator
 The only free calculator that correctly models SF (Single Factor) and DF (Double Factor) outcomes for autosomal dominant incomplete mutations. Previous tools either omitted these mutations entirely or handled them incorrectly.
 
-## Supported mutations (17 groups)
+## Supported mutations (18 groups)
 - Green Series (base color)
 - Blue Series: Blue 1, Blue 2, Parblue (B1B2)
 - Aqua Mutation: Aqua B1, Aqua B2, Aqua Homo (True Aqua)
@@ -29,6 +29,7 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - Euwing (autosomal dominant incomplete, SF/DF)
 - Greywing (sex-linked dominant incomplete per OGVZW: males SF/DF, hens single dose)
 - Misty (autosomal dominant incomplete, SF/DF)
+- Pastel (autosomal recessive, allele of the NSL-ino locus per OGVZW; forms Pastel // Ino and Pastel // DEC compounds)
 - Dark Eyed Clear (DEC) and DEC / Ino "Decino" (autosomal recessive, allele of the Ino gene — the only calculator that models the DEC + Ino compound correctly)
 
 ## Key pages
