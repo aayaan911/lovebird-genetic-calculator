@@ -224,20 +224,18 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .header-nav{display:flex;align-items:center;gap:10px;}
 .header-nav .header-cta{height:44px;padding:0 18px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;}
 .site-header{height:64px;}
-/* MOBILE: single row — logo left, CTA + theme right */
+/* MOBILE: single row — logo left, CTA + icon-only theme right */
 @media(max-width:600px){
   .site-header{height:60px;padding-top:0;padding-bottom:0;flex-wrap:nowrap;}
   .header-nav{gap:8px;flex-wrap:nowrap;}
   .header-nav .header-cta{height:40px;padding:0 12px;font-size:12.5px;gap:0;}
   .header-nav .header-cta svg{display:none;}
-  .theme-btn{height:40px;padding:0 12px;font-size:12.5px;gap:6px;}
-  .theme-btn svg{width:16px;height:16px;}
-}
-@media(max-width:400px){
-  .header-nav .header-cta{padding:0 10px;font-size:12px;}
-  .theme-btn{padding:0 10px;}
+  .theme-btn{height:40px;width:40px;padding:0;font-size:12.5px;gap:0;justify-content:center;}
   .theme-btn #theme-lbl,.theme-btn .theme-btn-lbl{display:none;}
-  .theme-btn svg{display:block;}
+  .theme-btn svg{display:block;width:17px;height:17px;}
+}
+@media(max-width:360px){
+  .header-nav .header-cta{padding:0 10px;font-size:12px;}
 }
 @media(max-width:340px){
   .brand>div:last-child{display:none;}
