@@ -239,10 +239,10 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-content tbody tr:hover td{background:var(--bg-input-filled,var(--bg-input));transition:background 0.15s;}
 .art-content .xrow td{background:var(--bg-input);border-bottom:1px solid var(--border-strong);font-weight:700;}
 .art-content .xrow:hover td{background:var(--bg-input);}
-/* Table links: visible affordance (arrow + green hover underline) */
-.art-content table a:not(.calc-cta-btn){color:var(--accent);font-weight:600;border-bottom:1.5px solid transparent;padding-bottom:1px;transition:border-color 0.15s;}
+/* Table links: visible affordance (arrow + animated left-to-right green underline) */
+.art-content table a:not(.calc-cta-btn){color:var(--accent);font-weight:600;padding-bottom:2px;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .art-content table a:not(.calc-cta-btn)::after{content:"\2192";display:inline-block;margin-left:4px;font-size:0.85em;opacity:0.75;transition:transform 0.15s;}
-.art-content table a:not(.calc-cta-btn):hover{border-bottom-color:var(--accent);}
+.art-content table a:not(.calc-cta-btn):hover{background-size:100% 1.5px;}
 .art-content table a:not(.calc-cta-btn):hover::after{transform:translateX(2px);}
 @media(max-width:600px){
   .art-content table{border-radius:12px;}
