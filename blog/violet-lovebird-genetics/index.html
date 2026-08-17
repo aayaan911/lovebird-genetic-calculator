@@ -253,7 +253,8 @@ html,body{overflow-x:clip;}
 .art-content{min-width:0;max-width:100%;}
 .art-content img{max-width:100%;height:auto;}
 .art-content table{display:table;width:100%;max-width:100%;}
-@media(max-width:600px){.art-content table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;}}
+.art-content th,.art-content td{overflow-wrap:break-word;}
+@media(max-width:600px){.art-content table{display:table;width:100%;table-layout:auto;}}
 .art-content pre{overflow-x:auto;max-width:100%;}
 /* Verified ticker bar — same as homepage */
 .vbar{background:var(--bg-input-filled,var(--bg-input));border-bottom:1px solid var(--border);}
