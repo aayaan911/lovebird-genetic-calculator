@@ -2208,14 +2208,39 @@ function trackPairing(){
   _pairingTimer=setTimeout(()=>{
     const p1L=mkLabel(S.p1p,'p1'),p2L=mkLabel(S.p2p,'p2');
     const mutCount=(S.p1t.filter(t=>t.id&&t.id!=='None').length)+(S.p2t.filter(t=>t.id&&t.id!=='None').length);
+    const _allSel=[S.p1p,S.p2p,p1L,p2L].join(' ')+' '+[...S.p1t,...S.p2t].map(t=>t&&t.id||'').join(' ');
+    const _has=(re)=>re.test(_allSel);
+    const _watch=[];
+    if(_has(/YellowFace|Yellow Face/i))_watch.push('yellowface');
+    if(_has(/Aqua/i))_watch.push('aqua');
+    if(_has(/DunFallow|Dun Fallow/i))_watch.push('dunfallow');
+    let _combo=[];
+    try{
+      const _rt=(document.getElementById('rc')||{}).innerText||'';
+      if(/Parblue[^\n]*Yellow Face|Yellow Face[^\n]*Parblue/i.test(_rt))_combo.push('parblue_yellowface');
+      if(/Aqua[^\n]*Yellow Face|Yellow Face[^\n]*Aqua/i.test(_rt))_combo.push('aqua_yellowface');
+    }catch(e){}
     track('pairing_completed',{
       pairing:p1L+' × '+p2L,
       father:p1L,
       mother:p2L,
       father_base:S.p1p,
       mother_base:S.p2p,
-      mutation_count:mutCount
+      mutation_count:mutCount,
+      watch_mutations:_watch.join('+')||'none',
+      result_combo:_combo.join('+')||'none'
     });
+    try{
+      if(typeof window.clarity==='function'){
+        window.clarity('set','watch_mutation',_watch.length?_watch:['none']);
+        window.clarity('set','result_combo',_combo.length?_combo:['none']);
+        window.clarity('set','pairing_label',p1L+' x '+p2L);
+        if(_watch.length||_combo.length){
+          window.clarity('set','priority_user','yes');
+          window.clarity('upgrade','priority_pairing');
+        }
+      }
+    }catch(e){}
   },1500);
 }
 
@@ -2261,7 +2286,7 @@ const pid=sel.dataset.pid,idx=parseInt(sel.dataset.idx),val=sel.value,traits=pid
 const parent=pid==='p1'?'father':'mother';
 if(_0xC8(val)){traits[idx]={id:val,status:'split'};}
 else{const m=_0xC9.find(x=>x.id===val);traits[idx]={id:val,status:val==='None'?null:defSt(m?.type)};}
-if(val&&val!=='None')track('trait_selected',{parent,trait:val});
+if(val&&val!=='None')track('trait_selected',{parent,trait:val});try{if(typeof window.clarity==='function'&&/YellowFace|Aqua|DunFallow/i.test(val||'')){window.clarity('set','watch_mutation_selected',String(val));window.clarity('set','priority_user','yes');window.clarity('upgrade','watch_mutation');}}catch(e){};
 trackPairing();
 render();
 }));
