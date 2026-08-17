@@ -108,7 +108,7 @@ a{color:inherit;text-decoration:none;}
 .blog-hero p{font-size:16px;color:var(--text-2);line-height:1.65;max-width:560px;}
 
 /* ── FILTER TABS ── */
-.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;align-items:center;}
+.filter-row{position:sticky;top:0;z-index:40;background:var(--bg-page);padding-top:10px;padding-bottom:10px;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;align-items:center;}
 .ftab{padding:7px 16px;border-radius:999px;border:1px solid var(--border-strong);font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer;background:transparent;font-family:var(--font);transition:all 0.18s;letter-spacing:0.01em;display:inline-flex;align-items:center;gap:5px;}
 .ftab:hover{border-color:var(--accent);color:var(--accent);}
 .ftab.on{background:var(--accent);color:#fff;border-color:var(--accent);}
@@ -140,7 +140,7 @@ a{color:inherit;text-decoration:none;}
 .read-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;margin-top:14px;}
 .read-link svg{transition:transform 0.18s;}
 .read-link:hover svg{transform:translateX(3px);}
-.featured-thumb{border-radius:14px;background:linear-gradient(135deg,var(--bg-input) 0%,var(--border) 100%);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:56px;}
+.featured-thumb{border-radius:14px;background:linear-gradient(135deg,var(--accent-dim,rgba(76,161,84,0.16)) 0%,var(--bg-input) 100%);border:1px solid var(--border);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;}
 
 /* ── ARTICLE GRID ── */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;}
@@ -272,44 +272,44 @@ html,body{overflow-x:clip;}
 
 <div class="page">
   <div class="blog-hero">
-    <p class="blog-eyebrow">Lovebird Genetics Blog, 23 guides</p>
-    <h1>Fischer's Lovebird Genetics<br>, Mutation Guides for Breeders</h1>
+    <p class="blog-eyebrow">Lovebird Genetics Blog, 31 guides</p>
+    <h1>Fischer's Lovebird Genetics,<br>Mutation Guides for Breeders</h1>
     <p>Mutation guides, pairing breakdowns, and genetics explained, built for breeders in Bangladesh, Pakistan, Indonesia, and worldwide. Every article is backed by the <em>Lovebird Compendium</em> (Dirk Van den Abeele, 2016).</p>
   </div>
 
   <div class="filter-row" role="list" aria-label="Filter articles by category">
-    <a class="ftab on" href="/blog/" role="listitem">All articles <span class="tab-count">23</span></a>
-    <a class="ftab" href="/blog/mutations/" role="listitem">Mutations <span class="tab-count">12</span></a>
-    <a class="ftab" href="/blog/pairings/" role="listitem">Pairings <span class="tab-count">2</span></a>
+    <a class="ftab on" href="/blog/" role="listitem">All articles <span class="tab-count">31</span></a>
+    <a class="ftab" href="/blog/mutations/" role="listitem">Mutations <span class="tab-count">16</span></a>
+    <a class="ftab" href="/blog/pairings/" role="listitem">Pairings <span class="tab-count">5</span></a>
     <a class="ftab" href="/blog/guides/" role="listitem">Guides &amp; Tools <span class="tab-count">4</span></a>
-    <a class="ftab" href="/blog/basics/" role="listitem">Genetics basics <span class="tab-count">5</span></a>
+    <a class="ftab" href="/blog/basics/" role="listitem">Genetics basics <span class="tab-count">6</span></a>
   </div>
 
-  <a class="featured-card" href="/blog/opaline-lovebird-genetics/" aria-label="Read: Opaline Lovebird Genetics" data-category="mutations">
+  <a class="featured-card" href="/blog/how-to-use-lovebird-genetics-calculator/" aria-label="Read: How to Use the Lovebird Genetics Calculator" data-category="guides">
     <div>
       <div class="featured-badge">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Featured guide
       </div>
-      <h2>Opaline Lovebird Genetics: The Complete Breeder's Guide</h2>
-      <p class="excerpt">Everything you need to understand Opaline inheritance, sex-linked rules, what splits look like, how to reliably produce Visual Opaline females, and the 5 most important pairings with exact percentages.</p>
+      <h2>How to Use the Lovebird Genetics Calculator, Step-by-Step Guide</h2>
+      <p class="excerpt">New to the calculator? This guide walks you through every step, selecting each parent's mutations, reading sex-linked male/female results, understanding splits, and turning percentages into real pairing decisions.</p>
       <div class="art-meta">
         <span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          12 min read
+          5 min read
         </span>
         <span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           June 2026
         </span>
-        <span class="inherit-badge sl">Sex-linked</span>
+        <span class="inherit-badge guide">Beginner guide</span>
       </div>
       <span class="read-link">
         Read the full guide
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </span>
     </div>
-    <div class="featured-thumb" aria-hidden="true">🦜</div>
+    <div class="featured-thumb" aria-hidden="true"><img src="/logo-icon.svg" width="76" height="76" alt="" loading="lazy" style="opacity:.92;"/></div>
   </a>
 
   <div class="grid">
@@ -369,7 +369,7 @@ html,body{overflow-x:clip;}
       <h3>Aqua Lovebird Genetics: B1, B2, and Homo Explained</h3>
       <p class="excerpt">Why Aqua Homo is in far stronger demand than B1 or B2, and the exact offspring you get from each Aqua pairing.</p>
       <div class="art-foot">
-        <span>15 min read · June 2026</span>
+        <span>15 min read · Updated Aug 2026</span>
         <span class="art-read">Read →</span>
       </div>
     </a>
@@ -595,15 +595,15 @@ html,body{overflow-x:clip;}
         <span class="art-read">Read →</span>
       </div>
     </a>
-    <a class="art-card" href="/blog/how-to-use-lovebird-genetics-calculator/" data-category="guides">
+    <a class="art-card" href="/blog/opaline-lovebird-genetics/" data-category="mutations">
       <div class="art-card-tags">
-        <span class="art-tag">Getting started</span>
-        <span class="inherit-badge guide">Beginner guide</span>
+        <span class="art-tag">Mutations</span>
+        <span class="inherit-badge sl">Sex-linked</span>
       </div>
-      <h3>How to Use the Lovebird Genetics Calculator, Step-by-Step Guide</h3>
-      <p class="excerpt">New to the calculator? This guide walks you through every step, selecting mutations, reading sex-linked results, understanding splits, and interpreting percentages.</p>
+      <h3>Opaline Lovebird Genetics: The Complete Breeder's Guide</h3>
+      <p class="excerpt">Everything you need to understand Opaline inheritance, sex-linked rules, what splits look like, how to reliably produce Visual Opaline females, and the 5 most important pairings with exact percentages.</p>
       <div class="art-foot">
-        <span>5 min read · June 2026</span>
+        <span>12 min read · June 2026</span>
         <span class="art-read">Read →</span>
       </div>
     </a>
