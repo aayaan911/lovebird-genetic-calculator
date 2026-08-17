@@ -215,28 +215,30 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 </style>
 <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="PmgCyoZ9lZCHjGqtPFie2ZsNRN9xTUEp"></script>
 <style id="hdr-compact-fix">
-/* Match homepage brand typography exactly */
-.brand-name{font-size:15px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;}
-.brand-sub{font-size:11px;font-weight:500;margin-top:1px;letter-spacing:0.01em;}
+/* Match homepage brand typography exactly — never shrink, never wrap */
+.brand{flex-shrink:0;}
+.brand-name{font-size:15px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;white-space:nowrap;}
+.brand-sub{font-size:11px;font-weight:500;margin-top:1px;letter-spacing:0.01em;white-space:nowrap;}
 /* Match homepage theme button exactly (44px, 13px, hover invert, 18px icon) */
 .theme-btn{height:44px;padding:0 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-btn);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;color:var(--text-2);font-family:var(--font);font-size:13px;font-weight:600;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
 .theme-btn:hover{background:var(--text-1);color:var(--bg-page);border-color:var(--text-1);}
 .theme-btn svg{width:18px;height:18px;}
 .theme-btn *{pointer-events:none;}
-.header-nav{display:flex;align-items:center;gap:10px;}
-.header-nav .header-cta{height:44px;padding:0 18px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;}
-.site-header{height:64px;}
-/* MOBILE: single row — logo left, CTA + icon-only theme right */
+/* Nav (CTA + theme) always flush right */
+.header-nav{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0;}
+.header-nav .header-cta{height:44px;padding:0 18px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.site-header{display:flex;align-items:center;justify-content:space-between;height:64px;}
+/* MOBILE: same single row, compact buttons */
 @media(max-width:600px){
   .site-header{height:60px;padding-top:0;padding-bottom:0;flex-wrap:nowrap;}
-  .header-nav{gap:8px;flex-wrap:nowrap;}
+  .header-nav{gap:8px;}
   .header-nav .header-cta{height:40px;padding:0 12px;font-size:12.5px;gap:0;}
   .header-nav .header-cta svg{display:none;}
-  .theme-btn{height:40px;width:40px;padding:0;font-size:12.5px;gap:0;justify-content:center;}
+  .theme-btn{height:40px;width:40px;padding:0;gap:0;}
   .theme-btn #theme-lbl,.theme-btn .theme-btn-lbl{display:none;}
   .theme-btn svg{display:block;width:17px;height:17px;}
 }
-@media(max-width:360px){
+@media(max-width:374px){
   .header-nav .header-cta{padding:0 10px;font-size:12px;}
 }
 @media(max-width:340px){
