@@ -196,21 +196,26 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .theme-btn:hover{background:var(--text-1);color:var(--bg-page);border-color:var(--text-1);}
 .theme-btn svg{width:18px;height:18px;}
 .theme-btn *{pointer-events:none;}
-/* CTA matches button height for a uniform header */
+.header-nav{display:flex;align-items:center;gap:10px;}
 .header-nav .header-cta{height:44px;padding:0 18px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;}
 .site-header{height:64px;}
-/* MOBILE: two rows. Row 1 = logo left + Open calculator right. Row 2 = Blog, About ... Dark */
+/* MOBILE: single row — logo left, CTA + theme right */
 @media(max-width:600px){
-  .site-header{flex-wrap:wrap;height:auto;position:relative;row-gap:12px;padding-top:12px;padding-bottom:12px;}
-  .header-nav .header-cta{position:absolute;top:12px;right:clamp(16px,4vw,48px);height:40px;padding:0 14px;font-size:12.5px;gap:6px;}
-  .header-nav{width:100%;display:flex;flex-wrap:nowrap;align-items:center;gap:18px;justify-content:flex-start;}
-  .header-nav a{font-size:13px;white-space:nowrap;}
-  .theme-btn{height:40px;padding:0 12px;font-size:12.5px;gap:6px;margin-left:auto;}
-}
-@media(max-width:374px){
-  .header-nav{gap:12px;}
-  .header-nav .header-cta{padding:0 10px;}
+  .site-header{height:60px;padding-top:0;padding-bottom:0;flex-wrap:nowrap;}
+  .header-nav{gap:8px;flex-wrap:nowrap;}
+  .header-nav .header-cta{height:40px;padding:0 12px;font-size:12.5px;gap:0;}
   .header-nav .header-cta svg{display:none;}
+  .theme-btn{height:40px;padding:0 12px;font-size:12.5px;gap:6px;}
+  .theme-btn svg{width:16px;height:16px;}
+}
+@media(max-width:400px){
+  .header-nav .header-cta{padding:0 10px;font-size:12px;}
+  .theme-btn{padding:0 10px;}
+  .theme-btn #theme-lbl,.theme-btn .theme-btn-lbl{display:none;}
+  .theme-btn svg{display:block;}
+}
+@media(max-width:340px){
+  .brand>div:last-child{display:none;}
 }
 </style>
 </head>
@@ -222,8 +227,6 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
       <div><div class="brand-name">Lovebird Genetics</div><div class="brand-sub">by KinBird Aviary</div></div>
     </a>
     <nav class="header-nav" aria-label="Site navigation">
-      <a href="/blog/" class="active">Blog</a>
-      <a href="/about/">About</a>
       <a href="/" class="header-cta">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
         Open calculator
