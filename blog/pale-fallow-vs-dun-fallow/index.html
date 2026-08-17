@@ -242,6 +242,10 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-content tbody tr:hover td{background:var(--bg-input-filled,var(--bg-input));transition:background 0.15s;}
 .art-content .xrow td{background:var(--bg-input);border-bottom:1px solid var(--border-strong);font-weight:700;}
 .art-content .xrow:hover td{background:var(--bg-input);}
+/* Tables stand alone: dissolve wrapper boxes, labels become green bold headings */
+.art-content .pairing-box{background:transparent;border:none;box-shadow:none;padding:0;border-radius:0;margin:28px 0;}
+.art-content .pairing-box-label,.art-content .pairing-title{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:12px;}
+.art-content .chart-table-wrap{background:transparent;border:none;box-shadow:none;padding:0;border-radius:0;}
 /* Global text-link hover: animated left-to-right underline (prose, tables, crumbs, footer). Cards/buttons excluded by scope */
 .art-content p a:not(.calc-cta-btn),.art-content li a:not(.calc-cta-btn),.art-content table a:not(.calc-cta-btn),.breadcrumb a,.crumb a,.site-footer a,.further-reading a,.fr-list a{text-decoration:none;padding-bottom:2px;background-image:linear-gradient(currentColor,currentColor);background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .art-content p a:not(.calc-cta-btn):hover,.art-content li a:not(.calc-cta-btn):hover,.art-content table a:not(.calc-cta-btn):hover,.breadcrumb a:hover,.crumb a:hover,.site-footer a:hover,.further-reading a:hover,.fr-list a:hover{background-size:100% 1.5px;}
