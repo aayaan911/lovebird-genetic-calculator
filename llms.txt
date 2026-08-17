@@ -70,6 +70,7 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - How many eggs do lovebirds lay in a year (clutch size, clutches per year, egg-to-fledge timeline, incubation, candling, laying without a mate): https://lovebirdgenetics.com/blog/how-many-eggs-do-lovebirds-lay/
 - Euwing vs Greywing vs Misty (Euwing and Misty autosomal dominant incomplete plus sex-linked dominant Greywing, SF vs DF explained, no splits exist, all four engine-verified pairings, why most calculators model dominants wrong): https://lovebirdgenetics.com/blog/euwing-greywing-misty-lovebirds/
 - Parblue lovebird genetics (Blue 1 + Blue 2 compound, split parblue explained, Blue 1 x Blue 2 = 100% parblue, all pairings, Creamino & Parblue Yellow Face combinations): https://lovebirdgenetics.com/blog/parblue-lovebird-genetics/
+- Sapphire lovebird genetics (why sapphire is a blue1-blue2 crossing-over, not a separate gene; OGVZW research status): https://lovebirdgenetics.com/blog/sapphire-lovebird-genetics/
 - Dark Eyed Clear (DEC) & Decino mutation (allele of Ino gene, DEC vs Lutino, Green/Blue/Parblue DecIno forms, Compendium-verified pairings): https://lovebirdgenetics.com/blog/dark-eyed-clear-decino-lovebirds/
 - Sitemap: https://lovebirdgenetics.com/sitemap.xml
 
