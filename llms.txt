@@ -74,6 +74,8 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - Dark Eyed Clear (DEC) & Decino mutation (allele of Ino gene, DEC vs Lutino, Green/Blue/Parblue DecIno forms, Compendium-verified pairings): https://lovebirdgenetics.com/blog/dark-eyed-clear-decino-lovebirds/
 - Pastel lovebird genetics (autosomal recessive, allele of the NSL-ino locus per OGVZW, Pastel // Ino and Pastel // DEC compounds, all cock x hen pairings): https://lovebirdgenetics.com/blog/pastel-lovebird-genetics/
 - Red Factor lovebird genetics (what is confirmed vs claimed, psittacofulvin and diet explained, modelled autosomal recessive in the calculator, all cock x hen pairings): https://lovebirdgenetics.com/blog/red-factor-lovebird-genetics/
+- Recessive Pied lovebird genetics (autosomal recessive, hides in splits, how it differs from Dominant Pied, all cock x hen pairings): https://lovebirdgenetics.com/blog/recessive-pied-lovebird-genetics/
+- Dominant Pied lovebird genetics (autosomal dominant, SF and DF, no split form, how it differs from Recessive Pied, all cock x hen pairings): https://lovebirdgenetics.com/blog/dominant-pied-lovebird-genetics/
 - Sitemap: https://lovebirdgenetics.com/sitemap.xml
 
 ## Category pages
