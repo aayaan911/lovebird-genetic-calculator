@@ -242,18 +242,18 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 /* CTA matches button height for a uniform header */
 .header-nav .header-cta{height:44px;padding:0 18px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;}
 .site-header{height:64px;}
+/* MOBILE: two rows. Row 1 = logo left + Open calculator right. Row 2 = Blog, About ... Dark */
 @media(max-width:600px){
-  .site-header{flex-wrap:wrap;height:auto;row-gap:10px;padding-top:10px;padding-bottom:10px;}
-  .header-nav{width:100%;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:8px;}
+  .site-header{flex-wrap:wrap;height:auto;position:relative;row-gap:12px;padding-top:12px;padding-bottom:12px;}
+  .header-nav .header-cta{position:absolute;top:12px;right:clamp(16px,4vw,48px);height:40px;padding:0 14px;font-size:12.5px;gap:6px;}
+  .header-nav{width:100%;display:flex;flex-wrap:nowrap;align-items:center;gap:18px;justify-content:flex-start;}
   .header-nav a{font-size:13px;white-space:nowrap;}
-  .header-nav .header-cta{height:40px;padding:0 14px;font-size:12.5px;gap:6px;}
-  .theme-btn{height:40px;padding:0 12px;font-size:12.5px;gap:6px;}
+  .theme-btn{height:40px;padding:0 12px;font-size:12.5px;gap:6px;margin-left:auto;}
 }
 @media(max-width:374px){
-  .header-nav{gap:5px;}
+  .header-nav{gap:12px;}
   .header-nav .header-cta{padding:0 10px;}
   .header-nav .header-cta svg{display:none;}
-  .theme-btn svg{display:none;}
 }
 </style>
 </head>
