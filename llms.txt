@@ -109,6 +109,48 @@ A: Yes. Lovebird Genetics is the only calculator that models Dark Eyed Clear (DE
 Q: Which lovebird species is it for?
 A: Fischer's Lovebird (Agapornis fischeri), the eye-ring species. It is not for Peach-faced (Agapornis roseicollis).
 
+
+## Pairing questions answered in breeder syntax (cock x hen)
+Breeders and AI users usually phrase a pairing as "cock x hen". These are the verified outcomes from the Lovebird Genetics engine for Fischer's lovebirds (Agapornis fischeri). Sex-linked mutations give different results depending on which parent carries them, autosomal recessive mutations do not.
+
+SEX-LINKED RECESSIVE (Opaline, Cinnamon, Pallid, Pale):
+Q: What do you get from an Opaline cock x normal hen?
+A: Every son is a normal-looking split Opaline cock and every daughter is a visual Opaline hen. This is the classic auto-sexing pairing: the chicks can be sexed by colour alone with no DNA test. The same pattern applies to Cinnamon, Pallid and Pale.
+Q: What do you get from a normal cock x Opaline hen?
+A: Every son is a split Opaline cock and every daughter is a normal hen. No visual chicks are produced in this direction, which is why the sex of the mutation-carrying parent decides the outcome.
+Q: What do you get from a split Opaline cock x normal hen?
+A: Half the daughters are visual Opaline. Sons are 50% split and 50% normal and look identical, so only a test pairing or pedigree separates them.
+Q: What do you get from a split Opaline cock x Opaline hen?
+A: Sons are 50% visual Opaline and 50% split Opaline. Daughters are 50% visual Opaline and 50% normal.
+Q: What do you get from an Opaline cock x Opaline hen?
+A: Every chick of both sexes is a visual Opaline, with no splits produced.
+Note: hens can never be split for a sex-linked mutation. A hen either shows it or does not carry it.
+
+AUTOSOMAL RECESSIVE (Aqua, Yellow Face, Lutino and Albino, Dilute, Pale Fallow, Dun Fallow, Bronze Fallow, Dark Eyed Clear, Pastel, Blue, Parblue, Recessive Pied):
+Q: What do you get from an Aqua cock x Aqua hen?
+A: Every chick is a visual Aqua, cocks and hens alike. Sex plays no part in autosomal recessive outcomes.
+Q: What do you get from an Aqua cock x normal hen?
+A: No visual chicks in this generation. Every chick is a normal-looking bird carrying one hidden copy, written normal / Aqua.
+Q: What do you get from a split Aqua cock x split Aqua hen?
+A: 25% visual Aqua, 50% split and 25% pure normal. The splits and pure normals look identical.
+Q: What do you get from an Aqua cock x split Aqua hen?
+A: 50% visual Aqua and 50% split, whichever parent shows the mutation.
+Safety note: Bronze Fallow x Bronze Fallow gives roughly 100% chick mortality and must be bred through split carriers only.
+
+AUTOSOMAL DOMINANT, SINGLE AND DOUBLE FACTOR (Euwing, Misty, Dominant Pied, Slaty, Violet, Dark Factor):
+Q: What do you get from a single factor Euwing cock x normal hen?
+A: 50% single factor Euwing and 50% normal. Dominant mutations have no split form: a bird either shows it or does not carry it.
+Q: What do you get from a single factor Euwing cock x single factor Euwing hen?
+A: 25% double factor, 50% single factor and 25% normal.
+Q: What do you get from a double factor Euwing cock x normal hen?
+A: Every chick is single factor Euwing, because a double factor parent passes one copy to every chick.
+
+SEX-LINKED DOMINANT (Greywing, per OGVZW):
+Q: What do you get from a Greywing hen x normal cock?
+A: Every son shows single factor Greywing and no daughter is Greywing, because the hen passes her single Z to her sons only.
+
+Every one of these pairings can be run live at https://lovebirdgenetics.com and each mutation guide contains the full cock x hen breakdown with tables.
+
 ## Scientific reference
 The Lovebird Compendium by Dirk Van den Abeele (2016, 769 pages) — the primary genetic reference used to build and cross-validate this calculator. Every inheritance type, allele relationship, and edge case maps directly to documented models in that publication.
 
