@@ -247,9 +247,17 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 @media(max-width:340px){
   .brand>div:last-child{display:none;}
 }
+/* Verified ticker bar — same as homepage */
+.vbar{background:var(--bg-input-filled,var(--bg-input));border-bottom:1px solid var(--border);}
+.vbar-inner{max-width:1480px;margin:0 auto;padding:9px clamp(16px,4vw,48px);text-align:center;}
+.vbar span{font-size:12px;color:var(--text-2);font-weight:500;line-height:1.5;font-family:var(--font);}
+.vbar .vg{color:var(--accent);font-weight:600;}
+.vbar-sm{display:none;}
+@media(max-width:600px){.vbar span{font-size:11.5px;}.vbar-inner{padding:7px 14px;}.vbar-lg{display:none;}.vbar-sm{display:inline;}}
 </style>
 </head>
 <body>
+<div class="vbar" role="note" aria-label="Verified"><div class="vbar-inner"><span class="vbar-lg"><span class="vg">&#10003; The verified</span> Fischer's Lovebird Genetics Calculator, cross-checked against the <em>Lovebird Compendium</em> (2016)</span><span class="vbar-sm"><span class="vg">&#10003; Verified</span> against the <em>Lovebird Compendium</em> (2016)</span></div></div>
 <div class="header-wrap">
   <header class="site-header">
     <a class="brand" href="/" aria-label="Lovebird Genetics Calculator home">
