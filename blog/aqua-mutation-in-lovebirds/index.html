@@ -336,7 +336,8 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 }
 /* Popup-style tables — homepage dropdown skin (Ayaan approved 2026-08-17) */
 .art-content table{border-collapse:separate;border-spacing:0;background:var(--bg-card);border:1.5px solid var(--border-strong);border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.18),0 16px 48px rgba(0,0,0,0.10);}
-.art-content th{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--bg-card);text-align:left;}
+.art-content th{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--bg-card);text-align:left;min-width:108px;hyphens:auto;}
+@media(max-width:600px){.art-content th{min-width:70px;letter-spacing:0.06em;}}
 .art-content td{padding:13px 14px;border-bottom:1px solid var(--border);font-weight:600;}
 .art-content tr:last-child td{border-bottom:none;}
 .art-content tbody tr:hover td{background:var(--bg-input-filled,var(--bg-input));transition:background 0.15s;}
