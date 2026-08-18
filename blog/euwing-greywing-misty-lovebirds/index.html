@@ -42,7 +42,7 @@
   "author":{"@type":"Person","name":"Ayaan Shohan","url":"https://lovebirdgenetics.com/about/","jobTitle":"Professional Fischer's Lovebird Breeder","worksFor":{"@type":"Organization","name":"KinBird Aviary"},"knowsAbout":["Fischer's lovebird genetics","lovebird mutation breeding","Dominant mutations (Euwing, Misty autosomal; Greywing sex-linked per OGVZW) and SF/DF inheritance in Fischer's lovebirds"],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Fischer's Lovebird Breeder since 2023, Bangladesh"}},
   "publisher":{"@type":"Organization","name":"KinBird Aviary","url":"https://lovebirdgenetics.com/","logo":{"@type":"ImageObject","url":"https://lovebirdgenetics.com/logo-icon.svg"}},
   "isPartOf":{"@type":"Blog","name":"Lovebird Genetics Blog","url":"https://lovebirdgenetics.com/blog/"},
-  "citation":{"@type":"Book","name":"Lovebird Compendium","author":{"@type":"Person","name":"Dirk Van den Abeele"},"datePublished":"2026-06-23"}
+  "citation":{"@type":"Book","name":"Lovebird Compendium","author":{"@type":"Person","name":"Dirk Van den Abeele"},"datePublished":"2016"}
 }
 </script>
 <script type="application/ld+json">
@@ -119,7 +119,7 @@
    "name": "What is the difference between Euwing, Greywing and Misty?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "All three are autosomal dominant incomplete mutations in Agapornis fischeri and all three follow identical SF/DF inheritance rules, but they affect the bird differently. Euwing alters the wing pattern, producing the distinctive contrast between wing coverts and flights that gives it the name. Greywing reduces melanin in the wing markings, softening the black to grey. Misty darkens and mutes the overall body tone. Because their inheritance is identical, the same pairing percentages apply to each one."
+    "text": "Euwing and Misty are autosomal dominant incomplete mutations in Agapornis fischeri and share identical SF/DF percentages. Greywing is sex-linked incomplete dominant per Ornitho-Genetics VZW, so its outcomes must be read by sex. They also affect the bird differently. Euwing alters the wing pattern, producing the distinctive contrast between wing coverts and flights that gives it the name. Greywing reduces melanin in the wing markings, softening the black to grey. Misty darkens and mutes the overall body tone. The same pairing percentages apply to Euwing and Misty, but not to Greywing."
    }
   },
   {
@@ -127,7 +127,7 @@
    "name": "Why do most lovebird genetics calculators get Euwing wrong?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Most older calculators were built around recessive and sex-linked mutations only, and they either omit autosomal dominant incomplete mutations entirely or model them as simple recessives, which produces wrong percentages. Dominant incomplete inheritance needs separate SF and DF states rather than a visual/split distinction. The Lovebird Genetics calculator models all four SF/DF combinations correctly (Normal x SF, Normal x DF, SF x SF, DF x SF), which is why its Euwing, Greywing and Misty outcomes differ from tools that treat them as recessive."
+    "text": "Most older calculators were built around recessive and sex-linked mutations only, and they either omit autosomal dominant incomplete mutations entirely or model them as simple recessives, which produces wrong percentages. Dominant incomplete inheritance needs separate SF and DF states rather than a visual/split distinction. The Lovebird Genetics calculator models all four SF/DF combinations correctly for Euwing and Misty (Normal x SF, Normal x DF, SF x SF, DF x SF), and it models Greywing on a separate sex-linked dominant basis that splits the outcome between sons and daughters. That is why its Euwing, Greywing and Misty outcomes differ from tools that treat them as recessive."
    }
   }
  ]
@@ -278,13 +278,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 @media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
 </style>
 <style id="hdr-compact-fix">
-/* Shared 1100px page shell — same as blog index */
+/* Shared 1100px page shell , same as blog index */
 .page-wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 80px;}
 .breadcrumb{max-width:1100px;}
 .art-header{max-width:1100px;}
 .art-layout{max-width:1100px;}
 
-/* Match homepage brand typography exactly — never shrink, never wrap */
+/* Match homepage brand typography exactly , never shrink, never wrap */
 .brand{flex-shrink:0;}
 .brand-name{font-size:15px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;white-space:nowrap;}
 .brand-sub{font-size:11px;font-weight:500;margin-top:1px;letter-spacing:0.01em;white-space:nowrap;}
@@ -319,7 +319,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 @media(max-width:340px){
   .brand>div:last-child{display:none;}
 }
-/* Popup-style tables — homepage dropdown skin (Ayaan approved 2026-08-17) */
+/* Popup-style tables , homepage dropdown skin (Ayaan approved 2026-08-17) */
 .art-content table{border-collapse:separate;border-spacing:0;background:var(--bg-card);border:1.5px solid var(--border-strong);border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.18),0 16px 48px rgba(0,0,0,0.10);}
 .art-content th{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);font-weight:700;padding:10px 14px;border-bottom:1px solid var(--border);background:var(--bg-card);text-align:left;min-width:108px;hyphens:auto;}
 @media(max-width:600px){.art-content th{min-width:70px;letter-spacing:0.06em;}}
@@ -355,7 +355,7 @@ html,body{overflow-x:clip;}
 .art-content th,.art-content td{overflow-wrap:break-word;}
 @media(max-width:600px){.art-content table{display:table;width:100%;table-layout:auto;}}
 .art-content pre{overflow-x:auto;max-width:100%;}
-/* Verified ticker bar — same as homepage */
+/* Verified ticker bar , same as homepage */
 .vbar{background:var(--bg-input-filled,var(--bg-input));border-bottom:1px solid var(--border);}
 .vbar-inner{max-width:1480px;margin:0 auto;padding:9px clamp(16px,4vw,48px);text-align:center;}
 .vbar span{font-size:12px;color:var(--text-2);font-weight:500;line-height:1.5;font-family:var(--font);}
@@ -406,21 +406,21 @@ html,body{overflow-x:clip;}
 
       <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--surface,var(--bg-card));border-left:4px solid var(--accent,#4CA154);border-radius:0 10px 10px 0;">
         <strong>TL;DR</strong>
-        <p style="margin:8px 0 0;">Euwing and Misty are <strong>autosomal dominant incomplete</strong> mutations and Greywing is <strong>sex-linked dominant</strong> (per OGVZW) in Fischer's lovebirds. One copy (<strong>Single Factor, SF</strong>) already shows; two copies (<strong>Double Factor, DF</strong>) show more strongly. <strong>There is no "split" for these mutations</strong> - if the gene is present, you can see it. All three follow identical inheritance, so the same percentages apply to each: <strong>SF &times; SF = 25% DF, 50% SF, 25% normal</strong>. The fastest route to DF is <strong>DF &times; SF = 50% DF</strong>.</p>
+        <p style="margin:8px 0 0;">Euwing and Misty are <strong>autosomal dominant incomplete</strong> mutations and Greywing is <strong>sex-linked dominant</strong> (per OGVZW) in Fischer's lovebirds. One copy (<strong>Single Factor, SF</strong>) already shows; two copies (<strong>Double Factor, DF</strong>) show more strongly. <strong>There is no "split" for these mutations</strong> - if the gene is present, you can see it. For <strong>Euwing and Misty</strong>, <strong>SF &times; SF = 25% DF, 50% SF, 25% normal</strong>, and the fastest route to DF is <strong>DF &times; SF = 50% DF</strong>. Greywing is sex-linked, so its outcomes have to be read by sex.</p>
       </div>
-<div class="key-box"><span class="key-box-label">Updated August 2026, inheritance correction</span><p>Following Ornitho-Genetics VZW (Dirk Van den Abeele) test-mating and feather research, Greywing in Fischer's lovebirds is <strong>sex-linked incomplete dominant</strong>, not autosomal. The first birds were reported in the Netherlands in 2009-2010, and OGVZW's feather cross-sections matched the SL dominant greywing of the lineolated parakeet (<em>Bolborhynchus lineola</em>), so the official suggested name is <strong>SL dominant greywing</strong>. It is not the same mutation as the autosomal dominant edged Fischer's, which it was historically confused with. Practical effect: a Greywing hen paired to a normal male produces greywing sons only and normal daughters, while a Greywing SF male passes the gene to daughters as single-dose visuals. Euwing and Misty remain autosomal dominant incomplete. Sources: <a href="https://www.ogvzw.org/sl-dominant-greywing-mutation-in-agapornis-fischeri/" rel="noopener" target="_blank">OGVZW: SL dominant greywing in A. fischeri</a> and <a href="https://www.ogvzw.org/results-feather-research-sl-dominant-greywing-agapornis-fischeri/" rel="noopener" target="_blank">OGVZW: feather research results</a>. The calculator has been updated to model Greywing sex-linked.</p></div>
+<div class="key-box"><span class="key-box-label">Updated August 2026, inheritance correction</span><p>Following Ornitho-Genetics VZW (Dirk Van den Abeele) test-mating and feather research, Greywing in Fischer's lovebirds is <strong>sex-linked incomplete dominant</strong>, not autosomal. The first birds were reported in the Netherlands in 2009-2010, and OGVZW's feather cross-sections matched the SL dominant greywing of the lineolated parakeet (<em>Bolborhynchus lineola</em>), so the official suggested name is <strong>SL dominant greywing</strong>. It is not the same mutation as the autosomal dominant edged Fischer's, which it was historically confused with. Practical effect: a Greywing hen paired to a normal male produces greywing sons only and normal daughters, while a Greywing SF cock gives half his daughters single-dose visuals, and a DF cock gives all of them. Euwing and Misty remain autosomal dominant incomplete. Sources: <a href="https://www.ogvzw.org/sl-dominant-greywing-mutation-in-agapornis-fischeri/" rel="noopener" target="_blank">OGVZW: SL dominant greywing in A. fischeri</a> and <a href="https://www.ogvzw.org/results-feather-research-sl-dominant-greywing-agapornis-fischeri/" rel="noopener" target="_blank">OGVZW: feather research results</a>. The calculator has been updated to model Greywing sex-linked.</p></div>
 
 
       <div class="try-pairings"><div class="try-pairings-label">Try these pairings instantly</div><div class="try-pairings-row"><a class="try-chip" href="/?m=Green&mt=Euwing%3ASF&f=Green&ft=Euwing%3ASF">&rarr; Euwing SF &times; Euwing SF</a><a class="try-chip" href="/?m=Green&mt=Euwing%3ADF&f=Green&ft=Euwing%3ASF">&rarr; Euwing DF &times; Euwing SF</a><a class="try-chip" href="/?m=Green&mt=Euwing%3ASF&f=Green">&rarr; Euwing SF &times; Normal</a><a class="try-chip" href="/?m=Green&mt=Greywing%3ASF&f=Green&ft=Greywing%3ASF">&rarr; Greywing SF &times; Greywing SF</a></div></div>
 
       <h2 id="what-is-sf-df">What do SF and DF mean in lovebirds?</h2>
       <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>SF means Single Factor (one copy of the gene) and DF means Double Factor (two copies).</strong> Euwing and Misty are autosomal dominant incomplete and Greywing is sex-linked dominant, so a single copy already produces a visible effect, and two copies produce a stronger version of that same effect. This is why a bird can never be "split" for these mutations: if it carries the gene, you can see it.</p>
-      <p>Almost every mutation breeders work with is recessive (Ino, Aqua, Dilute, the Fallows) or sex-linked (Opaline, Cinnamon, Pallid). In both cases a bird can carry the gene invisibly as a split, and you need two copies, or the right sex chromosome, before anything shows. Dominant incomplete mutations break that pattern entirely.</p>
+      <p>Almost every mutation breeders work with is recessive (Ino, Aqua, Dilute, the Fallows) or sex-linked (Opaline, Cinnamon, Pale, plus the not-yet-confirmed pallid phenotype). In both cases a bird can carry the gene invisibly as a split, and you need two copies, or the right sex chromosome, before anything shows. Dominant incomplete mutations break that pattern entirely.</p>
       <p>"Incomplete" is the key word. In full dominance, one copy and two copies look identical. Here they do not: SF shows the effect, and DF shows it more strongly. That intermediate step is what makes these three mutations both easy to track and easy to model wrongly.</p>
       <div class="key-box" style="border-color:rgba(76,161,84,0.35);background:rgba(76,161,84,0.05);"><div class="key-box-label" style="color:var(--accent);">The rule that saves you seasons</div><p>You never have to test-breed for Euwing, Greywing or Misty. There is no hidden split to chase. Look at the bird: if the effect is absent, the gene is absent. That alone makes these the most predictable mutations in your aviary.</p></div>
 
       <h2 id="euwing-vs-greywing-vs-misty">Euwing vs Greywing vs Misty: how they differ</h2>
-      <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>All three are autosomal dominant incomplete and share identical inheritance</strong>, so the same SF/DF percentages apply to each. They differ only in what they change: <strong>Euwing</strong> alters the wing pattern, <strong>Greywing</strong> softens the wing melanin to grey, and <strong>Misty</strong> mutes and deepens the overall body tone.</p>
+      <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>Euwing and Misty are autosomal dominant incomplete and share identical SF/DF percentages. Greywing is sex-linked incomplete dominant, so its outcomes must be read by sex.</strong> They differ in what they change too: <strong>Euwing</strong> alters the wing pattern, <strong>Greywing</strong> softens the wing melanin to grey, and <strong>Misty</strong> mutes and deepens the overall body tone.</p>
       <table class="cmp-table" style="width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
         <thead><tr style="background:rgba(76,161,84,0.08);"><th style="text-align:left;padding:10px 12px;">Mutation</th><th style="text-align:left;padding:10px 12px;">Inheritance</th><th style="text-align:left;padding:10px 12px;">What it changes</th></tr></thead>
         <tbody>
@@ -429,7 +429,7 @@ html,body{overflow-x:clip;}
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;"><strong>Misty</strong></td><td style="padding:10px 12px;">AD incomplete (SF/DF)</td><td style="padding:10px 12px;">Mutes and deepens overall body tone</td></tr>
         </tbody>
       </table>
-      <p>Because the inheritance is identical across all three, every pairing table below applies equally to Greywing and Misty. Swap the mutation name and the percentages do not change. That is unusual, and it is genuinely useful: learn the pattern once and you can plan all three.</p>
+      <p>Euwing and Misty share the same autosomal dominant incomplete inheritance, so every pairing table below applies equally to Misty. Swap the mutation name and the percentages do not change. Greywing does not transfer, because it is sex-linked, and its outcomes are set out separately in the sex-split table further down.</p>
 
       <h2 id="pairings">All SF/DF pairing outcomes (engine-verified)</h2>
       <p>Every percentage below comes straight from the Lovebird Genetics calculator engine. These four combinations are the complete set, there are no others.</p>
@@ -437,6 +437,10 @@ html,body{overflow-x:clip;}
       <table class="pairing-table"><thead><tr class="xrow"><th colspan="2"><span style="color:var(--accent);font-weight:700">1.0</span> Euwing SF <span style="opacity:.5">&times;</span> <span style="color:#d96b6b;font-weight:700">0.1</span> Euwing SF</th></tr><tr><th>Offspring</th><th>Chance</th></tr></thead><tbody><tr class="goal-row"><td>Euwing DF</td><td class="pct" style="--p:25%">25%</td></tr><tr><td>Euwing SF</td><td class="pct" style="--p:50%">50%</td></tr><tr><td>Normal (no Euwing)</td><td class="pct" style="--p:25%">25%</td></tr></tbody></table><a href="/?m=Green&mt=Euwing%3ASF&f=Green&ft=Euwing%3ASF" class="calc-cta-btn" style="margin:8px 0 20px;display:inline-flex;font-size:12px;padding:9px 14px;">Open this pairing in the calculator &rarr;</a>
       <table class="pairing-table"><thead><tr class="xrow"><th colspan="2"><span style="color:var(--accent);font-weight:700">1.0</span> Euwing DF <span style="opacity:.5">&times;</span> <span style="color:#d96b6b;font-weight:700">0.1</span> Normal</th></tr><tr><th>Offspring</th><th>Chance</th></tr></thead><tbody><tr class="goal-row"><td>Euwing SF</td><td class="pct" style="--p:100%">100%</td></tr></tbody></table><a href="/?m=Green&mt=Euwing%3ADF&f=Green" class="calc-cta-btn" style="margin:8px 0 20px;display:inline-flex;font-size:12px;padding:9px 14px;">Open this pairing in the calculator &rarr;</a>
       <table class="pairing-table"><thead><tr class="xrow"><th colspan="2"><span style="color:var(--accent);font-weight:700">1.0</span> Euwing DF <span style="opacity:.5">&times;</span> <span style="color:#d96b6b;font-weight:700">0.1</span> Euwing SF</th></tr><tr><th>Offspring</th><th>Chance</th></tr></thead><tbody><tr class="goal-row"><td>Euwing DF</td><td class="pct" style="--p:50%">50%</td></tr><tr><td>Euwing SF</td><td class="pct" style="--p:50%">50%</td></tr></tbody></table><a href="/?m=Green&mt=Euwing%3ADF&f=Green&ft=Euwing%3ASF" class="calc-cta-btn" style="margin:8px 0 24px;display:inline-flex;font-size:12px;padding:9px 14px;">Open this pairing in the calculator &rarr;</a>
+
+      <h3 id="greywing-sex-split">Greywing pairing outcomes, read by sex</h3>
+      <p>Greywing is sex-linked incomplete dominant, so the four tables above do not transfer to it. A Greywing cock can be SF or DF because he carries two Z chromosomes. A Greywing hen has a single Z, so she carries a single dose only and can never be DF. Every Greywing pairing has to be read separately for sons and daughters.</p>
+      <table class="pairing-table"><thead><tr class="xrow"><th colspan="3">Greywing, sex-linked incomplete dominant</th></tr><tr><th>Pairing (cock &times; hen)</th><th>Sons</th><th>Daughters</th></tr></thead><tbody><tr><td>Normal cock &times; Greywing hen</td><td>100% SF Greywing</td><td>100% normal</td></tr><tr><td>SF Greywing cock &times; normal hen</td><td>50% SF Greywing, 50% normal</td><td>50% Greywing, 50% normal</td></tr><tr><td>DF Greywing cock &times; normal hen</td><td>100% SF Greywing</td><td>100% Greywing</td></tr><tr><td>SF Greywing cock &times; Greywing hen</td><td>50% DF Greywing, 50% SF Greywing</td><td>50% Greywing, 50% normal</td></tr></tbody></table>
 
       <h2 id="how-to-breed-df">How do you breed a Double Factor lovebird?</h2>
       <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>Pair DF &times; SF for 50% Double Factor</strong>, the most efficient route once you own a DF bird. If you only have SF birds, <strong>SF &times; SF gives 25% DF</strong>, and it is the only way to create your first DF from scratch. <strong>DF &times; Normal gives zero DF</strong> - every chick gets exactly one copy and comes out Single Factor.</p>
@@ -446,7 +450,7 @@ html,body{overflow-x:clip;}
       <h2 id="why-calculators-get-it-wrong">Why most calculators get these three wrong</h2>
       <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>Most older calculators were built for recessive and sex-linked mutations only.</strong> They either omit Euwing, Greywing and Misty entirely, or model them as simple recessives with a visual/split distinction, which produces wrong percentages. Dominant incomplete inheritance needs separate SF and DF states, not visual and split.</p>
       <p>The tell is simple. If a calculator offers you "split Euwing" as an option, it is modelling the mutation incorrectly, because a split Euwing cannot exist. If it cannot distinguish SF from DF at all, it cannot produce the 25/50/25 outcome that SF &times; SF actually gives.</p>
-      <p>The Lovebird Genetics calculator models all four SF/DF combinations correctly for Euwing, Greywing and Misty, which is why its outcomes for these three differ from tools that treat them as recessive. You can verify any of the tables above by opening the pairing yourself.</p>
+      <p>The Lovebird Genetics calculator models all four SF/DF combinations correctly for Euwing and Misty, and it models Greywing separately as sex-linked dominant, splitting the outcome between sons and daughters. That is why its outcomes for these three differ from tools that treat them as recessive. You can verify any of the tables above by opening the pairing yourself.</p>
 
       <h2 id="common-mistakes">Common mistakes with dominant mutations</h2>
       <p><strong>Looking for splits that do not exist.</strong> There is no split Euwing, split Greywing or split Misty. Breeders waste seasons test-pairing normal-looking birds hoping to reveal a hidden dominant. If you cannot see it, it is not there.</p>
@@ -484,7 +488,7 @@ html,body{overflow-x:clip;}
         <div class="faq-item"><p class="faq-q">What does Euwing SF &times; Euwing SF produce?</p><p class="faq-a">25% Euwing DF, 50% Euwing SF, and 25% normal with no Euwing gene at all. It is the only pairing that creates a DF bird from two SF parents, and the 25% normals surprise breeders who assume two visible parents must pass it to every chick.</p></div>
         <div class="faq-item"><p class="faq-q">How do I breed Double Factor Euwing?</p><p class="faq-a">DF &times; SF gives 50% DF, the fastest route. SF &times; SF gives 25% DF and is how you make your first one. DF &times; Normal gives 100% SF and zero DF, because each chick inherits exactly one copy.</p></div>
         <div class="faq-item"><p class="faq-q">What is the difference between Euwing, Greywing and Misty?</p><p class="faq-a">Euwing and Misty share autosomal dominant incomplete inheritance, while Greywing is sex-linked dominant (OGVZW-confirmed), all with SF/DF in males, so the same pairing percentages apply to all three. They differ in effect: Euwing alters the wing pattern, Greywing softens wing melanin to grey, and Misty mutes and deepens the body tone.</p></div>
-        <div class="faq-item"><p class="faq-q">Can a lovebird be split for Greywing or Misty?</p><p class="faq-a">No. Splits only exist for recessive and sex-linked mutations. Greywing and Misty are dominant incomplete, so a single copy is always visible. If a bird shows no effect, it carries no copy and cannot pass it on.</p></div>
+        <div class="faq-item"><p class="faq-q">Can a lovebird be split for Greywing or Misty?</p><p class="faq-a">No, neither has a split form. Misty is autosomal dominant incomplete. Greywing is sex-linked dominant incomplete, so a Greywing cock can be SF or DF and a Greywing hen carries a single dose only. In both cases a single copy is always visible, so if a bird shows no effect it carries no copy and cannot pass it on.</p></div>
       </div>
 
 
