@@ -1246,6 +1246,101 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .trust-lbl{font-size:12.5px;color:#a0a09a;margin:9px 0 0;line-height:1.45;}.trust-ico{width:38px;height:38px;border-radius:10px;background:rgba(76,161,84,0.12);border:1px solid rgba(76,161,84,0.25);display:flex;align-items:center;justify-content:center;margin:0 0 40px;}.trust-ico svg{width:20px;height:20px;stroke:#7fd88a;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
 @media(max-width:640px){.trust-grid{grid-template-columns:1fr 1fr;}.trust-h2{font-size:20px;}}
 </style>
+<style id="cbs-search-style">
+/* ── CUSTOM SELECT SEARCH ─────────────
+   The card gains nothing. Everything lives inside the popup the
+   .cbs dropdown already draws, so the parent card is byte-identical
+   to the live site. Only the calculator's own design tokens are used. */
+
+/* ── SEARCH FIELD IN THE .cbs POPUP HEADER ──────────
+   The popup card, border, radius, shadow, group headers, checkmark,
+   hover and selected states are untouched. The only new box is the
+   sticky header that used to be the static "Select mutation" row. */
+.cbs-menu{--cbs-pad:6px;}
+.cbs-menu.cbs-searchable{padding-top:0;}
+.cbs-list{display:block;}
+.cbsq-off{display:none!important;}
+.cbs-search{
+  position:sticky;
+  top:0;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  margin:0 calc(-1 * var(--cbs-pad)) 4px;
+  padding:6px var(--cbs-pad) 7px;
+  background:var(--bg-card);
+  border-bottom:1px solid var(--border);
+}
+.cbs-sico{position:absolute;left:calc(var(--cbs-pad) + 15px);color:var(--text-3);display:flex;align-items:center;pointer-events:none;}
+.cbs-q{
+  width:100%;
+  min-width:0;
+  height:44px;
+  padding:0 38px 0 40px;
+  border-radius:12px;
+  border:1.5px solid var(--border);
+  background-color:var(--bg-input);
+  font-family:var(--font);
+  font-size:14px;
+  font-weight:600;
+  color:var(--text-1);
+  outline:none;
+  -webkit-appearance:none;appearance:none;
+  transition:border-color var(--transition),background-color var(--transition);
+}
+.cbs-q::placeholder{color:var(--text-3);font-weight:600;}
+.cbs-q::-webkit-search-cancel-button{display:none;}
+.cbs-q:focus{border-color:var(--accent);background-color:var(--bg-input-filled);}
+.cbs-qclr{position:absolute;right:calc(var(--cbs-pad) + 6px);width:30px;height:30px;border:none;background:none;color:var(--text-3);font-size:17px;line-height:1;border-radius:8px;cursor:pointer;display:none;align-items:center;justify-content:center;font-family:var(--font);}
+.cbs-qclr:hover{background:var(--bg-input-filled);color:var(--text-1);}
+.cbs-qclr:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.cbs-menu.cbs-has .cbs-qclr{display:flex;}
+
+/* keyboard highlight, drawn as a ring so the existing hover and
+   selected backgrounds survive untouched */
+.cbs-opt.cbsq-act,.cbsq-x.cbsq-act{box-shadow:inset 0 0 0 2px var(--accent);}
+
+/* advisory rows: not modelled, impossible, base colour, unavailable */
+.cbsq-advice{display:block;}
+.cbsq-x{display:block;padding:9px 12px;border-radius:10px;-webkit-tap-highlight-color:transparent;cursor:default;}
+.cbsq-x.cbsq-go{cursor:pointer;}
+.cbsq-x.cbsq-go:hover{background:var(--bg-input-filled);}
+.cbsq-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.cbsq-name{font-size:14px;font-weight:600;color:var(--text-2);min-width:0;}
+.cbsq-go .cbsq-name{color:var(--text-1);}
+.cbsq-mode{font-size:11.5px;color:var(--text-3);margin-top:3px;line-height:1.5;}
+.cbsq-note{font-size:11px;line-height:1.5;letter-spacing:0.01em;margin:-2px 6px 8px;padding:0 8px;background:none;color:var(--text-3);}
+.cbsq-x .cbsq-note{margin:5px 0 1px;padding:0;}
+.cbsq-note-dim{background:none;color:var(--text-3);}
+.cbsq-note-stop{background:none;color:#b91c1c;font-weight:500;}
+[data-theme="dark"] .cbsq-note-stop{background:none;color:#f87171;}
+.cbsq-chip{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;padding:3px 7px;border-radius:6px;white-space:nowrap;flex-shrink:0;}
+.cbsq-c-direct{color:var(--accent);background:var(--accent-dim);}
+.cbsq-c-corr{color:var(--text-3);background:var(--bg-input);}
+.cbsq-c-nm{color:var(--text-3);background:var(--bg-input);}
+.cbsq-c-imp{color:#b91c1c;background:rgba(239,68,68,0.1);}
+[data-theme="dark"] .cbsq-c-imp{color:#f87171;background:rgba(239,68,68,0.15);}
+.cbsq-c-base{color:var(--text-2);background:var(--bg-input);}
+.cbsq-empty{padding:14px 12px;font-size:13px;color:var(--text-3);text-align:center;line-height:1.6;}
+
+/* mobile: the sheet already has 10px side padding, and while the
+   on-screen keyboard is up the grab handle and the deep bottom pad
+   are dead weight, so they go and the list keeps the room */
+@media(max-width:768px){
+  .cbs[open]>.cbs-menu{--cbs-pad:10px;}
+  body.cbs-kb .cbs[open]>.cbs-menu{padding-bottom:8px;animation:none;}
+  body.cbs-kb .cbs[open]>.cbs-menu::before{display:none;}
+  body.cbs-kb .cbs[open]>.cbs-menu .cbs-opt{min-height:44px;}
+  body.cbs-kb .cbs-q{height:40px;}
+  body.cbs-kb .cbs-search{padding:4px var(--cbs-pad) 5px;}
+  body.cbs-kb .cbsq-note{font-size:10.5px;line-height:1.45;padding:0 8px;margin:-2px 6px 6px;}
+  body.cbs-kb .cbsq-x{padding:7px 12px;}
+}
+@media(max-width:390px){
+  .cbs-q{height:42px;}
+  .cbs-search{padding:5px var(--cbs-pad) 6px;}
+}
+</style>
 <!-- FIX: prevent dark mode flash before first paint -->
 <script>
   (function(){var t=localStorage.getItem('lb-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
@@ -1806,6 +1901,735 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   </div>
 </section>
 
+<script id="cbs-search-js">
+/* ==================================================================
+   CUSTOM SELECT SEARCH  (additive only)
+   ------------------------------------------------------------------
+   The parent card gains nothing. The mutation dropdown and the Bird
+   Series dropdown keep the exact popup they draw today. The static
+   row at the top of that popup ("Select mutation" / "Choose Bird
+   Series") becomes a live search field. Typing filters the grouped
+   list below it, group headers hide when they have no matches, and
+   clearing the field puts the full grouped list back.
+
+   Nothing is autofocused when the popup opens, so on mobile the
+   popup appears with the keyboard closed exactly as it does now. The
+   user taps the field on purpose to start typing, and while the field
+   holds focus the sheet is re-seated above the on-screen keyboard
+   through visualViewport so the matches stay readable.
+
+   Picking a filtered option runs the SAME code path as clicking any
+   option today: the real .cbs option row is clicked, the native
+   <select> receives .value and a bubbling 'change'. The genetics
+   engine is never bypassed.
+
+   This script is loaded BEFORE the engine. Every engine lookup
+   happens at open time or at click time, never at parse time.
+   ================================================================== */
+(function(){
+"use strict";
+
+var CBSF_ICO='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
+
+/* ---- alias dictionary -> real registry ids in _0xC9 ---------------- */
+var CBSF_ALIASES=[
+["YellowFace",["yellow face","yellowface","yf","yellow mask","orange face","of","factor orange"]],
+["Ino",["ino","lutino","albino","nsl ino","red eye","red eyed white"]],
+["Dec",["dec","dark eyed clear","dark-eyed clear","decino","dec ino","black eyed clear","bec"]],
+["Pastel",["pastel"]],
+["Dilute",["dilute","isabel","isabelle"]],
+["PaleFallow",["pale fallow","palefallow","pf"]],
+["DunFallow",["dun fallow","dunfallow","dun"]],
+["BronzeFallow",["bronze fallow","bronzefallow","bronze","bf"]],
+["RedFactor",["red factor","redfactor","red"]],
+["RecPied",["recessive pied","rec pied","recpied"]],
+["DomPied",["dominant pied","dom pied","dompied"]],
+["Opaline",["opaline","op","oplaine","opalin"]],
+["Pallid",["pallid"]],
+["Pale",["pale","sl pale"]],
+["Cinnamon",["cinnamon","cinamon","cinnamom","brown"]],
+["Greywing",["greywing","grey wing","graywing","gray wing"]],
+["Euwing",["euwing","eu wing","eu-wing"]],
+["Misty",["misty"]],
+["Slaty",["slaty","slate"]]
+];
+
+/* ---- correction notes (verbatim) ---------------------------------- */
+var CBSF_NOTE={
+YellowFace:"Modelled as the orange face gene (symbol of), autosomal recessive on its own locus, separate from the blue locus.",
+Ino:"In Agapornis fischeri, Ino is NSL ino, autosomal recessive, not sex-linked. Both cocks and hens can be split.",
+Pastel:"Pastel is not Dilute. Pastel is an allele of the NSL ino locus and forms compounds with Ino and DEC.",
+Dilute:"Dilute is not Pastel. Separate gene at its own dil locus.",
+Pallid:"Modelled as sex-linked recessive, but not formally confirmed in Agapornis fischeri by OGVZW. Confirmed in A. roseicollis.",
+Greywing:"Sex-linked incomplete dominant, not autosomal. A Greywing hen carries a single dose only and can never be double factor.",
+BronzeFallow:"Never pair Bronze Fallow to Bronze Fallow. The Compendium records near-total chick mortality. Breed through splits.",
+PaleFallow:"The three fallows are separate non-allelic genes. Van den Abeele advises against combining them, all three produce weak young.",
+DunFallow:"The three fallows are separate non-allelic genes. Van den Abeele advises against combining them, all three produce weak young.",
+RedFactor:"No confirmed red gene exists in Agapornis fischeri. Modelled as autosomal recessive as a modelling choice."
+};
+var CBSF_PIED_NOTE="Two different genes. Dominant Pied has no split form. Recessive Pied does.";
+
+/* ---- turquoise, superseded name ----------------------------------- */
+var CBSF_TQ={keys:["turquoise","tq"],note:"Name superseded. OGVZW's mutation list updated 17 August 2025 no longer records turquoise in Agapornis fischeri. The bl-locus bird you mean is Parblue, chosen in Bird Series."};
+
+/* ---- base colours live in the Bird Series dropdown, not here ------- */
+var CBSF_BASE=[
+{keys:["green"],val:"Green",group:"Green Series"},
+{keys:["blue 1","blue1","bl1"],val:"Blue 1",group:"Blue Series"},
+{keys:["blue 2","blue2","bl2"],val:"Blue 2",group:"Blue Series"},
+{keys:["parblue","par blue"],val:"Parblue (B1B2)",group:"Blue Series"},
+{keys:["aqua b1"],val:"Aqua B1",group:"Aqua Series"},
+{keys:["aqua b2"],val:"Aqua B2",group:"Aqua Series"},
+{keys:["aqua homo","aqua homozygote","homo"],val:"Aqua Homo",group:"Aqua Series"},
+{keys:["seagreen","sea green"],val:"Blue 1",group:"Blue Series",extra:"Sea green is a trade name for the blue series, so pick Blue 1 or Blue 2 in Bird Series."}
+];
+/* whole-group aliases, Bird Series dropdown only */
+var CBSF_BASE_GRP=[
+{keys:["yf","yellow face","yellowface","yellow mask","orange face","of","factor orange"],group:"Yellow Face Series"}
+];
+/* bare b1 / b2, real Search Console queries, Bird Series dropdown only.
+   Kept apart from CBSF_BASE so the mutation list is not polluted by them. */
+var CBSF_BASE_ALT=[
+{keys:["b1"],val:"Blue 1"},
+{keys:["b2"],val:"Blue 2"}
+];
+
+/* ---- not modelled, by design -------------------------------------- */
+var CBSF_NOTMOD=[
+{label:"Violet",keys:["violet"],reason:"Not modelled in this calculator, by design. Violet is autosomal incomplete dominant, so track the dose on paper."},
+{label:"Dark Factor",keys:["dark factor","darkfactor","cobalt","mauve","olive","dark green","darkgreen","jade"],reason:"Not modelled in this calculator, by design. Dark Factor narrows the feather's spongy zone and has little visible effect on Ino-type birds."},
+{label:"Sapphire",keys:["sapphire"],reason:"Deliberately excluded. OGVZW treats Sapphire as a blue1-blue2 recombinant chromosome, not a separate gene, and their research is still active."},
+{label:"Mottle",keys:["mottle","mottled"],reason:"Deliberately excluded. MutaBase records it as autosomal multifactorial, so outcomes are not predictable."},
+{label:"Faded",keys:["faded"],reason:"Not modelled in this calculator, by design."}
+];
+
+/* ---- genetically impossible, blocked with the rule ----------------- */
+var CBSF_IMPOSS=[
+{label:"Split Aqua B1 / Split Aqua B2",keys:["split aqua b1","split aqua b2","split b1","split b2"],reason:"Not a real bird. Aqua B1 and Aqua B2 are co-dominant compounds at the blue locus, so they are always visible. A green bird carrying one aqua allele is Green / Aqua."},
+{label:"Split sex-linked hen",keys:["split opaline hen","split opaline female","split cinnamon hen","split pale hen","split hen"],reason:"Impossible. A hen is ZW and carries only one Z, so she either shows a sex-linked mutation or does not carry it. Only cocks can be split."},
+{label:"Split dominant mutation",keys:["split euwing","split misty","split slaty","split greywing","split dominant pied"],reason:"No split form exists. Dominant mutations are normal, single factor, or double factor."}
+];
+
+var CBSF_MODE={AR:"Autosomal recessive",SL:"Sex-linked recessive",AD:"Autosomal dominant, SF or DF",SLD:"Sex-linked incomplete dominant, SF or DF"};
+
+/* ---- helpers ------------------------------------------------------ */
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function cbsfNorm(s){return String(s==null?"":s).toLowerCase().replace(/[^a-z0-9]+/g," ").replace(/\s+/g," ").trim();}
+function cbsfTitle(s){return cbsfNorm(s).split(" ").map(function(w){return (w==="b1"||w==="b2")?w.toUpperCase():w.charAt(0).toUpperCase()+w.slice(1);}).join(" ");}
+function cbsfMut(id){try{return _0xC9.filter(function(x){return x.id===id;})[0]||null;}catch(e){return null;}}
+function cbsfLev(a,b){
+  var m=a.length,n=b.length,i,j,prev=[],cur=[];
+  for(j=0;j<=n;j++)prev[j]=j;
+  for(i=1;i<=m;i++){cur[0]=i;
+    for(j=1;j<=n;j++){cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a.charAt(i-1)===b.charAt(j-1)?0:1));}
+    prev=cur.slice();
+  }
+  return prev[n];
+}
+/* 3 = exact, 2 = prefix of the whole key, 1 = prefix of a later word.
+   Negative answers (Impossible, Not modelled) require 2 or better so a broad
+   word such as "pied" cannot drag in "split dominant pied". Positive answers
+   accept 1 so "fallow", "wing" and "face" stay generous. */
+function cbsfHit(nq,rawKey,minLen){
+  var key=cbsfNorm(rawKey);
+  if(!key)return 0;
+  if(nq===key)return 3;
+  if(nq.length>=minLen){
+    if(key.indexOf(nq)===0)return 2;
+    var w=key.split(" ");
+    for(var i=1;i<w.length;i++){if(w[i].indexOf(nq)===0)return 1;}
+  }
+  if(nq.indexOf(key+" ")===0)return 2;
+  return 0;
+}
+function cbsfBestHit(nq,keys,minLen){
+  var best=0,hit="";
+  for(var i=0;i<keys.length;i++){var s=cbsfHit(nq,keys[i],minLen);if(s>best){best=s;hit=keys[i];}}
+  return {score:best,key:hit};
+}
+/* plain word-prefix match, used against the option labels already in the list */
+function qPlain(nq,label){
+  var k=cbsfNorm(label);
+  if(!k)return false;
+  if(k.indexOf(nq)===0)return true;
+  var w=k.split(" ");
+  for(var i=1;i<w.length;i++){if(w[i].indexOf(nq)===0)return true;}
+  return false;
+}
+function qCount(o){var n=0,k;for(k in o){if(Object.prototype.hasOwnProperty.call(o,k))n++;}return n;}
+
+/* ---- availability, mirrors buildTraitRow's own filters ------------- */
+/* Does the OTHER bird already carry this mutation as a visual?
+   Used to fire pairing-level warnings only when they are actually true. */
+function cbsfOtherVisual(pid,id){
+  try{
+    var t=(pid==="p1")?S.p2t:S.p1t,i;
+    for(i=0;i<t.length;i++){if(t[i].id===id&&t[i].status==="visual")return true;}
+    return false;
+  }catch(e){return false;}
+}
+
+/* Pairing-level danger, evaluated against the CURRENT state of both birds.
+   Returns a warning string, or "" when the pairing is not dangerous. */
+function cbsfDanger(pid,id){
+  if(id==="BronzeFallow"&&cbsfOtherVisual(pid,"BronzeFallow"))
+    return "The other bird is already visual Bronze Fallow. Pairing two visual Bronze Fallows records near-total chick mortality in the Compendium. Breed through splits instead.";
+  return "";
+}
+
+function cbsfAvail(pid,id){
+  try{
+    var traits=(pid==="p1")?S.p1t:S.p2t;
+    var primary=(pid==="p1")?S.p1p:S.p2p;
+    var used=traits.map(function(t){return t.id;}).filter(function(x){return x&&x!=="None";});
+    if(id==="Opaline"){
+      var cur=(pid==="p1")?S.p1Op:S.p2Op;
+      if(cur==="visual")return "Already set on this parent in the Opaline selector";
+      return "";
+    }
+    if(used.indexOf(id)!==-1)return "Already on this bird";
+    if(id==="YellowFace"&&_0xC5(primary))return "Already carried by the chosen Yellow Face series";
+    if(id==="Pale"&&used.indexOf("Pallid")!==-1)return "Pallid is already on this parent, same Z locus";
+    if(id==="Pallid"&&used.indexOf("Pale")!==-1)return "Pale is already on this parent, same Z locus";
+    if(traits.length>=6)return "This parent already has the maximum of 6 mutation slots";
+    return "";
+  }catch(e){return "";}
+}
+
+/* ==================================================================
+   RESOLVER
+   Turns a typed term into
+     ids    real mutation ids that should stay visible, with any
+            correction note that belongs under them
+     base   real Bird Series values that should stay visible
+     grp    whole Bird Series groups that should stay visible
+     advice non-selectable rows: impossible, not modelled, base colour
+            in the mutation list, mutation name in the Bird Series list
+   ================================================================== */
+function cbsfResolve(nq,mode,pid){
+  var R={ids:{},base:{},grp:{},advice:[]},i;
+  function addId(id,score,note){
+    var c=R.ids[id];
+    if(!c)R.ids[id]={score:score,note:note||""};
+    else{if(score<c.score)c.score=score;if(note&&!c.note)c.note=note;}
+  }
+  function addBase(val,score,note){
+    var c=R.base[val];
+    if(!c)R.base[val]={score:score,note:note||""};
+    else{if(score<c.score)c.score=score;if(note&&!c.note)c.note=note;}
+  }
+  function advice(o){R.advice.push(o);}
+
+  /* 1. impossible, blocked with the rule */
+  for(i=0;i<CBSF_IMPOSS.length;i++){
+    var g=CBSF_IMPOSS[i],h=cbsfBestHit(nq,g.keys,4);
+    if(h.score>=2)advice({score:3-h.score,ord:0,name:cbsfTitle(h.key),chip:"Impossible",chipCls:"cbsq-c-imp",mode:"Blocked, this bird cannot exist",note:g.reason,noteCls:"cbsq-note-stop"});
+  }
+  /* 2. not modelled, by design */
+  for(i=0;i<CBSF_NOTMOD.length;i++){
+    var n=CBSF_NOTMOD[i],hn=cbsfBestHit(nq,n.keys,2);
+    if(hn.score>=2)advice({score:3-hn.score,ord:1,name:n.label,chip:"Not modelled",chipCls:"cbsq-c-nm",mode:"Outside this engine, on purpose",note:n.reason,noteCls:"cbsq-note-dim"});
+  }
+  /* 3. turquoise, superseded name */
+  var ht=cbsfBestHit(nq,CBSF_TQ.keys,2);
+  if(ht.score){
+    if(mode==="base")addBase("Parblue (B1B2)",3-ht.score,CBSF_TQ.note);
+    else advice({score:3-ht.score,ord:2,name:"Parblue (B1B2)",chip:"Corrected",chipCls:"cbsq-c-corr",mode:"Bird Series, Blue Series group",note:CBSF_TQ.note,noteCls:""});
+  }
+  /* 4. base colours belong in the Bird Series dropdown */
+  for(i=0;i<CBSF_BASE.length;i++){
+    var b=CBSF_BASE[i],hb=cbsfBestHit(nq,b.keys,2);
+    if(!hb.score)continue;
+    if(mode==="base")addBase(b.val,3-hb.score,b.extra||"");
+    else advice({score:3-hb.score,ord:3,name:b.val,chip:"Bird Series",chipCls:"cbsq-c-base",mode:b.group+" · pick it in the Bird Series dropdown, not as a mutation",note:b.extra||"",noteCls:"cbsq-note-dim"});
+  }
+  /* 4b. whole-group aliases and bare b1 / b2, Bird Series only */
+  if(mode==="base"){
+    for(i=0;i<CBSF_BASE_GRP.length;i++){
+      if(cbsfBestHit(nq,CBSF_BASE_GRP[i].keys,2).score)R.grp[CBSF_BASE_GRP[i].group]=1;
+    }
+    for(i=0;i<CBSF_BASE_ALT.length;i++){
+      var ha=cbsfBestHit(nq,CBSF_BASE_ALT[i].keys,2);
+      if(ha.score)addBase(CBSF_BASE_ALT[i].val,3-ha.score,"");
+    }
+  }
+  /* 5. real mutations */
+  for(i=0;i<CBSF_ALIASES.length;i++){
+    var id=CBSF_ALIASES[i][0],keys=CBSF_ALIASES[i][1].slice(),mut=cbsfMut(id);
+    if(!mut)continue;
+    if(keys.indexOf(mut.label.toLowerCase())===-1)keys.push(mut.label.toLowerCase());
+    var hm=cbsfBestHit(nq,keys,2);
+    if(!hm.score)continue;
+    var note=CBSF_NOTE[id]||"";
+    if((id==="DomPied"||id==="RecPied")&&(nq==="pied"||"pied".indexOf(nq)===0))note=CBSF_PIED_NOTE;
+    if(mode==="base")advice({score:3-hm.score,ord:5,name:mut.label,chip:"Mutation",chipCls:"cbsq-c-base",mode:(CBSF_MODE[mut.type]||"")+" · not a Bird Series, add it under Mutations on this card instead",note:note,noteCls:"cbsq-note-dim"});
+    else addId(id,3-hm.score,note);
+  }
+  /* 6. typo fallback, edit distance up to 2 */
+  var found=(mode==="base")?(R.advice.length+qCount(R.base)+qCount(R.grp)):(R.advice.length+qCount(R.ids));
+  if(!found&&nq.length>=4){
+    var cands=[],seen={};
+    for(i=0;i<CBSF_ALIASES.length;i++){
+      (function(id2,keys2){
+        var mm=cbsfMut(id2);if(!mm)return;
+        keys2.concat([mm.label.toLowerCase()]).forEach(function(k){cands.push({kind:"mut",ref:id2,key:cbsfNorm(k)});});
+      })(CBSF_ALIASES[i][0],CBSF_ALIASES[i][1]);
+    }
+    CBSF_TQ.keys.forEach(function(k){cands.push({kind:"tq",ref:0,key:cbsfNorm(k)});});
+    CBSF_NOTMOD.forEach(function(g2,gi){g2.keys.forEach(function(k){cands.push({kind:"nm",ref:gi,key:cbsfNorm(k)});});});
+    CBSF_BASE.forEach(function(b2,bi){b2.keys.forEach(function(k){cands.push({kind:"base",ref:bi,key:cbsfNorm(k)});});});
+    CBSF_IMPOSS.forEach(function(g3,gi){g3.keys.forEach(function(k){cands.push({kind:"imp",ref:gi,key:cbsfNorm(k)});});});
+    var bestD=99,picks=[];
+    cands.forEach(function(c){
+      if(c.key.length<4)return;
+      if(Math.abs(c.key.length-nq.length)>2)return;
+      var d=cbsfLev(nq,c.key);
+      if(d>2)return;
+      if(d<bestD){bestD=d;picks=[c];seen={};seen[c.kind+"|"+c.ref]=1;}
+      else if(d===bestD&&!seen[c.kind+"|"+c.ref]){seen[c.kind+"|"+c.ref]=1;picks.push(c);}
+    });
+    picks.forEach(function(c){
+      if(c.kind==="mut"){
+        var m2=cbsfMut(c.ref);if(!m2)return;
+        if(mode==="base")advice({score:2,ord:5,name:m2.label,chip:"Mutation",chipCls:"cbsq-c-base",mode:(CBSF_MODE[m2.type]||"")+" · closest match to what you typed, add it under Mutations on this card instead",note:CBSF_NOTE[c.ref]||"",noteCls:"cbsq-note-dim"});
+        else addId(c.ref,2,CBSF_NOTE[c.ref]||"");
+      }
+      else if(c.kind==="tq"){
+        if(mode==="base")addBase("Parblue (B1B2)",2,CBSF_TQ.note);
+        else advice({score:2,ord:2,name:"Parblue (B1B2)",chip:"Corrected",chipCls:"cbsq-c-corr",mode:"Bird Series, Blue Series group",note:CBSF_TQ.note,noteCls:""});
+      }
+      else if(c.kind==="nm"){var g4=CBSF_NOTMOD[c.ref];advice({score:2,ord:1,name:g4.label,chip:"Not modelled",chipCls:"cbsq-c-nm",mode:"Outside this engine, on purpose",note:g4.reason,noteCls:"cbsq-note-dim"});}
+      else if(c.kind==="base"){
+        var b3=CBSF_BASE[c.ref];
+        if(mode==="base")addBase(b3.val,2,b3.extra||"");
+        else advice({score:2,ord:3,name:b3.val,chip:"Bird Series",chipCls:"cbsq-c-base",mode:b3.group+" · pick it in the Bird Series dropdown, not as a mutation",note:b3.extra||"",noteCls:"cbsq-note-dim"});
+      }
+      else if(c.kind==="imp"){var g5=CBSF_IMPOSS[c.ref];advice({score:2,ord:0,name:cbsfTitle(c.key),chip:"Impossible",chipCls:"cbsq-c-imp",mode:"Blocked, this bird cannot exist",note:g5.reason,noteCls:"cbsq-note-stop"});}
+    });
+  }
+  R.advice.sort(function(a,b){return (a.score-b.score)||(a.ord-b.ord);});
+  return R;
+}
+
+/* ==================================================================
+   DOM LAYER, grafted onto the existing .cbs popup
+   ================================================================== */
+var qSeq=0;
+
+function qMobile(){return window.matchMedia("(max-width:768px)").matches;}
+
+/* which selects get a search header */
+function qModeOf(sel){
+  if(!sel)return null;
+  if(sel.getAttribute("data-role")==="trait")return "mut";
+  if(/-base$/.test(sel.id||""))return "base";
+  return null;
+}
+
+/* build the header once per .cbs instance, the instance dies on re-render */
+function qBuild(det){
+  var menu=det.querySelector(".cbs-menu");
+  if(!menu||menu.getAttribute("data-cbsq")==="1")return menu&&menu.getAttribute("data-cbsq")==="1"?menu:null;
+  var sel=det.querySelector("select.cbs-native");
+  var mode=qModeOf(sel);
+  if(!mode)return null;
+  menu.setAttribute("data-cbsq","1");
+  var pid=sel.getAttribute("data-pid")||String(sel.id||"").split("-")[0];
+  var uid="cbsq"+(++qSeq);
+  menu.setAttribute("data-cbsq-uid",uid);
+  menu.setAttribute("data-cbsq-mode",mode);
+  menu.setAttribute("data-cbsq-pid",pid);
+  menu.classList.add("cbs-searchable");
+
+  /* move the grouped list into its own role=listbox so the combobox
+     input is a sibling of the listbox, not a child of it */
+  var list=document.createElement("div");
+  list.className="cbs-list";
+  list.id=uid+"-list";
+  list.setAttribute("role","listbox");
+  var lbl=menu.getAttribute("aria-label")||"";
+  if(lbl)list.setAttribute("aria-label",lbl);
+  while(menu.firstChild)list.appendChild(menu.firstChild);
+  menu.appendChild(list);
+  menu.setAttribute("role","presentation");
+  menu.removeAttribute("aria-label");
+
+  /* stamp each option with the group it sits under, used for group
+     hiding and for whole-group aliases */
+  var grp="",k,node;
+  for(k=0;k<list.children.length;k++){
+    node=list.children[k];
+    if(node.classList.contains("cbs-grp-lbl"))grp=(node.textContent||"").trim();
+    else if(node.classList.contains("cbs-opt"))node.setAttribute("data-cbsq-grp",grp);
+  }
+
+  /* the old static header row becomes the search field */
+  var ph=(mode==="mut")?"None":"";
+  var first=list.querySelector(".cbs-opt");
+  if(first&&first.getAttribute("data-cbs-val")===ph&&!first.getAttribute("data-cbsq-grp"))first.parentNode.removeChild(first);
+
+  var head=document.createElement("div");
+  head.className="cbs-search";
+  head.innerHTML='<span class="cbs-sico">'+CBSF_ICO+'</span>'
+    +'<input class="cbs-q" id="'+uid+'-q" type="text" inputmode="search" enterkeyhint="done"'
+    +' autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"'
+    +' placeholder="'+esc(mode==="mut"?"Select mutation, or type to search":"Choose Bird Series, or type to search")+'"'
+    +' aria-label="'+esc(mode==="mut"?"Search mutations":"Search bird series")+'"'
+    +' role="combobox" aria-expanded="true" aria-autocomplete="list" aria-haspopup="listbox"'
+    +' aria-controls="'+uid+'-list">'
+    +'<button type="button" class="cbs-qclr" tabindex="-1" aria-label="Clear search" title="Clear">&times;</button>';
+  menu.insertBefore(head,list);
+  return menu;
+}
+
+function qMenuOf(el){return el&&el.closest?el.closest('.cbs-menu[data-cbsq="1"]'):null;}
+function qInput(menu){return menu.querySelector(".cbs-q");}
+function qRows(menu){
+  var all=menu.querySelectorAll(".cbs-opt,.cbsq-x"),out=[],i;
+  for(i=0;i<all.length;i++){if(!all[i].classList.contains("cbsq-off"))out.push(all[i]);}
+  return out;
+}
+function qSelectable(n){return n.classList.contains("cbs-opt")||n.hasAttribute("data-cbsq-act");}
+
+/* desktop only: pin the measured width so the popup does not jump
+   as rows are filtered out. Mobile sheets are width-locked by CSS. */
+function qFreeze(menu){
+  if(menu.getAttribute("data-cbsq-w")==="1")return;
+  if(menu.style.position!=="fixed")return;
+  var w=menu.getBoundingClientRect().width;
+  if(!w)return;
+  menu.style.width=w+"px";
+  menu.setAttribute("data-cbsq-w","1");
+}
+
+function qAdviceHTML(uid,r,i){
+  var go=!!r.act;
+  return '<div class="cbsq-x'+(go?" cbsq-go":"")+'" id="'+uid+'-x'+i+'" role="option" aria-selected="false"'
+    +(go?' tabindex="-1" data-cbsq-act="'+esc(r.act)+'" data-cbsq-pid="'+esc(r.pid||"")+'"':' aria-disabled="true"')+'>'
+    +'<div class="cbsq-row"><span class="cbsq-name">'+esc(r.name)+'</span><span class="cbsq-chip '+r.chipCls+'">'+esc(r.chip)+'</span></div>'
+    +(r.mode?'<div class="cbsq-mode">'+esc(r.mode)+'</div>':"")
+    +(r.note?'<div class="cbsq-note '+(r.noteCls||"")+'">'+esc(r.note)+'</div>':"")
+    +'</div>';
+}
+
+function qSyncGroups(list){
+  var kids=list.children,cur=null,any=false,i,n;
+  for(i=0;i<kids.length;i++){
+    n=kids[i];
+    if(n.classList.contains("cbs-grp-lbl")){
+      if(cur)cur.classList.toggle("cbsq-off",!any);
+      cur=n;any=false;
+    }else if(n.classList.contains("cbs-opt")&&!n.classList.contains("cbsq-off")){any=true;}
+  }
+  if(cur)cur.classList.toggle("cbsq-off",!any);
+}
+
+function qFilter(menu){
+  var list=menu.querySelector(".cbs-list"),inp=qInput(menu);
+  if(!list||!inp)return;
+  var uid=menu.getAttribute("data-cbsq-uid"),mode=menu.getAttribute("data-cbsq-mode"),pid=menu.getAttribute("data-cbsq-pid");
+  var nq=cbsfNorm(inp.value),i,o;
+  var opts=list.querySelectorAll(".cbs-opt"),grps=list.querySelectorAll(".cbs-grp-lbl");
+  menu.classList.toggle("cbs-has",inp.value.length>0);
+
+  /* wipe everything injected by the previous keystroke */
+  var inj=list.querySelectorAll("[data-cbsq-inj]");
+  for(i=0;i<inj.length;i++)inj[i].parentNode.removeChild(inj[i]);
+  for(i=0;i<opts.length;i++)opts[i].removeAttribute("aria-describedby");
+
+  if(!nq){
+    for(i=0;i<opts.length;i++)opts[i].classList.remove("cbsq-off");
+    for(i=0;i<grps.length;i++)grps[i].classList.remove("cbsq-off");
+    qIds(menu,uid);
+    qAct(menu,-1);
+    return;
+  }
+
+  var R=cbsfResolve(nq,mode,pid),present={},notes=[];
+  for(i=0;i<opts.length;i++){
+    o=opts[i];
+    var val=o.getAttribute("data-cbs-val"),lbl=(o.textContent||"").trim(),ok=false,note="";
+    present[val]=1;
+    if(mode==="mut"){
+      if(R.ids[val]){ok=true;note=R.ids[val].note||"";}
+      if(!ok&&qPlain(nq,lbl))ok=true;
+    }else{
+      if(R.base[val]){ok=true;note=R.base[val].note||"";}
+      if(!ok&&R.grp[o.getAttribute("data-cbsq-grp")||""])ok=true;
+      if(!ok&&(qPlain(nq,lbl)||qPlain(nq,val)))ok=true;
+    }
+    o.classList.toggle("cbsq-off",!ok);
+    if(ok&&note)notes.push([o,note]);
+  }
+  /* Selectable rows carry NO note. A row you can pick shows its name only,
+     exactly like the dropdown always has, and the existing .mut-hint tooltip
+     renders the mode and description once the mutation is selected.
+     ONE exception: a pick that would complete a known-dangerous pairing.
+     Bronze Fallow visual on BOTH parents is the clutch-killer, so the warning
+     fires only when the other bird already carries it visually, which is the
+     moment the breeder is actually about to make the mistake. */
+  if(mode==="mut"){
+    for(i=0;i<opts.length;i++){
+      o=opts[i];
+      if(o.classList.contains("cbsq-off"))continue;
+      var dv=o.getAttribute("data-cbs-val"),dgr=cbsfDanger(pid,dv);
+      if(!dgr)continue;
+      var nd=document.createElement("div");
+      nd.className="cbsq-note cbsq-note-stop";
+      nd.setAttribute("data-cbsq-inj","1");
+      nd.setAttribute("role","presentation");
+      nd.id=uid+"-d"+i;
+      nd.textContent=dgr;
+      o.setAttribute("aria-describedby",nd.id);
+      o.parentNode.insertBefore(nd,o.nextSibling);
+    }
+  }
+
+  /* mutations that matched but are not offered in this slot */
+  var extra=[],id;
+  if(mode==="mut"){
+    for(id in R.ids){
+      if(!Object.prototype.hasOwnProperty.call(R.ids,id))continue;
+      if(present[id])continue;
+      var mut=cbsfMut(id);
+      if(!mut)continue;
+      var blk=cbsfAvail(pid,id);
+      if(id==="Opaline"){
+        var opOn=blk.indexOf("Already")===0;
+        extra.push({name:mut.label,chip:opOn?"Already set":(blk?"Unavailable":"Opaline selector"),chipCls:blk?"cbsq-c-nm":"cbsq-c-corr",
+          mode:(CBSF_MODE[mut.type]||"")+" · "+(blk||"set in the Opaline selector on this card"),
+          note:opOn?"":(R.ids[id].note||""),noteCls:"cbsq-note-dim",act:blk?null:"opaline",pid:pid});
+      }else{
+        /* "Already on this bird" is not an error, it is a confirmation, so it
+           gets its own calm chip and drops the explainer. The breeder put it
+           there, he does not need the mutation described back at him. */
+        var onBird=blk.indexOf("Already")===0;
+        extra.push({name:mut.label,chip:onBird?"Already added":"Unavailable",chipCls:"cbsq-c-nm",
+          mode:(CBSF_MODE[mut.type]||"")+" · "+(blk||"not offered in this mutation slot"),
+          note:onBird?"":(R.ids[id].note||""),noteCls:"cbsq-note-dim",act:null});
+      }
+    }
+  }
+
+  var rows=extra.concat(R.advice),html="";
+  var shownOpts=0;
+  for(i=0;i<opts.length;i++)if(!opts[i].classList.contains("cbsq-off"))shownOpts++;
+  /* A control only ever lists its OWN things. Bird Series never renders a
+     mutation row, Mutations never renders a series row. Anything that belongs
+     to the other control is pulled out of the result list entirely, so the two
+     dropdowns can never look like they leaked into each other.
+     It is not thrown away: when this control found nothing, the names are
+     folded into the empty-state as one quiet sentence, so the search still
+     tells the breeder where to go instead of dead-ending. */
+  function qIsCross(r){
+    if(mode==="mut")return r.chip==="Bird Series"||r.chip==="Corrected";
+    return r.chip==="Mutation";
+  }
+  var crossNames=[];
+  rows=rows.filter(function(r){
+    if(!qIsCross(r))return true;
+    if(crossNames.indexOf(r.name)===-1)crossNames.push(r.name);
+    return false;
+  });
+  for(i=0;i<rows.length;i++)html+=qAdviceHTML(uid,rows[i],i);
+  if(!rows.length&&!shownOpts){
+    var em;
+    if(crossNames.length){
+      /* It matched, just not here. One sentence, no rows, no chips, so it can
+         never be mistaken for something selectable. */
+      em=esc(crossNames.slice(0,3).join(", "))+(crossNames.length>3?" and others":"")
+        +(crossNames.length>1?" are ":" is a ")
+        +(mode==="mut"?"chosen under Bird Series":"added under Mutations")
+        +", not here.";
+    }else{
+      em=mode==="mut"
+        ?"No match for that term. Try a mutation name, an alias, or an abbreviation such as yf, pf or dec."
+        :"No match for that term. Try a series name such as blue 1, parblue, aqua homo or yellow face.";
+    }
+    html='<div class="cbsq-empty">'+em+'</div>';
+  }
+  if(html){
+    var box=document.createElement("div");
+    box.className="cbsq-advice";
+    box.setAttribute("data-cbsq-inj","1");
+    box.innerHTML=html;
+    list.insertBefore(box,list.firstChild);
+  }
+  qSyncGroups(list);
+  qIds(menu,uid); /* ids for aria-activedescendant, in visible order */
+  qAct(menu,-1);
+}
+
+function qIds(menu,uid){
+  var vis=qRows(menu),i;
+  for(i=0;i<vis.length;i++){if(!vis[i].id)vis[i].id=uid+"-r"+i;}
+}
+
+function qAct(menu,i){
+  var rows=qRows(menu),inp=qInput(menu),k;
+  for(k=0;k<rows.length;k++)rows[k].classList.remove("cbsq-act");
+  if(i<0||i>=rows.length){
+    menu.setAttribute("data-cbsq-act","-1");
+    if(inp)inp.removeAttribute("aria-activedescendant");
+    return;
+  }
+  menu.setAttribute("data-cbsq-act",String(i));
+  rows[i].classList.add("cbsq-act");
+  if(inp&&rows[i].id)inp.setAttribute("aria-activedescendant",rows[i].id);
+  if(rows[i].scrollIntoView)rows[i].scrollIntoView({block:"nearest"});
+}
+
+function qEnter(menu){
+  var rows=qRows(menu),i=parseInt(menu.getAttribute("data-cbsq-act")||"-1",10),r=null,k;
+  var inp=qInput(menu);
+  if(i>=0&&rows[i])r=rows[i];
+  if(!r&&inp&&cbsfNorm(inp.value)){for(k=0;k<rows.length;k++){if(qSelectable(rows[k])){r=rows[k];break;}}}
+  if(!r||!qSelectable(r)){if(inp)inp.blur();return;} /* enterkeyhint="done" */
+  r.click();
+}
+
+/* Opaline is not offered in the mutation list, it has its own selector.
+   Route to it through the same change event the live UI fires. */
+function qOpaline(det,pid){
+  var op=document.getElementById(pid+"-opaline");
+  if(!op)return;
+  if(det)det.open=false;
+  op.value="visual";
+  op.dispatchEvent(new Event("change",{bubbles:true}));
+}
+
+/* ---- open / reset -------------------------------------------------- */
+function qOpen(det){
+  var menu=qBuild(det);
+  if(!menu)menu=det.querySelector('.cbs-menu[data-cbsq="1"]');
+  if(!menu)return;
+  var inp=qInput(menu);
+  if(!inp)return;
+  menu.removeAttribute("data-cbsq-w");
+  menu.style.width="";
+  var seed=det.getAttribute("data-cbsq-seed");
+  inp.value=seed||"";
+  qFilter(menu);
+  /* measure after the engine has positioned the popup */
+  if(window.requestAnimationFrame)requestAnimationFrame(function(){if(det.open)qFreeze(menu);});
+}
+function qCloseCleanup(det){
+  det.removeAttribute("data-cbsq-seed");
+  var menu=det.querySelector('.cbs-menu[data-cbsq="1"]');
+  if(!menu)return;
+  var inp=qInput(menu);
+  if(inp)inp.value="";
+  menu.classList.remove("cbs-has");
+  menu.removeAttribute("data-cbsq-w");
+  document.body.classList.remove("cbs-kb");
+}
+
+/* This capture listener is registered before the engine's own toggle
+   listener, so the header exists by the time the engine measures and
+   positions the popup. The toggle event on <details> does not bubble,
+   capture is the only way to hear it from document. */
+document.addEventListener("toggle",function(e){
+  var d=e.target;
+  if(!(d.classList&&d.classList.contains("cbs")))return;
+  if(d.open)qOpen(d);else qCloseCleanup(d);
+},true);
+
+/* ---- typing -------------------------------------------------------- */
+document.addEventListener("input",function(e){
+  var t=e.target;
+  if(!t||!t.classList||!t.classList.contains("cbs-q"))return;
+  var menu=qMenuOf(t);
+  if(!menu)return;
+  var det=menu.closest("details.cbs");
+  if(det)det.removeAttribute("data-cbsq-seed");
+  qFreeze(menu);
+  qFilter(menu);
+});
+
+/* ---- keyboard ------------------------------------------------------ */
+document.addEventListener("keydown",function(e){
+  var t=e.target;
+  if(!t||!t.classList||!t.classList.contains("cbs-q"))return;
+  var menu=qMenuOf(t);
+  if(!menu)return;
+  var rows=qRows(menu),n=rows.length,k=parseInt(menu.getAttribute("data-cbsq-act")||"-1",10);
+  if(e.key==="Escape"){
+    if(t.value){e.preventDefault();e.stopPropagation();t.value="";qFilter(menu);return;}
+    return; /* empty field, let the engine close the popup */
+  }
+  if(e.key==="ArrowDown"){if(!n)return;e.preventDefault();e.stopPropagation();qAct(menu,(k+1)%n);return;}
+  if(e.key==="ArrowUp"){if(!n)return;e.preventDefault();e.stopPropagation();qAct(menu,(k<=0?n:k)-1);return;}
+  if(e.key==="Home"){if(!n)return;e.preventDefault();e.stopPropagation();qAct(menu,0);return;}
+  if(e.key==="End"){if(!n)return;e.preventDefault();e.stopPropagation();qAct(menu,n-1);return;}
+  if(e.key==="Enter"){e.preventDefault();e.stopPropagation();qEnter(menu);return;}
+},true);
+
+/* ---- pointer ------------------------------------------------------- */
+document.addEventListener("click",function(e){
+  var t=e.target;
+  if(!t||!t.closest)return;
+  var clr=t.closest(".cbs-qclr");
+  if(clr){
+    e.preventDefault();e.stopPropagation();
+    var m=qMenuOf(clr);
+    if(!m)return;
+    var i2=qInput(m);
+    if(i2){i2.value="";qFilter(m);i2.focus();}
+    return;
+  }
+  var x=t.closest(".cbsq-x");
+  if(x){
+    e.preventDefault();e.stopPropagation();
+    var act=x.getAttribute("data-cbsq-act");
+    if(act==="opaline")qOpaline(x.closest("details.cbs"),x.getAttribute("data-cbsq-pid"));
+    return; /* non-selectable rows swallow the tap, the popup stays open */
+  }
+},true);
+
+/* ==================================================================
+   MOBILE KEYBOARD
+   The bottom sheet is position:fixed against the layout viewport,
+   which does not shrink when the on-screen keyboard appears. While
+   the search field holds focus we re-seat the sheet above the
+   keyboard using visualViewport and cap its height to what is left,
+   so the list keeps scrolling instead of sliding off screen.
+   ================================================================== */
+function qKb(){
+  var det=document.querySelector("details.cbs[open]");
+  var menu=det&&det.querySelector('.cbs-menu[data-cbsq="1"]');
+  if(!menu){document.body.classList.remove("cbs-kb");return;}
+  var vv=window.visualViewport;
+  var ae=document.activeElement;
+  var focused=!!(ae&&ae.classList&&ae.classList.contains("cbs-q")&&qMenuOf(ae)===menu);
+  if(!vv||!qMobile()||!focused){
+    if(menu.getAttribute("data-cbsq-kb")==="1"){menu.style.bottom="";menu.style.maxHeight="";menu.removeAttribute("data-cbsq-kb");}
+    document.body.classList.remove("cbs-kb");
+    return;
+  }
+  var overlap=Math.max(0,window.innerHeight-(vv.height+vv.offsetTop));
+  if(overlap<80){
+    if(menu.getAttribute("data-cbsq-kb")==="1"){menu.style.bottom="";menu.style.maxHeight="";menu.removeAttribute("data-cbsq-kb");}
+    document.body.classList.remove("cbs-kb");
+    return;
+  }
+  document.body.classList.add("cbs-kb");
+  menu.setAttribute("data-cbsq-kb","1");
+  menu.style.bottom=(overlap+10)+"px";
+  menu.style.maxHeight=Math.max(180,Math.round(vv.height)-18)+"px";
+}
+if(window.visualViewport){
+  window.visualViewport.addEventListener("resize",qKb);
+  window.visualViewport.addEventListener("scroll",qKb);
+}
+document.addEventListener("focusin",function(e){
+  if(e.target&&e.target.classList&&e.target.classList.contains("cbs-q"))setTimeout(qKb,60);
+});
+document.addEventListener("focusout",function(e){
+  if(e.target&&e.target.classList&&e.target.classList.contains("cbs-q"))setTimeout(qKb,60);
+});
+
+})();
+</script>
 <script>
 /* ─── GENETICS ENGINE ──────────────────────────────────────── */
 const _0xC1={"Green":["G","G"],"Blue 1":["B1","B1"],"Blue 2":["B2","B2"],"Parblue (B1B2)":["B1","B2"],"Aqua B1":["A","B1"],"Aqua B2":["A","B2"],"Aqua Homo":["A","A"],"Green / Blue 1":["B1","G"],"Green / Blue 2":["B2","G"],"Green / Aqua":["A","G"]};
