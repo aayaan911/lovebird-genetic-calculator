@@ -280,7 +280,6 @@
 </script>
 
 <!-- Twemoji, cross-platform emoji (fixes Windows flag rendering) -->
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/twemoji.min.js" crossorigin="anonymous"></script>
 <!-- Google Analytics 4, deferred -->
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-08CWVZ2806"></script>
 <script defer>
@@ -3390,8 +3389,10 @@ if(!_themeSeen){
 }
 btn.addEventListener('click',function(){const isDark=html.getAttribute('data-theme')==='dark';const next=isDark?'light':'dark';try{localStorage.setItem('lb-theme',next);}catch(e){}applyTheme(next);});
 })();
-/* Twemoji, replace emoji with cross-platform SVG images */
-if(typeof twemoji!=='undefined'){twemoji.parse(document.body,{folder:'svg',ext:'.svg'});}
+/* Emoji render natively. The twemoji CDN build that used to be loaded here was
+   removed: that version 404s on cdnjs, so the parse call never ran and every
+   page load paid for a failed request plus two console errors. Native emoji is
+   what visitors have always actually seen, so removing it changes nothing. */
 </script>
 <script>document.querySelectorAll(".cur-year").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 <script>
