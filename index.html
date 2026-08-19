@@ -2087,7 +2087,7 @@ function cbsfAvail(pid,id){
       if(cur==="visual")return "Already set on this parent in the Opaline selector";
       return "";
     }
-    if(used.indexOf(id)!==-1)return "Already on this bird";
+    if(used.indexOf(id)!==-1)return "Already on this bird";
     if(id==="YellowFace"&&_0xC5(primary))return "Already carried by the chosen Yellow Face series";
     if(id==="Pale"&&used.indexOf("Pallid")!==-1)return "Pallid is already on this parent, same Z locus";
     if(id==="Pallid"&&used.indexOf("Pale")!==-1)return "Pale is already on this parent, same Z locus";
@@ -2397,16 +2397,19 @@ function qFilter(menu){
       if(id==="Opaline"){
         var opOn=blk.indexOf("Already")===0;
         extra.push({name:mut.label,chip:opOn?"Already set":(blk?"Unavailable":"Opaline selector"),chipCls:blk?"cbsq-c-nm":"cbsq-c-corr",
-          mode:(CBSF_MODE[mut.type]||"")+" · "+(blk||"set in the Opaline selector on this card"),
+          mode:opOn?"":((CBSF_MODE[mut.type]||"")+" · "+(blk||"set in the Opaline selector on this card")),
           note:opOn?"":(R.ids[id].note||""),noteCls:"cbsq-note-dim",act:blk?null:"opaline",pid:pid});
       }else{
-        /* "Already on this bird" is not an error, it is a confirmation, so it
-           gets its own calm chip and drops the explainer. The breeder put it
-           there, he does not need the mutation described back at him. */
-        var onBird=blk.indexOf("Already")===0;
-        extra.push({name:mut.label,chip:onBird?"Already added":"Unavailable",chipCls:"cbsq-c-nm",
-          mode:(CBSF_MODE[mut.type]||"")+" · "+(blk||"not offered in this mutation slot"),
-          note:onBird?"":(R.ids[id].note||""),noteCls:"cbsq-note-dim",act:null});
+        /* A mutation the breeder already put in a slot is a confirmation, not an
+           error, so the row shrinks to just the name and a calm chip. Match the
+           exact string, not an "Already" prefix: "Already carried by the chosen
+           Yellow Face series" is a DIFFERENT fact, it tells him the trait came
+           from the Bird Series rather than a slot, and that one keeps its line. */
+        var onBird=(blk==="Already on this bird");
+        var carried=(blk.indexOf("Already carried")===0);
+        extra.push({name:mut.label,chip:onBird?"Already added":(carried?"Already carried":"Unavailable"),chipCls:"cbsq-c-nm",
+          mode:onBird?"":((CBSF_MODE[mut.type]||"")+" · "+(blk||"not offered in this mutation slot")),
+          note:(onBird||carried)?"":(R.ids[id].note||""),noteCls:"cbsq-note-dim",act:null});
       }
     }
   }
