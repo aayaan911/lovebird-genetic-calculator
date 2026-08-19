@@ -88,7 +88,7 @@
    "name": "What is a Pastel lovebird?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino locus in Fischer's lovebirds, the same gene as Ino and Dark Eyed Clear, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split."
+    "text": "A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino a-locus in Fischer's lovebirds, the same gene as Ino, Dark Eyed Clear and Bronze Fallow, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split."
    }
   },
   {
@@ -327,7 +327,7 @@
   --op-color:#2d6835;
   --text-1:#0a0a0a;
   --text-2:#4a4a4a;
-  --text-3:#888;
+  --text-3:#686868;
   --text-inv:#ffffff;
   --border:#e2e2de;
   --border-strong:#c8c8c4;
@@ -343,6 +343,26 @@
   --radius-pill:999px;
   --warn-bg:#fff7ed;
   --warn-color:#9a3412;
+  /* Accessible text-weight variants of the brand colours. Dark mode maps these
+     straight back to the base colours, so dark rendering is unchanged. */
+  --accent-text:#2d6835;
+  --danger-text:#c62828;
+  /* Supported-mutations roster + SEO band surfaces (flip with the theme) */
+  --roster-cell:#ffffff;
+  --roster-line:var(--border);
+  --roster-name:var(--text-1);
+  --roster-sub:var(--text-2);
+  --roster-badge:var(--text-2);
+  --roster-accent:var(--accent-text);
+  --roster-ad:#296490;
+  --seo-fg-strong:rgba(0,0,0,0.85);
+  --seo-fg-mute:rgba(0,0,0,0.62);
+  --seo-fg-soft:rgba(0,0,0,0.62);
+  --seo-fg-faint:rgba(0,0,0,0.62);
+  --seo-hair:rgba(0,0,0,0.10);
+  --seo-hair-soft:rgba(0,0,0,0.10);
+  --seo-card-bg:rgba(0,0,0,0.03);
+  --seo-card-bd:rgba(0,0,0,0.12);
   --font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:'DM Mono','Courier New',ui-monospace,monospace;
   --transition:0.2s ease;
@@ -365,6 +385,24 @@
   --shadow-card-hover:0 4px 16px rgba(0,0,0,0.5),0 16px 48px rgba(0,0,0,0.4);
   --warn-bg:#1a0a00;
   --warn-color:#fb923c;
+  /* Dark mode keeps the exact literals it rendered before the light-mode fix. */
+  --accent-text:#4ca154;
+  --danger-text:#ef4444;
+  --roster-cell:var(--bg-page);
+  --roster-line:rgba(255,255,255,0.08);
+  --roster-name:#d8d8d6;
+  --roster-sub:#666;
+  --roster-badge:#444;
+  --roster-accent:#4ca154;
+  --roster-ad:#7cb9e8;
+  --seo-fg-strong:#f0f0ee;
+  --seo-fg-mute:#666;
+  --seo-fg-soft:#888;
+  --seo-fg-faint:#555;
+  --seo-hair:rgba(255,255,255,0.07);
+  --seo-hair-soft:rgba(255,255,255,0.06);
+  --seo-card-bg:rgba(255,255,255,0.04);
+  --seo-card-bd:rgba(255,255,255,0.08);
 }
 
 /* ── RESET ──────────────────────────────────────── */
@@ -671,9 +709,9 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   -webkit-tap-highlight-color:transparent;
 }
 .cbs-opt:hover{background:var(--bg-input-filled);}
-.cbs-opt.cbs-sel{background:var(--accent-dim);color:var(--accent);}
+.cbs-opt.cbs-sel{background:var(--accent-dim);color:var(--accent-text);}
 .cbs-opt>span{flex:1;min-width:0;white-space:nowrap;}
-.cbs-opt .cbs-check{opacity:0;flex-shrink:0;color:var(--accent);}
+.cbs-opt .cbs-check{opacity:0;flex-shrink:0;color:var(--accent-text);}
 .cbs-opt.cbs-sel .cbs-check{opacity:1;}
 .cbs-opt:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
 /* Hide native base select but keep it as source of truth */
@@ -715,24 +753,24 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .add-btn{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:6px;
-  background:var(--bg-dark);
-  color:#fff;
-  border:none;
+  background:var(--accent-dim);
+  color:var(--accent-text);
+  border:1px solid var(--accent);
   border-radius:var(--radius-btn);
-  padding:9px 18px;
+  padding:10px 20px;
+  min-height:44px;
   font-family:var(--font);
   font-size:13px;
-  font-weight:600;
+  font-weight:700;
   cursor:pointer;
   transition:background var(--transition),transform 0.1s;
   letter-spacing:-0.01em;
   white-space:nowrap;
 }
-.add-btn:hover{background:#1a1a1a;transform:translateY(-1px);}
+.add-btn:hover{background:var(--accent-glow);transform:translateY(-1px);}
 .add-btn:active{transform:scale(0.95);}
-[data-theme="dark"] .add-btn{background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);font-weight:700;padding:10px 20px;}
-[data-theme="dark"] .add-btn:hover{background:var(--accent-glow);transform:translateY(-1px);}
 
 /* No traits */
 .no-traits{
@@ -821,14 +859,15 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   font-family:var(--font);
   font-size:14px;
   font-weight:600;
-  color:#ef4444;
+  color:var(--danger-text);
   cursor:pointer;
   display:flex;align-items:center;justify-content:center;gap:8px;
   touch-action:manipulation;-webkit-tap-highlight-color:transparent;
   transition:all var(--transition);
   letter-spacing:-0.01em;
 }
-.clear-btn:hover{background:rgba(239,68,68,0.08);color:#ef4444;border-color:rgba(239,68,68,0.55);}
+[data-theme="light"] .clear-btn{border-color:rgba(198,40,40,0.55);}
+.clear-btn:hover{background:rgba(239,68,68,0.08);color:var(--danger-text);border-color:rgba(239,68,68,0.55);}
 [data-theme="dark"] .clear-btn:hover{background:rgba(239,68,68,0.12);color:#ef4444;border-color:rgba(239,68,68,0.5);}
 .clear-btn-confirm{background:#ef4444!important;color:#fff!important;border-color:#ef4444!important;justify-content:center;}
 .clear-btn-done{background:rgba(76,161,84,0.1)!important;color:#4ca154!important;border-color:rgba(76,161,84,0.35)!important;pointer-events:none;}
@@ -1151,7 +1190,6 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   .tr{grid-template-columns:1fr 88px 40px;}
   .tr select,.tr .ss{height:44px;}
   .rm{width:40px;height:40px;}
-  .add-btn{padding:8px 14px;}
   .clear-btn{height:44px;font-size:13px;}
   /* Result panel */
   .rp{min-height:220px;padding:16px 14px 12px;}
@@ -1173,42 +1211,42 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .seo-section{background:#0a0a0a;border-top:1px solid transparent;padding:64px 0 56px;font-family:var(--font);}
 [data-theme="light"] .seo-section{background:#f8f8f8;border-top:1px solid rgba(0,0,0,0.07);}
 .seo-inner{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,48px);}
-.seo-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#4ca154;margin-bottom:10px;}
+.seo-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px;}
 .seo-section h2{font-size:clamp(22px,3vw,30px);font-weight:700;color:rgba(255,255,255,0.92);margin:0 0 12px;letter-spacing:-0.03em;line-height:1.2;}
 [data-theme="light"] .seo-section h2{color:rgba(0,0,0,0.88);}
 .seo-lead{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:680px;margin:0 0 48px;}
-[data-theme="light"] .seo-lead{color:rgba(0,0,0,0.55);}
+[data-theme="light"] .seo-lead{color:rgba(0,0,0,0.62);}
 .seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 56px;margin-bottom:48px;}
 @media(max-width:680px){.seo-grid{grid-template-columns:1fr;gap:32px;}}
-.seo-block h3{font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#4ca154;margin:0 0 10px;}
+.seo-block h3{font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-text);margin:0 0 10px;}
 .seo-block p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin:0;}
-[data-theme="light"] .seo-block p{color:rgba(0,0,0,0.52);}
+[data-theme="light"] .seo-block p{color:rgba(0,0,0,0.62);}
 .seo-mut-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:48px;}
-.seo-mut-tag{font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:rgba(76,161,84,0.1);color:#4ca154;border:1px solid rgba(76,161,84,0.2);white-space:nowrap;}
+.seo-mut-tag{font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;background:rgba(76,161,84,0.1);color:var(--accent-text);border:1px solid rgba(76,161,84,0.2);white-space:nowrap;}
 [data-theme="light"] .seo-mut-tag{background:rgba(76,161,84,0.08);border-color:rgba(76,161,84,0.18);}
 .seo-faq{border-top:1px solid rgba(255,255,255,0.07);padding-top:40px;}
 [data-theme="light"] .seo-faq{border-top-color:rgba(0,0,0,0.08);}
 .seo-faq-title{font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 28px;}
-[data-theme="light"] .seo-faq-title{color:rgba(0,0,0,0.35);}
+[data-theme="light"] .seo-faq-title{color:rgba(0,0,0,0.62);}
 .seo-faq{counter-reset:faq;}
 .seo-faq-item{margin-bottom:24px;counter-increment:faq;}
 .seo-faq-item h3{font-size:14px;font-weight:600;color:rgba(255,255,255,0.78);margin:0 0 6px;letter-spacing:-0.01em;display:flex;align-items:baseline;gap:10px;}
-.seo-faq-item h3::before{content:counter(faq);font-family:var(--mono);font-size:11px;font-weight:700;color:#4ca154;min-width:16px;}
+.seo-faq-item h3::before{content:counter(faq);font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent-text);min-width:16px;}
 [data-theme="light"] .seo-faq-item h3{color:rgba(0,0,0,0.78);}
 .seo-faq-item p{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;margin:0;padding-left:26px;max-width:720px;}
-[data-theme="light"] .seo-faq-item p{color:rgba(0,0,0,0.5);}
+[data-theme="light"] .seo-faq-item p{color:rgba(0,0,0,0.62);}
 .seo-steps{margin:0 0 48px;padding-left:20px;display:flex;flex-direction:column;gap:12px;}
 .seo-steps li{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;padding-left:6px;}
-.seo-validator-item{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;padding-left:16px;border-left:2px solid #4ca154;}
-[data-theme="light"] .seo-validator-item{color:rgba(0,0,0,0.52);}
-[data-theme="light"] .seo-steps li{color:rgba(0,0,0,0.52);}
+.seo-validator-item{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;padding-left:16px;border-left:2px solid var(--accent-text);}
+[data-theme="light"] .seo-validator-item{color:rgba(0,0,0,0.62);}
+[data-theme="light"] .seo-steps li{color:rgba(0,0,0,0.62);}
 .seo-steps li strong{color:rgba(255,255,255,0.78);font-weight:600;}
 [data-theme="light"] .seo-steps li strong{color:rgba(0,0,0,0.78);}
 .seo-stat-cell{background:#111;padding:18px 20px;}
 .seo-stat-cell .seo-stat-val{font-size:14px;color:#e8e8e6;margin:0;}
 [data-theme="light"] .seo-stat-cell{background:#eaeaea;}
 [data-theme="light"] .seo-stat-cell .seo-stat-val{color:rgba(0,0,0,0.82);}
-[data-theme="light"] .seo-mut-legend{color:rgba(0,0,0,0.4)!important;}
+[data-theme="light"] .seo-mut-legend{color:rgba(0,0,0,0.62)!important;}
 @media(max-width:768px){
   .seo-section{padding:36px 0 40px;}
   .seo-lead{margin-bottom:28px;}
@@ -1231,7 +1269,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .vbar{background:var(--bg-input-filled);border-bottom:1px solid var(--border);}
 .vbar-inner{max-width:1480px;margin:0 auto;padding:9px clamp(16px,4vw,48px);text-align:center;}
 .vbar span{font-size:12px;color:var(--text-2);font-weight:500;line-height:1.5;font-family:var(--font);}
-.vbar .vg{color:var(--accent);font-weight:600;}
+.vbar .vg{color:var(--accent-text);font-weight:600;}
 .vbar-sm{display:none;}
 @media(max-width:600px){.vbar span{font-size:11.5px;}.vbar-inner{padding:7px 14px;}.vbar-lg{display:none;}.vbar-sm{display:inline;}}
 /* ---- Trust stats section ---- */
@@ -1342,18 +1380,18 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 </style>
 <!-- FIX: prevent dark mode flash before first paint -->
 <script>
-  (function(){var t=localStorage.getItem('lb-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
+  (function(){var t;try{t=localStorage.getItem('lb-theme');}catch(e){}document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})();
 </script>
 <!--b071320--><style id="hp-link-hover">
 .seo-inner a,.footer-col a,.footer-legal a{text-decoration:none;padding-bottom:2px;background-image:linear-gradient(currentColor,currentColor);background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .seo-inner a:hover,.footer-col a:hover,.footer-legal a:hover{background-size:100% 1.5px;}
 @media(prefers-reduced-motion:reduce){.seo-inner a,.footer-col a,.footer-legal a{transition:none;}}
-.cbs-grp-lbl{color:var(--accent);}
+.cbs-grp-lbl{color:var(--accent-text);}
 @media(max-width:1100px){.footer-cols{grid-template-columns:1fr 1fr 1fr;}}
 @media(max-width:900px){.footer-cols{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.footer-cols{grid-template-columns:1fr;}}
 .guide-box-links a{background-image:none!important;padding:12px 16px!important;}
-.mut-roster>div>div{background:var(--bg-page);}
+.mut-roster>div>div{background:var(--roster-cell);}
 .mut-lnk{color:inherit;text-decoration:none;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;padding-bottom:2px;transition:background-size 0.25s ease,color 0.18s;}
 .mut-lnk:hover{color:var(--accent);background-size:100% 1.5px;}
 </style>
@@ -1372,17 +1410,17 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   <p><strong>Wild Type (Green)</strong>: The natural base color of Agapornis fischeri (Fischer's Lovebird). Dominant over all recessive mutations. Used as the baseline in all genetics calculations.</p>
   <p><strong>Dark Factor (Single Dark / Double Dark)</strong>: Autosomal incomplete dominant mutation. Single Dark Factor produces Dark Green; Double Dark Factor produces Olive Green. Dark Factor narrows the spongy zone, deepening the green color without adding extra eumelanin.</p>
   <p><strong>Violet</strong>: Autosomal incomplete dominant mutation. Best expressed as Single Factor Violet Dark Blue. Adds a violet structural color effect. Violet SF on Green produces a subtle visual change; Violet on Blue series produces the vivid violet lovebird.</p>
-  <p><strong>Pied</strong>: Autosomal recessive mutation. Causes patches of yellow and green or blue and white feathers. Visual pieds show irregular coloring; splits carry the gene without visual expression.</p>
+  <p><strong>Pied</strong>: Two separate genes carry the pied pattern. Dominant Pied is an autosomal dominant mutation (gene symbol Pi), so one copy already shows and there is no split form. Recessive Pied is a different autosomal recessive gene (gene symbol s), so it needs two copies to show and splits carry it without visual expression. Both cause patches of yellow and green or blue and white feathers.</p>
   <p><strong>Cinnamon</strong>: Sex-linked recessive mutation. Affects eumelanin production via the TRP1 gene. Produces warm brownish-green tones in hemizygous females and homozygous males. Often combined with other mutations for cinnamon aqua, cinnamon opaline etc. <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
   <p><strong>Dilute</strong>: Autosomal recessive. Causes macromelanosomes resulting in washed-out, pastel green coloring. Eyes and feet appear normal. Also called "Pastel Green."</p>
   <p><strong>Opaline</strong>: Sex-linked recessive mutation in Agapornis fischeri (Fischer's lovebird). Opaline causes redistribution of psittacine pigment, creating a richer, more saturated appearance often with a gradient effect on the wings and back. <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
 
   <h3>Blue Series (Parblue)</h3>
   <p><strong>Parblue B1 (Turquoise / Mint)</strong>: Autosomal recessive. Partial suppression of yellow psittacine pigment. Produces a turquoise or mint-green bird. Homozygous B1/B1 birds are visually turquoise.</p>
-  <p><strong>Parblue B2 (Cobalt Turquoise)</strong>: Autosomal recessive, different locus than B1. Deeper suppression of yellow pigment than B1. Produces a more distinctly blue-green bird.</p>
-  <p><strong>Aqua B1 (Aqua Turquoise)</strong>: Compound mutation, B1/B1 homozygous Parblue combined with the Blue mutation. Produces a clear aqua color. Split Aqua B1 birds carry the gene invisibly.</p>
-  <p><strong>Aqua B2 (Aqua Cobalt)</strong>: Compound, B2/B2 homozygous Parblue plus Blue. Produces a deeper, more saturated aqua than Aqua B1. Highly sought after in breeding programs.</p>
-  <p><strong>Aqua Homo (True Aqua / Homo Aqua)</strong>: Homozygous for both B1 and B2 Parblue loci plus Blue. The rarest Aqua variant. Produces the clearest, purest aqua coloring. Aqua Homo is the form breeders most consistently work toward, ahead of B1 or B2 Aqua. <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
+  <p><strong>Parblue B2 (Cobalt Turquoise)</strong>: Autosomal recessive, a different allele of the same blue (bl) locus as B1, not a separate locus. Deeper suppression of yellow pigment than B1. Produces a more distinctly blue-green bird.</p>
+  <p><strong>Aqua B1 (Aqua Turquoise)</strong>: An allelic compound at the blue (bl) locus, one Aqua allele paired with one Blue 1 allele. Produces a clear aqua color. Split Aqua B1 birds carry the gene invisibly.</p>
+  <p><strong>Aqua B2 (Aqua Cobalt)</strong>: An allelic compound at the blue (bl) locus, one Aqua allele paired with one Blue 2 allele. Produces a deeper, more saturated aqua than Aqua B1. Highly sought after in breeding programs.</p>
+  <p><strong>Aqua Homo (True Aqua / Homo Aqua)</strong>: Homozygous for the Aqua allele at the blue (bl) locus, so it behaves as a straightforward autosomal recessive. The rarest Aqua variant. Produces the clearest, purest aqua coloring. Aqua Homo is the form breeders most consistently work toward, ahead of B1 or B2 Aqua. <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
 
   <h3>Blue Series</h3>
   <p><strong>Blue (Sea Green / Pastel Blue)</strong>: Autosomal recessive. Complete suppression of yellow psittacine pigment. Produces a blue lovebird. The foundation for all blue-series compound mutations.</p>
@@ -1397,10 +1435,10 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   <h3>Fallow Mutations</h3>
   <p><strong>Pale Fallow</strong>: Autosomal recessive. Partial reduction of eumelanin with red/pink eyes. Produces a pale, washed-out coloring. Can be combined with Blue to produce Pale Fallow Blue (white with pink eyes). <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
   <p><strong>Dun Fallow</strong>: Autosomal recessive. Similar to Pale Fallow but with a brownish-dun tone. Red/pink eyes. Distinct from Bronze Fallow genetically. <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
-  <p><strong>Bronze Fallow</strong>: Autosomal recessive, TYR-negative partial. Burgundy eyes. Extremely high mortality rate when Bronze Fallow is paired with Bronze Fallow, approximately 100% chick death. Must be managed carefully in breeding programs. <a href="https://mutabase.ogvzw.org/mutationdetail.php?ShowDetail=17" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
+  <p><strong>Bronze Fallow</strong>: Autosomal recessive, TYR-negative partial. Burgundy eyes. Van den Abeele gives it the gene symbol a<sup>bz</sup>, which places it on the a-locus, the same locus as NSL ino (a), dark eyed clear (a<sup>dec</sup>) and pastel (a<sup>pa</sup>). Pale Fallow (pf) and Dun Fallow (df) sit at their own separate loci, so the three fallows are still separate genes from each other. Extremely high mortality rate when Bronze Fallow is paired with Bronze Fallow, approximately 100% chick death. Must be managed carefully in breeding programs. <a href="https://mutabase.ogvzw.org/mutationdetail.php?ShowDetail=17" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
 
   <h3>Ino Mutations (Lutino / Albino)</h3>
-  <p><strong>Lutino</strong>: Autosomal recessive (AR) in Agapornis fischeri. Complete absence of eumelanin. Produces a pure yellow bird with red eyes. The mechanism is TYR-positive: tyrosinase is still present but the melanosomes are deformed and cannot deposit eumelanin. This non-sex-linked (NSL) ino is distinct from the sex-linked ino of Agapornis roseicollis and from the Ino mutations found in other parrot species.</p>
+  <p><strong>Lutino</strong>: Autosomal recessive (AR) in Agapornis fischeri. Complete absence of eumelanin. Produces a pure yellow bird with red eyes. The mechanism is TYR-positive: tyrosinase is still present but the melanosomes are deformed and cannot deposit eumelanin. This non-sex-linked (NSL) ino is distinct from the sex-linked ino of Agapornis roseicollis and from the Ino mutations found in other parrot species. NSL ino sits on the a-locus and is allelic with dark eyed clear, pastel and bronze fallow, so a bird carries at most two of those four alleles.</p>
   <p><strong>Albino</strong>: Autosomal recessive (AR) Ino combined with Blue. Complete absence of all pigment, producing a pure white bird with red eyes. Albino Opaline and Albino YellowFace are highly sought compound mutations.</p>
 
   <h2>How the Lovebird Genetics Calculator Works</h2>
@@ -1572,7 +1610,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   <div class="seo-inner">
     <p class="seo-eyebrow">No Account Needed</p>
     <h2>The Most Complete Lovebird Genetics Calculator Online</h2>
-    <p class="seo-lead">This genetics tool is designed to instantly predict offspring mutations for any lovebird pairing, from common Green and Blue series to rare Aqua Homo, Pale Fallow, and Parblue combinations, through to dominant mutations like Euwing, Greywing, and Misty. Select parent colors, add mutation traits, and get clear probability outcomes in seconds. No account required. No data collected. While lovebird genetics tools have existed since the mid-2000s, this is a complete rebuild for 2026, built to handle modern mutation complexity including autosomal dominant incomplete (SF/DF) mutations that older systems were never designed for. <a href="/privacy" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Privacy Policy →</a></p>
+    <p class="seo-lead">This genetics tool is designed to instantly predict offspring mutations for any lovebird pairing, from common Green and Blue series to rare Aqua Homo, Pale Fallow, and Parblue combinations, through to dominant mutations like Euwing, Greywing, and Misty. Select parent colors, add mutation traits, and get clear probability outcomes in seconds. No account required. No data collected. While lovebird genetics tools have existed since the mid-2000s, this is a complete rebuild for 2026, built to handle modern mutation complexity including autosomal dominant incomplete (SF/DF) mutations that older systems were never designed for. <a href="/privacy" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Privacy Policy →</a></p>
 
     <p class="seo-eyebrow" style="margin-bottom:14px;">How to Use</p>
     <ol class="seo-steps">
@@ -1590,7 +1628,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-block">
         <h3>Sex-Linked Genetics Explained</h3>
-        <p>Some mutations in lovebirds are sex-linked recessive (SL), meaning they behave differently depending on whether the carrier is male or female. Opaline, Pallid, and Cinnamon are SL mutations. This calculator handles sex-linked inheritance automatically, showing males and females in separate columns with correct split probabilities. Read the full <a href="/blog/opaline-lovebird-genetics/" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Opaline genetics guide →</a></p>
+        <p>Some mutations in lovebirds are sex-linked recessive (SL), meaning they behave differently depending on whether the carrier is male or female. Opaline, Pallid, and Cinnamon are SL mutations. This calculator handles sex-linked inheritance automatically, showing males and females in separate columns with correct split probabilities. Read the full <a href="/blog/opaline-lovebird-genetics/" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Opaline genetics guide →</a></p>
       </div>
       <div class="seo-block">
         <h3>Autosomal Recessive Mutations</h3>
@@ -1602,7 +1640,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-block">
         <h3>Aqua &amp; Parblue Series</h3>
-        <p>Aqua lovebirds are among the most sought-after mutations globally. The Aqua gene sits between Green and Blue on the color spectrum. This tool supports all Aqua variants (Aqua B1, Aqua B2, and Aqua Homo) and correctly models pairings with Parblue (B1B2) birds, which carry one Blue 1 and one Blue 2 allele. Further reading: <a href="https://www.ogvzw.org/on-request-blue-aqua-and-turquoise-mutations-in-lovebirds/" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Blue, Aqua &amp; Turquoise mutations in lovebirds</a>.</p>
+        <p>Aqua lovebirds are among the most sought-after mutations globally. The Aqua gene sits between Green and Blue on the color spectrum. This tool supports all Aqua variants (Aqua B1, Aqua B2, and Aqua Homo) and correctly models pairings with Parblue (B1B2) birds, which carry one Blue 1 and one Blue 2 allele. Further reading: <a href="https://www.ogvzw.org/on-request-blue-aqua-and-turquoise-mutations-in-lovebirds/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Blue, Aqua &amp; Turquoise mutations in lovebirds</a>.</p>
       </div>
       <div class="seo-block">
         <h3>Used Worldwide</h3>
@@ -1610,11 +1648,11 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-block" style="grid-column:1/-1;">
         <h3>Why Sapphire and Mottle Are Not Included</h3>
-        <p>This calculator is built strictly on verified genetics, primarily the <em>Lovebird Compendium</em> (Dirk Van den Abeele, 2016) and the subsequent published research of Ornitho-Genetics VZW. Two mutations are deliberately left out. <strong>Sapphire</strong> is not a separate gene: current <a href="https://www.ogvzw.org/in-search-of-the-genetic-background-of-sapphire-agapornis-fischeri/" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">OGVZW research on sapphire</a> describes it as a crossing-over event where blue 1 and blue 2 recombine onto one chromosome, and <a href="https://www.ogvzw.org/call-for-samples-feathers-from-sapphire-agapornis-fischeri/" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">feather research is still active (August 2026)</a>, so we wait rather than guess. <strong>Mottle</strong> (progressive pied) is listed in <a href="https://mutabase.ogvzw.org/mutationdetail.php?ShowDetail=36" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">OGVZW MutaBase</a> as <em>autosomal multi factorial</em>, meaning several genes influence it and the pied area increases with each moult, so no honest calculator can give fixed offspring percentages for it. Everything else that is documented is modelled: 22 mutation groups including Pastel, Pale, Recessive Pied, Dominant Pied and Slaty, the DEC / Ino compound, Euwing and Misty as autosomal dominant incomplete, and Greywing as <a href="https://www.ogvzw.org/results-feather-research-sl-dominant-greywing-agapornis-fischeri/" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">sex-linked dominant per OGVZW feather research</a>. The calculator is updated as new research is published.</p>
+        <p>This calculator is built strictly on verified genetics, primarily the <em>Lovebird Compendium</em> (Dirk Van den Abeele, 2016) and the subsequent published research of Ornitho-Genetics VZW. Two mutations are deliberately left out. <strong>Sapphire</strong> is not a separate gene: current <a href="https://www.ogvzw.org/in-search-of-the-genetic-background-of-sapphire-agapornis-fischeri/" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">OGVZW research on sapphire</a> describes it as a crossing-over event where blue 1 and blue 2 recombine onto one chromosome, and <a href="https://www.ogvzw.org/call-for-samples-feathers-from-sapphire-agapornis-fischeri/" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">feather research is still active (August 2026)</a>, so we wait rather than guess. <strong>Mottle</strong> (progressive pied) is listed in <a href="https://mutabase.ogvzw.org/mutationdetail.php?ShowDetail=36" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">OGVZW MutaBase</a> as <em>autosomal multi factorial</em>, meaning several genes influence it and the pied area increases with each moult, so no honest calculator can give fixed offspring percentages for it. Everything else that is documented is modelled: 22 mutation groups including Pastel, Pale, Recessive Pied, Dominant Pied and Slaty, the DEC / Ino compound, Euwing and Misty as autosomal dominant incomplete, and Greywing as <a href="https://www.ogvzw.org/results-feather-research-sl-dominant-greywing-agapornis-fischeri/" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);">sex-linked dominant per OGVZW feather research</a>. The calculator is updated as new research is published.</p>
       </div>
     </div>
 
-    <div class="seo-divider" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:40px;margin-top:8px;margin-bottom:48px;">
+    <div class="seo-divider" style="border-top:1px solid var(--seo-hair);padding-top:40px;margin-top:8px;margin-bottom:48px;">
       <p class="seo-eyebrow" style="margin-bottom:10px;">Fischer's Lovebird Facts</p>
       <h2 style="font-size:clamp(18px,2.5vw,24px);margin-bottom:12px;">About Agapornis fischeri</h2>
       <p class="seo-lead" style="margin-bottom:28px;">Fischer's Lovebird (<em>Agapornis fischeri</em>) is the species this calculator is built for. It is one of the most widely kept and bred lovebird species in the world, prized for its extensive colour mutation palette and the complexity of its genetics.</p>
@@ -1639,26 +1677,26 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
     </div>
 
     <p class="seo-eyebrow" style="margin-bottom:6px;">Supported Mutations</p>
-    <p style="font-size:13px;color:#888;margin:0 0 20px;">22 mutations and color series fully supported, including Dark Eyed Clear (DEC) and DecIno, one of the most complete lovebird genetics calculators available for Fischer Lovebirds.</p>
-    <div class="mut-roster" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;margin-bottom:10px;" role="list" aria-label="Supported lovebird mutations">
+    <p style="font-size:13px;color:var(--seo-fg-soft);margin:0 0 20px;">22 mutations and color series fully supported, including Dark Eyed Clear (DEC) and DecIno, one of the most complete lovebird genetics calculators available for Fischer Lovebirds.</p>
+    <div class="mut-roster" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--roster-line);border:1px solid var(--roster-line);border-radius:12px;overflow:hidden;margin-bottom:10px;" role="list" aria-label="Supported lovebird mutations">
       <div style="display:contents;">
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">01</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/lovebird-color-genetics/">Green Series</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">BASE</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">02</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/blue-lovebird-genetics/">Blue Series <span style="font-size:11px;color:#666;">(B1 / B2 / Parblue)</span></a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">BASE</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">03</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/aqua-mutation-in-lovebirds/">Aqua Mutation <span style="font-size:11px;color:#666;">(B1 / B2 / Homo)</span></a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">BASE</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">04</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/yellow-face-lovebird-genetics/">Yellow Face</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">05</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/opaline-lovebird-genetics/">Opaline</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#4ca154;letter-spacing:0.06em;">SL</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">06</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/pallid-lovebird-genetics/">Pallid</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#4ca154;letter-spacing:0.06em;">SL</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">07</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/cinnamon-lovebird-genetics/">Cinnamon</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#4ca154;letter-spacing:0.06em;">SL</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">08</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/lutino-albino-lovebird-genetics/">Ino / Lutino / Albino</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">09</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/pale-fallow-vs-dun-fallow/">Pale Fallow</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">10</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/pale-fallow-vs-dun-fallow/">Dun Fallow</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">11</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/bronze-fallow-lovebird-genetics/">Bronze Fallow</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">12</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/dilute-lovebird-genetics/">Dilute</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">13</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/red-factor-lovebird-genetics/">Red Factor</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">14</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/euwing-greywing-misty-lovebirds/">Euwing</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#7cb9e8;letter-spacing:0.06em;">AD</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">15</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/euwing-greywing-misty-lovebirds/">Greywing</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#7cb9e8;letter-spacing:0.06em;">SL-D</span></div>
-        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">16</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/euwing-greywing-misty-lovebirds/">Misty</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#7cb9e8;letter-spacing:0.06em;">AD</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">17</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/dark-eyed-clear-decino-lovebirds/">Dark Eyed Clear (DECIno)</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div>
-      </div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">18</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/pastel-lovebird-genetics/">Pastel</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">19</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/pale-lovebird-genetics/">Pale</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">SL</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">20</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/recessive-pied-lovebird-genetics/">Recessive Pied</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AR</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">21</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/dominant-pied-lovebird-genetics/">Dominant Pied</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AD</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--bg-page);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:#4ca154;min-width:22px;">22</span><span style="font-size:13px;color:#d8d8d6;"><a class="mut-lnk" href="/blog/slaty-lovebird-genetics/">Slaty</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:#444;letter-spacing:0.06em;">AD</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">01</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/lovebird-color-genetics/">Green Series</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">BASE</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">02</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/blue-lovebird-genetics/">Blue Series <span style="font-size:11px;color:var(--roster-sub);">(B1 / B2 / Parblue)</span></a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">BASE</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">03</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/aqua-mutation-in-lovebirds/">Aqua Mutation <span style="font-size:11px;color:var(--roster-sub);">(B1 / B2 / Homo)</span></a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">BASE</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">04</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/yellow-face-lovebird-genetics/">Yellow Face</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">05</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/opaline-lovebird-genetics/">Opaline</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-accent);letter-spacing:0.06em;">SL</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">06</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/pallid-lovebird-genetics/">Pallid</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-accent);letter-spacing:0.06em;">SL</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">07</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/cinnamon-lovebird-genetics/">Cinnamon</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-accent);letter-spacing:0.06em;">SL</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">08</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/lutino-albino-lovebird-genetics/">Ino / Lutino / Albino</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">09</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/pale-fallow-vs-dun-fallow/">Pale Fallow</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">10</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/pale-fallow-vs-dun-fallow/">Dun Fallow</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">11</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/bronze-fallow-lovebird-genetics/">Bronze Fallow</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">12</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/dilute-lovebird-genetics/">Dilute</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">13</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/red-factor-lovebird-genetics/">Red Factor</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">14</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/euwing-greywing-misty-lovebirds/">Euwing</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-ad);letter-spacing:0.06em;">AD</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">15</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/euwing-greywing-misty-lovebirds/">Greywing</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-ad);letter-spacing:0.06em;">SL-D</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">16</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/euwing-greywing-misty-lovebirds/">Misty</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-ad);letter-spacing:0.06em;">AD</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">17</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/dark-eyed-clear-decino-lovebirds/">Dark Eyed Clear (DECIno)</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div>
+      </div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">18</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/pastel-lovebird-genetics/">Pastel</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">19</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/pale-lovebird-genetics/">Pale</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">SL</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">20</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/recessive-pied-lovebird-genetics/">Recessive Pied</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">21</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/dominant-pied-lovebird-genetics/">Dominant Pied</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AD</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">22</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/slaty-lovebird-genetics/">Slaty</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AD</span></div>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:28px;padding:10px 0;">
       <span class="seo-mut-legend" style="font-size:11px;color:rgba(255,255,255,0.3);font-family:var(--mono);">BASE = Base color series &nbsp;·&nbsp; AR = Autosomal Recessive &nbsp;·&nbsp; SL = Sex-Linked Recessive &nbsp;·&nbsp; AD = Autosomal Dominant &nbsp;·&nbsp; SL-D = Sex-Linked Dominant</span>
@@ -1682,7 +1720,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>What is a Pastel lovebird?</h3>
-        <p>A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino locus in Fischer's lovebirds, the same gene as Ino and Dark Eyed Clear, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split.</p>
+        <p>A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino a-locus in Fischer's lovebirds, the same gene as Ino, Dark Eyed Clear and Bronze Fallow, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split.</p>
       </div>
       <div class="seo-faq-item">
         <h3>What is the difference between Dominant Pied and Recessive Pied in lovebirds?</h3>
@@ -1698,11 +1736,11 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>Is this a lovebird pairing calculator as well as a genetics calculator?</h3>
-        <p>Yes, it is both a lovebird genetics calculator and a <a href="https://lovebirdgenetics.com/" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">lovebird pairing calculator</a> in one. You select a male and a female, including their base color series and any mutation traits, and the engine instantly calculates every possible offspring combination with exact percentages. It handles simple single-mutation pairings, complex multi-mutation combinations, sex-linked traits like Opaline and Cinnamon, and rare series like Aqua Homo and Parblue. The result is a complete breakdown of what your specific pairing can produce, which is exactly what a lovebird pairing calculator is designed to do.</p>
+        <p>Yes, it is both a lovebird genetics calculator and a <a href="https://lovebirdgenetics.com/" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">lovebird pairing calculator</a> in one. You select a male and a female, including their base color series and any mutation traits, and the engine instantly calculates every possible offspring combination with exact percentages. It handles simple single-mutation pairings, complex multi-mutation combinations, sex-linked traits like Opaline and Cinnamon, and rare series like Aqua Homo and Parblue. The result is a complete breakdown of what your specific pairing can produce, which is exactly what a lovebird pairing calculator is designed to do.</p>
       </div>
       <div class="seo-faq-item">
         <h3>Is this lovebird genetics calculator free?</h3>
-        <p><strong>Is this genetic calculator free to use?</strong> Yes. Lovebird Genetics is a completely free genetic calculator for Fischer's lovebirds (<em>Agapornis fischeri</em>). There is no account, no sign-up, no subscription, no trial, no paywall and no ads. Select the base colour and mutations for each parent and it instantly predicts every possible offspring outcome with exact percentages, including splits and separate male and female columns for sex-linked mutations. It runs entirely in your browser on any phone or computer, works worldwide with no regional restrictions, and every inheritance model is cross-checked against Dirk Van den Abeele's Lovebird Compendium (2016). No personal data is collected when you use the calculator, see our <a href="/privacy" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Privacy Policy</a> for full details.</p>
+        <p><strong>Is this genetic calculator free to use?</strong> Yes. Lovebird Genetics is a completely free genetic calculator for Fischer's lovebirds (<em>Agapornis fischeri</em>). There is no account, no sign-up, no subscription, no trial, no paywall and no ads. Select the base colour and mutations for each parent and it instantly predicts every possible offspring outcome with exact percentages, including splits and separate male and female columns for sex-linked mutations. It runs entirely in your browser on any phone or computer, works worldwide with no regional restrictions, and every inheritance model is cross-checked against Dirk Van den Abeele's Lovebird Compendium (2016). No personal data is collected when you use the calculator, see our <a href="/privacy" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Privacy Policy</a> for full details.</p>
       </div>
       <div class="seo-faq-item">
         <h3>What does "split" mean in lovebird genetics?</h3>
@@ -1710,7 +1748,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>What are Euwing, Greywing, and Misty in lovebirds?</h3>
-        <p>Euwing and Misty are autosomal dominant incomplete mutations, and Greywing is sex-linked dominant (OGVZW). They are dominant mutations documented in <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Fischer's Lovebird (<em>Agapornis fischeri</em>)</a> and related eye-ring Agapornis species. Unlike recessive mutations that require two copies to show, a single copy of any of these mutations already produces a visible change in the bird's plumage. This is the Single Factor (SF) form. A bird inheriting two copies shows a more pronounced version called the Double Factor (DF) form. Euwing enhances the dark wing markings (SF = stronger wing pattern, DF = near-solid dark wings). Greywing softens the wing melanin to a grey wash (SF = soft grey wing pattern, DF = deeper grey). Misty produces a frosted or veiled feather texture. All three are fully supported in this calculator. Select them from the Dominant group in the mutation dropdown and set each bird as Normal, SF, or DF. See mutation records for <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Euwing, Greywing, and Misty on MutaBase ↗</a>.</p>
+        <p>Euwing and Misty are autosomal dominant incomplete mutations, and Greywing is sex-linked dominant (OGVZW). They are dominant mutations documented in <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Fischer's Lovebird (<em>Agapornis fischeri</em>)</a> and related eye-ring Agapornis species. Unlike recessive mutations that require two copies to show, a single copy of any of these mutations already produces a visible change in the bird's plumage. This is the Single Factor (SF) form. A bird inheriting two copies shows a more pronounced version called the Double Factor (DF) form. Euwing enhances the dark wing markings (SF = stronger wing pattern, DF = near-solid dark wings). Greywing softens the wing melanin to a grey wash (SF = soft grey wing pattern, DF = deeper grey). Misty produces a frosted or veiled feather texture. All three are fully supported in this calculator. Select them from the Dominant group in the mutation dropdown and set each bird as Normal, SF, or DF. See mutation records for <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Euwing, Greywing, and Misty on MutaBase ↗</a>.</p>
       </div>
       <div class="seo-faq-item">
         <h3>What does SF and DF mean for dominant mutations like Euwing, Greywing, and Misty?</h3>
@@ -1718,7 +1756,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>How do sex-linked mutations work in lovebirds, and how do I know if a mutation is sex-linked?</h3>
-        <p>In this calculator, <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Opaline</a>, Pallid, and <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Cinnamon</a> are marked as sex-linked recessive (SL). For sex-linked mutations, females cannot be splits, they either show the mutation visually or don't carry it at all. Males can carry the gene without showing it, so a normal-looking cock can still be split. The calculator automatically separates male and female offspring predictions for SL traits. Euwing and Misty are autosomal dominant, they affect cocks and hens equally and produce the same SF/DF ratios regardless of the chick's sex. Greywing is the exception, it is sex-linked dominant, so its outcomes differ between sons and daughters. For a complete breakdown of Opaline inheritance and all five pairing outcomes, see the <a href="/blog/opaline-lovebird-genetics/" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Opaline genetics guide →</a>.</p>
+        <p>In this calculator, <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Opaline</a>, Pallid, and <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Cinnamon</a> are marked as sex-linked recessive (SL). For sex-linked mutations, females cannot be splits, they either show the mutation visually or don't carry it at all. Males can carry the gene without showing it, so a normal-looking cock can still be split. The calculator automatically separates male and female offspring predictions for SL traits. Euwing and Misty are autosomal dominant, they affect cocks and hens equally and produce the same SF/DF ratios regardless of the chick's sex. Greywing is the exception, it is sex-linked dominant, so its outcomes differ between sons and daughters. For a complete breakdown of Opaline inheritance and all five pairing outcomes, see the <a href="/blog/opaline-lovebird-genetics/" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Opaline genetics guide →</a>.</p>
       </div>
       <div class="seo-faq-item">
         <h3>Can I calculate multiple mutations at once?</h3>
@@ -1734,7 +1772,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>What is the difference between Aqua B1, Aqua B2, and Aqua Homo lovebirds?</h3>
-        <p>The Aqua gene (A) is a separate allele in the Blue locus. Aqua B1 carries one Aqua and one Blue 1 allele. Aqua B2 carries Aqua and Blue 2. Aqua Homo carries two Aqua alleles, the purest form and the rarest of the three Aqua forms. For a deeper read on the Aqua allele series, see <a href="https://www.ogvzw.org/on-request-blue-aqua-and-turquoise-mutations-in-lovebirds/" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Blue, Aqua and Turquoise mutations in lovebirds (OGVZW) ↗</a>.</p>
+        <p>The Aqua gene (A) is a separate allele in the Blue locus. Aqua B1 carries one Aqua and one Blue 1 allele. Aqua B2 carries Aqua and Blue 2. Aqua Homo carries two Aqua alleles, the purest form and the rarest of the three Aqua forms. For a deeper read on the Aqua allele series, see <a href="https://www.ogvzw.org/on-request-blue-aqua-and-turquoise-mutations-in-lovebirds/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Blue, Aqua and Turquoise mutations in lovebirds (OGVZW) ↗</a>.</p>
       </div>
       <div class="seo-faq-item">
         <h3>How does the Aqua series combine with Pale Fallow, Dun Fallow, Dilute, and Ino?</h3>
@@ -1742,20 +1780,20 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>How does Yellow Face combine with Aqua and Parblue lovebirds? What combinations are possible?</h3>
-        <p><a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Yellow Face</a> is an autosomal recessive mutation that adds yellow pigment to the face and flight feathers. It can be stacked onto any Aqua or Parblue base to create some of the most visually striking birds in lovebird breeding. Parblue Yellow Face (B1B2 YF) shows a turquoise-blue body with a distinct yellow facial wash. Aqua B1 Yellow Face produces a warm greenish-aqua bird with yellow face markings. Aqua B2 Yellow Face sits deeper in the aqua spectrum with strong yellow face contrast. Aqua Homo Yellow Face is among the rarest, a pure saturated aqua base with full yellow face expression, and every offspring inherits the Aqua gene. These bases can stack further with Pale Fallow, Dun Fallow, Dilute, and Ino. For example, Aqua Homo Yellow Face Pale Fallow produces a delicate near-pastel bird with reduced melanin and full yellow face, while Aqua B2 Yellow Face Ino creates a near-white bird with a warm yellow wash across the face and flight feathers. The calculator handles all of these combinations correctly.</p>
+        <p><a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Yellow Face</a> is an autosomal recessive mutation that adds yellow pigment to the face and flight feathers. It can be stacked onto any Aqua or Parblue base to create some of the most visually striking birds in lovebird breeding. Parblue Yellow Face (B1B2 YF) shows a turquoise-blue body with a distinct yellow facial wash. Aqua B1 Yellow Face produces a warm greenish-aqua bird with yellow face markings. Aqua B2 Yellow Face sits deeper in the aqua spectrum with strong yellow face contrast. Aqua Homo Yellow Face is among the rarest, a pure saturated aqua base with full yellow face expression, and every offspring inherits the Aqua gene. These bases can stack further with Pale Fallow, Dun Fallow, Dilute, and Ino. For example, Aqua Homo Yellow Face Pale Fallow produces a delicate near-pastel bird with reduced melanin and full yellow face, while Aqua B2 Yellow Face Ino creates a near-white bird with a warm yellow wash across the face and flight feathers. The calculator handles all of these combinations correctly.</p>
       </div>
       <div class="seo-faq-item">
         <h3>What is Bronze Fallow in lovebirds and how is it recognised? When did it appear?</h3>
-        <p>Bronze Fallow is an autosomal recessive mutation, first documented in 1978 in West Germany by breeder Karlheinz Grau. It is recognisable by its laurel-green body, greyish-brown flight feathers and dark burgundy eyes, which distinguish it clearly from Pale Fallow and Dun Fallow, both of which show bright red eyes. The eumelanin reduction is limited rather than heavy, so the body stays green instead of washing out the way a Pale Fallow does, and the feet are pale pink with horn-coloured nails. Bronze Fallow carries a critical health warning: Bronze Fallow × Bronze Fallow pairings result in near-100% chick mortality. For this reason, Bronze Fallow birds must never be paired together and should only be bred to normal birds or known splits, which produce healthy offspring and splits without the mortality risk. See the <a href="https://mutabase.ogvzw.org/mutationdetail.php?ShowDetail=17" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Bronze Fallow mutation record on MutaBase</a> for full scientific documentation.</p>
+        <p>Bronze Fallow is an autosomal recessive mutation, first documented in 1978 in West Germany by breeder Karlheinz Grau. It is recognisable by its laurel-green body, greyish-brown flight feathers and dark burgundy eyes, which distinguish it clearly from Pale Fallow and Dun Fallow, both of which show bright red eyes. The eumelanin reduction is limited rather than heavy, so the body stays green instead of washing out the way a Pale Fallow does, and the feet are pale pink with horn-coloured nails. Bronze Fallow carries a critical health warning: Bronze Fallow × Bronze Fallow pairings result in near-100% chick mortality. For this reason, Bronze Fallow birds must never be paired together and should only be bred to normal birds or known splits, which produce healthy offspring and splits without the mortality risk. See the <a href="https://mutabase.ogvzw.org/mutationdetail.php?ShowDetail=17" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Bronze Fallow mutation record on MutaBase</a> for full scientific documentation.</p>
       </div>
       <div class="seo-faq-item">
         <h3>What is the Lovebird Compendium and who wrote it?</h3>
-        <p>The Lovebird Compendium is widely considered the most comprehensive scientific reference on lovebird genetics and mutations ever published. Written by <a href="https://en.wikipedia.org/wiki/Dirk_Van_den_Abeele" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Dirk Van den Abeele</a>, a Belgian aviculturist and ornithologist with decades of experience breeding and studying lovebirds, the book was published in 2016 and spans 769 pages. It covers the genetics, inheritance, visual characteristics, and breeding outcomes of virtually every known lovebird mutation in scientific detail. Van den Abeele's work is the primary reference used by serious breeders and researchers worldwide when studying complex mutations like Aqua, Pale Fallow, Dun Fallow, Bronze Fallow, Opaline, and Violet. The genetics engine behind this calculator was cross-referenced against the Lovebird Compendium to ensure accuracy across all mutation types. Published by <a href="https://avianpublications.com/shop/lovebirds-compendium/" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Avian Publications</a>.</p>
+        <p>The Lovebird Compendium is widely considered the most comprehensive scientific reference on lovebird genetics and mutations ever published. Written by <a href="https://en.wikipedia.org/wiki/Dirk_Van_den_Abeele" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Dirk Van den Abeele</a>, a Belgian aviculturist and ornithologist with decades of experience breeding and studying lovebirds, the book was published in 2016 and spans 769 pages. It covers the genetics, inheritance, visual characteristics, and breeding outcomes of virtually every known lovebird mutation in scientific detail. Van den Abeele's work is the primary reference used by serious breeders and researchers worldwide when studying complex mutations like Aqua, Pale Fallow, Dun Fallow, Bronze Fallow, Opaline, and Violet. The genetics engine behind this calculator was cross-referenced against the Lovebird Compendium to ensure accuracy across all mutation types. Published by <a href="https://avianpublications.com/shop/lovebirds-compendium/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Avian Publications</a>.</p>
       </div>
     </div>
 
     <!-- 4. How to Read Your Results -->
-    <div class="seo-divider" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:40px;margin-top:8px;">
+    <div class="seo-divider" style="border-top:1px solid var(--seo-hair);padding-top:40px;margin-top:8px;">
       <p class="seo-eyebrow" style="margin-bottom:10px;">How to Read Your Results</p>
       <h2 style="font-size:clamp(18px,2.5vw,24px);margin-bottom:12px;">Understanding the Percentages</h2>
       <p class="seo-lead" style="margin-bottom:28px;">Each result shows a probability, not a guarantee. These are Mendelian inheritance percentages across a statistically large number of chicks. In any single clutch of 4-6 eggs, the actual outcome will vary.</p>
@@ -1780,25 +1818,25 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
     </div>
 
     <!-- 5. Fischer Lovebird Species Facts -->
-    <div class="seo-divider" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:40px;margin-top:8px;">
+    <div class="seo-divider" style="border-top:1px solid var(--seo-hair);padding-top:40px;margin-top:8px;">
       <p class="seo-eyebrow" style="margin-bottom:10px;">Species Data</p>
       <h2 style="font-size:clamp(18px,2.5vw,24px);margin-bottom:8px;">Fischer's Lovebird, Agapornis fischeri</h2>
       <p class="seo-lead" style="margin-bottom:28px;max-width:680px;">Fischer's lovebird is the primary species supported by this calculator. Here are the key biological and avicultural facts breeders, researchers, and LLMs reference most often.</p>
 
       <!-- Stat grid -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;margin-bottom:36px;">
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">SCIENTIFIC NAME</p><p class="seo-stat-val" style="font-style:italic;">Agapornis fischeri</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">FAMILY</p><p class="seo-stat-val">Psittaculidae (parrots)</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">ORIGIN</p><p class="seo-stat-val">North Tanzania, East Africa</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">NAMED AFTER</p><p class="seo-stat-val">Gustav Fischer (1887)</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">BODY LENGTH</p><p class="seo-stat-val">13 to 15 cm (5 to 6 in)</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">WEIGHT</p><p class="seo-stat-val">42 to 58 g</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">CAPTIVE LIFESPAN</p><p class="seo-stat-val">15 to 20 years (25 max)</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">CLUTCH SIZE</p><p class="seo-stat-val">3 to 8 eggs per clutch</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">INCUBATION</p><p class="seo-stat-val">21 to 23 days</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">FLEDGING</p><p class="seo-stat-val">38 to 42 days</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">IUCN STATUS</p><p class="seo-stat-val">Near Threatened</p></div>
-        <div class="seo-stat-cell"><p style="font-size:11px;color:#4ca154;font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">MUTATIONS SUPPORTED</p><p class="seo-stat-val">22 groups (this calculator)</p></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--seo-hair);border-radius:12px;overflow:hidden;margin-bottom:36px;">
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">SCIENTIFIC NAME</p><p class="seo-stat-val" style="font-style:italic;">Agapornis fischeri</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">FAMILY</p><p class="seo-stat-val">Psittaculidae (parrots)</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">ORIGIN</p><p class="seo-stat-val">North Tanzania, East Africa</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">NAMED AFTER</p><p class="seo-stat-val">Gustav Fischer (1887)</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">BODY LENGTH</p><p class="seo-stat-val">13 to 15 cm (5 to 6 in)</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">WEIGHT</p><p class="seo-stat-val">42 to 58 g</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">CAPTIVE LIFESPAN</p><p class="seo-stat-val">15 to 20 years (25 max)</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">CLUTCH SIZE</p><p class="seo-stat-val">3 to 8 eggs per clutch</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">INCUBATION</p><p class="seo-stat-val">21 to 23 days</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">FLEDGING</p><p class="seo-stat-val">38 to 42 days</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">IUCN STATUS</p><p class="seo-stat-val">Near Threatened</p></div>
+        <div class="seo-stat-cell"><p style="font-size:11px;color:var(--accent-text);font-family:var(--mono);margin:0 0 6px;letter-spacing:0.06em;">MUTATIONS SUPPORTED</p><p class="seo-stat-val">22 groups (this calculator)</p></div>
       </div>
 
       <!-- Mutation timeline -->
@@ -1822,68 +1860,68 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
 
       <!-- FAQ entries for species questions -->
-      <div class="seo-faq" style="border-top:1px solid rgba(255,255,255,0.07);margin-top:40px;padding-top:40px;">
+      <div class="seo-faq" style="border-top:1px solid var(--seo-hair);margin-top:40px;padding-top:40px;">
         <p class="seo-faq-title">Fischer's Lovebird, Common Questions</p>
         <div class="seo-faq-item">
           <h3>How long do Fischer lovebirds live?</h3>
-          <p>Fischer's lovebirds typically live 15 to 20 years in captivity with proper care, diet, and housing, with 25 years documented as the maximum under exceptional care. <a href="https://animaldiversity.org/accounts/Agapornis_fischeri/" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Animal Diversity Web (University of Michigan)</a> gives a captive range of 15 to 25 years, and the <a href="https://www.awf.org/wildlife-conservation/lovebird" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">African Wildlife Foundation</a> gives up to 25 years. In the wild, lifespan is shorter due to predation and environmental pressures. The quality of diet (fresh vegetables, pellets, seeds), social interaction, aviary space, and veterinary care are the main factors determining captive lifespan. Breeding females tend to have shorter lifespans than non-breeding birds due to the physical demands of egg production. See the <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Fischer's lovebird Wikipedia article</a> for species overview.</p>
+          <p>Fischer's lovebirds typically live 15 to 20 years in captivity with proper care, diet, and housing, with 25 years documented as the maximum under exceptional care. <a href="https://animaldiversity.org/accounts/Agapornis_fischeri/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Animal Diversity Web (University of Michigan)</a> gives a captive range of 15 to 25 years, and the <a href="https://www.awf.org/wildlife-conservation/lovebird" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">African Wildlife Foundation</a> gives up to 25 years. In the wild, lifespan is shorter due to predation and environmental pressures. The quality of diet (fresh vegetables, pellets, seeds), social interaction, aviary space, and veterinary care are the main factors determining captive lifespan. Breeding females tend to have shorter lifespans than non-breeding birds due to the physical demands of egg production. See the <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Fischer's lovebird Wikipedia article</a> for species overview.</p>
         </div>
         <div class="seo-faq-item">
           <h3>How many eggs do Fischer lovebirds lay per clutch?</h3>
-          <p>Fischer's lovebirds typically lay 3-8 eggs per clutch, with 4-6 being the most common range. Incubation begins after the second or third egg is laid and lasts 21 to 23 days. Chicks fledge at 38-42 days of age (source: <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Wikipedia</a>). In breeding programs using the rotation method, experienced breeders foster eggs to reliable foster parents to maximize production, allowing the breeding female to begin a new cycle sooner. Under optimal rotation conditions, a pair can produce multiple clutches per season while maintaining the female's health.</p>
+          <p>Fischer's lovebirds typically lay 3-8 eggs per clutch, with 4-6 being the most common range. Incubation begins after the second or third egg is laid and lasts 21 to 23 days. Chicks fledge at 38-42 days of age (source: <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Wikipedia</a>). In breeding programs using the rotation method, experienced breeders foster eggs to reliable foster parents to maximize production, allowing the breeding female to begin a new cycle sooner. Under optimal rotation conditions, a pair can produce multiple clutches per season while maintaining the female's health.</p>
         </div>
         <div class="seo-faq-item">
           <h3>What is the scientific name of the Fischer lovebird?</h3>
-          <p>The Fischer's lovebird is scientifically classified as <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);font-style:italic;">Agapornis fischeri</a>. It belongs to the family Psittaculidae (parrots), genus Agapornis (lovebirds). The species was first described in 1887 by <a href="https://en.wikipedia.org/wiki/Anton_Reichenow" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Anton Reichenow</a> and named in honor of <a href="https://en.wikipedia.org/wiki/Gustav_Fischer_(explorer)" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Gustav Adolf Fischer</a> (1848 to 1886), a German physician and explorer. The genus name Agapornis comes from the Greek words agape (love) and ornis (bird), a reference to the strong pair bonds these birds form. Agapornis fischeri is one of <a href="https://en.wikipedia.org/wiki/Agapornis" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">9 recognized lovebird species</a>, all native to Africa and Madagascar.</p>
+          <p>The Fischer's lovebird is scientifically classified as <a href="https://en.wikipedia.org/wiki/Fischer%27s_lovebird" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);font-style:italic;">Agapornis fischeri</a>. It belongs to the family Psittaculidae (parrots), genus Agapornis (lovebirds). The species was first described in 1887 by <a href="https://en.wikipedia.org/wiki/Anton_Reichenow" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Anton Reichenow</a> and named in honor of <a href="https://en.wikipedia.org/wiki/Gustav_Fischer_(explorer)" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Gustav Adolf Fischer</a> (1848 to 1886), a German physician and explorer. The genus name Agapornis comes from the Greek words agape (love) and ornis (bird), a reference to the strong pair bonds these birds form. Agapornis fischeri is one of <a href="https://en.wikipedia.org/wiki/Agapornis" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">9 recognized lovebird species</a>, all native to Africa and Madagascar.</p>
         </div>
         <div class="seo-faq-item">
           <h3>How many color mutations does the Fischer lovebird have?</h3>
-          <p>Agapornis fischeri has over 50 recognized base mutations and hundreds of documented mutation combinations when multiple genes are stacked. The full mutation database is catalogued by <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">MutaBase (Ornitho-Genetics VZW)</a>. The main categories are: Blue series mutations (Blue 1, Blue 2, Parblue), Aqua mutations (Aqua B1, Aqua B2, Aqua Homo), sex-linked recessive mutations (Opaline, Pallid, Cinnamon), autosomal recessive mutations (Ino/Lutino/Albino, DEC, Pastel, Recessive Pied, Pale Fallow, Dun Fallow, Bronze Fallow, Dilute, Red Factor), autosomal dominant incomplete mutations (Euwing, Misty), the autosomal dominants Dominant Pied and Slaty, and the sex-linked dominant Greywing. The Yellow Face gene can be combined with any blue-series or Aqua mutation to add yellow face markings. This calculator models 22 mutation groups covering the most commonly worked mutations in serious breeding programs.</p>
+          <p>Agapornis fischeri has over 50 recognized base mutations and hundreds of documented mutation combinations when multiple genes are stacked. The full mutation database is catalogued by <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">MutaBase (Ornitho-Genetics VZW)</a>. The main categories are: Blue series mutations (Blue 1, Blue 2, Parblue), Aqua mutations (Aqua B1, Aqua B2, Aqua Homo), sex-linked recessive mutations (Opaline, Pallid, Cinnamon), autosomal recessive mutations (Ino/Lutino/Albino, DEC, Pastel, Recessive Pied, Pale Fallow, Dun Fallow, Bronze Fallow, Dilute, Red Factor), autosomal dominant incomplete mutations (Euwing, Misty), the autosomal dominants Dominant Pied and Slaty, and the sex-linked dominant Greywing. The Yellow Face gene can be combined with any blue-series or Aqua mutation to add yellow face markings. This calculator models 22 mutation groups covering the most commonly worked mutations in serious breeding programs.</p>
         </div>
         <div class="seo-faq-item">
           <h3>Where do Fischer lovebirds come from?</h3>
-          <p>Fischer's lovebirds are native to a small inland area of northern Tanzania in East Africa, specifically the region north and northwest of Lake Victoria, including the Serengeti plains, Ngorongoro area, and the Mara River region. They live at altitudes of 1,100-2,200 meters in savannah woodland, grassland with scattered trees, and the edges of forests. Some populations extend into Rwanda and Burundi during periods of drought, according to <a href="https://animaldiversity.org/accounts/Agapornis_fischeri/" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Animal Diversity Web</a>. The <a href="https://www.iucnredlist.org/species/22685359/154379994" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">IUCN Red List</a> classifies the species as Near Threatened, with wild population estimates ranging from 290,000 to 1,000,000 individuals. In aviculture, the global captive population is vastly larger than the wild population. The largest breeding communities are in Europe (Belgium, Germany, Netherlands), South Asia (Bangladesh, Pakistan, India), and Southeast Asia (Indonesia, Philippines), where Fischer's lovebirds have been selectively bred for color mutations for decades.</p>
+          <p>Fischer's lovebirds are native to a small inland area of northern Tanzania in East Africa, specifically the region north and northwest of Lake Victoria, including the Serengeti plains, Ngorongoro area, and the Mara River region. They live at altitudes of 1,100-2,200 meters in savannah woodland, grassland with scattered trees, and the edges of forests. Some populations extend into Rwanda and Burundi during periods of drought, according to <a href="https://animaldiversity.org/accounts/Agapornis_fischeri/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Animal Diversity Web</a>. The <a href="https://www.iucnredlist.org/species/22685359/154379994" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">IUCN Red List</a> classifies the species as Near Threatened, with wild population estimates ranging from 290,000 to 1,000,000 individuals. In aviculture, the global captive population is vastly larger than the wild population. The largest breeding communities are in Europe (Belgium, Germany, Netherlands), South Asia (Bangladesh, Pakistan, India), and Southeast Asia (Indonesia, Philippines), where Fischer's lovebirds have been selectively bred for color mutations for decades.</p>
         </div>
       </div>
     </div>
 
     <!-- 6. Scientific Methodology -->
-    <div class="seo-divider" style="border-top:1px solid rgba(255,255,255,0.07);padding-top:40px;margin-top:8px;">
+    <div class="seo-divider" style="border-top:1px solid var(--seo-hair);padding-top:40px;margin-top:8px;">
       <p class="seo-eyebrow" style="margin-bottom:10px;">Methodology &amp; Sources</p>
       <h2 style="font-size:clamp(18px,2.5vw,24px);margin-bottom:12px;">Built on Verified Science</h2>
-      <p class="seo-lead" style="margin-bottom:0;">The genetics engine in this calculator is based entirely on the <a href="https://avianpublications.com/shop/lovebirds-compendium/" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);font-style:italic;">Lovebird Compendium</a> by <a href="https://en.wikipedia.org/wiki/Dirk_Van_den_Abeele" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Dirk Van den Abeele</a> (2016), a 769-page comprehensive scientific reference covering inheritance mechanisms for every documented lovebird mutation. Every inheritance type (sex-linked recessive, autosomal recessive, autosomal dominant incomplete), every allele relationship, and every edge case in the calculator maps directly to documented genetic models in that publication. No guesswork, no community rumor, no unverified pairing claims.</p>
+      <p class="seo-lead" style="margin-bottom:0;">The genetics engine in this calculator is based entirely on the <a href="https://avianpublications.com/shop/lovebirds-compendium/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);font-style:italic;">Lovebird Compendium</a> by <a href="https://en.wikipedia.org/wiki/Dirk_Van_den_Abeele" target="_blank" rel="noopener noreferrer" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Dirk Van den Abeele</a> (2016), a 769-page comprehensive scientific reference covering inheritance mechanisms for every documented lovebird mutation. Every inheritance type (sex-linked recessive, autosomal recessive, autosomal dominant incomplete), every allele relationship, and every edge case in the calculator maps directly to documented genetic models in that publication. No guesswork, no community rumor, no unverified pairing claims.</p>
       <p class="seo-lead" style="margin-top:16px;margin-bottom:16px;">The engine was built and cross-validated against real breeding outcomes by three experienced breeders:</p>
       <ul style="list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:12px;">
-        <li class="seo-validator-item"><strong style="color:#4ca154;font-weight:600;">Ayaan Shohan</strong> · Bangladesh, Owner of KinBird Aviary · Professional lovebird breeder based in Bangladesh.</li>
-        <li class="seo-validator-item"><strong style="color:#4ca154;font-weight:600;">Arifin Sumon</strong> · Bangladesh, widely regarded as one of the most experienced lovebird geneticists in Bangladesh.</li>
-        <li class="seo-validator-item"><strong style="color:#4ca154;font-weight:600;">Adnan Younus</strong> · Pakistan, specialises in advanced Aqua and Parblue series pairings.</li>
+        <li class="seo-validator-item"><strong style="color:var(--accent-text);font-weight:600;">Ayaan Shohan</strong> · Bangladesh, Owner of KinBird Aviary · Professional lovebird breeder based in Bangladesh.</li>
+        <li class="seo-validator-item"><strong style="color:var(--accent-text);font-weight:600;">Arifin Sumon</strong> · Bangladesh, widely regarded as one of the most experienced lovebird geneticists in Bangladesh.</li>
+        <li class="seo-validator-item"><strong style="color:var(--accent-text);font-weight:600;">Adnan Younus</strong> · Pakistan, specialises in advanced Aqua and Parblue series pairings.</li>
       </ul>
       <p class="seo-lead" style="margin-bottom:0;">Their combined real-world validation caught edge cases that pure theory alone would have missed.</p>
     </div>
 
-    <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06);">
-      <p style="font-size:13px;font-weight:700;letter-spacing:0.01em;color:#f0f0ee;margin:0 0 4px;">Scientific References</p>
-      <p style="font-size:11px;color:#666;margin:0 0 16px;">Authoritative sources on Agapornis fischeri genetics and mutations</p>
+    <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--seo-hair-soft);">
+      <p style="font-size:13px;font-weight:700;letter-spacing:0.01em;color:var(--seo-fg-strong);margin:0 0 4px;">Scientific References</p>
+      <p style="font-size:11px;color:var(--seo-fg-mute);margin:0 0 16px;">Authoritative sources on Agapornis fischeri genetics and mutations</p>
       <div class="ref-cards" style="display:flex;flex-wrap:wrap;gap:10px;">
-        <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <a href="https://mutabase.ogvzw.org/mutations.php" target="_blank" rel="nofollow noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:var(--seo-card-bg);border:1px solid var(--seo-card-bd);border-radius:10px;padding:12px 16px;text-decoration:none;color:var(--seo-fg-strong);transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='var(--seo-card-bd)'">
           <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           <div>
-            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">MutaBase, Full Lovebird Mutation Database</p>
-            <p style="font-size:11px;color:#555;margin:0;">mutabase.ogvzw.org/mutations.php</p>
+            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:var(--seo-fg-strong);">MutaBase, Full Lovebird Mutation Database</p>
+            <p style="font-size:11px;color:var(--seo-fg-faint);margin:0;">mutabase.ogvzw.org/mutations.php</p>
           </div>
         </a>
-        <a href="https://en.wikipedia.org/wiki/Agapornis" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <a href="https://en.wikipedia.org/wiki/Agapornis" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:var(--seo-card-bg);border:1px solid var(--seo-card-bd);border-radius:10px;padding:12px 16px;text-decoration:none;color:var(--seo-fg-strong);transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='var(--seo-card-bd)'">
           <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           <div>
-            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">Agapornis, Wikipedia</p>
-            <p style="font-size:11px;color:#555;margin:0;">en.wikipedia.org/wiki/Agapornis</p>
+            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:var(--seo-fg-strong);">Agapornis, Wikipedia</p>
+            <p style="font-size:11px;color:var(--seo-fg-faint);margin:0;">en.wikipedia.org/wiki/Agapornis</p>
           </div>
         </a>
-        <a href="https://www.ogvzw.org/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px 16px;text-decoration:none;color:#f0f0ee;transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <a href="https://www.ogvzw.org/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:12px;background:var(--seo-card-bg);border:1px solid var(--seo-card-bd);border-radius:10px;padding:12px 16px;text-decoration:none;color:var(--seo-fg-strong);transition:border-color 0.2s;min-width:220px;" onmouseover="this.style.borderColor='rgba(76,161,84,0.4)'" onmouseout="this.style.borderColor='var(--seo-card-bd)'">
           <svg style="flex-shrink:0;opacity:0.45;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           <div>
-            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:#f0f0ee;">Ornitho-Genetics VZW</p>
-            <p style="font-size:11px;color:#555;margin:0;">ogvzw.org</p>
+            <p style="font-size:13px;font-weight:600;margin:0 0 3px;color:var(--seo-fg-strong);">Ornitho-Genetics VZW</p>
+            <p style="font-size:11px;color:var(--seo-fg-faint);margin:0;">ogvzw.org</p>
           </div>
         </a>
       </div>
@@ -1957,7 +1995,7 @@ var CBSF_ALIASES=[
 var CBSF_NOTE={
 YellowFace:"Modelled as the orange face gene (symbol of), autosomal recessive on its own locus, separate from the blue locus.",
 Ino:"In Agapornis fischeri, Ino is NSL ino, autosomal recessive, not sex-linked. Both cocks and hens can be split.",
-Pastel:"Pastel is not Dilute. Pastel is an allele of the NSL ino locus and forms compounds with Ino and DEC.",
+Pastel:"Pastel is not Dilute. Pastel is an allele of the NSL ino a-locus, alongside Ino, DEC and Bronze Fallow, and forms compounds with Ino and DEC.",
 Dilute:"Dilute is not Pastel. Separate gene at its own dil locus.",
 Pallid:"Modelled as sex-linked recessive, but not formally confirmed in Agapornis fischeri by OGVZW. Confirmed in A. roseicollis.",
 Greywing:"Sex-linked incomplete dominant, not autosomal. A Greywing hen carries a single dose only and can never be double factor.",
@@ -2664,19 +2702,19 @@ const _0xC9=[
 const MUT_INFO={
   Opaline:"Sex-linked recessive · Reverses feather colour pattern (wing coverts get body colour)",
   Pallid:"Sex-linked recessive · Reduces melanin, giving a washed-out, pastel appearance",
-  Pale:"Sex-linked recessive · Allele of the same Z ino-locus as Pallid (OGVZW) · Softer dilution than Pallid · Hens cannot be splits · Pallid x Pale compound (PalePallid) support planned",
+  Pale:"Sex-linked recessive · Its own Z-linked locus (gene symbol pe), separate from the ino locus that carries SL ino and Pallid · Softer dilution than Pallid · Hens cannot be splits",
   Cinnamon:"Sex-linked recessive · Incomplete eumelanin (TRP1 gene) → brown flight feathers, laurel-green body, eyes born red then darken",
   DunFallow:"Autosomal recessive · Near-complete eye reduction, near-black eyes at hatch · Originated in Personatus",
-  BronzeFallow:"Autosomal recessive · Brown-toned feathers with dark reddish-brown eyes",
+  BronzeFallow:"Autosomal recessive · Brown-toned feathers with dark reddish-brown eyes · a-locus allele (symbol a-bz), allelic with Ino, DEC and Pastel",
   PaleFallow:"Autosomal recessive · 90-95% eumelanin reduction · Clear ruby-red eyes",
   Ino:"Autosomal recessive · Full melanin removal → Lutino (green) / Albino (blue)",
   Dec:"Autosomal recessive · Dark Eyed Clear → yellow, DARK eyes, blue rump · allele of Ino",
-  Pastel:"Autosomal recessive · Reduces eumelanin by roughly 50% · Allele of the NSL-ino locus (OGVZW), so it forms PastelIno and PastelDec compounds",
+  Pastel:"Autosomal recessive · Reduces eumelanin by roughly 50% · Allele of the NSL-ino a-locus (OGVZW) alongside Ino, DEC and Bronze Fallow, so it forms PastelIno and PastelDec compounds",
   Dilute:"Autosomal recessive · Dilutes all feather pigment, softens overall colour intensity",
   YellowFace:"Autosomal recessive · Reduces red psittacine, shows strongest on green and partial-blue series",
   RedFactor:"Autosomal recessive · Introduces red / orange tones into the plumage",
   RecPied:"Autosomal recessive · Irregular clear yellow/white patches · Both sexes can carry it hidden as splits",
-  DomPied:"Autosomal dominant · One copy already shows pied patches (no split form) · SF/DF zygosity shown, DF often heavier pied (OGVZW)",
+  DomPied:"Autosomal dominant · One copy already shows pied patches (no split form) · SF/DF zygosity shown, but SF and DF are not reliably separable by eye",
   Slaty:"Autosomal dominant · Cool slate-grey tone over the body, strongest on blue series · One copy shows, no split form · SF/DF zygosity shown (a DF parent gives 100% slaty chicks)",
   Greywing:"SL dominant greywing (OGVZW official name) · Sex-linked incomplete dominant · Males SF/DF · Hens show single dose only",
   Euwing:"Autosomal dominant (incomplete) · SF = enhanced dark wing markings · DF = near-solid dark wings",
@@ -3371,7 +3409,7 @@ const SUN=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="c
 const html=document.documentElement,btn=document.getElementById('theme-btn');
 const themeIcon=document.getElementById('theme-icon'),themeLbl=document.getElementById('theme-lbl');
 function applyTheme(t){
-  if(t==='dark')html.setAttribute('data-theme','dark');else html.removeAttribute('data-theme');
+  html.setAttribute('data-theme',t==='dark'?'dark':'light');
   themeIcon.innerHTML=t==='dark'?SUN:MOON;
   themeLbl.textContent=t==='dark'?'Light':'Dark';
   btn.title=t==='dark'?'Switch to light mode':'Switch to dark mode';

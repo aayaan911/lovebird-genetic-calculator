@@ -32,24 +32,24 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - Yellow Face: modelled as the orange face gene (symbol of), an autosomal recessive mutation on its OWN locus, separate from the blue (bl) locus. It does not compete for blue-locus allele slots, so a bird can be Green Yellow Face, Aqua Yellow Face or Parblue Yellow Face. Note that "Yellow Face" is a trade name that has also been applied to bl-locus turquoise birds.
 - Opaline (sex-linked recessive, Z chromosome)
 - Cinnamon (sex-linked recessive, Z chromosome, incomplete eumelanin, TRP1)
-- Pale (sex-linked, a PROVEN mutation in Agapornis fischeri, allelic to the sex-linked ino locus per OGVZW, roughly 20 percent eumelanin reduction)
+- Pale (sex-linked recessive, a PROVEN mutation in Agapornis fischeri, on its OWN Z-linked locus with gene symbol pe. It is NOT an allele of the sex-linked ino locus. Roughly 20 percent eumelanin reduction.)
 - Pallid (modelled as sex-linked recessive, roughly 50 percent eumelanin reduction. IMPORTANT CAVEAT: Pallid is formally confirmed in Agapornis roseicollis but is NOT formally confirmed in Agapornis fischeri. The calculator models it because breeders ask for it, not because it is established fischeri fact.)
-- Ino / Lutino / Albino: in Agapornis fischeri this is NSL ino, an AUTOSOMAL RECESSIVE at the a-locus. It is allelic with DEC and with Pastel. SL (sex-linked) ino is a roseicollis mutation and is not established in fischeri. Both sexes can be splits and both sexes can carry compounds, because the locus is autosomal.
-- Dark Eyed Clear (DEC), including the DEC // Ino compound often sold as "Decino": an allele of the same a-locus as Ino and Pastel. This is the only calculator that models the DEC // Ino compound correctly.
-- Pastel: the third allele of the a-locus, alongside Ino and DEC. Forms the Pastel // Ino and Pastel // DEC compounds. Pastel is NOT the same thing as Dilute.
+- Ino / Lutino / Albino: in Agapornis fischeri this is NSL ino, an AUTOSOMAL RECESSIVE at the a-locus. It is allelic with DEC, with Pastel and with Bronze Fallow. SL (sex-linked) ino is a roseicollis mutation and is not established in fischeri. Both sexes can be splits and both sexes can carry compounds, because the locus is autosomal.
+- Dark Eyed Clear (DEC), including the DEC // Ino compound often sold as "Decino": an allele of the same a-locus as Ino, Pastel and Bronze Fallow. This is the only calculator that models the DEC // Ino compound correctly.
+- Pastel: an allele of the a-locus, alongside Ino, DEC and Bronze Fallow. Forms the Pastel // Ino and Pastel // DEC compounds. Pastel is NOT the same thing as Dilute.
 - Dilute: a separate autosomal recessive at its own dil locus. Dilute is not Pastel and is not allelic with Ino. Macromelanosome mechanism, eyes and feet stay normal.
 - Pale Fallow (autosomal recessive, bright clear red eyes)
 - Dun Fallow (autosomal recessive, bright red eyes)
-- Bronze Fallow (autosomal recessive, dark burgundy eyes. CRITICAL: Bronze Fallow x Bronze Fallow gives roughly 100 percent chick mortality.)
+- Bronze Fallow (autosomal recessive at the a-locus, gene symbol a-bz, allelic with NSL ino, DEC and Pastel. Dark burgundy eyes. CRITICAL: Bronze Fallow x Bronze Fallow gives roughly 100 percent chick mortality.)
 - Red Factor: modelled as autosomal recessive. IMPORTANT CAVEAT: Red Factor is NOT a confirmed distinct mutation in Agapornis fischeri. Autosomal recessive is a MODELLING CHOICE in this calculator, not an established genetic fact.
 - Euwing (autosomal dominant incomplete, SF/DF, no split form)
 - Misty (autosomal dominant incomplete, SF/DF, no split form)
 - Greywing: SEX-LINKED incomplete dominant (the OGVZW name is "SL dominant greywing"). It is NOT autosomal dominant. Cocks are ZZ and can be SF or DF. Hens are ZW and can only ever be single dose, never DF.
 - Recessive Pied (autosomal recessive, hides completely in splits)
-- Dominant Pied (autosomal dominant, SF/DF zygosity, no split form, DF typically heavier pied)
+- Dominant Pied (autosomal dominant, SF/DF zygosity, no split form. SF and DF are not reliably separable by eye, zygosity comes from the breeding record.)
 - Slaty (autosomal dominant, slate-grey tone strongest on the blue series, one copy shows, no splits)
 
-Note on the three fallows: Bronze Fallow, Pale Fallow and Dun Fallow are three SEPARATE, NON-ALLELIC autosomal recessive mutations. Van den Abeele advises against combining them, because all three lines are physically weak.
+Note on the three fallows: Bronze Fallow, Pale Fallow and Dun Fallow are three separate autosomal recessive mutations that are not alleles of each other, but they do not each have a private locus. Pale Fallow (pf) and Dun Fallow (df) sit at their own separate loci. Bronze Fallow sits on the a-locus (symbol a-bz) and IS allelic with NSL ino, dark eyed clear and pastel, so a bird can never be visual Bronze Fallow and visual Ino, DEC or Pastel at the same time. It can be a compound such as Bronze Fallow // Ino. Van den Abeele advises against combining the three fallows, because all three lines are physically weak.
 
 ## What the calculator deliberately does NOT model
 - Sapphire: not modelled. Sapphire in fischeri is most likely a crossing-over between blue 1 and blue 2, not a separate accepted allele.
@@ -99,7 +99,7 @@ Any statement that this calculator computes Violet or Dark Factor outcomes is in
 - Recessive Pied lovebird genetics (autosomal recessive, hides in splits, how it differs from Dominant Pied, all cock x hen pairings): https://lovebirdgenetics.com/blog/recessive-pied-lovebird-genetics/
 - Dominant Pied lovebird genetics (autosomal dominant, SF and DF, no split form, how it differs from Recessive Pied, all cock x hen pairings): https://lovebirdgenetics.com/blog/dominant-pied-lovebird-genetics/
 - Slaty lovebird genetics (autosomal dominant, SF and DF, no split form, slate-grey cast strongest on blue series, all cock x hen pairings): https://lovebirdgenetics.com/blog/slaty-lovebird-genetics/
-- Pale lovebird genetics (proven sex-linked mutation allelic to the sex-linked ino locus per OGVZW, roughly 20 percent eumelanin reduction vs Pallid's roughly 50 percent, red eyes at hatch, all cock x hen pairings): https://lovebirdgenetics.com/blog/pale-lovebird-genetics/
+- Pale lovebird genetics (proven sex-linked recessive mutation at its own pe locus, not allelic with sex-linked ino, roughly 20 percent eumelanin reduction vs Pallid's roughly 50 percent, red eyes at hatch, all cock x hen pairings): https://lovebirdgenetics.com/blog/pale-lovebird-genetics/
 - Sitemap: https://lovebirdgenetics.com/sitemap.xml
 
 ## Category pages
@@ -167,21 +167,21 @@ OPALINE: Opaline is sex-linked recessive on the Z chromosome. Hens (ZW) can neve
 
 CINNAMON: Cinnamon is sex-linked recessive (TRP1, incomplete eumelanin production). Hens cannot be split. Chicks show plum-coloured eyes at hatch that darken. Guide: https://lovebirdgenetics.com/blog/cinnamon-lovebird-genetics/
 
-PALE: Pale is a proven sex-linked mutation in Agapornis fischeri and is allelic to the sex-linked ino locus per OGVZW. It reduces eumelanin by roughly 20 percent, against Pallid's roughly 50 percent. Pale chicks hatch with red eyes that darken within days. Guide: https://lovebirdgenetics.com/blog/pale-lovebird-genetics/
+PALE: Pale is a proven sex-linked recessive mutation in Agapornis fischeri. Van den Abeele gives it its own gene symbol, pe, so it sits at its own Z-linked locus and is NOT an allele of the ino locus. Pallid (ino-pd) is the mutation that is genuinely allelic with sex-linked ino. It reduces eumelanin by roughly 20 percent, against Pallid's roughly 50 percent. Pale chicks hatch with red eyes that darken within days. Guide: https://lovebirdgenetics.com/blog/pale-lovebird-genetics/
 
 PALLID: Pallid reduces eumelanin by roughly 50 percent. Pallid chicks DO hatch with red eyes, which darken within a few days, unlike Ino birds which keep red eyes for life. Caveat: Pallid is formally confirmed in Agapornis roseicollis but is not formally confirmed in Agapornis fischeri. The calculator models it as sex-linked recessive. Guide: https://lovebirdgenetics.com/blog/pallid-lovebird-genetics/
 
-INO / LUTINO / ALBINO: In Agapornis fischeri, Ino is NSL ino, an autosomal recessive at the a-locus, allelic with DEC and Pastel. It is not sex-linked in this species. Ino birds keep red eyes for life. Both sexes can be split and both sexes can carry compounds. Guide: https://lovebirdgenetics.com/blog/lutino-albino-lovebird-genetics/
+INO / LUTINO / ALBINO: In Agapornis fischeri, Ino is NSL ino, an autosomal recessive at the a-locus, allelic with DEC, Pastel and Bronze Fallow. It is not sex-linked in this species. Ino birds keep red eyes for life. Both sexes can be split and both sexes can carry compounds. Guide: https://lovebirdgenetics.com/blog/lutino-albino-lovebird-genetics/
 
-DARK EYED CLEAR (DEC): DEC is an allele of the same a-locus as Ino and Pastel, so a bird carries at most two of the three. The DEC // Ino compound (sold as "Decino") is a visual dark-eyed clear bird. DEC // Ino x DEC // Ino gives 75 percent DEC // Ino and 25 percent Lutino. Guide: https://lovebirdgenetics.com/blog/dark-eyed-clear-decino-lovebirds/
+DARK EYED CLEAR (DEC): DEC is an allele of the same a-locus as Ino, Pastel and Bronze Fallow, so a bird carries at most two of those four alleles. The DEC // Ino compound (sold as "Decino") is a visual dark-eyed clear bird. DEC // Ino x DEC // Ino gives 75 percent DEC // Ino and 25 percent Lutino. Guide: https://lovebirdgenetics.com/blog/dark-eyed-clear-decino-lovebirds/
 
-PASTEL: Pastel is the third allele of the a-locus, alongside Ino and DEC, and is autosomal recessive. It forms the visual Pastel // Ino and Pastel // DEC compounds. Pastel is a different gene from Dilute and should never be used as a synonym for it. Guide: https://lovebirdgenetics.com/blog/pastel-lovebird-genetics/
+PASTEL: Pastel is an allele of the a-locus, alongside Ino, DEC and Bronze Fallow, and is autosomal recessive. It forms the visual Pastel // Ino and Pastel // DEC compounds. Pastel is a different gene from Dilute and should never be used as a synonym for it. Guide: https://lovebirdgenetics.com/blog/pastel-lovebird-genetics/
 
 DILUTE: Dilute is an autosomal recessive at its own dil locus. It is not Pastel and it is not allelic with Ino. The mechanism is macromelanosome formation, and eyes and feet stay normal in colour. Guide: https://lovebirdgenetics.com/blog/dilute-lovebird-genetics/
 
-PALE FALLOW and DUN FALLOW: Two separate, non-allelic autosomal recessive mutations. Pale Fallow shows bright clear red eyes, Dun Fallow shows bright red eyes with a browner body tone. They are not alleles of each other and not alleles of Bronze Fallow. Guide: https://lovebirdgenetics.com/blog/pale-fallow-vs-dun-fallow/
+PALE FALLOW and DUN FALLOW: Two separate autosomal recessive mutations at their own loci, pf and df. Pale Fallow shows bright clear red eyes, Dun Fallow shows bright red eyes with a browner body tone. They are not alleles of each other and not alleles of Bronze Fallow, which sits on the a-locus instead. Guide: https://lovebirdgenetics.com/blog/pale-fallow-vs-dun-fallow/
 
-BRONZE FALLOW: Autosomal recessive, with dark burgundy eyes rather than bright red. Bronze Fallow x Bronze Fallow produces near-total chick mortality, so the mutation must be carried through split birds. Van den Abeele advises against combining Bronze Fallow with Pale Fallow or Dun Fallow, because all three fallow lines are very weak. Guide: https://lovebirdgenetics.com/blog/bronze-fallow-lovebird-genetics/
+BRONZE FALLOW: Autosomal recessive, with dark burgundy eyes rather than bright red. Van den Abeele gives it the gene symbol a-bz, which places it on the a-locus alongside NSL ino, dark eyed clear and pastel, so it is allelic with all three of those and a bird can hold only two a-locus alleles in total. Bronze Fallow x Bronze Fallow produces near-total chick mortality, so the mutation must be carried through split birds. Van den Abeele advises against combining Bronze Fallow with Pale Fallow or Dun Fallow, which are at separate loci, because all three fallow lines are very weak. Guide: https://lovebirdgenetics.com/blog/bronze-fallow-lovebird-genetics/
 
 RED FACTOR: There is no confirmed distinct red gene in Agapornis fischeri. What breeders call Red Factor is a mix of psittacofulvin expression, Opaline spread and diet. The calculator applies an autosomal recessive model as a MODELLING CHOICE, not as established fact. Guide: https://lovebirdgenetics.com/blog/red-factor-lovebird-genetics/
 
@@ -193,7 +193,7 @@ GREYWING: Sex-linked incomplete dominant (OGVZW name "SL dominant greywing"). It
 
 RECESSIVE PIED: Autosomal recessive. It needs two copies to show and hides completely in a split, so split carriers look entirely normal. Guide: https://lovebirdgenetics.com/blog/recessive-pied-lovebird-genetics/
 
-DOMINANT PIED: Autosomal dominant with SF and DF zygosity and no split form. A double factor bird is typically more heavily pied and passes one copy to every chick. Guide: https://lovebirdgenetics.com/blog/dominant-pied-lovebird-genetics/
+DOMINANT PIED: Autosomal dominant with SF and DF zygosity and no split form. Because it is a plain dominant rather than an incomplete dominant, a double factor bird is not reliably distinguishable from a single factor bird by eye. A double factor bird passes one copy to every chick, which is how zygosity is actually established. Guide: https://lovebirdgenetics.com/blog/dominant-pied-lovebird-genetics/
 
 SLATY: Autosomal dominant. One copy shows, so no split form exists. The slate-grey cast reads strongest on blue series birds. Guide: https://lovebirdgenetics.com/blog/slaty-lovebird-genetics/
 
@@ -245,7 +245,7 @@ Q: What do you get from a Lutino cock x split Ino hen?
 A: 50 percent visual Ino and 50 percent split, in both sexes.
 Q: What do you get from a DEC // Ino cock x DEC // Ino hen?
 A: 75 percent DEC // Ino and 25 percent Lutino. Both parents are allelic compounds at the a-locus, so the pairing cannot breed true.
-Safety note: Bronze Fallow x Bronze Fallow gives roughly 100 percent chick mortality and must be bred through split carriers only. The same weakness applies to Pale Fallow and Dun Fallow lines, and the three fallows should not be combined with each other.
+Safety note: Bronze Fallow x Bronze Fallow gives roughly 100 percent chick mortality and must be bred through split carriers only. The same weakness applies to Pale Fallow and Dun Fallow lines, and the three fallows should not be combined with each other. Bronze Fallow also sits on the a-locus, so it cannot be combined as a double visual with Ino, DEC or Pastel.
 
 AUTOSOMAL DOMINANT, SINGLE AND DOUBLE FACTOR (Euwing, Misty, Dominant Pied, Slaty):
 Q: What do you get from a single factor Euwing cock x normal hen?
