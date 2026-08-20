@@ -1,0 +1,15 @@
+/* TEAM */
+
+Founder and developer: Ayaan Ahmed Shohan
+Aviary: KinBird Aviary
+Location: Dhaka, Bangladesh
+Site: https://lovebirdgenetics.com/
+
+/* SITE */
+
+Standards: HTML5, CSS3, JavaScript
+Components: none. Single file, no framework, no build step.
+Calculator: runs entirely in your browser. Pairings are never stored.
+Scientific reference: Lovebird Compendium, Dirk Van den Abeele (2016),
+and the published mutation lists of Ornitho-Genetics VZW.
+Last update: 2026/08/20
