@@ -46,6 +46,78 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How many lovebird mutations are there?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "There is no single fixed number, because new mutations are still being documented. This site documents 24 mutation groups for Fischer's lovebirds: 22 are modelled by the free calculator, plus Violet and Dark Factor, which have full guides but are not yet in the engine."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the rarest lovebird mutation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Among the mutations covered here, Bronze Fallow is the rarest of the three fallows, because Bronze x Bronze causes near-total chick mortality and the line must be kept through splits. The rarest combinations are Aqua Yellow Face and Parblue Yellow Face."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are lovebird mutations natural or man-made?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They are natural genetic events. A mutation is a spontaneous copying change in a gene, and the colour forms we breed all started as chance events in wild-type green birds. Breeders did not create the genes; they selected and paired the birds that carried them."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can two lovebird mutations combine in one bird?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, when the mutations sit on different loci. Opaline Cinnamon, Aqua Yellow Face and Slaty Blue are all real combinations. Alleles of one locus are limited to two per bird, so a-locus alleles like Ino and DEC combine only as compounds such as DEC // Ino."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why can a lovebird hen not be split for a sex-linked mutation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cocks carry two Z chromosomes, hens carry one Z and one W. A split needs a second chromosome to hide the gene behind, and a hen has no second Z. Whatever sits on her single Z shows, so a hen is either visual or clean, never split."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which lovebird mutations are sex-linked?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Four sex-linked recessives are modelled: Opaline, Cinnamon, Pale and Pallid. Pale and Pallid are both alleles of the sex-linked ino locus. Greywing is the fifth sex-linked gene, an incomplete dominant, so a Greywing hen carries one dose at most and can never be double factor."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is Parblue a lovebird mutation?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Parblue is the compound of two blue-locus alleles, Blue 1 and Blue 2, written bl1 // bl2. It cannot breed true: Parblue x Parblue gives 25 percent Blue 1, 50 percent Parblue and 25 percent Blue 2. Blue 1 x Blue 2 gives 100 percent Parblue."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do lovebird mutations cause health problems?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Most do not, but the three fallow lines are physically weak, and Van den Abeele advises against combining them. The critical rule is Bronze Fallow x Bronze Fallow, which produces near-total chick mortality. Keep Bronze Fallow through split birds instead of pairing two visuals."
+   }
+  }
+ ]
+}
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -254,6 +326,27 @@ html,body{overflow-x:clip;}
 .vbar-sm{display:none;}
 @media(max-width:600px){.vbar span{font-size:11.5px;}.vbar-inner{padding:7px 14px;}.vbar-lg{display:none;}.vbar-sm{display:inline;}}
 </style>
+<style id="mut-hub-extras">
+.art-content h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--text-1);margin:44px 0 14px;line-height:1.25;}
+.art-content h2:first-child{margin-top:0;}
+.art-content h3{font-size:16px;font-weight:700;color:var(--text-1);margin:28px 0 10px;}
+.art-content p{font-size:15px;color:var(--text-2);line-height:1.78;margin-bottom:16px;}
+.art-content ul,.art-content ol{padding-left:20px;margin-bottom:18px;}
+.art-content li{font-size:15px;color:var(--text-2);line-height:1.75;margin-bottom:6px;}
+.art-content strong{color:var(--text-1);font-weight:600;}
+.art-content em{font-style:italic;}
+.art-content a{color:var(--accent);}
+.art-content sup{font-size:0.72em;}
+.tag-yes{color:#16a34a;font-weight:700;}
+.tag-no{color:#dc2626;font-weight:700;}
+.faq-section{margin:40px 0;}
+.faq-section h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--text-1);margin-bottom:20px;}
+.faq-item{border-top:1px solid var(--border);padding:18px 0;}
+.faq-item:last-child{border-bottom:1px solid var(--border);}
+.faq-q{font-size:15px;font-weight:600;color:var(--text-1);margin-bottom:10px;line-height:1.4;}
+.faq-a{font-size:14px;color:var(--text-2);line-height:1.75;}
+#mutations-reference{margin-bottom:48px;}
+</style>
 </head>
 <body>
 <div class="vbar" role="note" aria-label="Verified"><div class="vbar-inner"><span class="vbar-lg"><span class="vg">&#10003; The verified</span> Fischer's Lovebird Genetics Calculator, cross-checked against the <em>Lovebird Compendium</em> (2016)</span><span class="vbar-sm"><span class="vg">&#10003; Verified</span> against the <em>Lovebird Compendium</em> (2016)</span></div></div>
@@ -293,6 +386,7 @@ html,body{overflow-x:clip;}
   <div class="blog-hero">
     <p class="blog-eyebrow">Mutation Guides</p>
     <h1>Lovebird Mutation Guides</h1>
+    <p class="art-answer art-lede" style="font-size:16.5px;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0 0;"><strong>A lovebird mutation is a heritable change in a single gene that alters the colour or pattern of a lovebird (Agapornis).</strong> Each mutation follows one of four inheritance modes: autosomal recessive, autosomal dominant, autosomal incomplete dominant, or sex-linked. This page covers all 22 mutation groups modelled by our free Fischer&#39;s lovebird genetics calculator, verified against the Lovebird Compendium.</p>
     <p>Every Fischer's lovebird mutation explained, Opaline, Aqua, Yellow Face, Cinnamon, Violet, Dark Factor and more. Each guide covers inheritance type, visual identification, and the pairings that produce it, backed by the <em>Lovebird Compendium</em> (Dirk Van den Abeele, 2016).</p>
   </div>
 
@@ -303,6 +397,30 @@ html,body{overflow-x:clip;}
     <a class="ftab" href="/blog/guides/" role="listitem">Guides &amp; Tools <span class="tab-count">4</span></a>
     <a class="ftab" href="/blog/basics/" role="listitem">Genetics basics <span class="tab-count">6</span></a>
   </div>
+
+  <section class="art-content" id="mutations-reference">
+  <h2 id="mutation-table">Every lovebird mutation at a glance: the master table</h2>
+  <p>This is the complete reference for lovebird mutations in Fischer&#39;s lovebirds (<em>Agapornis fischeri</em>). One row per mutation group: the gene symbol where our own pages publish one, the inheritance mode, whether a hen can hide it as a split, and the link to the full guide with every pairing outcome. The 22 modelled groups match the <a href="/">free calculator</a> exactly.</p>
+  <p>Notation follows the standard used across this site. A single slash means a split, so Green / Ino is a green bird carrying Ino unseen. A double slash means an allelic compound, so DEC // Ino is a bird holding two different alleles of one locus.</p>
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table class="compare-table art-fact-table" style="width:100%;border-collapse:collapse;margin:18px 0 0;font-size:14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;"><caption style="text-align:left;font-weight:700;color:var(--text-1);padding:12px 10px 10px;font-size:13px;">The complete Fischer&#39;s lovebird mutation table: 22 modelled groups, plus Violet, Dark Factor and Sapphire documented separately</caption><thead><tr><th scope="col">Mutation</th><th scope="col">Gene symbol</th><th scope="col">Inheritance</th><th scope="col">Hens can be split?</th><th scope="col">Guide</th></tr></thead><tbody><tr class="xrow"><td colspan="5"><strong>Base colour series: the blue locus (bl)</strong></td></tr><tr><td>Green (wild type)</td><td>Wild type</td><td>The natural Fischer&#39;s colour. Every mutation in this table changes this green bird in a predictable way.</td><td>Not applicable. There is no mutant allele to carry.</td><td><a href="/blog/lovebird-color-genetics/">Green series guide</a></td></tr><tr><td>Blue 1 and Blue 2</td><td>bl1, bl2</td><td>Autosomal recessive to green. Blue 1 and Blue 2 are co-dominant to each other, so bl1 // bl2 shows as Parblue, a compound, not a mutation.</td><td><span class="tag-yes">Yes</span>. A carrier is written Green / Blue 1 or Green / Blue 2.</td><td><a href="/blog/blue-lovebird-genetics/">Blue guide</a> and <a href="/blog/parblue-lovebird-genetics/">Parblue guide</a></td></tr><tr><td>Aqua</td><td>bl<sup>aq</sup></td><td>A blue-locus allele. Aqua Homo behaves autosomal recessive, while Aqua B1 and Aqua B2 are co-dominant compounds with bl1 and bl2.</td><td><span class="tag-yes">Yes</span>. A carrier is written Green / Aqua.</td><td><a href="/blog/aqua-mutation-in-lovebirds/">Aqua guide</a></td></tr><tr class="xrow"><td colspan="5"><strong>Autosomal recessive: two copies to show, splits look normal</strong></td></tr><tr><td>Yellow Face</td><td>of</td><td>Autosomal recessive on its own locus, separate from the blue locus. Modelled as the orange face gene, so Aqua Yellow Face and Parblue Yellow Face are legal combinations.</td><td><span class="tag-yes">Yes</span>. Split cocks and split hens both exist.</td><td><a href="/blog/yellow-face-lovebird-genetics/">Yellow Face guide</a></td></tr><tr><td>Ino (Lutino, Albino)</td><td>a</td><td>NSL ino, autosomal recessive at the a-locus, allelic with DEC, Pastel and Bronze Fallow. Ino birds keep red eyes for life.</td><td><span class="tag-yes">Yes</span>. Both sexes can be split, because fischeri ino is not sex-linked.</td><td><a href="/blog/lutino-albino-lovebird-genetics/">Ino guide</a></td></tr><tr><td>Dark Eyed Clear (DEC)</td><td>a<sup>dec</sup></td><td>An a-locus allele beside Ino, Pastel and Bronze Fallow. Forms the visual DEC // Ino compound often sold as Decino.</td><td><span class="tag-yes">Yes</span>. A split DEC looks like a normal green.</td><td><a href="/blog/dark-eyed-clear-decino-lovebirds/">DEC guide</a></td></tr><tr><td>Pastel</td><td>a<sup>pa</sup></td><td>An a-locus allele. Forms the visual Pastel // Ino and Pastel // DEC compounds. Pastel is not the same gene as Dilute.</td><td><span class="tag-yes">Yes</span>.</td><td><a href="/blog/pastel-lovebird-genetics/">Pastel guide</a></td></tr><tr><td>Pale Fallow</td><td>pf</td><td>Autosomal recessive at its own pf locus. Bright clear red eyes. Not allelic with Dun Fallow or Bronze Fallow, and the three should never be combined.</td><td><span class="tag-yes">Yes</span>.</td><td><a href="/blog/pale-fallow-vs-dun-fallow/">Fallow comparison guide</a></td></tr><tr><td>Dun Fallow</td><td>df</td><td>Autosomal recessive at its own df locus. Bright red eyes on a browner body tone than Pale Fallow.</td><td><span class="tag-yes">Yes</span>.</td><td><a href="/blog/pale-fallow-vs-dun-fallow/">Pale Fallow vs Dun Fallow</a></td></tr><tr><td>Bronze Fallow</td><td>a<sup>bz</sup></td><td>Autosomal recessive at the a-locus, allelic with Ino, DEC and Pastel. Dark burgundy eyes. Never pair two visuals: Bronze x Bronze gives near-total chick mortality.</td><td><span class="tag-yes">Yes</span>. Splits are the safe way to keep the line.</td><td><a href="/blog/bronze-fallow-lovebird-genetics/">Bronze Fallow guide</a></td></tr><tr><td>Dilute</td><td>dil</td><td>Autosomal recessive at its own dil locus. Macromelanosome mechanism, so eyes and feet stay normal in colour. Not Pastel.</td><td><span class="tag-yes">Yes</span>.</td><td><a href="/blog/dilute-lovebird-genetics/">Dilute guide</a></td></tr><tr><td>Recessive Pied</td><td>Recessive Pied</td><td>Autosomal recessive. Needs two copies to show and hides completely in a split.</td><td><span class="tag-yes">Yes</span>. A split Recessive Pied looks entirely normal.</td><td><a href="/blog/recessive-pied-lovebird-genetics/">Recessive Pied guide</a></td></tr><tr><td>Red Factor</td><td>Red Factor</td><td>Modelled autosomal recessive as a modelling choice. No confirmed red gene exists in Fischer&#39;s lovebirds.</td><td><span class="tag-yes">Yes</span>, under the model the calculator applies.</td><td><a href="/blog/red-factor-lovebird-genetics/">Red Factor guide</a></td></tr><tr class="xrow"><td colspan="5"><strong>Sex-linked recessive: on the Z chromosome, hens can never be split</strong></td></tr><tr><td>Opaline</td><td>op</td><td>Sex-linked recessive. A visual Opaline cock paired to a normal hen gives visual daughters and split sons, fully auto-sexing at hatch.</td><td><span class="tag-no">No</span>. A hen is visual or clean, never split.</td><td><a href="/blog/opaline-lovebird-genetics/">Opaline guide</a></td></tr><tr><td>Cinnamon</td><td>cin</td><td>Sex-linked recessive with incomplete eumelanin production, so black markings turn brown. Chicks show plum-coloured eyes at hatch.</td><td><span class="tag-no">No</span>.</td><td><a href="/blog/cinnamon-lovebird-genetics/">Cinnamon guide</a></td></tr><tr><td>Pale</td><td>ino<sup>pe</sup></td><td>Sex-linked recessive, a proven Fischer&#39;s mutation and an allele of the sex-linked ino locus with SL ino and Pallid. Cuts eumelanin by roughly 20 percent. Red eyes at hatch that darken.</td><td><span class="tag-no">No</span>.</td><td><a href="/blog/pale-lovebird-genetics/">Pale guide</a></td></tr><tr><td>Pallid</td><td>ino<sup>pd</sup></td><td>Modelled sex-linked recessive, an allele of the same sex-linked ino locus. Cuts eumelanin by roughly 50 percent. OGVZW does not yet list it as formally confirmed in Fischer&#39;s.</td><td><span class="tag-no">No</span>.</td><td><a href="/blog/pallid-lovebird-genetics/">Pallid guide</a></td></tr><tr class="xrow"><td colspan="5"><strong>Sex-linked incomplete dominant</strong></td></tr><tr><td>Greywing</td><td>Greywing</td><td>Sex-linked incomplete dominant, the OGVZW name is SL dominant greywing. Cocks can be SF or DF, and DF looks visibly different.</td><td><span class="tag-no">No</span>. No split form exists, and a hen carries one dose at most, never DF.</td><td><a href="/blog/euwing-greywing-misty-lovebirds/">Greywing guide</a></td></tr><tr class="xrow"><td colspan="5"><strong>Autosomal dominant: one copy shows, SF and DF look identical</strong></td></tr><tr><td>Dominant Pied</td><td>Dominant Pied</td><td>Autosomal dominant. SF and DF are not reliably separable by eye, so zygosity comes from the breeding record.</td><td><span class="tag-no">No</span>. No split form exists for either sex.</td><td><a href="/blog/dominant-pied-lovebird-genetics/">Dominant Pied guide</a></td></tr><tr><td>Slaty</td><td>Slt</td><td>Autosomal dominant. The slate-grey cast reads strongest on blue series birds. SF and DF look identical.</td><td><span class="tag-no">No</span>. No split form exists.</td><td><a href="/blog/slaty-lovebird-genetics/">Slaty guide</a></td></tr><tr class="xrow"><td colspan="5"><strong>Autosomal incomplete dominant: double factor looks different</strong></td></tr><tr><td>Euwing</td><td>Euwing</td><td>Autosomal incomplete dominant. A double factor Euwing looks clearly different from a single factor bird. SF x SF gives 25 percent DF, 50 percent SF, 25 percent normal.</td><td><span class="tag-no">No</span>. No split form exists.</td><td><a href="/blog/euwing-greywing-misty-lovebirds/">Euwing guide</a></td></tr><tr><td>Misty</td><td>Misty</td><td>Autosomal incomplete dominant with the same dominant arithmetic as Euwing, in SF and DF forms.</td><td><span class="tag-no">No</span>. No split form exists.</td><td><a href="/blog/euwing-greywing-misty-lovebirds/">Misty guide</a></td></tr><tr class="xrow"><td colspan="5"><strong>Documented on this site, not modelled by the calculator</strong></td></tr><tr><td>Violet</td><td>Violet</td><td>Incomplete dominant. Documented, not modelled by the calculator. Deepest expression as single factor Violet on a blue background.</td><td><span class="tag-no">No</span>. No split form exists.</td><td><a href="/blog/violet-lovebird-genetics/">Violet guide</a></td></tr><tr><td>Dark Factor</td><td>Dark Factor</td><td>Incomplete dominant. One copy gives Dark Green or Cobalt, two copies give Olive or Mauve. Documented, not modelled by the calculator.</td><td><span class="tag-no">No</span>. No split form exists.</td><td><a href="/blog/dark-factor-lovebird-genetics/">Dark Factor guide</a></td></tr><tr><td>Sapphire</td><td>Sapphire</td><td>A blue1-blue2 crossing-over at the blue locus, not a separate mutation. Documented, deliberately not modelled while OGVZW research stays open.</td><td>Not applicable.</td><td><a href="/blog/sapphire-lovebird-genetics/">Sapphire guide</a></td></tr></tbody></table></div>
+  <ul><li>Only four groups are sex-linked recessive: Opaline, Cinnamon, Pale and Pallid. A hen can never be split for any of them.</li><li>No dominant gene has a split form. Dominant Pied, Slaty, Euwing, Misty and Greywing either show in the bird or are absent from it.</li><li>Four alleles share the a-locus: Ino, DEC, Pastel and Bronze Fallow. One bird can hold only two of them at a time.</li><li>The blue locus carries four alleles: bl1, bl2, bl aq and bl tq. Parblue is the bl1 // bl2 compound, so it can never breed true.</li><li>Ino birds keep red eyes for life. Pale and Pallid chicks hatch with red eyes that darken within days, and the three fallows keep red to burgundy eyes.</li><li>Red Factor is applied as a modelling choice. No confirmed red gene exists in Fischer&#39;s, so read those outcomes as the model, not settled genetics.</li><li>A visual sex-linked cock over a normal hen is auto-sexing. Every daughter shows the mutation at hatch, and every son is a split.</li></ul>
+  <p>Sources: every modelled row is cross-checked against the <em>Lovebird Compendium</em> (Dirk Van den Abeele, 2016) and the current Ornitho-Genetics VZW mutation list for <em>Agapornis</em>. Violet and Dark Factor are documented in full guides but are not yet parameters in the engine, so the calculator will not show them in results. Sapphire is deliberately excluded while OGVZW research into its genetic background stays open.</p>
+  <p>If a trade name is missing from this table, that is deliberate. OGVZW has not published it, and this site never invents a phenotype, a gene symbol or a trade name the reference bodies have not documented. That policy is why every row here can be traced back to a published source.</p>
+  <h2 id="inheritance-modes">How lovebird mutations are inherited: the four modes</h2>
+  <p>Every group in the table follows one of four inheritance modes, and the mode decides everything a pairing can produce. It sets whether splits exist, whether cocks and hens get different results, and whether one copy or two copies show. The <a href="/">calculator</a> applies these rules automatically across all 22 modelled groups.</p>
+  <h3>Autosomal recessive: two copies to show</h3>
+  <p>A chick must inherit the gene from both parents before the colour shows. A bird with one copy is a split: it looks normal, and it passes the gene to roughly half of its chicks. Both sexes can be split, which is how Ino, Pastel and the fallows hide inside a line for years.</p>
+  <h3>Autosomal dominant: one copy shows, no splits</h3>
+  <p>One copy is enough to show the mutation, so no split form exists. Dominant Pied and Slaty follow this mode, and a double factor bird looks identical to a single factor bird. Zygosity therefore comes from the breeding record, not from the eye.</p>
+  <h3>Autosomal incomplete dominant: double factor looks different</h3>
+  <p>One copy shows, and a second copy visibly stacks. A double factor Euwing or Misty looks clearly different from a single factor bird, which is what separates this mode from plain dominance. The classic result is SF x SF giving 25 percent DF, 50 percent SF and 25 percent normal.</p>
+  <h3>Sex-linked: the Z chromosome decides</h3>
+  <p>These genes sit on the Z chromosome: cocks are ZZ, hens are ZW. A hen can never be split, because she has no second Z to hide a recessive allele behind. Opaline, Cinnamon, Pale and Pallid are sex-linked recessive, and Greywing is sex-linked incomplete dominant; the full rules live in our <a href="/blog/sex-linked-mutations-lovebirds/">sex-linked mutations guide</a>.</p>
+  <table class="pairing-table art-punnett" style="width:100%;border-collapse:collapse;margin:18px 0 0;font-size:13px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;"><caption style="text-align:left;font-weight:700;color:var(--text-1);padding:12px 10px 10px;font-size:13px;">Punnett square: Opaline cock x normal hen, the auto-sexing pairing</caption><thead><tr class="xrow"><th colspan="2"><span style="color:var(--accent);font-weight:700">1.0</span> Visual Opaline cock <span style="opacity:.5">&times;</span> <span style="color:#d96b6b;font-weight:700">0.1</span> Normal green hen</th></tr><tr><th scope="col">Hen gamete / Cock gamete</th><th scope="col">Z op</th></tr></thead><tbody><tr><th scope="row" style="text-align:left;padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:700;font-size:13px;">Z</th><td>Z op / Z<br>Son, split Opaline</td></tr><tr><th scope="row" style="text-align:left;padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:700;font-size:13px;">W</th><td>Z op / W<br>Daughter, visual Opaline</td></tr></tbody><tfoot><tr class="xrow"><th colspan="2">100 percent of sons are split Opaline, 100 percent of daughters are visual Opaline. Every visual Opaline chick in this nest is a hen, so the pairing is auto-sexing at hatch.</th></tr></tfoot></table>
+  <h2 id="all-guides">Browse every mutation guide</h2>
+  <p>Each card below opens the full guide for one mutation: inheritance, visual identification and every cock x hen pairing with real percentages, verified against the calculator engine. If you want the whole species in one long read, start with the <a href="/blog/fischer-lovebird-mutations/">complete Fischer&#39;s mutation reference</a>. For inheritance theory from zero, the <a href="/blog/complete-lovebird-genetics-guide/">complete genetics guide</a> covers loci, alleles and notation step by step.</p>
+  <p>The Mutations category alone holds 23 full articles. Pairing walkthroughs with engine-verified percentages live in the <a href="/blog/pairings/">Pairings hub</a>, and the <a href="/blog/basics/">Genetics basics hub</a> teaches loci, alleles and split notation from zero.</p>
+  </section>
 
   <div class="grid">
     <a class="art-card" href="/blog/slaty-lovebird-genetics/" data-category="mutations">
@@ -575,6 +693,18 @@ html,body{overflow-x:clip;}
         <span class="art-read">Read →</span>
       </div>
     </a>
+  </div>
+
+  <div class="faq-section">
+  <h2 id="faq">Lovebird mutations: frequently asked questions</h2>
+  <div class="faq-item"><p class="faq-q">How many lovebird mutations are there?</p><p class="faq-a">There is no single fixed number, because new mutations are still being documented. This site documents 24 mutation groups for Fischer's lovebirds: 22 are modelled by the free calculator, plus Violet and Dark Factor, which have full guides but are not yet in the engine.</p></div>
+  <div class="faq-item"><p class="faq-q">What is the rarest lovebird mutation?</p><p class="faq-a">Among the mutations covered here, Bronze Fallow is the rarest of the three fallows, because Bronze x Bronze causes near-total chick mortality and the line must be kept through splits. The rarest combinations are Aqua Yellow Face and Parblue Yellow Face.</p></div>
+  <div class="faq-item"><p class="faq-q">Are lovebird mutations natural or man-made?</p><p class="faq-a">They are natural genetic events. A mutation is a spontaneous copying change in a gene, and the colour forms we breed all started as chance events in wild-type green birds. Breeders did not create the genes; they selected and paired the birds that carried them.</p></div>
+  <div class="faq-item"><p class="faq-q">Can two lovebird mutations combine in one bird?</p><p class="faq-a">Yes, when the mutations sit on different loci. Opaline Cinnamon, Aqua Yellow Face and Slaty Blue are all real combinations. Alleles of one locus are limited to two per bird, so a-locus alleles like Ino and DEC combine only as compounds such as DEC // Ino.</p></div>
+  <div class="faq-item"><p class="faq-q">Why can a lovebird hen not be split for a sex-linked mutation?</p><p class="faq-a">Cocks carry two Z chromosomes, hens carry one Z and one W. A split needs a second chromosome to hide the gene behind, and a hen has no second Z. Whatever sits on her single Z shows, so a hen is either visual or clean, never split.</p></div>
+  <div class="faq-item"><p class="faq-q">Which lovebird mutations are sex-linked?</p><p class="faq-a">Four sex-linked recessives are modelled: Opaline, Cinnamon, Pale and Pallid. Pale and Pallid are both alleles of the sex-linked ino locus. Greywing is the fifth sex-linked gene, an incomplete dominant, so a Greywing hen carries one dose at most and can never be double factor.</p></div>
+  <div class="faq-item"><p class="faq-q">Is Parblue a lovebird mutation?</p><p class="faq-a">No. Parblue is the compound of two blue-locus alleles, Blue 1 and Blue 2, written bl1 // bl2. It cannot breed true: Parblue x Parblue gives 25 percent Blue 1, 50 percent Parblue and 25 percent Blue 2. Blue 1 x Blue 2 gives 100 percent Parblue.</p></div>
+  <div class="faq-item"><p class="faq-q">Do lovebird mutations cause health problems?</p><p class="faq-a">Most do not, but the three fallow lines are physically weak, and Van den Abeele advises against combining them. The critical rule is Bronze Fallow x Bronze Fallow, which produces near-total chick mortality. Keep Bronze Fallow through split birds instead of pairing two visuals.</p></div>
   </div>
 
   <!-- CTA SECTION -->
