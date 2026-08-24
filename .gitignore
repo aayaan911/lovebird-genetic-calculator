@@ -1,3 +1,42 @@
+# OS
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Logs and temp
 *.log
+*.bak
+*.tmp
+*~
+
+# Editor and IDE
+.vscode/
+.idea/
+
+# Dependencies and build output, if ever introduced
+node_modules/
+dist/
+.cache/
+
+# Environment and secrets. Never commit these, this repository is public.
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+
+# Internal working files. These are private and must never be published.
+_deploy*.html
+_push.py
+_deploy-last.log
+Deploy*.app/
+Deploy*.command
+_GSC-*.md
+_ROADMAP-*
+_SERP-AUDIT-*
+_war-*.md
+WAR-*
+PROJECT-CONTEXT*
+PRIMER.md
+MUTA SEARCH/
+_preview-*.html
