@@ -2,12 +2,19 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+.fuse_hidden*
 
-# Logs and temp
+# Logs, temp, backups
 *.log
 *.bak
 *.tmp
 *~
+_tmp_*
+*.pre-fallowfix.bak
+Deploy.command.bak.*
+.gitignore.bak
+.gitignore.before-merge.*
+__pycache__/
 
 # Editor and IDE
 .vscode/
@@ -18,25 +25,53 @@ node_modules/
 dist/
 .cache/
 
-# Environment and secrets. Never commit these, this repository is public.
+# Secrets. This repository is PUBLIC.
 .env
 .env.*
 *.pem
 *.key
 secrets.json
 
-# Internal working files. These are private and must never be published.
+# Deploy tooling: contains a plaintext GitHub PAT
+_deploy.html
+_deploy_all.html
+_deploy_fresh.html
 _deploy*.html
 _push.py
+_push.py.bak.*
 _deploy-last.log
+_dryrun.py
+Deploy.command
+Deploy KinBird.app/
 Deploy*.app/
 Deploy*.command
-_GSC-*.md
-_ROADMAP-*
-_SERP-AUDIT-*
-_war-*.md
-WAR-*
-PROJECT-CONTEXT*
+
+# Private strategy and competitive intel. Repo is PUBLIC.
 PRIMER.md
+PROJECT-CONTEXT*
+WAR-*
+_war-*.md
+_GSC-*.md
+_GSC-BASELINE*.md
+_SERP-AUDIT-*
+_ROADMAP-*
+_HANDOFF-*.md
+backlink-aeo-outreach-kit.md
+sister-site-dropdown-prompt.md
+market_prices*.md
 MUTA SEARCH/
+_to_delete/
+
+# Third party copyrighted material. NEVER publish.
+# Dirk Van den Abeele / Ornitho-Genetics VZW. Cited and linked, never reproduced.
+# The book stays in this folder for reference. It is excluded from git only.
+Lovebird Compendium.pdf
+*.pdf
+_compendium_pages/
+_COMPENDIUM-MAP.md
+
+# Work in progress previews
 _preview-*.html
+
+# Legacy
+og-image.png
