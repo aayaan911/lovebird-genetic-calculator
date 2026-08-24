@@ -1163,6 +1163,11 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
      sits flush at top:0. Without this the mobile padding wins on specificity
      and options scroll visibly through the 6px gap above the search field. */
   .cbs[open]>.cbs-menu.cbs-searchable{padding-top:0;}
+  /* Cover the sub-pixel seam at the panel border. The menu border is 1.33px,
+     so fractional scroll offsets let a hairline of option text anti-alias
+     through above the bar. A solid shadow in the panel colour paints over it
+     and is clipped by the panel overflow, so there is zero layout change. */
+  .cbs[open]>.cbs-menu.cbs-searchable .cbs-search{box-shadow:0 -6px 0 var(--bg-card);}
   @keyframes cbsSheetUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
   /* full-screen dimmed backdrop */
   #cbs-backdrop{
