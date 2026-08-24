@@ -1,0 +1,45 @@
+Copyright (c) 2026 Ayaan Ahmed Shohan, KinBird Aviary. All rights reserved.
+
+LOVEBIRD GENETICS CALCULATOR
+https://lovebirdgenetics.com
+
+This repository is published so that breeders can read, verify and correct the
+genetics it implements. It is not published as open source, and no licence to
+reuse it is granted by its visibility.
+
+PERMITTED WITHOUT ASKING
+
+  1. Reading, studying and auditing this source code.
+  2. Using the live site at lovebirdgenetics.com, free of charge, for any
+     purpose including commercial breeding operations.
+  3. Quoting short excerpts for review, teaching, journalism or scientific
+     discussion, with attribution to KinBird Aviary and a link to the site.
+  4. Reporting errors, including genetics errors. Corrections are welcome and
+     are credited.
+
+NOT PERMITTED WITHOUT PRIOR WRITTEN PERMISSION
+
+  1. Copying, redistributing or republishing this code, in whole or in
+     substantial part, in any form.
+  2. Creating derivative works, including ports to other species, other
+     languages, other frameworks, mobile applications or hosted services.
+  3. Reusing the genetics engine, its data tables, its mutation model or its
+     article content in any other product, whether free or paid.
+  4. Removing or obscuring these notices or the attribution on any page.
+  5. Automated bulk extraction of the site or this repository, including
+     scraping for the purpose of training or populating a competing product.
+
+To request permission, contact KinBird Aviary through https://lovebirdgenetics.com
+
+THIRD PARTY SCIENTIFIC MATERIAL
+
+The genetics implemented here follows nomenclature published by Dirk Van den
+Abeele and Ornitho-Genetics VZW. That work is theirs and is protected by their
+own copyright. It is cited and linked here, never reproduced. Nothing in this
+licence grants any right over their material.
+
+NO WARRANTY
+
+This software is provided "as is", without warranty of any kind, express or
+implied. Breeding decisions are the sole responsibility of the breeder. The
+authors accept no liability for any outcome arising from use of this software.
