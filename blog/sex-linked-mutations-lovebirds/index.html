@@ -45,9 +45,132 @@
   "citation":{"@type":"Book","name":"Lovebird Compendium","author":{"@type":"Person","name":"Dirk Van den Abeele"},"datePublished":"2016"}
 }
 </script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which lovebird mutations are sex-linked?","acceptedAnswer":{"@type":"Answer","text":"In Agapornis fischeri (Fischer's lovebird), three mutations are confirmed sex-linked recessive: Opaline, Cinnamon, and Pale. All three are carried on the Z chromosome. A pallid phenotype is also reported in the species, but it has not been formally confirmed. Greywing sits on the Z as well, though it behaves as an incomplete dominant rather than a recessive. The Ino mutation is different again: in Fischer's it is autosomal recessive, so both cocks and hens can be splits for it, unlike in Agapornis roseicollis (Peach-faced lovebird) where that gene lies on the Z chromosome."}},{"@type":"Question","name":"Why can't female lovebirds be split for Opaline?","acceptedAnswer":{"@type":"Answer","text":"Female birds are ZW (one Z chromosome, one W chromosome). For a recessive sex-linked mutation to be hidden, you need two Z chromosomes, one with the mutation and one with the normal gene. Since females have only one Z, they either show the mutation (hemizygous) or don't carry it. Only males (ZZ) can carry sex-linked mutations as splits."}},{"@type":"Question","name":"What does \"split for Opaline\" mean in a male lovebird?","acceptedAnswer":{"@type":"Answer","text":"A male split for Opaline (ZZ with one Opaline Z and one normal Z) looks completely normal visually. He carries the Opaline gene on one of his Z chromosomes. When paired with a normal female, 50% of his daughters will be Visual Opaline females, and 50% of his sons will be split for Opaline."}},{"@type":"Question","name":"What pairing gives 100% Opaline daughters?","acceptedAnswer":{"@type":"Answer","text":"A Visual Opaline male (homozygous ZO/ZO) paired with any normal female will produce 100% Opaline daughters. All daughters inherit the father's Opaline Z chromosome. Sons will all be split for Opaline (ZO/Z normal)."}},{"@type":"Question","name":"Is Cinnamon in Fischer's lovebirds the same as in Peach-faced?","acceptedAnswer":{"@type":"Answer","text":"Both are sex-linked recessive and affect eumelanin (the brown/black pigment) via the TRP1 gene, creating a warmer, browner tone. The inheritance pattern is identical, females cannot be splits. However, the visual expression may differ slightly between species. The calculator is built specifically for Agapornis fischeri."}},{"@type":"Question","name":"Can you tell if a male lovebird is split for Opaline just by looking at him?","acceptedAnswer":{"@type":"Answer","text":"No. A Split Opaline male looks completely normal, his plumage shows no sign of Opaline. The only ways to confirm split status are: (1) parentage records, if his mother is Opaline, all her sons are confirmed splits; (2) test pairing, breed him with a Normal female and look for Opaline daughters; or (3) DNA testing. Without one of these, a split male is visually indistinguishable from a normal male."}},{"@type":"Question","name":"What is the most sought-after Opaline combination in Fischer's lovebirds?","acceptedAnswer":{"@type":"Answer","text":"Aqua Homo Opaline hen is the combination breeders ask about most often across Bangladesh, Pakistan, and Southeast Asia. The Opaline redistribution enhances the Aqua turquoise colour significantly, producing a deeply saturated gradient bird that looks visually distinct from either mutation alone. Yellow Face Opaline and Pale Fallow Opaline hens are also widely admired combinations."}},{"@type":"Question","name":"How do Opaline pairings differ when combined with Aqua?","acceptedAnswer":{"@type":"Answer","text":"When Opaline (sex-linked) is combined with Aqua (a blue-locus mutation, where only Aqua Homo is a plain autosomal recessive and Aqua B1 and Aqua B2 are co-dominant compounds), the two gene systems segregate independently. The calculator models both simultaneously. For example: a Visual Opaline cock that also carries Aqua as a split, paired with an Aqua Homo hen, produces a full breakdown showing which offspring are Aqua Homo Opaline hens, which are Green / Aqua Opaline hens, and which cocks carry the various combinations, all in one result table."}},{"@type":"Question","name":"What is auto-sexing in lovebird breeding?","acceptedAnswer":{"@type":"Answer","text":"Auto-sexing means the visual appearance of a chick tells you its sex without DNA testing. In a sex-linked pairing where the hen is normal and the cock shows or carries the mutation (Visual cock × Normal hen, or Split cock × Normal hen), every chick that shows Opaline is guaranteed to be female. This works because a hen needs only one copy of the gene to show it, while a cock needs two, and a normal mother has none to give her sons. Breeders use this to avoid DNA testing on entire clutches."}}]}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which lovebird mutations are sex-linked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Agapornis fischeri (Fischer's lovebird), three mutations are confirmed sex-linked recessive: Opaline, Cinnamon, and Pale. All three are carried on the Z chromosome. A pallid phenotype is also reported in the species, but it has not been formally confirmed. Greywing sits on the Z as well, though it behaves as an incomplete dominant rather than a recessive. The Ino mutation is different again: in Fischer's it is autosomal recessive, so both cocks and hens can be splits for it, unlike in Agapornis roseicollis (Peach-faced lovebird) where that gene lies on the Z chromosome."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can't female lovebirds be split for Opaline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Female birds are ZW (one Z chromosome, one W chromosome). For a recessive sex-linked mutation to be hidden, you need two Z chromosomes, one with the mutation and one with the normal gene. Since females have only one Z, they either show the mutation (hemizygous) or don't carry it. Only males (ZZ) can carry sex-linked mutations as splits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"split for Opaline\" mean in a male lovebird?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A male split for Opaline (ZZ with one Opaline Z and one normal Z) looks completely normal visually. He carries the Opaline gene on one of his Z chromosomes. When paired with a normal female, 50% of his daughters will be Visual Opaline females, and 50% of his sons will be split for Opaline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What pairing gives 100% Opaline daughters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Visual Opaline male (homozygous ZO/ZO) paired with any normal female will produce 100% Opaline daughters. All daughters inherit the father's Opaline Z chromosome. Sons will all be split for Opaline (ZO/Z normal)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Cinnamon in Fischer's lovebirds the same as in Peach-faced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both are sex-linked recessive and affect eumelanin (the brown/black pigment) via the TRP1 gene, creating a warmer, browner tone. The inheritance pattern is identical, females cannot be splits. However, the visual expression may differ slightly between species. The calculator is built specifically for Agapornis fischeri."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you tell if a male lovebird is split for Opaline just by looking at him?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A Split Opaline male looks completely normal, his plumage shows no sign of Opaline. The only ways to confirm split status are: (1) parentage records, if his mother is Opaline, all her sons are confirmed splits; (2) test pairing, breed him with a Normal female and look for Opaline daughters; or (3) DNA testing. Without one of these, a split male is visually indistinguishable from a normal male."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the most sought-after Opaline combination in Fischer's lovebirds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aqua Homo Opaline hen is the combination breeders ask about most often across Bangladesh, Pakistan, and Southeast Asia. The Opaline redistribution enhances the Aqua turquoise colour significantly, producing a deeply saturated gradient bird that looks visually distinct from either mutation alone. Yellow Face Opaline and Pale Fallow Opaline hens are also widely admired combinations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Opaline pairings differ when combined with Aqua?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When Opaline (sex-linked) is combined with Aqua (a blue-locus mutation, where only Aqua Homo is a plain autosomal recessive and Aqua B1 and Aqua B2 are co-dominant compounds), the two gene systems segregate independently. The calculator models both simultaneously. For example: a Visual Opaline cock that also carries Aqua as a split, paired with an Aqua Homo hen, produces a full breakdown showing which offspring are Aqua Homo Opaline hens, which are Green / Aqua Opaline hens, and which cocks carry the various combinations, all in one result table."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is auto-sexing in lovebird breeding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auto-sexing means the visual appearance of a chick tells you its sex without DNA testing. In a sex-linked pairing where the hen is normal and the cock shows or carries the mutation (Visual cock × Normal hen, or Split cock × Normal hen), every chick that shows Opaline is guaranteed to be female. This works because a hen needs only one copy of the gene to show it, while a cock needs two, and a normal mother has none to give her sons. Breeders use this to avoid DNA testing on entire clutches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a female lovebird be split for a sex-linked mutation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. In Agapornis fischeri, a hen is ZW, meaning she carries only one Z chromosome. Sex-linked mutations, which in Agapornis fischeri are Opaline, Cinnamon and Pale, sit on the Z chromosome. Because a hen has only one Z, there is no second Z to mask a recessive allele. Whatever sits on her single Z is expressed directly, so a hen is either visual for the mutation or she does not carry it at all. The split state requires two alleles at one locus, which is structurally impossible for a hen. The phrase split Opaline hen describes a bird that cannot exist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a hen's single Z chromosome determine her sons?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A cock is ZZ and a hen is ZW. When they breed, every son receives one Z from his mother and one Z from his father. This means the hen passes her single Z directly to all of her sons. If she is a visual Opaline hen, every son inherits her Opaline Z and becomes at least split for Opaline. Her daughters, by contrast, receive her W chromosome, which carries no sex-linked colour gene, so a hen cannot pass a sex-linked mutation to her daughters. This is the mother-to-son transmission rule that defines sex-linked breeding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a visual Opaline hen produce no Opaline daughters with a normal cock?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A daughter receives her Z chromosome from her father and her W from her mother. If the father is a normal cock with no Opaline allele on either Z, none of the daughters can inherit an Opaline Z. The mother's Opaline gene sits on her Z, which she gives only to her sons. So a visual Opaline hen paired with a normal cock produces split Opaline sons and normal daughters. To get Opaline daughters, the father must carry or show the mutation. This is the most common point of confusion for new hen breeders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can hens carry autosomal recessive mutations as splits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Autosomal recessive mutations such as Aqua Homo, Pale Fallow, Dun Fallow, Dilute and Ino in Fischer's lovebirds are carried on ordinary chromosomes, not on the Z. Both cocks and hens have two copies of every autosomal chromosome, so a hen can be split for an autosomal recessive mutation in exactly the same way a cock can. The hen looks normal but carries one hidden recessive allele. Only Aqua Homo is a plain autosomal recessive; Aqua B1 and Aqua B2 are co-dominant compounds at the blue locus, not splits. This is why the no-splits rule applies only to sex-linked mutations. A hen can be a Green / Aqua carrier, but she cannot be split Opaline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I sex chicks at hatch using the hen's genotype?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auto-sexing works when the hen is normal and the cock carries or shows a sex-linked mutation. In a pairing such as a visual or split cock over a normal hen, any chick that shows the mutation must be female, because a hen needs only one copy to show it while a cock needs two, and a normal mother has none to give her sons. Reading the cock and hen genotypes in the calculator tells you in advance whether a clutch will auto-sex by colour. The hen's role is to receive the father's Z in her daughters, which is what makes the visual trait act as a sex marker at hatch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What pedigree red flags should I watch for in a hen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The biggest red flag is any record that lists a hen as split for a sex-linked mutation such as split Opaline, split Cinnamon or split Pale. No such hen exists, so the record is wrong and the rest of the pedigree should be treated with caution. A second red flag is a visual sex-linked hen whose sire showed no trace of the mutation and was not a confirmed split, because a visual hen must inherit her single Z from her father. A third is a clutch of supposed sex-linked daughters from a normal cock, which is genetically impossible. Each of these points to a mislabelled or mis-sexed bird."
+      }
+    }
+  ]
+}</script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -597,6 +720,30 @@ html,body{overflow-x:clip;}
         <div class="faq-item">
           <p class="faq-q">What is auto-sexing in lovebird breeding?</p>
           <p class="faq-a">Auto-sexing means the visual appearance of a chick tells you its sex without DNA testing. In a sex-linked pairing where the hen is normal and the cock shows or carries the mutation (Visual cock × Normal hen, or Split cock × Normal hen), every chick that shows Opaline is guaranteed to be female. This works because a hen needs only one copy of the gene to show it while a cock needs two, and a normal mother has none to give her sons. Breeders use this to avoid DNA testing on entire clutches.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can a female lovebird be split for a sex-linked mutation?</p>
+          <p class="faq-a">No. In Agapornis fischeri, a hen is ZW, meaning she carries only one Z chromosome. Sex-linked mutations, which in Agapornis fischeri are Opaline, Cinnamon and Pale, sit on the Z chromosome. Because a hen has only one Z, there is no second Z to mask a recessive allele. Whatever sits on her single Z is expressed directly, so a hen is either visual for the mutation or she does not carry it at all. The split state requires two alleles at one locus, which is structurally impossible for a hen. The phrase split Opaline hen describes a bird that cannot exist.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How does a hen's single Z chromosome determine her sons?</p>
+          <p class="faq-a">A cock is ZZ and a hen is ZW. When they breed, every son receives one Z from his mother and one Z from his father. This means the hen passes her single Z directly to all of her sons. If she is a visual Opaline hen, every son inherits her Opaline Z and becomes at least split for Opaline. Her daughters, by contrast, receive her W chromosome, which carries no sex-linked colour gene, so a hen cannot pass a sex-linked mutation to her daughters. This is the mother-to-son transmission rule that defines sex-linked breeding.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why does a visual Opaline hen produce no Opaline daughters with a normal cock?</p>
+          <p class="faq-a">A daughter receives her Z chromosome from her father and her W from her mother. If the father is a normal cock with no Opaline allele on either Z, none of the daughters can inherit an Opaline Z. The mother's Opaline gene sits on her Z, which she gives only to her sons. So a visual Opaline hen paired with a normal cock produces split Opaline sons and normal daughters. To get Opaline daughters, the father must carry or show the mutation. This is the most common point of confusion for new hen breeders.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can hens carry autosomal recessive mutations as splits?</p>
+          <p class="faq-a">Yes. Autosomal recessive mutations such as Aqua Homo, Pale Fallow, Dun Fallow, Dilute and Ino in Fischer's lovebirds are carried on ordinary chromosomes, not on the Z. Both cocks and hens have two copies of every autosomal chromosome, so a hen can be split for an autosomal recessive mutation in exactly the same way a cock can. The hen looks normal but carries one hidden recessive allele. Only Aqua Homo is a plain autosomal recessive; Aqua B1 and Aqua B2 are co-dominant compounds at the blue locus, not splits. This is why the no-splits rule applies only to sex-linked mutations. A hen can be a Green / Aqua carrier, but she cannot be split Opaline.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">How do I sex chicks at hatch using the hen's genotype?</p>
+          <p class="faq-a">Auto-sexing works when the hen is normal and the cock carries or shows a sex-linked mutation. In a pairing such as a visual or split cock over a normal hen, any chick that shows the mutation must be female, because a hen needs only one copy to show it while a cock needs two, and a normal mother has none to give her sons. Reading the cock and hen genotypes in the calculator tells you in advance whether a clutch will auto-sex by colour. The hen's role is to receive the father's Z in her daughters, which is what makes the visual trait act as a sex marker at hatch.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What pedigree red flags should I watch for in a hen?</p>
+          <p class="faq-a">The biggest red flag is any record that lists a hen as split for a sex-linked mutation such as split Opaline, split Cinnamon or split Pale. No such hen exists, so the record is wrong and the rest of the pedigree should be treated with caution. A second red flag is a visual sex-linked hen whose sire showed no trace of the mutation and was not a confirmed split, because a visual hen must inherit her single Z from her father. A third is a clutch of supposed sex-linked daughters from a normal cock, which is genetically impossible. Each of these points to a mislabelled or mis-sexed bird.</p>
         </div>
       </div>
 

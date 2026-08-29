@@ -45,20 +45,108 @@
   "citation":{"@type":"Book","name":"Lovebird Compendium","author":{"@type":"Person","name":"Dirk Van den Abeele"},"datePublished":"2016"}
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"What are the three types of inheritance in lovebird mutations?","acceptedAnswer":{"@type":"Answer","text":"Lovebird mutations follow one of three inheritance patterns. Autosomal recessive mutations (such as Blue, Aqua, Dilute, and the Fallows) require two copies to show, and a bird with one copy is a hidden split that looks normal. Sex-linked recessive mutations (such as Opaline, Cinnamon and Pale) sit on the Z sex chromosome, so a single copy makes a female visual while a male needs two copies. Autosomal incomplete dominant mutations (such as Dark Factor and Violet) show with a single copy, and a double copy produces a visibly stronger expression. Knowing which category a mutation belongs to is the first step in predicting any pairing, and the calculator applies all three rules automatically."}},
-    {"@type":"Question","name":"What is the difference between a split and a visual lovebird?","acceptedAnswer":{"@type":"Answer","text":"A visual bird shows the mutation in its feathers, while a split carries the gene hidden and looks completely normal. Splits only occur with recessive mutations: an autosomal recessive bird with one copy, or a sex-linked male with one copy, is a split. The gene is present and will be passed to half the offspring, but it is invisible to the eye. Splits are written with a slash, for example Green/Blue. You confirm a split through pedigree records, a test pairing against a visual, or DNA testing. Dominant mutations such as Dark Factor and Violet have no hidden split state, because a single copy always shows."}},
-    {"@type":"Question","name":"How does auto-sexing work in Fischer's lovebirds?","acceptedAnswer":{"@type":"Answer","text":"Auto-sexing uses sex-linked mutations to tell male from female chicks by colour alone, before any DNA test. It works because sex-linked genes sit on the Z chromosome and females carry only one Z. When an Opaline male is paired to a non-Opaline female, every visual Opaline chick produced is female, and every non-Opaline chick is male. The same logic applies to Cinnamon and Pale. This lets a breeder sex an entire clutch at fledging without laboratory testing. The pattern depends entirely on which parent carries the sex-linked gene, so the direction of the pairing matters."}},
-    {"@type":"Question","name":"Which lovebird mutations are sex-linked?","acceptedAnswer":{"@type":"Answer","text":"In Agapornis fischeri the main sex-linked recessive mutations are Opaline, Cinnamon and Pale, along with the pallid phenotype, which is reported but not formally confirmed in this species. These genes sit on the Z sex chromosome. A female needs only one copy to be visual because she carries a single Z, while a male needs two copies. This is why sex-linked mutations enable auto-sexing and why their pairing outcomes differ depending on whether the male or the female carries the gene. All other colour mutations such as Blue, Aqua, Dilute, Pale Fallow, Bronze Fallow, Dark Factor, Violet and Ino (Lutino and Albino) are autosomal. Ino in Agapornis fischeri is the non-sex-linked (NSL) ino at the a-locus, an autosomal recessive; the sex-linked ino belongs to Agapornis roseicollis."}},
-    {"@type":"Question","name":"What pigments create lovebird colours?","acceptedAnswer":{"@type":"Answer","text":"Two pigment systems and one structural effect create every lovebird colour. Psittacofulvin is the yellow-to-red pigment that lovebirds make themselves; mutations that reduce or modify it produce the Blue, Aqua, Parblue, and Yellow Face colours. Eumelanin is the dark brown-black pigment; mutations that reduce, dilute, or remove it produce Cinnamon, Dilute, the Fallows, and Lutino. Structural colour is the blue produced by feather nanostructure rather than pigment, and mutations such as Dark Factor and Violet change colour by altering that structure. Opaline is different again, redistributing existing pigment into a new pattern rather than changing the pigment itself."}},
-    {"@type":"Question","name":"How do I use the lovebird genetics calculator?","acceptedAnswer":{"@type":"Answer","text":"Select the male's mutations on one side and the female's mutations on the other, including any splits you know the bird carries, and the calculator returns the exact percentage of each offspring genotype. It applies the correct inheritance rule for every mutation automatically, handles sex-linked auto-sexing so it reports the sex of each outcome where relevant, and combines multiple mutations using independent assortment. You do not need to work out Punnett squares by hand. The tool is free, requires no account, and works for single-mutation pairings as well as complex multi-trait crosses involving recessive, sex-linked, and dominant genes at the same time."}}
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the three types of inheritance in lovebird mutations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lovebird mutations follow one of three inheritance patterns. Autosomal recessive mutations (such as Blue, Aqua, Dilute, and the Fallows) require two copies to show, and a bird with one copy is a hidden split that looks normal. Sex-linked recessive mutations (such as Opaline, Cinnamon and Pale) sit on the Z sex chromosome, so a single copy makes a female visual while a male needs two copies. Autosomal incomplete dominant mutations (such as Dark Factor and Violet) show with a single copy, and a double copy produces a visibly stronger expression. Knowing which category a mutation belongs to is the first step in predicting any pairing, and the calculator applies all three rules automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a split and a visual lovebird?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A visual bird shows the mutation in its feathers, while a split carries the gene hidden and looks completely normal. Splits only occur with recessive mutations: an autosomal recessive bird with one copy, or a sex-linked male with one copy, is a split. The gene is present and will be passed to half the offspring, but it is invisible to the eye. Splits are written with a slash, for example Green/Blue. You confirm a split through pedigree records, a test pairing against a visual, or DNA testing. Dominant mutations such as Dark Factor and Violet have no hidden split state, because a single copy always shows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does auto-sexing work in Fischer's lovebirds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auto-sexing uses sex-linked mutations to tell male from female chicks by colour alone, before any DNA test. It works because sex-linked genes sit on the Z chromosome and females carry only one Z. When an Opaline male is paired to a non-Opaline female, every visual Opaline chick produced is female, and every non-Opaline chick is male. The same logic applies to Cinnamon and Pale. This lets a breeder sex an entire clutch at fledging without laboratory testing. The pattern depends entirely on which parent carries the sex-linked gene, so the direction of the pairing matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which lovebird mutations are sex-linked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Agapornis fischeri the main sex-linked recessive mutations are Opaline, Cinnamon and Pale, along with the pallid phenotype, which is reported but not formally confirmed in this species. These genes sit on the Z sex chromosome. A female needs only one copy to be visual because she carries a single Z, while a male needs two copies. This is why sex-linked mutations enable auto-sexing and why their pairing outcomes differ depending on whether the male or the female carries the gene. All other colour mutations such as Blue, Aqua, Dilute, Pale Fallow, Bronze Fallow, Dark Factor, Violet and Ino (Lutino and Albino) are autosomal. Ino in Agapornis fischeri is the non-sex-linked (NSL) ino at the a-locus, an autosomal recessive; the sex-linked ino belongs to Agapornis roseicollis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What pigments create lovebird colours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two pigment systems and one structural effect create every lovebird colour. Psittacofulvin is the yellow-to-red pigment that lovebirds make themselves; mutations that reduce or modify it produce the Blue, Aqua, Parblue, and Yellow Face colours. Eumelanin is the dark brown-black pigment; mutations that reduce, dilute, or remove it produce Cinnamon, Dilute, the Fallows, and Lutino. Structural colour is the blue produced by feather nanostructure rather than pigment, and mutations such as Dark Factor and Violet change colour by altering that structure. Opaline is different again, redistributing existing pigment into a new pattern rather than changing the pigment itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use the lovebird genetics calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select the male's mutations on one side and the female's mutations on the other, including any splits you know the bird carries, and the calculator returns the exact percentage of each offspring genotype. It applies the correct inheritance rule for every mutation automatically, handles sex-linked auto-sexing so it reports the sex of each outcome where relevant, and combines multiple mutations using independent assortment. You do not need to work out Punnett squares by hand. The tool is free, requires no account, and works for single-mutation pairings as well as complex multi-trait crosses involving recessive, sex-linked, and dominant genes at the same time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What causes different colours in lovebirds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lovebird colour is produced by two pigment systems, eumelanin (dark pigment responsible for black and brown tones in feathers and skin) and psittacine (the yellow, orange, and red pigments unique to parrots), plus the structural properties of feather barbules that scatter light. Mutations alter, reduce, or eliminate one or more of these systems, producing the wide spectrum of colours seen in aviculture. Green is the wild-type result of psittacine yellow overlaid on the blue produced by feather structure over a eumelanin background."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is eumelanin in lovebirds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eumelanin is the dark pigment deposited in lovebird feathers, skin, eyes, and bill. It creates the black and dark-brown tones visible in the flight feathers, wing edges, and dark areas of wild-type Fischer's lovebirds. Mutations such as Fallow, Cinnamon, and Dilute reduce eumelanin production or change its chemical form, lightening the bird's dark areas, producing brown or tan tones instead of black. Mutations never add new pigments; they only reduce or alter existing ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does autosomal recessive mean in lovebird genetics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Autosomal recessive means a mutation is carried on a non-sex chromosome (autosome) and requires two copies, one from each parent, to be expressed visually. A bird with only one copy looks completely normal but secretly carries the mutation as a 'split.' Both male and female lovebirds can be splits for autosomal recessive mutations such as Aqua, Pale Fallow, Dun Fallow, Dilute, and Ino. When two splits are paired together, on average 25% of offspring will be visual for the mutation, 50% will be splits, and 25% will carry no gene at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can female lovebirds not be split for Opaline or Cinnamon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Opaline and Cinnamon are sex-linked recessive mutations carried on the Z chromosome. Female Fischer's lovebirds have the genotype ZW, they carry only one Z chromosome and one gene-poor W chromosome. Because they have only one copy of the Z-linked gene locus, they cannot have a 'hidden' copy; they either show the mutation visually (their single Z carries the mutant allele) or they don't carry it at all. Only males (ZZ) have two Z chromosomes and can therefore carry one normal and one mutant allele, making them visual-normal but genetically split."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Single Factor and Double Factor mutations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Single Factor (SF) and Double Factor (DF) apply to incomplete dominant mutations such as Violet and Dark Factor. A Single Factor bird carries one copy of the dominant allele and shows a modified colour, for example, SF Violet appears as a violet-tinged blue bird. A Double Factor bird carries two copies and shows a more intensified expression, DF Dark Factor produces the darkest olive (in green series) or mauve (in blue series). Unlike recessive mutations, there are no hidden carriers for dominant mutations, every bird carrying the gene shows some visual effect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I predict what colour my lovebird chicks will be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with the right tools and accurate parent information. If you know the base colour and mutation status (visual, split, or not carried) of both parents, Mendelian inheritance allows precise probability calculations. The Lovebird Genetics Calculator at lovebirdgenetics.com handles all known Fischer's lovebird mutations automatically, applying the correct inheritance rules for autosomal recessive, sex-linked recessive, and incomplete dominant mutations simultaneously. Enter both parents and the calculator returns every possible offspring category with its probability percentage."
+      }
+    }
   ]
-}
-</script>
+}</script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -346,7 +434,7 @@ html,body{overflow-x:clip;}
       <p>Lovebird colour comes from two pigments and one structural trick. Psittacofulvin is the yellow-to-red pigment the bird produces itself. Eumelanin is the dark brown-black pigment. Structural colour is the blue created by the way light scatters inside the feather, with no blue pigment present at all. Every mutation works by changing one of these, and grouping mutations this way makes their visual markers predictable. The Lovebird Compendium (Van den Abeele, 2016) organises the mutations along the same pigment lines.</p>
 
       <h3>Psittacofulvin group: Blue, Parblue, Aqua, Yellow Face</h3>
-      <p>This group changes the yellow-to-red psittacofulvin pigment, which sits over the structural blue of the feather. Remove the yellow pigment entirely and the green bird turns blue. Reduce it partially and you get the turquoise and seagreen tones. <strong>Blue</strong> fully eliminates psittacofulvin to give a clean blue bird, and is autosomal recessive (<a href="/blog/blue-lovebird-genetics/">Blue genetics guide</a>). <strong>Aqua</strong> and <strong>Parblue</strong> partially reduce the pigment to produce turquoise birds, also autosomal recessive (<a href="/blog/aqua-mutation-in-lovebirds/">Aqua genetics guide</a>). <strong>Yellow Face</strong> restricts the pigment so the body loses its yellow but the mask keeps it (<a href="/blog/yellow-face-lovebird-genetics/">Yellow Face genetics guide</a>). One of the most worked combinations in this group is the <a href="/blog/aqua-homo-pale-fallow-pairing/">Aqua Homo with Pale Fallow pairing</a>.</p>
+      <p>This group changes the yellow-to-red psittacofulvin pigment, which sits over the structural blue of the feather. Remove the yellow pigment entirely and the green bird turns blue. Reduce it partially and you get the turquoise and seagreen tones. <strong>Blue</strong> fully eliminates psittacofulvin to give a clean blue bird, and is autosomal recessive (<a href="/blog/blue-lovebird-genetics/">Blue genetics guide</a>). <strong>Aqua</strong> and <strong>Parblue</strong> partially reduce the pigment to produce turquoise birds, also autosomal recessive (<a href="/blog/aqua-mutation-in-lovebirds/">Aqua genetics guide</a>). <strong>Yellow Face</strong> restricts the pigment so the body loses its yellow but the mask keeps it (<a href="/blog/yellow-face-lovebird-genetics/">Yellow Face genetics guide</a>). One of the most worked combinations in this group is the <a href="/blog/lovebird-pairing-outcomes/">Aqua Homo with Pale Fallow pairing</a>.</p>
 
       <h3>Eumelanin group: the Fallows, Cinnamon, Dilute, Lutino</h3>
       <p>This group changes the dark eumelanin pigment, which controls how deep and how grey a bird looks. <strong>Cinnamon</strong> incompletely makes eumelanin, turning black markings warm brown, and is sex-linked recessive (<a href="/blog/cinnamon-lovebird-genetics/">Cinnamon genetics guide</a>). <strong>Dilute</strong> is autosomal recessive and pales the whole bird while leaving eyes and feet normal (<a href="/blog/dilute-lovebird-genetics/">Dilute genetics guide</a>). The <strong>Fallows</strong> reduce eumelanin and turn the eyes red; the autosomal recessive <a href="/blog/bronze-fallow-lovebird-genetics/">Bronze Fallow</a> is the most fragile, and the often-confused Pale and Dun forms are separated in <a href="/blog/pale-fallow-vs-dun-fallow/">Pale Fallow vs Dun Fallow</a>. <strong>Lutino and Albino</strong> remove eumelanin almost completely and are sex-linked recessive (<a href="/blog/lutino-albino-lovebird-genetics/">Lutino and Albino genetics guide</a>).</p>
@@ -355,7 +443,7 @@ html,body{overflow-x:clip;}
       <p>This group changes the structural blue of the feather rather than any pigment, so the effect is on the shade and depth of the colour. <strong>Dark Factor</strong> narrows the feather's spongy layer to darken green into dark green and olive, and blue into cobalt and mauve; it is incomplete dominant (<a href="/blog/dark-factor-lovebird-genetics/">Dark Factor genetics guide</a>). <strong>Violet</strong> shifts the structural colour toward a violet tone and is also incomplete dominant, strongest as a single-factor bird on a blue base (<a href="/blog/violet-lovebird-genetics/">Violet genetics guide</a>). Because both are structural, they stack visibly with the pigment mutations rather than replacing them.</p>
 
       <h3>Pattern group: Opaline</h3>
-      <p><strong>Opaline</strong> stands apart because it does not change a pigment at all; it redistributes the pigment the bird already has. The effect clears eumelanin from the head and back and spreads the mask colour, producing a strikingly different pattern on the same underlying colour. Opaline is sex-linked recessive, which is what makes it such a powerful auto-sexing tool. The core genetics are in the <a href="/blog/opaline-lovebird-genetics/">Opaline genetics guide</a>, and the practical breeding routine is in <a href="/blog/how-to-breed-opaline-lovebirds/">how to breed Opaline lovebirds</a>.</p>
+      <p><strong>Opaline</strong> stands apart because it does not change a pigment at all; it redistributes the pigment the bird already has. The effect clears eumelanin from the head and back and spreads the mask colour, producing a strikingly different pattern on the same underlying colour. Opaline is sex-linked recessive, which is what makes it such a powerful auto-sexing tool. The core genetics are in the <a href="/blog/opaline-lovebird-genetics/">Opaline genetics guide</a>, and the practical breeding routine is in <a href="/blog/opaline-lovebird-genetics/">how to breed Opaline lovebirds</a>.</p>
 
       <h2 id="splits-vs-visual">What is the difference between a split and a visual?</h2>
       <p>A visual bird wears the mutation in its feathers. A split carries the gene hidden and looks completely normal. Splits exist only for recessive mutations, where a single copy is not enough to show: an autosomal recessive bird with one copy, or a sex-linked male with one copy, is a split. The gene is fully present and passes to half the offspring, but you cannot see it.</p>
@@ -466,7 +554,7 @@ html,body{overflow-x:clip;}
 
       <h2 id="combining-mutations">How do mutations combine in one bird?</h2>
       <p>Mutations assort independently, which means each one follows its own inheritance rule at the same time, and you simply layer the effects. A bird can be Aqua and Cinnamon and Dark Factor all at once, with the Aqua recessive, the Cinnamon sex-linked, and the Dark Factor dominant all behaving according to their own category. The visual result is the sum of the parts: the structural and pattern mutations stack on top of whatever the pigment mutations have done to the base colour.</p>
-      <p>This is exactly where hand calculation breaks down. A single sex-linked recessive pairing is manageable on paper, but as soon as you combine three mutations across three different inheritance types, the number of possible genotypes multiplies fast and the sex of each outcome has to be tracked separately. That complexity is the reason the calculator exists. To see how the species-wide picture fits together visually, the broader overviews in <a href="/blog/lovebird-color-genetics/">lovebird colour genetics</a> and <a href="/blog/fischer-lovebird-mutations/">Fischer lovebird mutations</a> are good companions to this hub, and the practical husbandry side is covered in the <a href="/blog/lovebird-breeding-guide/">lovebird breeding guide</a>.</p>
+      <p>This is exactly where hand calculation breaks down. A single sex-linked recessive pairing is manageable on paper, but as soon as you combine three mutations across three different inheritance types, the number of possible genotypes multiplies fast and the sex of each outcome has to be tracked separately. That complexity is the reason the calculator exists. To see how the species-wide picture fits together visually, the broader overviews in lovebird colour genetics and <a href="/blog/fischer-lovebird-mutations/">Fischer lovebird mutations</a> are good companions to this hub, and the practical husbandry side is covered in the <a href="/blog/lovebird-breeding-guide/">lovebird breeding guide</a>.</p>
 
       <h2 id="using-calculator">How do I use the lovebird genetics calculator?</h2>
       <p>Set the male's mutations on one side and the female's on the other, add any splits you know each bird carries, and the calculator returns the exact percentage of every offspring genotype, with the sex of each outcome where a sex-linked gene is involved. It applies the right inheritance rule to each mutation automatically, so you never have to remember whether a given trait is recessive, sex-linked, or dominant.</p>
@@ -512,6 +600,30 @@ html,body{overflow-x:clip;}
         <div class="faq-item">
           <p class="faq-q">How do I use the lovebird genetics calculator?</p>
           <p class="faq-a">Select the male's mutations on one side and the female's on the other, including any known splits, and the calculator returns the exact percentage of each offspring genotype. It applies the correct inheritance rule to every mutation automatically, reports the sex of outcomes where a sex-linked gene is involved, and combines multiple mutations using independent assortment. It is free, needs no account, and handles both single-mutation and complex multi-trait pairings.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What causes different colours in lovebirds?</p>
+          <p class="faq-a">Lovebird colour is produced by two pigment systems, eumelanin (dark pigment responsible for black and brown tones in feathers and skin) and psittacine (the yellow, orange, and red pigments unique to parrots), plus the structural properties of feather barbules that scatter light. Mutations alter, reduce, or eliminate one or more of these systems, producing the wide spectrum of colours seen in aviculture. Green is the wild-type result of psittacine yellow overlaid on the blue produced by feather structure over a eumelanin background.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is eumelanin in lovebirds?</p>
+          <p class="faq-a">Eumelanin is the dark pigment deposited in lovebird feathers, skin, eyes, and bill. It creates the black and dark-brown tones visible in the flight feathers, wing edges, and dark areas of wild-type Fischer's lovebirds. Mutations such as Fallow, Cinnamon, and Dilute reduce eumelanin production or change its chemical form, lightening the bird's dark areas, producing brown or tan tones instead of black. Mutations never add new pigments; they only reduce or alter existing ones.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What does autosomal recessive mean in lovebird genetics?</p>
+          <p class="faq-a">Autosomal recessive means a mutation is carried on a non-sex chromosome (autosome) and requires two copies, one from each parent, to be expressed visually. A bird with only one copy looks completely normal but secretly carries the mutation as a 'split.' Both male and female lovebirds can be splits for autosomal recessive mutations such as Aqua, Pale Fallow, Dun Fallow, Dilute, and Ino. When two splits are paired together, on average 25% of offspring will be visual for the mutation, 50% will be splits, and 25% will carry no gene at all.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Why can female lovebirds not be split for Opaline or Cinnamon?</p>
+          <p class="faq-a">Opaline and Cinnamon are sex-linked recessive mutations carried on the Z chromosome. Female Fischer's lovebirds have the genotype ZW, they carry only one Z chromosome and one gene-poor W chromosome. Because they have only one copy of the Z-linked gene locus, they cannot have a 'hidden' copy; they either show the mutation visually (their single Z carries the mutant allele) or they don't carry it at all. Only males (ZZ) have two Z chromosomes and can therefore carry one normal and one mutant allele, making them visual-normal but genetically split.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">What is the difference between Single Factor and Double Factor mutations?</p>
+          <p class="faq-a">Single Factor (SF) and Double Factor (DF) apply to incomplete dominant mutations such as Violet and Dark Factor. A Single Factor bird carries one copy of the dominant allele and shows a modified colour, for example, SF Violet appears as a violet-tinged blue bird. A Double Factor bird carries two copies and shows a more intensified expression, DF Dark Factor produces the darkest olive (in green series) or mauve (in blue series). Unlike recessive mutations, there are no hidden carriers for dominant mutations, every bird carrying the gene shows some visual effect.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Can I predict what colour my lovebird chicks will be?</p>
+          <p class="faq-a">Yes, with the right tools and accurate parent information. If you know the base colour and mutation status (visual, split, or not carried) of both parents, Mendelian inheritance allows precise probability calculations. The Lovebird Genetics Calculator at lovebirdgenetics.com handles all known Fischer's lovebird mutations automatically, applying the correct inheritance rules for autosomal recessive, sex-linked recessive, and incomplete dominant mutations simultaneously. Enter both parents and the calculator returns every possible offspring category with its probability percentage.</p>
         </div>
       </div>
 
