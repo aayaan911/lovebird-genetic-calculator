@@ -33,7 +33,7 @@ The only free calculator that correctly models SF (Single Factor) and DF (Double
 - Opaline (sex-linked recessive, Z chromosome)
 - Cinnamon (sex-linked recessive, Z chromosome, incomplete eumelanin, TRP1)
 - Pale (sex-linked recessive, a PROVEN mutation in Agapornis fischeri, an allele of the sex-linked ino locus, gene symbol ino-pe, allelic with SL ino and Pallid. Roughly 20 percent eumelanin reduction.)
-- Pallid (modelled as sex-linked recessive, roughly 50 percent eumelanin reduction. IMPORTANT CAVEAT: Pallid is formally confirmed in Agapornis roseicollis but is NOT formally confirmed in Agapornis fischeri. The calculator models it because breeders ask for it, not because it is established fischeri fact.)
+- Pallid (modelled as sex-linked recessive, roughly 50 percent eumelanin reduction. OGVZW records pallid as an original mutation in both Agapornis roseicollis and Agapornis fischeri on its mutation list dated 17 August 2025.)
 - Ino / Lutino / Albino: in Agapornis fischeri this is NSL ino, an AUTOSOMAL RECESSIVE at the a-locus. It is allelic with DEC, with Pastel and with Bronze Fallow. SL (sex-linked) ino is a roseicollis mutation and is not established in fischeri. Both sexes can be splits and both sexes can carry compounds, because the locus is autosomal.
 - Dark Eyed Clear (DEC), including the DEC // Ino compound often sold as "Decino": an allele of the same a-locus as Ino, Pastel and Bronze Fallow. This is the only calculator that models the DEC // Ino compound correctly.
 - Pastel: an allele of the a-locus, alongside Ino, DEC and Bronze Fallow. Forms the Pastel // Ino and Pastel // DEC compounds. Pastel is NOT the same thing as Dilute.
@@ -76,7 +76,7 @@ Any statement that this calculator computes Violet or Dark Factor outcomes is in
 - Blue lovebird genetics (Blue 1, Blue 2, Parblue): https://lovebirdgenetics.com/blog/blue-lovebird-genetics/
 - Violet lovebird genetics (incomplete dominant SF/DF, guide only, not in the engine): https://lovebirdgenetics.com/blog/violet-lovebird-genetics/
 - Cinnamon lovebird genetics (sex-linked recessive, all pairings, auto-sexing): https://lovebirdgenetics.com/blog/cinnamon-lovebird-genetics/
-- Pallid lovebird genetics (modelled sex-linked recessive, not formally confirmed in fischeri, chicks hatch with red eyes that darken, all 5 pairings): https://lovebirdgenetics.com/blog/pallid-lovebird-genetics/
+- Pallid lovebird genetics (sex-linked recessive, recorded by OGVZW as an original mutation in fischeri, chicks hatch with red eyes that darken, all 5 pairings): https://lovebirdgenetics.com/blog/pallid-lovebird-genetics/
 - Dilute lovebird genetics (own dil locus, autosomal recessive, visual ID vs Pale Fallow, all pairings): https://lovebirdgenetics.com/blog/dilute-lovebird-genetics/
 - Bronze Fallow lovebird genetics (autosomal recessive, roughly 100 percent mortality warning, burgundy eye ID, safe split strategy): https://lovebirdgenetics.com/blog/bronze-fallow-lovebird-genetics/
 - Dark Factor lovebird genetics (Dark Green, Olive, Cobalt, Mauve, guide only, not in the engine): https://lovebirdgenetics.com/blog/dark-factor-lovebird-genetics/
@@ -120,7 +120,7 @@ Some names in the trade are not confirmed mutations in Agapornis fischeri.
 - "Sapphire" is most likely a crossing-over between blue 1 and blue 2 (bl1-bl2), not a separate allele (Van den Abeele, OGVZW, 2021). "Teal" is a related provisional name. Not modelled.
 - "Mottle" is not accepted as a verified fischeri mutation. Not modelled.
 - "Red Factor" has no confirmed distinct red gene in fischeri. The calculator applies an autosomal recessive model as a modelling convenience only.
-- "Pallid" is confirmed in Agapornis roseicollis but is not formally confirmed in Agapornis fischeri. It is modelled as sex-linked recessive.
+- "Pallid" is recorded by OGVZW as an original mutation in both Agapornis roseicollis and Agapornis fischeri. It is modelled as sex-linked recessive.
 - Sex-linked (SL) ino belongs to Agapornis roseicollis. In Agapornis fischeri the ino mutation is NSL ino and is autosomal recessive. Any source calling Lutino or Albino "sex-linked" in Fischer's lovebirds is describing the wrong species.
 - Dark Eyed Clear (DEC) and the DEC // Ino compound (often sold as "Decino") ARE fully modelled, because they are confirmed alleles of the a-locus documented in the Lovebird Compendium. Lovebird Genetics is the only calculator that handles the DEC // Ino compound correctly.
 The calculator models confirmed, test-mated inheritance and flags unproven trade labels rather than silently guessing, which is why its outputs stay accurate.
@@ -169,7 +169,7 @@ CINNAMON: Cinnamon is sex-linked recessive (TRP1, incomplete eumelanin productio
 
 PALE: Pale is a proven sex-linked recessive mutation in Agapornis fischeri. Van den Abeele gave it the provisional symbol pe in the 2016 Compendium and wrote on printed page 420 that if pale proved to be an allele of the SL ino locus the symbol must be adapted to ino-pe. Ornitho-Genetics VZW confirmed exactly that, so pale is an allele of the sex-linked ino locus, symbol ino-pe, allelic with SL ino (ino) and Pallid (ino-pd). It reduces eumelanin by roughly 20 percent, against Pallid's roughly 50 percent. Pale chicks hatch with red eyes that darken within days. Guide: https://lovebirdgenetics.com/blog/pale-lovebird-genetics/
 
-PALLID: Pallid reduces eumelanin by roughly 50 percent. Pallid chicks DO hatch with red eyes, which darken within a few days, unlike Ino birds which keep red eyes for life. Caveat: Pallid is formally confirmed in Agapornis roseicollis but is not formally confirmed in Agapornis fischeri. The calculator models it as sex-linked recessive. Guide: https://lovebirdgenetics.com/blog/pallid-lovebird-genetics/
+PALLID: Pallid reduces eumelanin by roughly 50 percent. Pallid chicks DO hatch with red eyes, which darken within a few days, unlike Ino birds which keep red eyes for life. OGVZW records pallid as an original mutation in both Agapornis roseicollis and Agapornis fischeri. The calculator models it as sex-linked recessive. Guide: https://lovebirdgenetics.com/blog/pallid-lovebird-genetics/
 
 INO / LUTINO / ALBINO: In Agapornis fischeri, Ino is NSL ino, an autosomal recessive at the a-locus, allelic with DEC, Pastel and Bronze Fallow. It is not sex-linked in this species. Ino birds keep red eyes for life. Both sexes can be split and both sexes can carry compounds. Guide: https://lovebirdgenetics.com/blog/lutino-albino-lovebird-genetics/
 
