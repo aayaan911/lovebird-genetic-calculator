@@ -1754,7 +1754,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>Is this lovebird genetics calculator free?</h3>
-        <p><strong>Is this genetic calculator free to use?</strong> Yes. Lovebird Genetics is a completely free genetic calculator for Fischer's lovebirds (<em>Agapornis fischeri</em>). There is no account, no sign-up, no subscription, no trial, no paywall and no ads. Select the base colour and mutations for each parent and it instantly predicts every possible offspring outcome with exact percentages, including splits and separate male and female columns for sex-linked mutations. It runs entirely in your browser on any phone or computer, works worldwide with no regional restrictions, and every inheritance model is cross-checked against Dirk Van den Abeele's Lovebird Compendium (2016). No personal data is collected when you use the calculator, see our <a href="/privacy" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Privacy Policy</a> for full details.</p>
+        <p>Yes. Lovebird Genetics is a completely free genetic calculator for Fischer's lovebirds (<em>Agapornis fischeri</em>). There is no account, no sign-up, no subscription, no trial, no paywall and no ads. Select the base colour and mutations for each parent and it instantly predicts every possible offspring outcome with exact percentages, including splits and separate male and female columns for sex-linked mutations. It runs entirely in your browser on any phone or computer, works worldwide with no regional restrictions, and every inheritance model is cross-checked against Dirk Van den Abeele's Lovebird Compendium (2016). No personal data is collected when you use the calculator, see our <a href="/privacy" style="color:var(--accent-text);text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Privacy Policy</a> for full details.</p>
       </div>
       <div class="seo-faq-item">
         <h3>What does "split" mean in lovebird genetics?</h3>
@@ -2051,7 +2051,7 @@ var CBSF_NOTMOD=[
 {label:"Dark Factor",keys:["dark factor","darkfactor","cobalt","mauve","olive","dark green","darkgreen","jade"],reason:"Not modelled in this calculator, by design. Dark Factor narrows the feather's spongy zone and has little visible effect on Ino-type birds."},
 {label:"Sapphire",keys:["sapphire"],reason:"Deliberately excluded. OGVZW treats Sapphire as a blue1-blue2 recombinant chromosome, not a separate gene, and their research is still active."},
 {label:"Mottle",keys:["mottle","mottled"],reason:"Deliberately excluded. MutaBase records it as autosomal multifactorial, so outcomes are not predictable."},
-{label:"Faded",keys:["faded"],reason:"Not modelled in this calculator, by design."}
+{label:"Faded",keys:["faded"],reason:"Faded is the old name for Pale, renamed after it was proven sex-linked recessive. Select Pale."}
 ];
 
 /* ---- genetically impossible, blocked with the rule ----------------- */
@@ -2912,11 +2912,11 @@ function updateURL(){
 function restoreFromURL(){
   try{
     const p=new URLSearchParams(location.search);
-    if(p.get('m'))S.p1p=p.get('m');
+    if(p.get('m')&&BASE_LABEL(p.get('m')))S.p1p=p.get('m');
     if(p.has('mo'))S.p1Op=p.get('mo');
     const mt=p.get('mt');
     if(mt)S.p1t=mt.split(',').map(s=>{const[id,st]=s.split(':');return{id,status:st||'visual'};}).filter(t=>t.id);
-    if(p.get('f'))S.p2p=p.get('f');
+    if(p.get('f')&&BASE_LABEL(p.get('f')))S.p2p=p.get('f');
     if(p.has('fo'))S.p2Op=p.get('fo');
     const ft=p.get('ft');
     if(ft)S.p2t=ft.split(',').map(s=>{const[id,st]=s.split(':');return{id,status:st||'visual'};}).filter(t=>t.id);
