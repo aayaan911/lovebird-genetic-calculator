@@ -13,7 +13,7 @@ No account, no ads, no paywall.
 Enter two parent birds and get the exact percentage breakdown of every possible offspring, including splits.
 
 - **7 base colours:** Green, Blue 1, Blue 2, Parblue (B1B2), Aqua B1, Aqua B2, Aqua Homo
-- **19 mutation traits**, each modelled with its real inheritance mode
+- **22 mutation groups**, each modelled with its real inheritance mode
 - Up to 6 traits per parent
 - Separate son and daughter columns for sex-linked results, because a hen cannot be split for a sex-linked gene
 - Copy and share any result

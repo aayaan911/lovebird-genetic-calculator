@@ -7,12 +7,6 @@
 <meta name="description" content="The best free lovebird genetics calculators in 2026 compared: gencalc.com, lovebirdgenetics.com and birdtracks.io. Species, mutations, mobile, signup and accuracy."/>
 <link rel="canonical" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
 <link rel="alternate" hreflang="en" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
-<link rel="alternate" hreflang="en-US" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
-<link rel="alternate" hreflang="en-GB" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
-<link rel="alternate" hreflang="en-IN" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
-<link rel="alternate" hreflang="en-AU" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
-<link rel="alternate" hreflang="en-CA" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
-<link rel="alternate" hreflang="en-NZ" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
 <link rel="alternate" hreflang="x-default" href="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://lovebirdgenetics.com/blog/best-lovebird-genetics-calculator/"/>
@@ -48,7 +42,7 @@
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"FAQPage",
+  "@type":"FAQPage","speakable":{"@type":"SpeakableSpecification","cssSelector":[".snippet-answer"]},
   "mainEntity":[
     {"@type":"Question","name":"What is the best free lovebird genetics calculator in 2026?","acceptedAnswer":{"@type":"Answer","text":"For Fischer's lovebirds (Agapornis fischeri) specifically, lovebirdgenetics.com is the best fit in 2026. It is purpose-built for the species, covers 22 mutation groups including Aqua B1, B2 and Homo, Opaline and Pale Fallow, is mobile-first, free, requires no signup, and lets you share a pairing by URL. For breeders who keep many parrot species under one roof, gencalc.com is a strong general-purpose alternative because it supports lovebirds, budgerigars, cockatiels, parrotlets, rosellas and more in a single tool. The right answer depends on whether you want depth in one species or breadth across many."}},
     {"@type":"Question","name":"Is gencalc.com a good lovebird genetics calculator?","acceptedAnswer":{"@type":"Answer","text":"Yes, gencalc.com (Genetic Calculator 1.3) is a capable and respected tool, and its biggest strength is breadth. It supports lovebirds alongside budgerigars, cockatiels, parrotlets, rosellas, Psittacula, Polytelis, Barnardius and Kakariki, and it correctly handles recombinant frequencies for sex-linked, blue and dark loci. The trade-offs are that it is desktop-oriented with an older interface, the lovebird mutation set is generic across the white eye-ring and peach-faced groups rather than tuned to one species, and the experience is less comfortable on a phone. For a breeder who keeps several parrot species, it remains a sensible single tool."}},
@@ -450,8 +444,8 @@ html,body{overflow-x:clip;}
         <h2 style="margin-top:0">References</h2>
         <ol style="margin:0;padding-left:20px;line-height:1.8;">
           <li>Van den Abeele, D. (2016). <em>Lovebird Compendium.</em> Ornitho-Media. ISBN 978-90-822990-0-3.</li>
-          <li>Genetic Calculator 1.3. <a href="http://www.gencalc.com/" rel="noopener" target="_blank">gencalc.com</a>. Accessed 2026.</li>
-          <li>BirdTracks. <a href="https://www.birdtracks.io/bird-genetics-calculator" rel="noopener" target="_blank">Bird Genetics Calculator.</a> birdtracks.io. Accessed 2026.</li>
+          <li>Genetic Calculator 1.3. <a href="http://www.gencalc.com/" rel="nofollow noopener" target="_blank">gencalc.com</a>. Accessed 2026.</li>
+          <li>BirdTracks. <a href="https://www.birdtracks.io/bird-genetics-calculator" rel="nofollow noopener" target="_blank">Bird Genetics Calculator.</a> birdtracks.io. Accessed 2026.</li>
           <li>BirdLife International. <a href="https://datazone.birdlife.org/species/factsheet/fischers-lovebird-agapornis-fischeri" rel="noopener" target="_blank">Agapornis fischeri, Fischer's Lovebird.</a> BirdLife Species Factsheet. Accessed 2026.</li>
         </ol>
       </div>
@@ -502,9 +496,9 @@ html,body{overflow-x:clip;}
 const btn=document.getElementById('theme-btn');const lbl=document.getElementById('theme-lbl');const icon=document.getElementById('theme-icon');
 const MOON='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
 const SUN='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-let dark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+let dark=(function(){try{var t=localStorage.getItem('lb-theme');if(t)return t==='dark';}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches;})();
 function apply(){document.documentElement.setAttribute('data-theme',dark?'dark':'light');lbl.textContent=dark?'Light':'Dark';icon.innerHTML=dark?SUN:MOON;}
-apply();btn.addEventListener('click',()=>{dark=!dark;apply();});
+apply();btn.addEventListener('click',()=>{dark=!dark;try{localStorage.setItem('lb-theme',dark?'dark':'light');}catch(e){}apply();});
 </script>
 </body>
 </html>

@@ -7,12 +7,6 @@
 <meta name="description" content="OGVZW's mutation list updated 17 August 2025 does not record turquoise in Fischer's lovebirds. The bird sold as turquoise is the parblue compound bl1 // bl2."/>
 <link rel="canonical" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
 <link rel="alternate" hreflang="en" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
-<link rel="alternate" hreflang="en-US" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
-<link rel="alternate" hreflang="en-GB" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
-<link rel="alternate" hreflang="en-IN" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
-<link rel="alternate" hreflang="en-AU" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
-<link rel="alternate" hreflang="en-CA" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
-<link rel="alternate" hreflang="en-NZ" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
 <link rel="alternate" hreflang="x-default" href="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://lovebirdgenetics.com/blog/turquoise-lovebird-genetics/"/>
@@ -87,7 +81,7 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "FAQPage",
+ "@type": "FAQPage","speakable":{"@type":"SpeakableSpecification","cssSelector":[".snippet-answer"]},
  "mainEntity": [
   {
    "@type": "Question",
@@ -621,6 +615,7 @@ html,body{overflow-x:clip;}
         <h2 style="margin-top:0" id="sources">Sources and further reading</h2>
         <p style="font-size:13px;">Every claim on this page that rests on published work is attributed below. Wording, tables and pairing calculations here are our own: nothing has been reproduced from Ornitho-Genetics VZW or MutaBase, whose material is <strong>&copy; 2005-2026 Dirk Van den Abeele, all rights reserved</strong>.</p>
         <ol style="margin:0;padding-left:20px;line-height:1.8;">
+          <li>Van den Abeele, D. (2016). <em>Lovebird Compendium</em>. Ornitho-Media. ISBN 978-90-822990-0-3. Printed pages: turquoise chapter pp.&nbsp;305&ndash;317; PPR definition p.&nbsp;305; the &ldquo;*blue*&rdquo; naming discussion pp.&nbsp;307&ndash;309; first seen c.1996 in the aviaries of Felix Del Valle, Florida USA, p.&nbsp;309; the <em>A. fischeri</em> &ldquo;yellow mask&rdquo; reclassified as turquoise / PPR pp.&nbsp;310&ndash;311; the bl<sup>ta</sup> genetic formulas p.&nbsp;311, with the same allele notation in the genetics-symbols chapter pp.&nbsp;258 and 261; gene-symbol table (symbol <strong>tq</strong>) pp.&nbsp;252&ndash;253.</li>
           <li>Ornitho-Genetics VZW. <a href="https://www.ogvzw.org/downloads/mutationsagapornis.pdf" rel="noopener" target="_blank">Agapornis mutation list, updated 17 August 2025.</a> Primary source for the central claim of this page: turquoise is not recorded for <em>Agapornis fischeri</em> on the current list, and orange face (of) is listed as an original fischeri mutation. Accessed 2026.</li>
           <li>Van den Abeele, D. (2016). <em>Lovebird Compendium.</em> Ornitho-Media. ISBN 978-90-822990-0-3. Source for the gene-symbol table entry bl tq, autosomal recessive at the blue locus, and for the turquoise chapter, which classified the early yellow-masked fischeri as turquoise. Cited by chapter, not by page.</li>
           <li>Ornitho-Genetics VZW FAQ, 9 March 2025. Source for the hedge quoted above: an orange face mutation "probably" also exists in fischeri, and a more appropriate name still needs research.</li>
@@ -664,9 +659,9 @@ html,body{overflow-x:clip;}
 const btn=document.getElementById('theme-btn');const lbl=document.getElementById('theme-lbl');const icon=document.getElementById('theme-icon');
 const MOON='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
 const SUN='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-let dark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+let dark=(function(){try{var t=localStorage.getItem('lb-theme');if(t)return t==='dark';}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches;})();
 function apply(){document.documentElement.setAttribute('data-theme',dark?'dark':'light');lbl.textContent=dark?'Light':'Dark';icon.innerHTML=dark?SUN:MOON;}
-apply();btn.addEventListener('click',()=>{dark=!dark;apply();});
+apply();btn.addEventListener('click',()=>{dark=!dark;try{localStorage.setItem('lb-theme',dark?'dark':'light');}catch(e){}apply();});
 </script>
 </body>
 </html>

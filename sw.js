@@ -13,7 +13,5 @@ self.addEventListener('activate', e => {
   self.clients.claim();
 });
 
-self.addEventListener('fetch', e => {
-  // Always fetch from network, never from cache
-  e.respondWith(fetch(e.request));
-});
+// No fetch handler: requests go straight to the network (browser default).
+// A pass-through respondWith(fetch()) rejected unhandled when offline, so it was removed.

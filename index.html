@@ -27,12 +27,6 @@
 <!-- Canonical & SEO -->
 <link rel="canonical" href="https://lovebirdgenetics.com/"/>
 <link rel="alternate" hreflang="en" href="https://lovebirdgenetics.com/"/>
-<link rel="alternate" hreflang="en-US" href="https://lovebirdgenetics.com/"/>
-<link rel="alternate" hreflang="en-GB" href="https://lovebirdgenetics.com/"/>
-<link rel="alternate" hreflang="en-IN" href="https://lovebirdgenetics.com/"/>
-<link rel="alternate" hreflang="en-AU" href="https://lovebirdgenetics.com/"/>
-<link rel="alternate" hreflang="en-CA" href="https://lovebirdgenetics.com/"/>
-<link rel="alternate" hreflang="en-NZ" href="https://lovebirdgenetics.com/"/>
 <link rel="alternate" hreflang="x-default" href="https://lovebirdgenetics.com/"/>
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
@@ -63,7 +57,7 @@
   "applicationCategory":"UtilitiesApplication",
   "operatingSystem":"Web, Android, iOS",
   "datePublished":"2026-04-01",
-  "dateModified":"2026-06-24",
+  "dateModified":"2026-09-01",
   "softwareVersion":"2.0",
   "featureList":["Instant offspring mutation prediction for any Fischer's lovebird pairing","Sex-linked recessive mutations with separate male and female offspring columns","SF/DF dominant support: Euwing and Misty (autosomal) plus Greywing (sex-linked dominant)","Full Aqua series: Aqua B1, Aqua B2, and Aqua Homo","Up to 6 simultaneous mutation traits per parent","Free with no account required and no personal information collected"],
   "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
@@ -73,7 +67,7 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "FAQPage",
+ "@type": "FAQPage","speakable":{"@type":"SpeakableSpecification","cssSelector":[".snippet-answer"]},
  "mainEntity": [
   {
    "@type": "Question",
@@ -1528,7 +1522,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
         </div>
       </div>
       <div class="fcard">
-        <img class="fcard-avatar" src="Dirk_Van_den_Abeele.jpg" alt="Dirk Van den Abeele, scientific reference for the Lovebird Genetics Calculator" style="object-fit:cover;">
+        <img class="fcard-avatar" src="Dirk_Van_den_Abeele.jpg" alt="Dirk Van den Abeele, scientific reference for the Lovebird Genetics Calculator" width="250" height="320" loading="lazy" decoding="async" style="object-fit:cover;">
         <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:0;margin-bottom:0">
           <span class="fcard-name">Dirk Van den Abeele</span>
           <span class="fcard-role">Scientific Reference</span>
@@ -1602,6 +1596,8 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
         <a href="/blog/what-is-a-split-lovebird/">What is a Split</a>
         <a href="/blog/lovebird-color-breeding-chart/">Colour Breeding Chart</a>
         <a href="/blog/sex-linked-mutations-lovebirds/">Sex-Linked Mutations</a>
+        <a href="/blog/turquoise-lovebird-genetics/">Turquoise Genetics</a>
+        <a href="/blog/white-eye-ring-group-lovebirds/">White Eye-Ring Group</a>
         <a href="/blog/lovebird-breeding-guide/">Breeding Guide</a>
       </div>
       <div class="footer-col">
@@ -3023,7 +3019,7 @@ const used=traits.map(t=>t.id).filter(id=>id&&id!=="None");
 const usedBS=traits.map(t=>t.id).filter(id=>_0xC8(id));
 const slWarns=traits.filter(t=>{const m=_0xC9.find(x=>x.id===t.id);return m&&m.type==="SL"&&sex==="female";}).map(t=>{const m=_0xC9.find(x=>x.id===t.id);return `<p class="sl-warn">★ Females cannot carry ${m.label} splits</p>`;}).join('');
 const rows=traits.map((t,i)=>buildTraitRow(pid,i,t,used,yfP,isGr,usedBS,sex)).join('');
-const noT=traits.length===0?`<div class="no-traits">No mutations added yet<br><span style="font-size:11px;margin-top:4px;display:block">Tap "+ Add Mutation" to add one</span></div>`:'';
+const noT=traits.length===0?`<div class="no-traits" role="button" tabindex="0" aria-label="Add a mutation">No mutations added yet<br><span style="font-size:11px;margin-top:4px;display:block">Tap "+ Add Mutation" to add one</span></div>`:'';
 const addB=traits.length<6?`<button class="add-btn" data-pid="${pid}"><svg width="12" height="12" viewBox="0 0 12 12"><line x1="6" y1="1" x2="6" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="1" y1="6" x2="11" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Add Mutation</button>`:'';
 const oplineSel=isMale?buildOpalineMaleSel(opVal):buildOpalineFemaleSel(opVal);
 return `<div class="pcard">
@@ -3415,6 +3411,8 @@ document.addEventListener('keydown',function(e){
 });
 
 document.addEventListener('click',function(e){var nt=e.target.closest&&e.target.closest('.no-traits');if(nt){var card=nt.closest('.pcard');var btn=card&&card.querySelector('.add-btn');if(btn)btn.click();}});
+document.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;var nt=e.target.closest&&e.target.closest('.no-traits');if(nt){e.preventDefault();nt.click();}});
+document.querySelectorAll('select.cbs-native').forEach(function(el){el.setAttribute('tabindex','-1');el.setAttribute('aria-hidden','true');});
 restoreFromURL();
 render();
 /* ─── SERVICE WORKER ─────────────────────────────── */

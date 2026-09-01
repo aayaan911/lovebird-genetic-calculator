@@ -7,12 +7,6 @@
 <meta name="description" content="A complete lovebird colour breeding chart for Fischer's lovebirds: base colours, every mutation by inheritance type, and quick-reference pairing outcome tables."/>
 <link rel="canonical" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
 <link rel="alternate" hreflang="en" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
-<link rel="alternate" hreflang="en-US" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
-<link rel="alternate" hreflang="en-GB" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
-<link rel="alternate" hreflang="en-IN" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
-<link rel="alternate" hreflang="en-AU" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
-<link rel="alternate" hreflang="en-CA" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
-<link rel="alternate" hreflang="en-NZ" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
 <link rel="alternate" hreflang="x-default" href="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://lovebirdgenetics.com/blog/lovebird-color-breeding-chart/"/>
@@ -48,7 +42,7 @@
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"FAQPage",
+  "@type":"FAQPage","speakable":{"@type":"SpeakableSpecification","cssSelector":[".snippet-answer"]},
   "mainEntity":[
     {"@type":"Question","name":"What is a lovebird colour breeding chart?","acceptedAnswer":{"@type":"Answer","text":"A lovebird colour breeding chart is a reference that maps each colour and mutation in Agapornis fischeri to its genetic behaviour. It tells you three things at a glance: what a bird looks like (its phenotype), what genes it carries (its base colour and mutations), and how a mutation passes to offspring (autosomal recessive, sex-linked, or dominant). A complete chart also includes pairing-outcome tables that show the expected ratios of chicks from common crosses such as visual x visual, split x split, and Aqua x Aqua. Breeders use it to plan pairings, identify unknown birds, and avoid wasted seasons from incompatible crosses. This guide combines a base-colour table, a mutation-by-inheritance master table, and quick-reference pairing tables in one place."}},
     {"@type":"Question","name":"What are the base colours of Fischer's lovebirds?","acceptedAnswer":{"@type":"Answer","text":"The base colours of Agapornis fischeri form a series controlled by the blue locus. Green is the wild type, showing full psittacofulvin (yellow) pigment over the structural blue. Moving along the series, Blue 1 (B1) and Blue 2 (B2) progressively reduce that yellow pigment, with the homozygous blue form removing it almost entirely for a blue or white-faced bird. Aqua and Parblue sit between green and full blue: Aqua produces a turquoise sea-green through partial pigment reduction, and Parblue is the B1/B2 compound that shows a yellowish face mask. Every other mutation, such as Opaline, Cinnamon, or Lutino, layers on top of one of these base colours."}},
@@ -594,9 +588,9 @@ html,body{overflow-x:clip;}
 const btn=document.getElementById('theme-btn');const lbl=document.getElementById('theme-lbl');const icon=document.getElementById('theme-icon');
 const MOON='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
 const SUN='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-let dark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+let dark=(function(){try{var t=localStorage.getItem('lb-theme');if(t)return t==='dark';}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches;})();
 function apply(){document.documentElement.setAttribute('data-theme',dark?'dark':'light');lbl.textContent=dark?'Light':'Dark';icon.innerHTML=dark?SUN:MOON;}
-apply();btn.addEventListener('click',()=>{dark=!dark;apply();});
+apply();btn.addEventListener('click',()=>{dark=!dark;try{localStorage.setItem('lb-theme',dark?'dark':'light');}catch(e){}apply();});
 </script>
 </body>
 </html>

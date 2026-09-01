@@ -7,12 +7,6 @@
 <meta name="description" content="Fischer's lovebird mutation guides, Opaline, Aqua, Yellow Face, Pale Fallow. Pairing percentages and inheritance rules backed by the Lovebird Compendium."/>
 <link rel="canonical" href="https://lovebirdgenetics.com/blog/"/>
 <link rel="alternate" hreflang="en" href="https://lovebirdgenetics.com/blog/"/>
-<link rel="alternate" hreflang="en-US" href="https://lovebirdgenetics.com/blog/"/>
-<link rel="alternate" hreflang="en-GB" href="https://lovebirdgenetics.com/blog/"/>
-<link rel="alternate" hreflang="en-IN" href="https://lovebirdgenetics.com/blog/"/>
-<link rel="alternate" hreflang="en-AU" href="https://lovebirdgenetics.com/blog/"/>
-<link rel="alternate" hreflang="en-CA" href="https://lovebirdgenetics.com/blog/"/>
-<link rel="alternate" hreflang="en-NZ" href="https://lovebirdgenetics.com/blog/"/>
 <link rel="alternate" hreflang="x-default" href="https://lovebirdgenetics.com/blog/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://lovebirdgenetics.com/blog/"/>
@@ -432,6 +426,30 @@ html,body{overflow-x:clip;}
         <span class="art-read">Read &rarr;</span>
       </div>
     </a>
+    <a class="art-card" href="/blog/turquoise-lovebird-genetics/" data-category="mutations">
+      <div class="art-card-tags">
+        <span class="art-tag">Mutations</span>
+        <span class="inherit-badge guide">Blue-locus allele</span>
+      </div>
+      <h3>Turquoise in Lovebirds: What the Current List Actually Records</h3>
+      <p class="excerpt">OGVZW&rsquo;s 17 August 2025 list does not record turquoise in Fischer&rsquo;s lovebirds. The bird sold as turquoise is the parblue compound bl1 // bl2.</p>
+      <div class="art-foot">
+        <span>19 min read &middot; September 2026</span>
+        <span class="art-read">Read &rarr;</span>
+      </div>
+    </a>
+    <a class="art-card" href="/blog/white-eye-ring-group-lovebirds/" data-category="guides">
+      <div class="art-card-tags">
+        <span class="art-tag">Guides</span>
+        <span class="inherit-badge guide">Species group</span>
+      </div>
+      <h3>The White Eye-Ring Group: Fischer&rsquo;s, Masked, Nyasa and Black-Cheeked</h3>
+      <p class="excerpt">The four <em>Agapornis</em> eye-ring species compared: rings, ranges, visual markers and where each mutation actually originated.</p>
+      <div class="art-foot">
+        <span>17 min read &middot; September 2026</span>
+        <span class="art-read">Read &rarr;</span>
+      </div>
+    </a>
     <a class="art-card" href="/blog/sapphire-lovebird-genetics/" data-category="mutations">
       <div class="art-card-tags">
         <span class="art-tag">Mutations</span>
@@ -787,7 +805,7 @@ const lbl=document.getElementById('theme-lbl');
 const icon=document.getElementById('theme-icon');
 const MOON='<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
 const SUN='<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
-let dark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+let dark=(function(){try{var t=localStorage.getItem('lb-theme');if(t)return t==='dark';}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches;})();
 function applyTheme(){document.documentElement.setAttribute('data-theme',dark?'dark':'light');lbl.textContent=dark?'Light':'Dark';icon.innerHTML=dark?SUN:MOON;}
 applyTheme();
 btn.addEventListener('click',()=>{dark=!dark;applyTheme();});
