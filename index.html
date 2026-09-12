@@ -82,7 +82,7 @@
    "name": "What is a Pastel lovebird?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino a-locus in Fischer's lovebirds, the same gene as Ino, Dark Eyed Clear and Bronze Fallow, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split."
+    "text": "A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino a-locus in Fischer's lovebirds, the same gene as Ino and Dark Eyed Clear, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split."
    }
   },
   {
@@ -1487,7 +1487,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   <p><strong>Bronze Fallow</strong>: Autosomal recessive, TYR-negative partial. Burgundy eyes. Van den Abeele gives it the gene symbol a<sup>bz</sup>, which places it on the a-locus, the same locus as NSL ino (a), dark eyed clear (a<sup>dec</sup>) and pastel (a<sup>pa</sup>). Pale Fallow (pf) and Dun Fallow (df) sit at their own separate loci, so the three fallows are still separate genes from each other. Extremely high mortality rate when Bronze Fallow is paired with Bronze Fallow, approximately 100% chick death. Must be managed carefully in breeding programs. <a href="https://mutabase.ogvzw.org/mutationdetail.php?ShowDetail=17" target="_blank" rel="nofollow noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.3);font-size:0.9em;">MutaBase record ↗</a></p>
 
   <h3>Ino Mutations (Lutino / Albino)</h3>
-  <p><strong>Lutino</strong>: Autosomal recessive (AR) in Agapornis fischeri. Complete absence of eumelanin. Produces a pure yellow bird with red eyes. The mechanism is TYR-positive: tyrosinase is still present but the melanosomes are deformed and cannot deposit eumelanin. This non-sex-linked (NSL) ino is distinct from the sex-linked ino of Agapornis roseicollis and from the Ino mutations found in other parrot species. NSL ino sits on the a-locus and is allelic with dark eyed clear, pastel and bronze fallow, so a bird carries at most two of those four alleles.</p>
+  <p><strong>Lutino</strong>: Autosomal recessive (AR) in Agapornis fischeri. Complete absence of eumelanin. Produces a pure yellow bird with red eyes. The mechanism is TYR-positive: tyrosinase is still present but the melanosomes are deformed and cannot deposit eumelanin. This non-sex-linked (NSL) ino is distinct from the sex-linked ino of Agapornis roseicollis and from the Ino mutations found in other parrot species. NSL ino sits on the a-locus and is allelic with dark eyed clear and pastel, so a bird carries at most two of those three alleles.</p>
   <p><strong>Albino</strong>: Autosomal recessive (AR) Ino combined with Blue. Complete absence of all pigment, producing a pure white bird with red eyes. Albino Opaline and Albino YellowFace are highly sought compound mutations.</p>
 
   <h2>How the Lovebird Genetics Calculator Works</h2>
@@ -1778,7 +1778,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
       </div>
       <div class="seo-faq-item">
         <h3>What is a Pastel lovebird?</h3>
-        <p>A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino a-locus in Fischer's lovebirds, the same gene as Ino, Dark Eyed Clear and Bronze Fallow, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split.</p>
+        <p>A Pastel lovebird carries an autosomal recessive mutation that reduces eumelanin by roughly 50 percent, softening the body colour. Pastel is an allele of the NSL ino a-locus in Fischer's lovebirds, the same gene as Ino and Dark Eyed Clear, which means it forms compounds such as Pastel / Ino and Pastel / DEC. The calculator models Pastel and all of these compounds, and because it is autosomal recessive both males and females can carry it hidden as a split.</p>
       </div>
       <div class="seo-faq-item">
         <h3>What is the difference between Dominant Pied and Recessive Pied in lovebirds?</h3>
@@ -2053,7 +2053,7 @@ var CBSF_ALIASES=[
 var CBSF_NOTE={
 YellowFace:"Modelled as the orange face gene (symbol of), autosomal recessive on its own locus, separate from the blue locus.",
 Ino:"In Agapornis fischeri, Ino is NSL ino, autosomal recessive, not sex-linked. Both cocks and hens can be split.",
-Pastel:"Pastel is not Dilute. Pastel is an allele of the NSL ino a-locus, alongside Ino, DEC and possibly Bronze Fallow, and forms compounds with Ino and DEC.",
+Pastel:"Pastel is not Dilute. Pastel is an allele of the NSL ino a-locus, alongside Ino and DEC, and forms compounds with Ino and DEC.",
 Dilute:"Dilute is not Pastel. Separate gene at its own dil locus.",
 Pallid:"Sex-linked recessive. OGVZW records it as an original mutation in Agapornis fischeri and in A. roseicollis.",
 Greywing:"Sex-linked incomplete dominant, not autosomal. A Greywing hen carries a single dose only and can never be double factor.",
@@ -3321,7 +3321,14 @@ else if(pid==='p2'&&S.p2t.length<6){track('trait_slot_added',{parent:'mother'});
 document.querySelectorAll('[data-role="trait"]').forEach(sel=>sel.addEventListener('change',()=>{
 const pid=sel.dataset.pid,idx=parseInt(sel.dataset.idx),val=sel.value,traits=pid==='p1'?S.p1t:S.p2t;
 const parent=pid==='p1'?'father':'mother';
-if(_0xC8(val)){traits[idx]={id:val,status:'split'};}
+if(_0xC8(val)){traits[idx]={id:val,status:'split'};
+  try{const _ambSel=_AMBQ(val),_lb=(_0xC6.find(b=>b.id===val)||{}).label||val;
+    track('blue_split_selected',{parent,split:_lb,ambiguous:_ambSel?'yes':'no'});
+    if(_ambSel)track('ambiguous_split_selected',{parent,split:_lb});
+    if(typeof window.clarity==='function'){window.clarity('set','blue_split_selected',String(_lb));
+      if(_ambSel){window.clarity('set','ambiguous_split','yes');window.clarity('upgrade','ambiguous_split');}}
+  }catch(e){}
+}
 else{const m=_0xC9.find(x=>x.id===val);traits[idx]={id:val,status:val==='None'?null:defSt(m?.type)};}
 if(val&&val!=='None')track('trait_selected',{parent,trait:val});try{if(typeof window.clarity==='function'&&/YellowFace|Aqua|DunFallow/i.test(val||'')){window.clarity('set','watch_mutation_selected',String(val));window.clarity('set','priority_user','yes');window.clarity('upgrade','watch_mutation');}}catch(e){};
 trackPairing();
