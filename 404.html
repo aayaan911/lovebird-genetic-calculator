@@ -123,5 +123,33 @@ p{
     Back to Calculator
   </a>
 </div>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-08CWVZ2806"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-08CWVZ2806');
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wnkiotu2gh");
+(function(){
+  try{
+    var path=(location.pathname||'')+(location.search||'');
+    var ref=document.referrer||'(none)';
+    /* Probe patterns. A real visitor never asks for these. */
+    var PROBE=/(wp-admin|wp-login|wp-content|wp-includes|xmlrpc|\.php$|\.php\?|\.env|\.git|\.sql|\.bak$|phpmyadmin|adminer|shell|cgi-bin|\.aspx?$|\.jsp$|vendor\/|config\.|backup|\/\.well-known\/(?!security)|eval\(|base64_|union\s+select|<script)/i;
+    var internal=false;
+    try{internal=ref.indexOf(location.hostname)>-1;}catch(e){}
+    var probe=PROBE.test(path);
+    var kind=probe?'probe':(internal?'broken_internal_link':'external_or_typed');
+    gtag('event','page_not_found',{missing_path:path,referrer:ref,hit_type:kind,probe:probe?'yes':'no'});
+    if(typeof window.clarity==='function'){
+      window.clarity('set','not_found_path',path);
+      window.clarity('set','not_found_type',kind);
+      if(probe){window.clarity('set','probe_attempt','yes');window.clarity('upgrade','probe_attempt');}
+      else if(internal){window.clarity('upgrade','broken_internal_link');}
+    }
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
