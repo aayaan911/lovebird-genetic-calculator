@@ -703,6 +703,9 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
   -webkit-tap-highlight-color:transparent;
 }
 .cbs-opt:hover{background:var(--bg-input-filled);}
+.cbs-opt.cbs-off{opacity:0.4;cursor:not-allowed;}
+.cbs-opt.cbs-off:hover{background:transparent;}
+.cbs-opt.cbs-off>span{white-space:normal;}
 .cbs-opt.cbs-sel{background:var(--accent-dim);color:var(--accent-text);}
 .cbs-opt>span{flex:1;min-width:0;white-space:nowrap;}
 .cbs-opt .cbs-check{opacity:0;flex-shrink:0;color:var(--accent-text);}
@@ -968,6 +971,18 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 
 .zyg-note{font-size:12px;line-height:1.5;color:rgba(255,255,255,0.62);margin:2px 0 10px;padding:8px 10px;border-left:2px solid var(--accent);background:rgba(76,161,84,0.07);border-radius:0 6px 6px 0;}
 /* Sex group headers */
+.amb-grp{margin-top:22px;flex-wrap:wrap;gap:10px;}
+.amb-hlbl{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,0.88);}
+.amb-hlbl .gtag,.amb-hlbl .rtag{font-weight:700;}
+.amb-or{color:rgba(255,255,255,0.42);font-weight:400;}
+.amb-stack{display:inline-flex;flex-direction:column;align-items:center;gap:3px;text-align:center;}
+.amb-stack .amb-alt{white-space:nowrap;}
+.amb-stack .amb-or{display:block;letter-spacing:0.1em;}
+@media(max-width:420px){.amb-stack .amb-alt{white-space:normal;}}
+.amb-grp:first-child{margin-top:10px;}
+.amb-n{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--mono);font-size:13px;font-weight:700;line-height:1;flex:0 0 auto;box-shadow:0 0 0 3px rgba(76,161,84,0.16);}
+@media(max-width:640px){.amb-n{width:27px;height:27px;font-size:14px;}}
+.amb-sum-h{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin:0 0 6px;font-weight:700;}
 .sl-grp-hdr{display:flex;align-items:center;gap:8px;padding:10px 4px 6px;margin-top:6px;}
 .sl-grp-hdr:first-child{margin-top:0;}
 .sl-grp-lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:700;}
@@ -2719,8 +2734,12 @@ const _0xC2={"G+G":"Green","B1+G":"Green / Blue 1","B2+G":"Green / Blue 2","A+G"
 const _0xC3={"Green Yellow Face":"Green","Blue 1 Yellow Face":"Blue 1","Blue 2 Yellow Face":"Blue 2","Parblue (B1B2) Yellow Face":"Parblue (B1B2)","Aqua B1 Yellow Face":"Aqua B1","Aqua B2 Yellow Face":"Aqua B2","Aqua Homo Yellow Face":"Aqua Homo"};
 const _0xC4=p=>_0xC3[p]||p;
 const _0xC5=p=>p in _0xC3;
-const _0xC6=[{id:"SplitB1",label:"Blue 1"},{id:"SplitB2",label:"Blue 2"},{id:"SplitAqua",label:"Aqua"}];
-const _0xC7={"SplitB1":"Green / Blue 1","SplitB2":"Green / Blue 2","SplitAqua":"Green / Aqua"};
+const _0xC6=[{id:"SplitB1",label:"Blue 1"},{id:"SplitB2",label:"Blue 2"},{id:"SplitB1B2",label:"Blue 1 or Blue 2"},{id:"SplitAqua",label:"Aqua"},{id:"SplitAqB1",label:"Aqua or Blue 1"},{id:"SplitAqB2",label:"Aqua or Blue 2"}];
+const _0xC7={"SplitB1":"Green / Blue 1","SplitB2":"Green / Blue 2","SplitAqua":"Green / Aqua","SplitB1B2":"Green / Blue 1","SplitAqB1":"Green / Aqua","SplitAqB2":"Green / Aqua"};
+/* Ambiguous blue-locus splits: bird carries one of two possible alleles. */
+const _0xCA={"SplitB1B2":["SplitB1","SplitB2"],"SplitAqB1":["SplitAqua","SplitB1"],"SplitAqB2":["SplitAqua","SplitB2"]};
+const _AMBQ=id=>Object.prototype.hasOwnProperty.call(_0xCA,id||"");
+let _AMB=null;
 const _0xC8=id=>id in _0xC7;
 const _0xC9=[
 {id:"Opaline",label:"Opaline",type:"SL"},
@@ -2953,7 +2972,9 @@ const fmt=p=>p%1===0?p.toFixed(0):p.toFixed(1);
 
 function effectiveTraits(pid){
 const isM=pid==="p1";
-const traits=[...(isM?S.p1t:S.p2t)];
+let traits=[...(isM?S.p1t:S.p2t)];
+const _mp=_AMB&&_AMB[pid];
+if(_mp)traits=traits.map(t=>(t&&_mp[t.id])?{id:_mp[t.id],status:t.status}:t);
 const op=isM?S.p1Op:S.p2Op;
 if(op!=="normal")traits.push({id:"Opaline",status:op});
 return traits;
@@ -3023,7 +3044,7 @@ const avSL=_0xC9.filter(m=>m.type==="SL"&&m.id!=="Opaline"&&(m.id===tid||!used.i
 const avSLD=_0xC9.filter(m=>m.type==="SLD"&&(m.id===tid||!used.includes(m.id)));
 const avAD=_0xC9.filter(m=>m.type==="AD"&&(m.id===tid||!used.includes(m.id)));
 const isBs=_0xC8(tid),mut=!isBs?_0xC9.find(m=>m.id===tid):null,sOpts=mut?getSO(mut.type,sex):[];
-const avBS=isGr?(isBs?_0xC6.filter(b=>b.id===tid):usedBS.length===0?_0xC6:[]):[];
+const avBS=isGr?(isBs?_0xC6:usedBS.length===0?_0xC6:[]):[];
 let tOpts=`<option value="None">Select mutation</option>`;
 if(avBS.length)tOpts+=`<optgroup label="Blue Splits">${avBS.map(b=>`<option value="${b.id}"${tid===b.id?' selected':''}>${b.label}</option>`).join('')}</optgroup>`;
 if(avAR.length)tOpts+=`<optgroup label="Autosomal Recessive">${avAR.map(m=>`<option value="${m.id}"${tid===m.id?' selected':''}>${m.label}</option>`).join('')}</optgroup>`;
@@ -3092,6 +3113,74 @@ return `<div class="oc"><div class="oc-inner"><div class="oc-info"><p class="oc-
 }).join('');
 }
 
+let _PART=null;
+function _ambLines(r){
+  const L=[];
+  if(!r)return L;
+  if(r.slMut&&!r.slMut.combined){
+    const maleM=mergeAD(r.slMut.maleOffspring,r.adMuts),femaleM=mergeAD(r.slMut.femaleOffspring,r.adMuts);
+    L.push('   🟢 1.0 Males');maleM.forEach(o=>L.push(`   — ${fmt(o.pct)}%  ${o.name}`));
+    L.push('   🔴 0.1 Females');femaleM.forEach(o=>L.push(`   — ${fmt(o.pct)}%  ${o.name}`));
+  }else{
+    const m={};const push=x=>{m[x.name]=(m[x.name]||0)+x.pct;};
+    if(r.slMut){[...(r.slMut.maleOffspring||[]),...(r.slMut.femaleOffspring||[])].forEach(push);}
+    else{(r.combined||[]).forEach(push);}
+    mergeAD(Object.entries(m).map(([name,pct])=>({name,pct})).sort((a,b)=>b.pct-a.pct),r.adMuts).forEach(x=>L.push(`   — ${fmt(x.pct)}%  ${x.name}`));
+  }
+  return L;
+}
+function _ambCopy(txt){
+  try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>{copied=true;render();setTimeout(()=>{copied=false;render();},2000);});}
+  else{const ta=document.createElement('textarea');ta.value=txt;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);copied=true;render();setTimeout(()=>{copied=false;render();},2000);}}catch(e){}
+}
+/* AMBIGUOUS BLUE SPLIT: one parent carries an unidentified blue-locus allele.
+   The bird has ONE fixed genotype, so the two possibilities are shown as two
+   complete separate nests. They are never averaged together. */
+function ambState(){
+  const hit=[];
+  (S.p1t||[]).forEach(t=>{if(t&&_AMBQ(t.id))hit.push({side:"p1",id:t.id});});
+  (S.p2t||[]).forEach(t=>{if(t&&_AMBQ(t.id))hit.push({side:"p2",id:t.id});});
+  if(!hit.length||hit.length>2||!S.p1p||!S.p2p)return null;
+  const combos=[],pick=[];
+  (function build(i){
+    if(i===hit.length){combos.push(pick.slice());return;}
+    _0xCA[hit[i].id].forEach(o=>{pick.push({side:hit[i].side,id:hit[i].id,opt:o});build(i+1);pick.pop();});
+  })(0);
+  const _lbl=o=>(_0xC6.find(b=>b.id===o)||{}).label||o;
+  const scen=[];
+  combos.forEach(c=>{
+    _AMB={p1:{},p2:{}};
+    c.forEach(x=>{_AMB[x.side][x.id]=x.opt;});
+    const res=_0xB1(S.p1p,effectiveTraits("p1"),S.p2p,effectiveTraits("p2"));
+    _AMB=null;
+    const parts=c.map(x=>({side:x.side,who:x.side==="p1"?"cock":"hen",label:_lbl(x.opt)}));
+    const sig=_ambLines(res).join("|");
+    const ex=scen.find(o=>o.sig===sig);
+    if(ex){ex.alts.push(parts);return;}
+    scen.push({sig,res,alts:[parts]});
+  });
+  scen.forEach(sc=>{
+    sc.parts=sc.alts[0];
+    sc.text=sc.alts.map(ps=>ps.map(p=>`${p.who} / split ${p.label}`).join(" \u00D7 ")).join(" or ");
+  });
+  return {multi:hit.length>1,who:hit[0].side==="p1"?"cock":"hen",scen};
+}
+function renderAmbResults(amb,p1L,p2L){
+  const SC=amb.scen;
+  const hdr=`<div class="rh"><div class="rh-left">${BAR_ICO}<h3 class="rt">Predicted Offspring</h3></div></div>`;
+  const pairBox=`<div class="pair-box"><span class="pair-lbl">Pairing</span><div class="pair-txt" style="flex-direction:column;gap:3px;align-items:center;"><span style="text-align:center"><span class="gtag" style="font-weight:700">1.0 </span>${p1L}</span><span style="color:rgba(255,255,255,0.5);font-size:16px;font-weight:700;">×</span><span style="text-align:center"><span class="rtag" style="font-weight:700">0.1 </span>${p2L}</span></div></div>`;
+  const hOne=ps=>ps.map(p=>`<span class="${p.side==='p1'?'gtag':'rtag'}">${p.side==='p1'?'1.0':'0.1'}</span> / split ${p.label}`).join(' \u00D7 ');
+  const stk=sc=>(amb.multi&&sc.alts.length>1)?' amb-stack':'';
+  const hLbl=sc=>amb.multi
+    ? sc.alts.map(ps=>`<span class="amb-alt">${hOne(ps)}</span>`).join('<span class="amb-or">or</span>')
+    : `If / split ${sc.parts[0].label}`;
+  const grp=(sc,n)=>`<div class="sl-grp-hdr amb-grp"><span class="amb-n">${n}</span><span class="amb-hlbl${amb.multi?'':' gtag'}${stk(sc)}">${hLbl(sc)}</span><div class="sl-line"></div></div>`;
+  _PART='body';const bodies=SC.map(sc=>renderResults(sc.res,p1L,p2L));
+  _PART='sum';const sums=SC.map(sc=>renderResults(sc.res,p1L,p2L));
+  _PART=null;
+  const sum=`<div class="sum-box"><div class="sum-hr"></div><div class="sum-inner"><div class="sum-top"><p class="sum-lbl">Summary</p><div class="sum-top-btns"><button class="link-btn ${linkedCopied?'lkd':''}" id="lbtn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> ${linkedCopied?'Link Copied!':'Share Result Link'}</button><button class="copy-btn ${copied?'cpd':''}" id="cbtn">${copied?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>':'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'}${copied?"Copied!":"Copy"}</button></div></div><div class="pair-txt" style="margin-bottom:16px;justify-content:flex-start;flex-wrap:wrap;gap:4px;font-size:12px;"><span><span class="gtag" style="font-weight:700">1.0 </span>${p1L}</span><span style="color:rgba(255,255,255,0.5);font-size:14px;font-weight:700;padding:0 2px">×</span><span><span class="rtag" style="font-weight:700">0.1 </span>${p2L}</span></div>${SC.map((sc,i)=>`<p class="amb-sum-h${stk(sc)}"${i?' style="margin-top:18px"':''}>${hLbl(sc)}</p>`+sums[i]).join('')}</div></div>`;
+  return hdr+pairBox+`<div class="off-list">${SC.map((sc,i)=>grp(sc,i+1)+bodies[i]).join('')}${sum}</div>`+`<div class="pct-footer">Each block sums to 100% on its own</div>`+guideBox(SC[0].res);
+}
 function mergeAD(list,adMuts){if(!adMuts||!adMuts.length)return list;const SL=['Opaline','Pallid','Cinnamon'];let cur=list.map(r=>({name:r.name,pct:r.pct}));for(const am of adMuts){const next=[];for(const base of cur){for(const ad of am.offspring){const p=(base.pct*ad.pct)/100;if(p<0.0001)continue;let name=base.name;if(ad.status!=='normal'){const lbl=ad.status==='DF'?'DF '+am.label:'SF '+am.label;let ins=false;for(const sl of SL){const i=name.indexOf(' '+sl);if(i!==-1){name=name.slice(0,i)+' '+lbl+name.slice(i);ins=true;break;}}if(!ins)name+=' '+lbl;}const ex=next.find(r=>r.name===name);if(ex)ex.pct+=p;else next.push({name,pct:p});}}cur=next;}return cur.sort((a,b)=>b.pct-a.pct);}
 function renderResults(res,p1L,p2L){
 const _zygL=((res&&res.adMuts)||[]).filter(a=>a.label==="Dominant Pied"||a.label==="Slaty").map(a=>a.label);
@@ -3119,11 +3208,13 @@ body+=buildOCards(femaleM,mx,maleM.length);
 const merged=mergeAD(res.combined,res.adMuts);const maxC=Math.max(...merged.map(r=>r.pct),0.001);
 body=buildOCards(merged,maxC);
 }
+if(_PART==='body')return body;
 let sumRows='';
 if(res.slMut){
 if(res.slMut.combined){const cmap={};for(const r of[...res.slMut.maleOffspring,...res.slMut.femaleOffspring])cmap[r.name]=(cmap[r.name]||0)+r.pct;const carr=Object.entries(cmap).map(([name,pct])=>({name,pct})).sort((a,b)=>b.pct-a.pct);const merged=mergeAD(carr,res.adMuts);sumRows=merged.map(r=>`<p class="sum-row"><span class="sum-dash">— </span>${fmt(r.pct)}% ${r.name}</p>`).join('');}
 else{const maleM=mergeAD(res.slMut.maleOffspring,res.adMuts);const femaleM=mergeAD(res.slMut.femaleOffspring,res.adMuts);const combM=mergeAD(res.combined,res.adMuts);sumRows=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span style="font-size:13px;">⚪️</span><span style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase">All Offspring</span><div style="flex:1;height:1px;background:rgba(255,255,255,0.06)"></div></div>`;sumRows+=combM.map(r=>`<p class="sum-row"><span class="sum-dash">— </span>${fmt(r.pct)}% ${r.name}</p>`).join('');sumRows+=`<div style="display:flex;align-items:center;gap:6px;margin-top:20px;margin-bottom:6px"><span style="font-size:13px;">🟢</span><span class="gtag" style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:700;text-transform:uppercase">1.0 Males</span><div style="flex:1;height:1px;background:rgba(255,255,255,0.06)"></div></div>`;sumRows+=maleM.map(r=>`<p class="sum-row"><span class="sum-dash">— </span>${fmt(r.pct)}% ${r.name}</p>`).join('');sumRows+=`<div style="display:flex;align-items:center;gap:6px;margin-top:20px;margin-bottom:6px"><span style="font-size:13px;">🔴</span><span class="rtag" style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:700;text-transform:uppercase">0.1 Females</span><div style="flex:1;height:1px;background:rgba(255,255,255,0.06)"></div></div>`;sumRows+=femaleM.map(r=>`<p class="sum-row"><span class="sum-dash">— </span>${fmt(r.pct)}% ${r.name}</p>`).join('');}
 }else{const merged=mergeAD(res.combined,res.adMuts);sumRows=merged.map(r=>`<p class="sum-row"><span class="sum-dash">— </span>${fmt(r.pct)}% ${r.name}</p>`).join('');}
+if(_PART==='sum')return sumRows;
 const shareAvail=typeof navigator!=='undefined'&&!!navigator.share;
 body+=`<div class="sum-box"><div class="sum-hr"></div><div class="sum-inner"><div class="sum-top"><p class="sum-lbl">Summary</p><div class="sum-top-btns"><button class="link-btn ${linkedCopied?'lkd':''}" id="lbtn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> ${linkedCopied?'Link Copied!':'Share Result Link'}</button><button class="copy-btn ${copied?'cpd':''}" id="cbtn">${copied?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>':'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'}${copied?"Copied!":"Copy"}</button></div></div><div class="pair-txt" style="margin-bottom:16px;justify-content:flex-start;flex-wrap:wrap;gap:4px;font-size:12px;"><span><span class="gtag" style="font-weight:700">1.0 </span>${p1L}</span><span style="color:rgba(255,255,255,0.5);font-size:14px;font-weight:700;padding:0 2px">×</span><span><span class="rtag" style="font-weight:700">0.1 </span>${p2L}</span></div>${sumRows}</div></div>`;
 return hdr+pairBox+`<div class="off-list">${body}</div>`+`<div class="pct-footer">All percentages sum to 100%</div>`+guideBox(res);
@@ -3188,6 +3279,7 @@ function trackPairing(){
 }
 
 function render(){
+const _amb=ambState();
 const p1t=effectiveTraits("p1"),p2t=effectiveTraits("p2");
 const res=_0xB1(S.p1p,p1t,S.p2p,p2t);
 const p1L=mkLabel(S.p1p,"p1"),p2L=mkLabel(S.p2p,"p2");
@@ -3196,7 +3288,7 @@ document.getElementById('pc').innerHTML=
   `<div class="connector"><div class="connector-line"></div><div class="connector-badge">×</div><div class="connector-line"></div></div>`+
   buildCard('female')+
   `<button class="clear-btn" id="clrb">${TRASH_ICO} Clear All</button>`;
-document.getElementById('rc').innerHTML=renderResults(res,p1L,p2L);
+document.getElementById('rc').innerHTML=_amb?renderAmbResults(_amb,p1L,p2L):renderResults(res,p1L,p2L);
 
 /* Wrap all native selects (base, mutation, status, opaline) in the
    full-width custom dropdown. Runs every render so dynamic options stay
@@ -3279,6 +3371,8 @@ updateURL();
 const cbtn=document.getElementById('cbtn');
 if(cbtn)cbtn.addEventListener('click',()=>{
 track('results_copied',{father:S.p1p,mother:S.p2p});
+const _a=ambState();
+if(_a){const L=[`1.0  ${p1L}  ×  0.1  ${p2L}`,``,`UNKNOWN SPLIT: ${_a.scen.length} possible nests, not averaged`,``];_a.scen.forEach((sc,i)=>{L.push(`${i+1}) If ${sc.text}`);_ambLines(sc.res).forEach(x=>L.push(x));L.push('');});_ambCopy(L.join('\n'));return;}
 const r=_0xB1(S.p1p,effectiveTraits("p1"),S.p2p,effectiveTraits("p2"));
 if(!r)return;
 const lines=[`1.0  ${p1L}  ×  0.1  ${p2L}`,``];
@@ -3289,8 +3383,10 @@ try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.w
 });
 const sbtn=document.getElementById('sbtn');
 if(sbtn)sbtn.addEventListener('click',()=>{
-const r=_0xB1(S.p1p,effectiveTraits("p1"),S.p2p,effectiveTraits("p2"));
+const _a=ambState();
+const r=_a?_a.scen[0].res:_0xB1(S.p1p,effectiveTraits("p1"),S.p2p,effectiveTraits("p2"));
 if(!r)return;
+if(_a){const L=[`Lovebird Genetics Calculator`,`lovebirdgenetics.com`,``,`1.0  ${p1L}  ×  0.1  ${p2L}`,``,`UNKNOWN SPLIT: ${_a.scen.length} possible nests, not averaged`,``];_a.scen.forEach((sc,i)=>{L.push(`${i+1}) If ${sc.text}`);_ambLines(sc.res).forEach(x=>L.push(x));L.push('');});try{navigator.share({title:'Lovebird Genetics Calculator',text:L.join('\n'),url:'https://lovebirdgenetics.com/'});}catch(e){}return;}
 const lines=[`Lovebird Genetics Calculator`,`lovebirdgenetics.com`,``,`1.0  ${p1L}  ×  0.1  ${p2L}`,``];
 if(r.slMut&&!r.slMut.combined){const maleM=mergeAD(r.slMut.maleOffspring,r.adMuts);const femaleM=mergeAD(r.slMut.femaleOffspring,r.adMuts);const combM=mergeAD(r.combined,r.adMuts);lines.push('⚪️ All Offspring');combM.forEach(x=>lines.push(`— ${fmt(x.pct)}%  ${x.name}`));lines.push('');lines.push('🟢 1.0 Males');maleM.forEach(o=>lines.push(`— ${fmt(o.pct)}%  ${o.name}`));lines.push('');lines.push('🔴 0.1 Females');femaleM.forEach(o=>lines.push(`— ${fmt(o.pct)}%  ${o.name}`));}
 else{const cmap={};if(r.slMut){for(const x of[...r.slMut.maleOffspring,...r.slMut.femaleOffspring])cmap[x.name]=(cmap[x.name]||0)+x.pct;}else{r.combined.forEach(x=>{cmap[x.name]=(cmap[x.name]||0)+x.pct;});}const carr=Object.entries(cmap).map(([name,pct])=>({name,pct})).sort((a,b)=>b.pct-a.pct);mergeAD(carr,r.adMuts).forEach(x=>lines.push(`— ${fmt(x.pct)}%  ${x.name}`));}
@@ -3336,6 +3432,7 @@ function _cbsMenuFromSelect(sel){
 function _cbsOptHTML(o,cur){
   const val=o.value, lbl=(o.textContent||'').trim();
   const seld=(val===cur);
+  if(o.disabled)return `<div class="cbs-opt cbs-off" role="option" aria-disabled="true" aria-selected="false"><span>${_cbsEsc(lbl)}</span></div>`;
   return `<div class="cbs-opt${seld?' cbs-sel':''}" role="option" tabindex="0" aria-selected="${seld?'true':'false'}" data-cbs-val="${_cbsEsc(val)}"><span>${_cbsEsc(lbl)}</span>${_cbsCheck}</div>`;
 }
 function _cbsCurrentLabel(sel){
@@ -3390,6 +3487,7 @@ function _cbsSyncSheet(){
 }
 function _cbsClose(except){document.querySelectorAll('details.cbs[open]').forEach(d=>{if(d!==except){d.open=false;const s=d.querySelector('summary');if(s)s.setAttribute('aria-expanded','false');}});}
 function _cbsPick(opt){
+  if(opt.classList&&opt.classList.contains('cbs-off'))return;
   const det=opt.closest('details.cbs');
   if(!det)return;
   const sel=det.querySelector('select.cbs-native');
