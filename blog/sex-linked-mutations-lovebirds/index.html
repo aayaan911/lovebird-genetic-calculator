@@ -454,6 +454,47 @@ table.pairing-table td:first-child,table.compare-table td:first-child{
   .art-content th,.art-header th,.page-wrap th,.chart-table-wrap th,.tblwrap th{padding:10px 12px!important;font-size:11px!important}
   .art-content td,.art-header td,.page-wrap td,.chart-table-wrap td,.tblwrap td{padding:11px 12px!important;font-size:14px!important}
 }
+
+/* ══════════ TABLE SYSTEM v1.1 · row-header cells match body cells ══════════ */
+/* Only a THEAD cell is a column header. A <th scope="row"> inside the body
+   is a data cell and must share the body surface, not the header surface. */
+.art-content tbody th,.art-header tbody th,.page-wrap tbody th,
+.chart-table-wrap tbody th,.tblwrap tbody th,
+table.pairing-table tbody th,table.compare-table tbody th{
+  background:var(--tbl-bg)!important;color:var(--tbl-tx)!important;
+  font-size:14.5px!important;font-weight:600!important;
+  text-transform:none!important;letter-spacing:0!important;
+  padding:12px 14px!important;text-align:left!important;vertical-align:top!important;
+  border-bottom:1px solid var(--tbl-grid)!important;border-left:1px solid var(--tbl-grid)!important;
+  white-space:normal!important}
+.art-content tbody tr:nth-child(even) th,.art-header tbody tr:nth-child(even) th,
+.page-wrap tbody tr:nth-child(even) th,.chart-table-wrap tbody tr:nth-child(even) th,
+.tblwrap tbody tr:nth-child(even) th,
+table.pairing-table tbody tr:nth-child(even) th,table.compare-table tbody tr:nth-child(even) th{
+  background:var(--tbl-stripe)!important}
+.art-content tbody tr:last-child th,.art-header tbody tr:last-child th,
+.page-wrap tbody tr:last-child th,.chart-table-wrap tbody tr:last-child th,
+.tblwrap tbody tr:last-child th,
+table.pairing-table tbody tr:last-child th,table.compare-table tbody tr:last-child th{border-bottom:0!important}
+.art-content tbody th:first-child,.art-header tbody th:first-child,.page-wrap tbody th:first-child,
+.chart-table-wrap tbody th:first-child,.tblwrap tbody th:first-child,
+table.pairing-table tbody th:first-child,table.compare-table tbody th:first-child{border-left:0!important}
+.art-content tbody tr:hover th,.chart-table-wrap tbody tr:hover th,.tblwrap tbody tr:hover th{
+  background:var(--tbl-head)!important}
+/* tfoot reads as a summary band, not a data row */
+.art-content tfoot th,.art-header tfoot th,.page-wrap tfoot th,
+.chart-table-wrap tfoot th,.tblwrap tfoot th,
+table.pairing-table tfoot th,table.compare-table tfoot th{
+  background:var(--tbl-head)!important;color:var(--tbl-tx)!important;
+  font-size:13.5px!important;font-weight:700!important;text-transform:none!important;letter-spacing:0!important;
+  padding:12px 14px!important;text-align:left!important;white-space:normal!important;
+  border-top:2px solid var(--tbl-bd)!important;border-bottom:0!important;border-left:0!important}
+/* no row ever paints its own background behind the cells */
+.art-content tr,.art-header tr,.page-wrap tr,.chart-table-wrap tr,.tblwrap tr,
+table.pairing-table tr,table.compare-table tr{background:transparent!important}
+/* inline background styles on individual cells are overridden by the system */
+.art-content td[style],.art-header td[style],.page-wrap td[style],
+.art-content th[style],.art-header th[style],.page-wrap th[style]{background-image:none!important}
 </style>
 </head>
 <body>
