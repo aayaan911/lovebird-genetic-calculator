@@ -685,6 +685,86 @@ html[data-theme="dark"] .key-box-label{color:var(--gtx)}
 
 /* retire the old chrome entirely */
 .vbar,.header-wrap,.site-header,.site-footer,.footer-inner,.breadcrumb,.theme-btn{display:none!important}
+
+/* sister-site card matches the calculator card, one brand colour */
+.scard.sis{border-color:var(--gbd)!important;background:var(--gbg)!important}
+.scard.sis .lab{color:var(--gtx)!important}
+.scard.sis .sw .ic{background:var(--g)!important}
+.scard.sis .btn{background:var(--g)!important;color:#fff!important;box-shadow:0 2px 10px rgba(29,158,117,.26)!important}
+.scard.sis .btn:hover{background:var(--gh)!important}
+.sfacts span{border-color:var(--gbd)!important;color:var(--gtx)!important}
+html[data-theme="dark"] .scard.sis{background:var(--gbg)!important;border-color:var(--gbd)!important}
+html[data-theme="dark"] .scard.sis .lab,html[data-theme="dark"] .sfacts span{color:var(--gtx)!important;border-color:var(--gbd)!important}
+html[data-theme="dark"] .scard.sis .btn{background:var(--g)!important;color:#fff!important}
+/* the meta + byline strip now sits directly under the H1 */
+.art-header .art-meta-grid{margin:22px 0 0}
+.art-header .art-byline{margin:18px 0 0}
+.art-header .art-answer,.art-header .art-lede{margin-top:26px!important}
+
+/* ══════════ TABLE SYSTEM v1 · matches bird-medicine-tracker ══════════ */
+:root{
+  --tbl-bg:#ffffff; --tbl-bd:#d6d6d0; --tbl-grid:#e2e2dc;
+  --tbl-head:#F2F2ED; --tbl-stripe:#FAFAF7;
+  --tbl-tx:#1a1a1a; --tbl-tx2:#4a4a4a; --tbl-tx3:#7d7d78;
+}
+[data-theme="dark"]{
+  --tbl-bg:#161a1e; --tbl-bd:#666; --tbl-grid:#3a4046;
+  --tbl-head:#1E232A; --tbl-stripe:rgba(255,255,255,.028);
+  --tbl-tx:#E8EAED; --tbl-tx2:#B6BCC3; --tbl-tx3:#9aa2aa;
+}
+.chart-table-wrap,.art-content .chart-table-wrap,.tblwrap{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;
+  background:var(--tbl-bg)!important;border:1px solid var(--tbl-bd)!important;
+  border-radius:14px!important;margin:24px 0!important;padding:0!important;box-shadow:none!important}
+.art-content table,.art-header table,.page-wrap table,.chart-table-wrap table,.tblwrap table,
+table.pairing-table,table.compare-table{
+  width:100%;border-collapse:collapse!important;border-spacing:0!important;font-size:14.5px;
+  background:var(--tbl-bg)!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;overflow:visible!important;color:var(--tbl-tx2)!important}
+/* a table that is NOT inside a scroll wrapper still gets the outer frame */
+.art-content>table,.art-header>table,.page-wrap>table{
+  border:1px solid var(--tbl-bd)!important;border-radius:14px!important;overflow:hidden!important;display:table}
+.art-content th,.art-header th,.page-wrap th,.chart-table-wrap th,.tblwrap th,
+table.pairing-table th,table.compare-table th{
+  background:var(--tbl-head)!important;text-align:left!important;
+  font-size:11.5px!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;
+  color:var(--tbl-tx3)!important;padding:12px 14px!important;
+  border-bottom:2px solid var(--tbl-bd)!important;border-left:1px solid var(--tbl-grid)!important;
+  white-space:nowrap;vertical-align:bottom}
+.art-content td,.art-header td,.page-wrap td,.chart-table-wrap td,.tblwrap td,
+table.pairing-table td,table.compare-table td{
+  padding:12px 14px!important;font-size:14.5px!important;line-height:1.55!important;
+  color:var(--tbl-tx2)!important;vertical-align:top!important;font-weight:400!important;
+  border-bottom:1px solid var(--tbl-grid)!important;border-left:1px solid var(--tbl-grid)!important}
+.art-content th:first-child,.art-content td:first-child,
+.art-header th:first-child,.art-header td:first-child,
+.page-wrap th:first-child,.page-wrap td:first-child,
+.chart-table-wrap th:first-child,.chart-table-wrap td:first-child,
+.tblwrap th:first-child,.tblwrap td:first-child,
+table.pairing-table th:first-child,table.pairing-table td:first-child,
+table.compare-table th:first-child,table.compare-table td:first-child{border-left:0!important}
+.art-content tr:last-child td,.art-header tr:last-child td,.page-wrap tr:last-child td,
+.chart-table-wrap tr:last-child td,.tblwrap tr:last-child td,
+table.pairing-table tr:last-child td,table.compare-table tr:last-child td{border-bottom:0!important}
+.art-content tbody tr:nth-child(even) td,.art-header tbody tr:nth-child(even) td,
+.page-wrap tbody tr:nth-child(even) td,.chart-table-wrap tbody tr:nth-child(even) td,
+.tblwrap tbody tr:nth-child(even) td,
+table.pairing-table tbody tr:nth-child(even) td,table.compare-table tbody tr:nth-child(even) td{
+  background:var(--tbl-stripe)!important}
+.art-content td:first-child,.art-header td:first-child,.page-wrap td:first-child,
+table.pairing-table td:first-child,table.compare-table td:first-child{
+  color:var(--tbl-tx)!important;font-weight:600!important}
+.art-content tbody tr:hover td,.chart-table-wrap tbody tr:hover td,.tblwrap tbody tr:hover td{
+  background:var(--tbl-head)!important}
+.pct,td.pct,.pct-badge,.art-content .pct{font-family:var(--mono,ui-monospace,monospace)!important;font-weight:700!important;color:var(--accent,#1D9E75)!important}
+.xrow td,.xrow th,.art-content .xrow td,table.pairing-table .xrow th{
+  background:var(--tbl-head)!important;color:var(--tbl-tx)!important;font-weight:700!important;
+  border-bottom:1px solid var(--tbl-bd)!important;text-transform:none!important;letter-spacing:0!important;font-size:13.5px!important}
+.art-content caption,table caption{text-align:left;font-weight:700;color:var(--tbl-tx);padding:0 0 12px;font-size:14px}
+@media(max-width:600px){
+  .art-content th,.art-header th,.page-wrap th,.chart-table-wrap th,.tblwrap th{padding:10px 12px!important;font-size:11px!important}
+  .art-content td,.art-header td,.page-wrap td,.chart-table-wrap td,.tblwrap td{padding:11px 12px!important;font-size:14px!important}
+}
 </style>
 </head>
 <body>
@@ -741,12 +821,12 @@ html[data-theme="dark"] .key-box-label{color:var(--gtx)}
   </nav>
 
   <div class="art-header">
-    <h1>Opaline Lovebird Genetics:<br>The Complete Breeder's Guide</h1>
+    <h1>Opaline Lovebird Genetics:<br>The Complete Breeder's Guide</h1><div class="art-meta-grid"><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Published</div><div class="art-meta-val">June 2026</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>Read time</div><div class="art-meta-val">17 min</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3c0 6 16 6 16 12M4 21c0-6 16-6 16-12"/><line x1="7" y1="6" x2="17" y2="6"/><line x1="7" y1="18" x2="17" y2="18"/></svg>Inheritance</div><div class="art-meta-val">Sex-linked recessive</div></div></div><div class="art-byline"><img class="art-byline-av" src="/avatar-ayaan.png" alt="Ayaan Shohan, founder of KinBird Aviary" width="42" height="42"><div class="art-byline-txt"><div class="art-byline-name">Written by <a href="/about/" style="color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--border);">Ayaan Shohan</a></div><div class="art-byline-role">Founder, KinBird Aviary &middot; Bangladesh</div></div><a class="art-follow" href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.75-1.6 1.5V12h2.7l-.43 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg> Follow</a></div>
     <p class="art-answer art-lede" style="font-size:16.5px;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0 0;"><strong>Opaline is a sex-linked recessive mutation of Fischer's lovebird, written with the symbol op.</strong> It redistributes colour from head to body: the mask spreads back over the crown and the wing coverts take the body colour. Cocks can be split for Opaline, but a hen never can, she is visual or she does not carry it.</p>
     <table class="compare-table art-fact-table" style="width:100%;border-collapse:collapse;margin:18px 0 0;font-size:14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;"><thead><tr><th scope="col" style="background:var(--bg-input);padding:10px 14px;text-align:left;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-2);border-bottom:2px solid var(--border-strong);">Opaline at a glance</th><th scope="col" style="background:var(--bg-input);padding:10px 14px;text-align:left;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-2);border-bottom:2px solid var(--border-strong);">Value</th></tr></thead><tbody><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Gene symbol</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);">op, per the Lovebird Compendium, pp. 330 to 343.</td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Inheritance</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);">Sex-linked recessive, carried on the Z chromosome.</td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Locus</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);">Its own Z-linked opaline locus, separate from the ino and cinnamon loci.</td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Allelic with</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);">Nothing. Opaline is not an ino locus allele, so it combines freely with SL ino (ino), pallid (ino<sup>pd</sup>) and pale (ino<sup>pe</sup>).</td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Visual marker</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);">The mask colour spreads back over the crown and the wing coverts take the body colour.</td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Eye colour</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);">Unchanged. Opaline rearranges plumage pigment only, so eye colour follows the base bird.</td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Sexable by colour</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);"><span class="tag-yes" style="color:#16a34a;font-weight:700;">Yes</span>. Visual Opaline cock x normal hen gives Opaline daughters and normal-looking split sons.</td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:600;">Can a hen be split</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);"><span class="tag-no" style="color:#dc2626;font-weight:700;">No</span>. A hen has one Z chromosome, so she is visual Opaline or she does not carry it.</td></tr><tr><td style="padding:10px 14px;border-bottom:none;color:var(--text-1);font-weight:600;">Modelled by the calculator</td><td style="padding:10px 14px;border-bottom:none;color:var(--text-2);"><span class="tag-yes" style="color:#16a34a;font-weight:700;">Yes</span>. Select visual, split or non-carrier for each parent.</td></tr></tbody></table>
     <table class="pairing-table art-punnett" style="width:100%;border-collapse:collapse;margin:18px 0 0;font-size:13px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;"><caption style="text-align:left;font-weight:700;color:var(--text-1);padding:12px 10px 10px;font-size:13px;">Punnett square: the auto-sexing Opaline cross</caption><thead><tr class="xrow"><th colspan="2"><span style="color:var(--accent);font-weight:700">1.0</span> Visual Opaline (Z-op / Z-op) <span style="opacity:.5">&times;</span> <span style="color:#d96b6b;font-weight:700">0.1</span> Normal (Z+ / W)</th></tr><tr><th scope="col">Hen gamete / Cock gamete</th><th scope="col">Z-op</th></tr></thead><tbody><tr><th scope="row" style="text-align:left;padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:700;font-size:13px;">Z+</th><td>Z-op / Z+<br>Son, split Opaline</td></tr><tr><th scope="row" style="text-align:left;padding:11px 10px;border-bottom:1px solid var(--border);color:var(--text-1);font-weight:700;font-size:13px;">W</th><td>Z-op / W<br>Daughter, visual Opaline</td></tr></tbody><tfoot><tr class="xrow"><th colspan="2">100% of daughters are visual Opaline and 100% of sons are split Opaline, so every chick in this nest can be sexed by colour.</th></tr></tfoot></table>
-    <div class="art-meta-grid"><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Published</div><div class="art-meta-val">June 2026</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>Read time</div><div class="art-meta-val">17 min</div></div><div class="art-meta-cell"><div class="art-meta-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3c0 6 16 6 16 12M4 21c0-6 16-6 16-12"/><line x1="7" y1="6" x2="17" y2="6"/><line x1="7" y1="18" x2="17" y2="18"/></svg>Inheritance</div><div class="art-meta-val">Sex-linked recessive</div></div></div>
-    <div class="art-byline"><img class="art-byline-av" src="/avatar-ayaan.png" alt="Ayaan Shohan, founder of KinBird Aviary" width="42" height="42"><div class="art-byline-txt"><div class="art-byline-name">Written by <a href="/about/" style="color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--border);">Ayaan Shohan</a></div><div class="art-byline-role">Founder, KinBird Aviary &middot; Bangladesh</div></div><a class="art-follow" href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.75-1.6 1.5V12h2.7l-.43 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg> Follow</a></div>
+    
+    
   </div>
 
   <div class="shell"><div class="art-content">
