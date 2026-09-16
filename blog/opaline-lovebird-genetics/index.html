@@ -164,9 +164,9 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   color-scheme:light;
-  --accent:#4ca154;
-  --accent-dim:rgba(76,161,84,0.1);
-  --accent-border:rgba(76,161,84,0.25);
+  --accent:#1D9E75;
+  --accent-dim:rgba(29,158,117,0.1);
+  --accent-border:rgba(29,158,117,0.25);
   --bg-page:#f7f7f5;
   --bg-card:#ffffff;
   --bg-input:#f2f2f0;
@@ -263,7 +263,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .try-pairings-row{display:flex;flex-wrap:wrap;gap:8px;}
 .try-chip{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);border-radius:10px;padding:9px 14px;font-size:13px;line-height:1.35;font-weight:600;text-decoration:none;white-space:nowrap;box-sizing:border-box;transition:background 0.15s,transform 0.1s;}
 .try-chip:hover{background:var(--accent-glow);transform:translateY(-1px);}
-.breeder-note{background:rgba(76,161,84,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
+.breeder-note{background:rgba(29,158,117,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
 .breeder-note-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
 .breeder-note p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .key-box p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
@@ -351,7 +351,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-byline-name{font-size:13.5px;font-weight:700;color:var(--text-1);}
 .art-byline-role{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3);margin-top:3px;}
 .art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
-.art-follow:hover{background:rgba(76,161,84,0.18);}
+.art-follow:hover{background:rgba(29,158,117,0.18);}
 @media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
 </style>
 <style>
@@ -463,6 +463,7 @@ html,body{overflow-x:clip;}
   --tbl-head:#f7f7f5; --tbl-stripe:#f2f2ed;
   --tbl-tx:#111315; --tbl-tx2:#5c6367; --tbl-tx3:#8f979c;
   --tbl-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.05);
+  --ctl-fill:#12795A; --ctl-on:#ffffff;
   /* legacy aliases, so untouched component CSS inherits the new palette */
   --accent:#1D9E75; --accent-text:#1D9E75; --accent-dim:#E1F5EE; --accent-border:#5DCAA5;
   --bg-page:#F7F7F5; --bg-card:#ffffff; --bg-input:#F7F7F5; --bg-input-filled:#F0F0ED;
@@ -480,6 +481,7 @@ html,body{overflow-x:clip;}
   --tbl-bg:#161a1e; --tbl-bd:#666; --tbl-grid:#3a4046;
   --tbl-head:#1E232A; --tbl-stripe:rgba(255,255,255,.028);
   --tbl-tx:#E8EAED; --tbl-tx2:#B6BCC3; --tbl-tx3:#9aa2aa; --tbl-shadow:none;
+  --ctl-fill:#2BBE8E; --ctl-on:#08231B;
   --accent:#2BBE8E; --accent-text:#7FE0BC; --accent-dim:rgba(29,158,117,.16); --accent-border:rgba(93,202,165,.42);
   --bg-page:#0F1216; --bg-card:#161A1F; --bg-input:#1E232A; --bg-input-filled:#1E232A;
   --text-1:#E8EAED; --text-2:#A8AEB6; --text-3:#8A929C;
@@ -508,6 +510,18 @@ a{color:inherit}
 .btn,.b-pri,.b-wh,.calc-cta-btn,.try-chip,.rel-card,.art-follow,
 .glist a,.rail a,.crumb a,.nl,.v3ft a,.logo,.toc-list a,.scard a{
   text-decoration:none!important;background-image:none!important;border-bottom:0!important}
+/* Controls own their colour in EVERY state and BOTH themes. Without this the
+   body-link rule (.art-content a:hover) out-specifies them and repaints the
+   label on a filled button, which made hovered chips unreadable. */
+.art-content a.try-chip,.art-header a.try-chip,a.try-chip{color:var(--gtx)}
+.art-content a.try-chip:hover,.art-header a.try-chip:hover,a.try-chip:hover{color:var(--ctl-on)}
+.art-content a.calc-cta-btn,a.calc-cta-btn,
+.art-content a.calc-cta-btn:hover,a.calc-cta-btn:hover,
+.art-content a.b-pri,a.b-pri,.art-content a.b-pri:hover,a.b-pri:hover{color:#fff}
+.art-content a.art-follow,a.art-follow{color:var(--gtx)}
+.art-content a.art-follow:hover,a.art-follow:hover{color:var(--ctl-on)}
+.art-content a.b-wh,a.b-wh,.art-content a.b-wh:hover,a.b-wh:hover{color:var(--gdeep)}
+.art-content a.rel-card,a.rel-card,.art-content a.rel-card:hover,a.rel-card:hover{color:var(--tx)}
 
 /* ── 3 CHROME ─────────────────────────────────────────────────────── */
 .vbar,.header-wrap,.site-header,.site-footer,.footer-inner,.breadcrumb,.theme-btn{display:none!important}
@@ -517,11 +531,15 @@ a{color:inherit}
 #prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--g);z-index:300;transition:width .08s linear;pointer-events:none}
 .v3hd{position:sticky;top:0;z-index:120;background:var(--bg);border-bottom:1px solid var(--bd)}
 @supports (backdrop-filter:blur(8px)){.v3hd{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}}
-.nav{display:flex;align-items:center;gap:4px;height:60px;flex-wrap:nowrap;min-width:0}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15.5px;letter-spacing:-.02em;color:var(--tx);min-width:0}
-.logo .mk{width:30px;height:30px;border-radius:9px;background:var(--g);display:grid;place-items:center;flex:none}
-.logo>span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.15}
-.logo small{display:block;font-size:11px;font-weight:400;color:var(--tx3);letter-spacing:0}
+.nav{display:flex;align-items:center;gap:4px;min-height:90px;padding:24px 0;flex-wrap:nowrap;min-width:0}
+/* logo lockup mirrors the homepage .hero-brand exactly: 28px mark inside a
+   7px-padded 10px-radius #141414 tile, 15px/1.1 name, 11px sub at +1px. */
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:-.02em;color:var(--tx);min-width:0}
+.logo .mk{border-radius:10px;background:#141414;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;overflow:hidden;padding:7px}
+.logo .mk img,.logo .mk svg{width:28px;height:28px;display:block}
+.logo>span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.1}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--tx3);letter-spacing:.01em;margin-top:1px}
 .nl{font-size:14.5px;font-weight:500;color:var(--tx2);padding:8px 12px;border-radius:8px}
 .nl:hover{background:var(--bg2);color:var(--tx)}
 .sp{flex:1}
@@ -531,8 +549,8 @@ html:not([data-theme="dark"]) .ic-moon{display:none}
 [data-theme="dark"] .ic-sun{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 20px;
   border-radius:var(--rad-ctl);font-size:14.5px;font-weight:600;min-height:44px;border:1px solid transparent;cursor:pointer;white-space:nowrap}
-.b-pri{background:var(--g);color:#fff;box-shadow:0 2px 10px rgba(29,158,117,.26)}
-.b-pri:hover{background:var(--gh)}
+.b-pri{background:var(--ctl-fill);color:#fff;box-shadow:0 2px 10px rgba(29,158,117,.26)}
+.b-pri:hover{background:#0F6D51}
 .b-lg{padding:15px 28px;font-size:16px;min-height:52px}
 .b-wh{background:#fff;color:var(--gdeep)}
 .crumb{font-size:13px;color:var(--tx3);padding-top:26px}
@@ -572,7 +590,7 @@ html:not([data-theme="dark"]) .ic-moon{display:none}
   color:var(--tx3);margin:0;padding-left:12px;border-left:1px solid var(--bd);line-height:1.4}
 .art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--gbg);border:1px solid var(--gbd);
   color:var(--gtx);border-radius:var(--rad-ctl);padding:9px 14px;font-size:12.5px;font-weight:700;min-height:40px;margin-left:auto}
-.art-follow:hover{background:var(--g);color:#fff;border-color:var(--g)}
+.art-follow:hover{background:var(--ctl-fill);color:var(--ctl-on);border-color:var(--ctl-fill)}
 .art-header .art-answer,.art-header .art-lede{
   background:var(--gbg);border:1px solid var(--gbd);border-left:4px solid var(--g);
   border-radius:var(--rad);padding:20px 22px;margin:20px 0 0;font-size:16px;color:var(--tx2);line-height:1.65}
@@ -581,10 +599,10 @@ html:not([data-theme="dark"]) .ic-moon{display:none}
 /* ── 6 BODY TYPE · tuned for scanning, not for endurance ──────────── */
 .art-content{font-size:16.5px}
 .art-content h2{font-size:clamp(22px,2.7vw,29px);line-height:1.22;letter-spacing:-.028em;font-weight:700;
-  color:var(--tx);margin:52px 0 14px;scroll-margin-top:84px;text-wrap:balance;
+  color:var(--tx);margin:52px 0 14px;scroll-margin-top:114px;text-wrap:balance;
   padding-top:22px;border-top:1px solid var(--bd)}
 .art-content h2:first-child{margin-top:0;padding-top:0;border-top:0}
-.art-content h3{font-size:18.5px;font-weight:700;letter-spacing:-.02em;color:var(--tx);margin:32px 0 10px;scroll-margin-top:84px}
+.art-content h3{font-size:18.5px;font-weight:700;letter-spacing:-.02em;color:var(--tx);margin:32px 0 10px;scroll-margin-top:114px}
 .art-content p{font-size:16.5px;line-height:1.75;color:var(--tx2);margin:0 0 18px;max-width:78ch}
 .art-content ul,.art-content ol{margin:0 0 18px;padding-left:22px;max-width:78ch}
 .art-content li{font-size:16.5px;line-height:1.7;color:var(--tx2);margin-bottom:10px}
@@ -610,9 +628,9 @@ html:not([data-theme="dark"]) .ic-moon{display:none}
   display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between}
 .calc-cta-text p{font-size:16px;font-weight:700;color:var(--tx);margin:0 0 3px}
 .calc-cta-text span{font-size:14px;color:var(--tx2)}
-.calc-cta-btn{background:var(--g);color:#fff;border-radius:var(--rad-ctl);padding:12px 20px;
+.calc-cta-btn{background:var(--ctl-fill);color:#fff;border-radius:var(--rad-ctl);padding:12px 20px;
   font-size:14.5px;font-weight:700;min-height:44px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
-.calc-cta-btn:hover{background:var(--gh)}
+.calc-cta-btn:hover{background:#0F6D51}
 
 .try-pairings{background:var(--bg2);border:1px solid var(--bd);padding:20px 22px;margin:28px 0}
 .try-pairings-hint{font-size:13.5px;color:var(--tx3);margin:-4px 0 14px;max-width:none}
@@ -626,7 +644,7 @@ html:not([data-theme="dark"]) .ic-moon{display:none}
 .try-chip::after{content:"";width:9px;height:9px;flex:none;
   border-right:2px solid currentColor;border-top:2px solid currentColor;
   transform:rotate(45deg);transition:transform .16s ease;opacity:.85}
-.try-chip:hover{background:var(--g);border-color:var(--g);color:#fff;
+.try-chip:hover{background:var(--ctl-fill);border-color:var(--ctl-fill);color:var(--ctl-on);
   transform:translateY(-1px);box-shadow:0 4px 14px rgba(29,158,117,.28)}
 .try-chip:hover::after{transform:rotate(45deg) translate(2px,-2px);opacity:1}
 .try-chip:focus-visible{outline:2px solid var(--g);outline-offset:2px}
@@ -717,7 +735,7 @@ html:not([data-theme="dark"]) .ic-moon{display:none}
 table caption{text-align:left;font-weight:700;color:var(--tbl-tx);padding:0 0 12px;font-size:14px}
 
 /* ── 10 RAIL ──────────────────────────────────────────────────────── */
-.rail{position:sticky;top:78px;display:flex;flex-direction:column;gap:16px}
+.rail{position:sticky;top:108px;display:flex;flex-direction:column;gap:16px}
 @media(max-width:980px){.rail{position:static}}
 .scard{border:1px solid var(--bd);border-radius:var(--rad);padding:20px;background:var(--bg)}
 .scard .lab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--tx3);margin-bottom:11px}
@@ -774,6 +792,7 @@ a.glist-all:hover{color:var(--gh)}
 .v3ft a{color:rgba(255,255,255,.62);display:block;padding:5px 0;font-size:14px}
 .v3ft a:hover{color:#fff}
 .v3ft .logo{color:#fff}
+.v3ft .logo .mk{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
 .fbot{border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:20px;font-size:13px;
   display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
@@ -781,6 +800,7 @@ a.glist-all:hover{color:var(--gh)}
 @media(max-width:820px){.nav .nl{display:none}.nav>span[style*="width:18px"]{display:none}.fgrid{grid-template-columns:repeat(2,1fr);gap:26px}}
 @media(max-width:760px){
   .page-wrap,.wrap{padding-left:16px;padding-right:16px}
+  .art-content h2,.art-content h3{scroll-margin-top:96px}
   .art-content h2{margin-top:42px;padding-top:20px}
   .art-content p,.art-content li{font-size:16px}
   .key-box,.warn-box,.breeder-note,.calc-cta,.try-pairings,.toc-box,.references-section{padding:16px 17px}
@@ -800,15 +820,13 @@ a.glist-all:hover{color:var(--gh)}
   .art-byline-txt{flex:1 1 100%}
 }
 @media(max-width:560px){
-  .nav{gap:8px;height:56px}
-  .logo{font-size:14px;gap:8px}
-  .logo .mk{width:28px;height:28px}
-  .logo small{display:none}
+  .nav{gap:8px;min-height:72px;padding:16px 0}
+  .logo{gap:9px}
   .themebtn{width:38px;height:38px}
   .nav .b-pri{margin-left:6px;padding:9px 13px;font-size:13px;min-height:38px}
 }
 @media(max-width:400px){
-  .logo{font-size:13px}.logo .mk{width:26px;height:26px}
+  .nav{min-height:64px;padding:13px 0}.logo .mk{padding:6px}.logo .mk img,.logo .mk svg{width:24px;height:24px}
   .nav .b-pri{padding:9px 11px;font-size:12.5px}
   .themebtn{width:36px;height:36px}
   .art-content td,.art-header td,.art-content tbody th{padding:10px 11px;font-size:13.5px}
@@ -834,7 +852,7 @@ a.glist-all:hover{color:var(--gh)}
 <div id="prog"></div>
 <div class="vstrip">Verified against the <i>Lovebird Compendium</i> <b>(2016)</b></div>
 <header class="v3hd"><div class="wrap"><nav class="nav">
-  <a class="logo" href="/"><span class="mk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/></svg></span><span>Lovebird Genetics<small>by KinBird Aviary</small></span></a>
+  <a class="logo" href="/"><span class="mk"><img src="/logo-icon.svg" width="28" height="28" alt="" aria-hidden="true"></span><span>Lovebird Genetics<small>by KinBird Aviary</small></span></a>
   <span style="width:18px"></span>
   <a class="nl" href="/">Calculator</a>
   <a class="nl" href="/blog/">Guides</a>
@@ -901,7 +919,7 @@ a.glist-all:hover{color:var(--gh)}
       </div>
 
       <div class="try-pairings"><div class="try-pairings-label">Try these pairings instantly</div><p class="try-pairings-hint">Each button opens the calculator with that exact pair already loaded. No setup, no sign-up.</p><div class="try-pairings-row"><a class="try-chip" href="/?m=Green&mo=visual&f=Green&fo=normal">Visual Opaline &times; Normal</a><a class="try-chip" href="/?m=Green&mo=visual&f=Green&fo=visual">Visual Opaline &times; Visual Opaline</a><a class="try-chip" href="/?m=Green&mo=split&f=Green&fo=visual">Split Opaline &times; Visual Opaline</a></div></div>
-            <div style="margin:24px 0;padding:16px 20px;background:rgba(76,161,84,0.05);border:1px solid rgba(76,161,84,0.35);border-left:4px solid var(--accent,#4CA154);border-radius:0 10px 10px 0;"><div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#4CA154);margin-bottom:6px;">From the Lovebird Compendium</div><p style="margin:0;font-size:15px;line-height:1.7;color:var(--text-2,#c9c9c9);">Opaline is a sex-linked recessive mutation that rearranges the plumage pigment rather than removing it. It was first confirmed in <em>Agapornis roseicollis</em> in January 1997 (Becky Anderson, Michigan, USA; Van den Abeele, <em>Lovebird Compendium</em>, p. 331), and in <em>Agapornis fischeri</em> it was reported from Hong Kong in 2010 and established in Indonesia. Split males can often be identified by their larger tail spots (Lovebird Compendium, pp. 330 to 343).</p></div>
+            <div style="margin:24px 0;padding:16px 20px;background:rgba(29,158,117,0.05);border:1px solid rgba(29,158,117,0.35);border-left:4px solid var(--accent,#1D9E75);border-radius:0 10px 10px 0;"><div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#1D9E75);margin-bottom:6px;">From the Lovebird Compendium</div><p style="margin:0;font-size:15px;line-height:1.7;color:var(--text-2,#c9c9c9);">Opaline is a sex-linked recessive mutation that rearranges the plumage pigment rather than removing it. It was first confirmed in <em>Agapornis roseicollis</em> in January 1997 (Becky Anderson, Michigan, USA; Van den Abeele, <em>Lovebird Compendium</em>, p. 331), and in <em>Agapornis fischeri</em> it was reported from Hong Kong in 2010 and established in Indonesia. Split males can often be identified by their larger tail spots (Lovebird Compendium, pp. 330 to 343).</p></div>
       <h2 id="what-is-opaline">What is Opaline in lovebirds?</h2>
       <p>Opaline is one of the most popular and visually striking mutations in <em>Agapornis fischeri</em> (Fischer's lovebird). It causes a redistribution of psittacine pigment across the feather structure, producing a richer, more saturated appearance, often with a characteristic gradient effect on the wings and back where the body color bleeds into the flight feathers.</p>
       <p>The result is a bird that appears more vivid and "reversed" in pattern compared to a normal. The face mask remains, but the psittacine (yellow/red) pigment is pushed into areas where it normally would not appear as strongly, including the wing coverts and sometimes the back.</p>
@@ -1227,7 +1245,7 @@ a.glist-all:hover{color:var(--gh)}
 <footer class="v3ft"><div class="wrap">
   <div class="fgrid">
     <div>
-      <div class="logo" style="margin-bottom:12px"><span class="mk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/></svg></span><span>Lovebird Genetics</span></div>
+      <div class="logo" style="margin-bottom:12px"><span class="mk"><img src="/logo-icon.svg" width="28" height="28" alt="" aria-hidden="true"></span><span>Lovebird Genetics</span></div>
       <p style="max-width:230px;font-size:13.5px;line-height:1.6;margin:0;color:rgba(255,255,255,.62)">A free Fischer's lovebird genetics calculator and mutation library, built and maintained by KinBird Aviary in Dhaka.</p>
     </div>
     <div><h4>Guides</h4><a href="/blog/mutations/">Mutation guides</a><a href="/blog/">All guides</a><a href="/blog/complete-lovebird-genetics-guide/">Genetics basics</a></div>

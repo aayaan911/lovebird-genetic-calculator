@@ -76,10 +76,10 @@
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{
+:root{--ctl-fill:#12795A;--ctl-on:#ffffff;--accent-strong:#12795A;
   color-scheme:light;
-  --accent:#4ca154;
-  --accent-dim:rgba(76,161,84,0.1);
+  --accent:#1D9E75;
+  --accent-dim:rgba(29,158,117,0.1);
   --bg-page:#f7f7f5;
   --bg-card:#ffffff;
   --bg-input:#f2f2f0;
@@ -93,7 +93,7 @@
   --radius-card:20px;
   --radius-btn:12px;
 }
-[data-theme="dark"]{
+[data-theme="dark"]{--ctl-fill:#2BBE8E;--ctl-on:#08231B;--accent-strong:#5DCAA5;
   color-scheme:dark;
   --bg-page:#080808;
   --bg-card:#141414;
@@ -118,8 +118,8 @@ a{color:inherit;text-decoration:none;}
 .header-nav{display:flex;align-items:center;gap:24px;}
 .header-nav a{font-size:13px;font-weight:500;color:var(--text-2);transition:color 0.2s;}
 .header-nav a:hover{color:var(--text-1);}
-.header-nav a.active{color:var(--accent);}
-.header-cta{background:var(--accent);color:#fff !important;padding:8px 16px;border-radius:var(--radius-btn);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;}
+.header-nav a.active{color:var(--accent-strong);}
+.header-cta{background:var(--ctl-fill);color:#fff !important;padding:8px 16px;border-radius:var(--radius-btn);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;}
 .theme-btn{height:36px;padding:0 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-btn);cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--text-2);font-family:var(--font);font-size:12px;font-weight:600;}
 
 /* ── PAGE CONTAINER ── */
@@ -127,7 +127,7 @@ a{color:inherit;text-decoration:none;}
 
 /* ── HERO ── */
 .about-hero{padding:56px 0 48px;border-bottom:1px solid var(--border);margin-bottom:48px;}
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:14px;}
 .about-hero h1{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-0.03em;line-height:1.2;color:var(--text-1);margin-bottom:18px;}
 .about-hero .lead{font-size:17px;color:var(--text-2);line-height:1.7;max-width:580px;}
 
@@ -135,11 +135,11 @@ a{color:inherit;text-decoration:none;}
 .person-card{display:grid;grid-template-columns:96px 1fr;gap:28px;align-items:start;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:32px;margin-bottom:48px;}
 .person-avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;display:block;}
 .person-name{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--text-1);margin-bottom:4px;}
-.person-title{font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.person-title{font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:12px;}
 .person-bio{font-size:14px;color:var(--text-2);line-height:1.7;}
 .person-links{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
 .person-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text-2);background:var(--bg-input);padding:6px 12px;border-radius:999px;border:1px solid var(--border);transition:all 0.18s;}
-.person-link:hover{color:var(--accent);border-color:var(--accent);}
+.person-link:hover{color:var(--accent-strong);border-color:var(--accent-strong);}
 
 /* ── SECTION ── */
 .about-section{margin-bottom:48px;}
@@ -150,13 +150,13 @@ a{color:inherit;text-decoration:none;}
 /* ── FACT GRID ── */
 .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;}
 .fact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
-.fact-num{font-size:26px;font-weight:700;letter-spacing:-0.03em;color:var(--accent);line-height:1;}
+.fact-num{font-size:26px;font-weight:700;letter-spacing:-0.03em;color:var(--accent-strong);line-height:1;}
 .fact-label{font-size:12px;color:var(--text-3);margin-top:4px;line-height:1.4;}
 
 /* ── MUTATION CHIPS ── */
 .mutation-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;}
 .chip{display:inline-block;font-size:12px;font-weight:500;color:var(--text-2);background:var(--bg-input);border:1px solid var(--border);padding:5px 12px;border-radius:999px;font-family:var(--mono);}
-.chip.accent{color:var(--accent);border-color:rgba(76,161,84,0.25);background:var(--accent-dim);}
+.chip.accent{color:var(--accent-strong);border-color:rgba(29,158,117,0.25);background:var(--accent-dim);}
 
 /* ── DIVIDER ── */
 .divider{border:none;border-top:1px solid var(--border);margin:0 0 48px;}
@@ -165,7 +165,7 @@ a{color:inherit;text-decoration:none;}
 .cta-box{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-card);padding:32px;text-align:center;margin-top:48px;}
 .cta-box h3{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--text-1);margin-bottom:10px;}
 .cta-box p{font-size:14px;color:var(--text-2);margin-bottom:20px;}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:var(--radius-btn);transition:opacity 0.18s;}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ctl-fill);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:var(--radius-btn);transition:opacity 0.18s;}
 .cta-btn:hover{opacity:0.88;}
 
 /* ── FOOTER ── */
@@ -173,7 +173,7 @@ a{color:inherit;text-decoration:none;}
 .footer-inner{max-width:1480px;margin:0 auto;padding:28px clamp(16px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .footer-inner p{font-size:12px;color:var(--text-3);}
 .footer-inner a{color:var(--text-3);font-size:12px;}
-.footer-inner a:hover{color:var(--accent);}
+.footer-inner a:hover{color:var(--accent-strong);}
 
 /* ── RESPONSIVE ── */
 @media(max-width:600px){
@@ -181,6 +181,10 @@ a{color:inherit;text-decoration:none;}
   .person-avatar{width:72px;height:72px;}
   .fact-grid{grid-template-columns:repeat(2,1fr);}
 }
+
+/* AA text contrast: brand green is the surface colour; interactive text and
+   filled buttons use the darker step. Dark surfaces flip it back to light. */
+footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#5DCAA5}
 </style>
 <style id="hdr-compact-fix">
 
@@ -230,14 +234,14 @@ a{color:inherit;text-decoration:none;}
 .art-content .xrow:hover td{background:var(--bg-input);}
 /* Tables stand alone: dissolve wrapper boxes, labels become green bold headings */
 .art-content .pairing-box{background:transparent;border:none;box-shadow:none;padding:0;border-radius:0;margin:28px 0;}
-.art-content .pairing-box-label,.art-content .pairing-title{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:12px;}
+.art-content .pairing-box-label,.art-content .pairing-title{color:var(--accent-strong);font-weight:700;font-size:14px;margin-bottom:12px;}
 .art-content .chart-table-wrap{background:transparent;border:none;box-shadow:none;padding:0;border-radius:0;}
 /* Global text-link hover: animated left-to-right underline (prose, tables, crumbs, footer). Cards/buttons excluded by scope */
 .art-content p a:not(.calc-cta-btn),.art-content li a:not(.calc-cta-btn),.art-content table a:not(.calc-cta-btn),.breadcrumb a,.crumb a,.site-footer a,.further-reading a,.fr-list a{text-decoration:none;padding-bottom:2px;background-image:linear-gradient(currentColor,currentColor);background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .art-content p a:not(.calc-cta-btn):hover,.art-content li a:not(.calc-cta-btn):hover,.art-content table a:not(.calc-cta-btn):hover,.breadcrumb a:hover,.crumb a:hover,.site-footer a:hover,.further-reading a:hover,.fr-list a:hover{background-size:100% 1.5px;}
 @media(prefers-reduced-motion:reduce){.art-content p a,.art-content li a,.art-content table a,.breadcrumb a,.crumb a,.site-footer a{transition:none;}}
 /* Table links: visible affordance (arrow + animated left-to-right green underline) */
-.art-content table a:not(.calc-cta-btn){color:var(--accent);font-weight:600;padding-bottom:2px;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
+.art-content table a:not(.calc-cta-btn){color:var(--accent-strong);font-weight:600;padding-bottom:2px;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .art-content table a:not(.calc-cta-btn)::after{content:"\2192";display:inline-block;margin-left:4px;font-size:0.85em;opacity:0.75;transition:transform 0.15s;}
 .art-content table a:not(.calc-cta-btn):hover{background-size:100% 1.5px;}
 .art-content table a:not(.calc-cta-btn):hover::after{transform:translateX(2px);}
@@ -259,7 +263,7 @@ html,body{overflow-x:clip;}
 .vbar{background:var(--bg-input-filled,var(--bg-input));border-bottom:1px solid var(--border);}
 .vbar-inner{max-width:1480px;margin:0 auto;padding:9px clamp(16px,4vw,48px);text-align:center;}
 .vbar span{font-size:12px;color:var(--text-2);font-weight:500;line-height:1.5;font-family:var(--font);}
-.vbar .vg{color:var(--accent);font-weight:600;}
+.vbar .vg{color:var(--accent-strong);font-weight:600;}
 .vbar-sm{display:none;}
 @media(max-width:600px){.vbar span{font-size:11.5px;}.vbar-inner{padding:7px 14px;}.vbar-lg{display:none;}.vbar-sm{display:inline;}}
 </style>
@@ -344,7 +348,7 @@ html,body{overflow-x:clip;}
   <!-- ── ABOUT THE CALCULATOR ── -->
   <div class="about-section">
     <h2>About the Lovebird Genetics Calculator</h2>
-    <p><a href="/" style="color:var(--accent);font-weight:600;">lovebirdgenetics.com</a> is a free, browser-based genetics calculator built specifically for <em>Agapornis fischeri</em>. It predicts the offspring distribution, by mutation and by sex, for any parent pairing, handling up to six traits per parent simultaneously.</p>
+    <p><a href="/" style="color:var(--accent-strong);font-weight:600;">lovebirdgenetics.com</a> is a free, browser-based genetics calculator built specifically for <em>Agapornis fischeri</em>. It predicts the offspring distribution, by mutation and by sex, for any parent pairing, handling up to six traits per parent simultaneously.</p>
     <p>Most existing lovebird calculators were built for <em>Agapornis roseicollis</em> (Peach-faced lovebird) or handle a limited mutation set. Fischer's lovebirds have distinct genetics, particularly for Opaline, Ino, and Aqua, and needed a dedicated tool.</p>
 
     <p style="font-size:14px;font-weight:600;color:var(--text-1);margin-bottom:10px;margin-top:8px;">Mutations covered:</p>
@@ -400,7 +404,7 @@ html,body{overflow-x:clip;}
   <!-- ── SISTER SITE ── -->
   <div class="about-section">
     <h2>Sister site</h2>
-    <p>We built the same engine-backed approach for budgerigar breeders at <a href="https://budgerigargenetics.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;">budgerigargenetics.com</a>, a free Budgerigar Genetics Calculator covering the full budgie mutation set, made by the same team behind KinBird Aviary.</p>
+    <p>We built the same engine-backed approach for budgerigar breeders at <a href="https://budgerigargenetics.com/" target="_blank" rel="noopener" style="color:var(--accent-strong);font-weight:600;">budgerigargenetics.com</a>, a free Budgerigar Genetics Calculator covering the full budgie mutation set, made by the same team behind KinBird Aviary.</p>
   </div>
 
   <hr class="divider"/>
@@ -417,9 +421,9 @@ html,body{overflow-x:clip;}
   <!-- ── FURTHER READING ── -->
   <div class="about-section">
     <h2>Further reading</h2>
-    <p>To go deeper on specific mutations, visit the <a href="/blog/" style="color:var(--accent);font-weight:600;">genetics blog</a>. Current guides:</p>
+    <p>To go deeper on specific mutations, visit the <a href="/blog/" style="color:var(--accent-strong);font-weight:600;">genetics blog</a>. Current guides:</p>
     <ul style="margin:12px 0 0 20px;display:flex;flex-direction:column;gap:10px;">
-      <li><a href="/blog/opaline-lovebird-genetics/" style="color:var(--accent);font-weight:600;">Opaline Lovebird Genetics: The Complete Breeder's Guide</a>, sex-linked inheritance rules, the 5 core pairings, combined mutations.</li>
+      <li><a href="/blog/opaline-lovebird-genetics/" style="color:var(--accent-strong);font-weight:600;">Opaline Lovebird Genetics: The Complete Breeder's Guide</a>, sex-linked inheritance rules, the 5 core pairings, combined mutations.</li>
     </ul>
   </div>
 

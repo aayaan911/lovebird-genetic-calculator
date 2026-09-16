@@ -154,8 +154,8 @@
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{color-scheme:light;--accent:#4ca154;--accent-dim:rgba(76,161,84,0.1);--accent-border:rgba(76,161,84,0.25);--bg-page:#f7f7f5;--bg-card:#ffffff;--bg-input:#f2f2f0;--text-1:#0a0a0a;--text-2:#4a4a4a;--text-3:#888;--border:#e2e2de;--border-strong:#c8c8c4;--font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'DM Mono','Courier New',ui-monospace,monospace;--radius-card:20px;--radius-btn:12px;--radius-sm:10px;}
-[data-theme="dark"]{color-scheme:dark;--bg-page:#080808;--bg-card:#141414;--bg-input:#1e1e1e;--text-1:#f0f0ee;--text-2:#a0a09a;--text-3:#606060;--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.16);}
+:root{--ctl-fill:#12795A;--ctl-on:#ffffff;--accent-strong:#12795A;color-scheme:light;--accent:#1D9E75;--accent-dim:rgba(29,158,117,0.1);--accent-border:rgba(29,158,117,0.25);--bg-page:#f7f7f5;--bg-card:#ffffff;--bg-input:#f2f2f0;--text-1:#0a0a0a;--text-2:#4a4a4a;--text-3:#888;--border:#e2e2de;--border-strong:#c8c8c4;--font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'DM Mono','Courier New',ui-monospace,monospace;--radius-card:20px;--radius-btn:12px;--radius-sm:10px;}
+[data-theme="dark"]{--ctl-fill:#2BBE8E;--ctl-on:#08231B;--accent-strong:#5DCAA5;color-scheme:dark;--bg-page:#080808;--bg-card:#141414;--bg-input:#1e1e1e;--text-1:#f0f0ee;--text-2:#a0a09a;--text-3:#606060;--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.16);}
 html{scroll-behavior:smooth;}
 body{background:var(--bg-page);font-family:var(--font);font-size:16px;line-height:1.6;color:var(--text-1);-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
@@ -167,16 +167,16 @@ a{color:inherit;text-decoration:none;}
 .brand-sub{font-size:11px;color:var(--text-3);line-height:1.2;margin-top:1px;}
 .header-nav{display:flex;align-items:center;gap:24px;}@media(max-width:600px){.site-header{flex-wrap:wrap;height:auto;row-gap:12px;padding-top:12px;padding-bottom:12px;}.header-nav{width:100%;flex-wrap:wrap;justify-content:flex-start;gap:10px 16px;}}
 .header-nav a{font-size:13px;font-weight:500;color:var(--text-2);}
-.header-nav a.active{color:var(--accent);}
-.header-cta{background:var(--accent);color:#fff !important;padding:8px 16px;border-radius:var(--radius-btn);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;}
+.header-nav a.active{color:var(--accent-strong);}
+.header-cta{background:var(--ctl-fill);color:#fff !important;padding:8px 16px;border-radius:var(--radius-btn);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;}
 .theme-btn{height:36px;padding:0 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-btn);cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--text-2);font-family:var(--font);font-size:12px;font-weight:600;}
 .page-wrap{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 80px;}
 .breadcrumb{display:flex;align-items:center;gap:6px;padding:20px 0 0;font-size:12px;color:var(--text-3);}
 .breadcrumb a{color:var(--text-3);}
-.breadcrumb a:hover{color:var(--accent);}
+.breadcrumb a:hover{color:var(--accent-strong);}
 .bc-sep{opacity:0.4;}
 .art-header{padding:32px 0 32px;border-bottom:1px solid var(--border);margin-bottom:36px;}
-.art-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.art-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:14px;}
 .art-header h1{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-0.03em;line-height:1.18;color:var(--text-1);margin-bottom:18px;}
 .byline-meta{font-size:12px;color:var(--text-3);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .art-layout{display:grid;grid-template-columns:1fr 220px;gap:48px;align-items:start;}
@@ -186,8 +186,8 @@ a{color:inherit;text-decoration:none;}
 .toc-list li{padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
 .toc-list li:last-child{border-bottom:none;}
 .toc-list a{color:var(--text-2);display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
-.toc-list a:hover{color:var(--accent);}
-.toc-num{font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:700;min-width:16px;margin-top:1px;flex-shrink:0;}
+.toc-list a:hover{color:var(--accent-strong);}
+.toc-num{font-family:var(--mono);font-size:10px;color:var(--accent-strong);font-weight:700;min-width:16px;margin-top:1px;flex-shrink:0;}
 .art-content h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--text-1);margin:44px 0 14px;line-height:1.25;}
 .art-content h2:first-child{margin-top:0;}
 .art-content h3{font-size:16px;font-weight:700;color:var(--text-1);margin:28px 0 10px;}
@@ -196,12 +196,12 @@ a{color:inherit;text-decoration:none;}
 .art-content li{font-size:15px;color:var(--text-2);line-height:1.75;margin-bottom:6px;}
 .art-content strong{color:var(--text-1);font-weight:600;}
 .art-content em{font-style:italic;}
-.art-content a{color:var(--accent);}
+.art-content a{color:var(--accent-strong);}
 a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important;}
 .key-box{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-sm);padding:18px 20px;margin:24px 0;}
-.key-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
-.breeder-note{background:rgba(76,161,84,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
-.breeder-note-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.key-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:8px;}
+.breeder-note{background:rgba(29,158,117,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
+.breeder-note-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:6px;}
 .breeder-note p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .key-box p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .key-box p+p{margin-top:8px;}
@@ -212,11 +212,11 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .type-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:18px;}
 .type-card h4{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:8px;}
 .type-card p{font-size:13px;color:var(--text-2);line-height:1.55;margin:0;}
-.type-card .demand-tag{font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--accent);margin-top:8px;display:block;}
+.type-card .demand-tag{font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--accent-strong);margin-top:8px;display:block;}
 .calc-cta{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-card);padding:22px 24px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .calc-cta-text p{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:3px;}
 .calc-cta-text span{font-size:12px;color:var(--text-2);}
-.calc-cta-btn{background:var(--accent);color:#fff;border:none;padding:11px 18px;border-radius:var(--radius-btn);font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);white-space:nowrap;display:flex;align-items:center;gap:7px;text-decoration:none;}
+.calc-cta-btn{background:var(--ctl-fill);color:#fff;border:none;padding:11px 18px;border-radius:var(--radius-btn);font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);white-space:nowrap;display:flex;align-items:center;gap:7px;text-decoration:none;}
 .faq-section{margin:40px 0;}
 .faq-section h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:var(--text-1);margin-bottom:20px;}
 .faq-item{border-top:1px solid var(--border);padding:18px 0;}
@@ -227,13 +227,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .related-section h2{font-size:16px;font-weight:700;color:var(--text-1);margin-bottom:20px;}
 .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
 .rel-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;}
-.rel-tag{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px;}
+.rel-tag{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-strong);display:block;margin-bottom:7px;}
 .rel-card p{font-size:13px;font-weight:600;color:var(--text-1);line-height:1.4;}
 .site-footer{border-top:1px solid var(--border);margin-top:0;}
 .footer-inner{max-width:1480px;margin:0 auto;padding:28px clamp(16px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .footer-inner p{font-size:12px;color:var(--text-3);}
 .footer-inner a{color:var(--text-3);font-size:12px;}
-.footer-inner a:hover{color:var(--accent);}
+.footer-inner a:hover{color:var(--accent-strong);}
 @media(max-width:820px){.art-layout{grid-template-columns:1fr;}.art-sidebar{display:none;}.type-grid{grid-template-columns:1fr;}}
 @media(max-width:540px){.header-nav{gap:12px;}.related-grid{grid-template-columns:1fr;}}
 
@@ -241,7 +241,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-header{max-width:760px;margin-left:auto;margin-right:auto;border-bottom:none;padding:28px 0 8px;margin-bottom:20px;}
 .breadcrumb{max-width:760px;margin-left:auto;margin-right:auto;padding:26px 0 0;}
 .breadcrumb a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:var(--text-3);}
-.breadcrumb a:hover{color:var(--accent);text-decoration-color:var(--accent);}
+.breadcrumb a:hover{color:var(--accent-strong);text-decoration-color:var(--accent-strong);}
 .art-lede{font-size:16px;color:var(--text-2);line-height:1.7;margin:14px 0 2px;}
 .art-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:22px 0 0;}
 .art-meta-cell{background:var(--bg-card);padding:13px 16px;}
@@ -253,9 +253,13 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-byline-txt{flex:1;min-width:0;}
 .art-byline-name{font-size:13.5px;font-weight:700;color:var(--text-1);}
 .art-byline-role{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3);margin-top:3px;}
-.art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
-.art-follow:hover{background:rgba(76,161,84,0.18);}
+.art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent-strong);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
+.art-follow:hover{background:rgba(29,158,117,0.18);}
 @media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
+
+/* AA text contrast: brand green is the surface colour; interactive text and
+   filled buttons use the darker step. Dark surfaces flip it back to light. */
+footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#5DCAA5}
 </style>
 <style id="hdr-compact-fix">
 /* Shared 1100px page shell — same as blog index */
@@ -310,14 +314,14 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-content .xrow:hover td{background:var(--bg-input);}
 /* Tables stand alone: dissolve wrapper boxes, labels become green bold headings */
 .art-content .pairing-box{background:transparent;border:none;box-shadow:none;padding:0;border-radius:0;margin:28px 0;}
-.art-content .pairing-box-label,.art-content .pairing-title{color:var(--accent);font-weight:700;font-size:14px;margin-bottom:12px;}
+.art-content .pairing-box-label,.art-content .pairing-title{color:var(--accent-strong);font-weight:700;font-size:14px;margin-bottom:12px;}
 .art-content .chart-table-wrap{background:transparent;border:none;box-shadow:none;padding:0;border-radius:0;}
 /* Global text-link hover: animated left-to-right underline (prose, tables, crumbs, footer). Cards/buttons excluded by scope */
 .art-content p a:not(.calc-cta-btn),.art-content li a:not(.calc-cta-btn),.art-content table a:not(.calc-cta-btn),.breadcrumb a,.crumb a,.site-footer a,.further-reading a,.fr-list a{text-decoration:none;padding-bottom:2px;background-image:linear-gradient(currentColor,currentColor);background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .art-content p a:not(.calc-cta-btn):hover,.art-content li a:not(.calc-cta-btn):hover,.art-content table a:not(.calc-cta-btn):hover,.breadcrumb a:hover,.crumb a:hover,.site-footer a:hover,.further-reading a:hover,.fr-list a:hover{background-size:100% 1.5px;}
 @media(prefers-reduced-motion:reduce){.art-content p a,.art-content li a,.art-content table a,.breadcrumb a,.crumb a,.site-footer a{transition:none;}}
 /* Table links: visible affordance (arrow + animated left-to-right green underline) */
-.art-content table a:not(.calc-cta-btn){color:var(--accent);font-weight:600;padding-bottom:2px;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
+.art-content table a:not(.calc-cta-btn){color:var(--accent-strong);font-weight:600;padding-bottom:2px;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .art-content table a:not(.calc-cta-btn)::after{content:"\2192";display:inline-block;margin-left:4px;font-size:0.85em;opacity:0.75;transition:transform 0.15s;}
 .art-content table a:not(.calc-cta-btn):hover{background-size:100% 1.5px;}
 .art-content table a:not(.calc-cta-btn):hover::after{transform:translateX(2px);}
@@ -339,7 +343,7 @@ html,body{overflow-x:clip;}
 .vbar{background:var(--bg-input-filled,var(--bg-input));border-bottom:1px solid var(--border);}
 .vbar-inner{max-width:1480px;margin:0 auto;padding:9px clamp(16px,4vw,48px);text-align:center;}
 .vbar span{font-size:12px;color:var(--text-2);font-weight:500;line-height:1.5;font-family:var(--font);}
-.vbar .vg{color:var(--accent);font-weight:600;}
+.vbar .vg{color:var(--accent-strong);font-weight:600;}
 .vbar-sm{display:none;}
 @media(max-width:600px){.vbar span{font-size:11.5px;}.vbar-inner{padding:7px 14px;}.vbar-lg{display:none;}.vbar-sm{display:inline;}}
 
@@ -490,7 +494,7 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
 
       
 
-      <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--surface,var(--bg-card));border-left:4px solid var(--accent,#4CA154);border-radius:0 10px 10px 0;">
+      <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--surface,var(--bg-card));border-left:4px solid var(--accent,#1D9E75);border-radius:0 10px 10px 0;">
         <strong>TL;DR</strong>
         <p style="margin:8px 0 0;">Lovebird mutations follow four inheritance rules: autosomal recessive (needs two copies, hides as a split), sex-linked recessive (on the Z chromosome, enables auto-sexing), autosomal incomplete dominant (shows with one copy, stronger with two), and autosomal dominant (one copy shows, no split, single and double factor look alike). Colours come from three sources: psittacofulvin pigment (Blue, Aqua, Parblue, Yellow Face), eumelanin pigment (Cinnamon, Dilute, the Fallows, Lutino), and structural or pattern effects (Dark Factor, Violet, Opaline). Pick a mutation below, read its dedicated guide, then model the pairing in the calculator.</p>
       </div>
@@ -579,7 +583,7 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
           <thead>
             <tr style="border-bottom:1px solid var(--border);background:var(--bg-input);">
               <th style="text-align:left;padding:11px 14px;color:var(--text-1);font-weight:700;white-space:nowrap;">Mutation</th>
-              <th style="text-align:left;padding:11px 12px;color:var(--accent);font-weight:700;white-space:nowrap;">Inheritance</th>
+              <th style="text-align:left;padding:11px 12px;color:var(--accent-strong);font-weight:700;white-space:nowrap;">Inheritance</th>
               <th style="text-align:left;padding:11px 12px;color:var(--text-2);font-weight:700;">Visual marker</th>
               <th style="text-align:left;padding:11px 12px;color:var(--text-2);font-weight:700;white-space:nowrap;">Dedicated guide</th>
             </tr>
@@ -587,75 +591,75 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
           <tbody>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Blue</td>
-              <td style="padding:10px 12px;color:var(--accent);">Autosomal recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Autosomal recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Clean blue body, yellow lost</td>
               <td style="padding:10px 12px;"><a href="/blog/blue-lovebird-genetics/">Blue genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:var(--bg-input);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Aqua / Parblue</td>
-              <td style="padding:10px 12px;color:var(--accent);">Autosomal recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Autosomal recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Turquoise to seagreen body</td>
               <td style="padding:10px 12px;"><a href="/blog/aqua-mutation-in-lovebirds/">Aqua genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Yellow Face</td>
-              <td style="padding:10px 12px;color:var(--accent);">Autosomal recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Autosomal recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Yellow mask, reduced body colour</td>
               <td style="padding:10px 12px;"><a href="/blog/yellow-face-lovebird-genetics/">Yellow Face genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:var(--bg-input);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Cinnamon</td>
-              <td style="padding:10px 12px;color:var(--accent);">Sex-linked recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Sex-linked recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Brown markings, warm tone</td>
               <td style="padding:10px 12px;"><a href="/blog/cinnamon-lovebird-genetics/">Cinnamon genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Dilute</td>
-              <td style="padding:10px 12px;color:var(--accent);">Autosomal recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Autosomal recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Paled body, normal eyes and feet</td>
               <td style="padding:10px 12px;"><a href="/blog/dilute-lovebird-genetics/">Dilute genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:var(--bg-input);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Bronze Fallow</td>
-              <td style="padding:10px 12px;color:var(--accent);">Autosomal recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Autosomal recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Reduced melanin, burgundy eyes</td>
               <td style="padding:10px 12px;"><a href="/blog/bronze-fallow-lovebird-genetics/">Bronze Fallow genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Pale Fallow / Dun Fallow</td>
-              <td style="padding:10px 12px;color:var(--accent);">Sex-linked / autosomal recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Sex-linked / autosomal recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Faded body, red to plum eyes</td>
               <td style="padding:10px 12px;"><a href="/blog/pale-fallow-vs-dun-fallow/">Pale vs Dun Fallow</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:var(--bg-input);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Lutino / Albino</td>
-              <td style="padding:10px 12px;color:var(--accent);">Sex-linked recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Sex-linked recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Eumelanin removed, red eyes</td>
               <td style="padding:10px 12px;"><a href="/blog/lutino-albino-lovebird-genetics/">Lutino and Albino genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Dark Factor</td>
-              <td style="padding:10px 12px;color:var(--accent);">Incomplete dominant</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Incomplete dominant</td>
               <td style="padding:10px 12px;color:var(--text-2);">Darkened shade (dark green, olive)</td>
               <td style="padding:10px 12px;"><a href="/blog/dark-factor-lovebird-genetics/">Dark Factor genetics</a></td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);background:var(--bg-input);">
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Violet</td>
-              <td style="padding:10px 12px;color:var(--accent);">Incomplete dominant</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Incomplete dominant</td>
               <td style="padding:10px 12px;color:var(--text-2);">Violet sheen, strongest on blue</td>
               <td style="padding:10px 12px;"><a href="/blog/violet-lovebird-genetics/">Violet genetics</a></td>
             </tr>
             <tr>
               <td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Opaline</td>
-              <td style="padding:10px 12px;color:var(--accent);">Sex-linked recessive</td>
+              <td style="padding:10px 12px;color:var(--accent-strong);">Sex-linked recessive</td>
               <td style="padding:10px 12px;color:var(--text-2);">Cleared head and back, spread mask</td>
               <td style="padding:10px 12px;"><a href="/blog/opaline-lovebird-genetics/">Opaline genetics</a></td>
             </tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Pastel</td><td style="padding:10px 12px;color:var(--accent);">Autosomal recessive</td><td style="padding:10px 12px;color:var(--text-2);">~50% eumelanin cut; NSL-ino a-locus allele with Ino, DEC and Bronze Fallow</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=Pastel%3Avisual&amp;f=Green&amp;ft=Pastel%3Avisual">Open in calculator</a></td></tr>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Recessive Pied</td><td style="padding:10px 12px;color:var(--accent);">Autosomal recessive</td><td style="padding:10px 12px;color:var(--text-2);">Clear irregular patches; splits possible</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=RecPied%3Avisual&amp;f=Green&amp;ft=RecPied%3Avisual">Open in calculator</a></td></tr>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Pale</td><td style="padding:10px 12px;color:var(--accent);">Sex-linked recessive</td><td style="padding:10px 12px;color:var(--text-2);">Allele of the ino locus (ino<sup>pe</sup>), allelic with Pallid and SL ino; softer dilution</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=Pale%3Avisual&amp;f=Green">Open in calculator</a></td></tr>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Slaty</td><td style="padding:10px 12px;color:var(--accent);">Autosomal dominant</td><td style="padding:10px 12px;color:var(--text-2);">Slate-grey wash, strongest on blue; no splits</td><td style="padding:10px 12px;"><a href="/?m=Blue+1&amp;mt=Slaty%3ASF&amp;f=Blue+1">Open in calculator</a></td></tr>
-<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Dominant Pied</td><td style="padding:10px 12px;color:var(--accent);">Autosomal dominant</td><td style="padding:10px 12px;color:var(--text-2);">Shows with one copy; no splits</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=DomPied%3ASF&amp;f=Green">Open in calculator</a></td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Pastel</td><td style="padding:10px 12px;color:var(--accent-strong);">Autosomal recessive</td><td style="padding:10px 12px;color:var(--text-2);">~50% eumelanin cut; NSL-ino a-locus allele with Ino, DEC and Bronze Fallow</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=Pastel%3Avisual&amp;f=Green&amp;ft=Pastel%3Avisual">Open in calculator</a></td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Recessive Pied</td><td style="padding:10px 12px;color:var(--accent-strong);">Autosomal recessive</td><td style="padding:10px 12px;color:var(--text-2);">Clear irregular patches; splits possible</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=RecPied%3Avisual&amp;f=Green&amp;ft=RecPied%3Avisual">Open in calculator</a></td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Pale</td><td style="padding:10px 12px;color:var(--accent-strong);">Sex-linked recessive</td><td style="padding:10px 12px;color:var(--text-2);">Allele of the ino locus (ino<sup>pe</sup>), allelic with Pallid and SL ino; softer dilution</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=Pale%3Avisual&amp;f=Green">Open in calculator</a></td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Slaty</td><td style="padding:10px 12px;color:var(--accent-strong);">Autosomal dominant</td><td style="padding:10px 12px;color:var(--text-2);">Slate-grey wash, strongest on blue; no splits</td><td style="padding:10px 12px;"><a href="/?m=Blue+1&amp;mt=Slaty%3ASF&amp;f=Blue+1">Open in calculator</a></td></tr>
+<tr style="border-bottom:1px solid var(--border);"><td style="padding:10px 14px;color:var(--text-1);font-weight:600;">Dominant Pied</td><td style="padding:10px 12px;color:var(--accent-strong);">Autosomal dominant</td><td style="padding:10px 12px;color:var(--text-2);">Shows with one copy; no splits</td><td style="padding:10px 12px;"><a href="/?m=Green&amp;mt=DomPied%3ASF&amp;f=Green">Open in calculator</a></td></tr>
 </tbody>
         </table>
       </div>
