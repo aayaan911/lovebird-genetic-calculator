@@ -883,6 +883,114 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
   .art-header table,
   .art-header .chart-table-wrap{max-width:100%!important;width:100%!important;margin-left:0!important;margin-right:0!important}
 }
+
+/* ══════════ FIX PACK v4 ══════════ */
+
+/* 1 · .shell is nested inside .page-wrap, so it must not add a second gutter */
+.page-wrap .shell{padding-left:0!important;padding-right:0!important;max-width:100%!important;margin:0!important;padding-top:28px!important}
+.page-wrap .art-header{padding-left:0!important;padding-right:0!important;max-width:100%!important;margin:0!important}
+
+/* 2 · LIGHT-MODE TABLES · exact tokens from bird-medicine-tracker */
+:root{
+  --tbl-bg:#ffffff; --tbl-bd:#e7e7e3; --tbl-grid:#dedeD8;
+  --tbl-head:#f7f7f5; --tbl-stripe:#f2f2ed;
+  --tbl-tx:#111315; --tbl-tx2:#5c6367; --tbl-tx3:#8f979c;
+  --tbl-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.05);
+}
+[data-theme="dark"]{
+  --tbl-bg:#161a1e; --tbl-bd:#666; --tbl-grid:#3a4046;
+  --tbl-head:#1E232A; --tbl-stripe:rgba(255,255,255,.028);
+  --tbl-tx:#E8EAED; --tbl-tx2:#B6BCC3; --tbl-tx3:#9aa2aa;
+  --tbl-shadow:none;
+}
+.chart-table-wrap,.art-content .chart-table-wrap,.tblwrap,
+.art-content>table,.art-header>table,.page-wrap>table{box-shadow:var(--tbl-shadow)!important}
+
+/* 3 · RAIL · two guides, green markers */
+.glist a{align-items:flex-start!important;gap:10px!important;padding:12px 0!important}
+.glist a i{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--g)!important;
+  background:var(--gbg);border:1px solid var(--gbd);border-radius:6px;
+  min-width:24px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.glist a span{flex:1;min-width:0}
+.glist a:hover i{background:var(--g);color:#fff!important;border-color:var(--g)}
+a.glist-all{border-top:1px solid var(--bd)!important;margin-top:4px;padding-top:13px!important;
+  color:var(--g)!important;font-weight:700!important;font-size:13.5px!important;
+  display:flex!important;align-items:center;gap:7px;min-height:44px}
+a.glist-all:hover{color:var(--gh)!important}
+a.glist-all span{flex:none!important}
+
+/* 4 · MOBILE ────────────────────────────────────────────────── */
+@media(max-width:980px){
+  .page-wrap .shell{padding-top:22px!important}
+  .rail{margin-top:38px!important}
+}
+@media(max-width:760px){
+  .page-wrap{padding-left:16px!important;padding-right:16px!important}
+  .wrap{padding-left:16px;padding-right:16px}
+  .art-header h1{font-size:clamp(26px,7.2vw,34px)!important;line-height:1.16!important}
+  .art-header .art-meta-grid{margin-top:18px!important}
+  .art-content h2{margin-top:36px!important}
+  .art-content p,.art-content li{font-size:16px!important}
+  .key-box,.warn-box,.breeder-note,.calc-cta,.try-pairings{padding:16px 16px!important;border-radius:12px!important}
+  .calc-cta{flex-direction:column;align-items:flex-start!important}
+  .calc-cta .calc-cta-btn{width:100%}
+  .try-pairings-row{flex-direction:column}
+  .try-chip{width:100%;justify-content:flex-start}
+  .s-dark{padding-block:48px!important;margin-top:44px!important}
+  .scard{padding:18px!important}
+  .rel-card{padding:16px!important}
+  .related-grid{grid-template-columns:1fr!important}
+}
+@media(max-width:620px){
+  .art-header .art-byline{align-items:flex-start!important}
+  .art-header .art-follow{margin-left:0!important;width:100%;justify-content:center}
+  .art-header .art-byline-txt{flex:1 1 100%}
+}
+@media(max-width:430px){
+  .art-header .art-meta-cell{padding:11px 13px!important}
+  .art-content th,.art-header th,.page-wrap th{padding:9px 10px!important;font-size:10.5px!important}
+  .art-content td,.art-header td,.page-wrap td{padding:10px 10px!important;font-size:13.5px!important}
+  .art-content tbody th,.art-header tbody th,.page-wrap tbody th{padding:10px 10px!important;font-size:13.5px!important}
+  .nav{height:56px}
+  .logo{font-size:14.5px}
+  .logo small{font-size:10px}
+}
+/* nothing may push the page sideways */
+html,body{overflow-x:hidden}
+.art-content img,.art-header img{max-width:100%;height:auto}
+
+/* ══════════ CONSISTENCY v1 · one radius scale, one link behaviour ══════════ */
+:root{--rad-box:14px;--rad-ctl:10px;--rad-pill:999px}
+/* every surface box */
+.key-box,.warn-box,.breeder-note,.calc-cta,.try-pairings,.toc-box,
+.chart-table-wrap,.tblwrap,.art-content>table,.art-header>table,.page-wrap>table,
+.art-header .art-meta-grid,.art-header .art-byline,.art-header .art-answer,.art-header .art-lede,
+.scard,.rel-card,.faq-section{border-radius:var(--rad-box)!important}
+/* every control */
+.btn,.b-pri,.b-wh,.rbtn,.calc-cta-btn,.themebtn,.art-follow,.glist a i{border-radius:var(--rad-ctl)!important}
+.try-chip,.sfacts span,.eyebrow,.rel-tag,.parent-pill{border-radius:var(--rad-pill)!important}
+.logo .mk,.scard.sis .sw .ic{border-radius:9px!important}
+
+/* one link behaviour for every in-content link, FAQ included */
+.art-content a:not(.btn):not(.calc-cta-btn):not(.try-chip):not(.rel-card),
+.art-header a:not(.btn):not(.art-follow),
+.faq-a a,.faq-q a,.faq-item a,
+.references-section a,.key-box a,.warn-box a,.breeder-note a{
+  color:var(--g)!important;font-weight:600!important;text-decoration:none!important;
+  background-image:linear-gradient(var(--g),var(--g))!important;
+  background-size:100% 1px!important;background-repeat:no-repeat!important;
+  background-position:0 calc(100% - 1px)!important;
+  padding-bottom:1px;transition:background-size .16s ease,color .16s ease}
+.art-content a:not(.btn):not(.calc-cta-btn):not(.try-chip):not(.rel-card):hover,
+.art-header a:not(.btn):not(.art-follow):hover,
+.faq-a a:hover,.faq-q a:hover,.faq-item a:hover,
+.references-section a:hover,.key-box a:hover,.warn-box a:hover,.breeder-note a:hover{
+  color:var(--gh)!important;background-size:100% 2px!important}
+.art-content a:not(.btn)::after,.faq-a a::after{content:none!important}
+/* sidebar and chrome links stay quiet */
+.glist a,.rail a,.crumb a,.nl,.v3ft a,.rel-card{background-image:none!important;text-decoration:none!important}
+.glist a:hover span{color:var(--g)}
+@media(prefers-reduced-motion:reduce){.art-content a,.faq-a a{transition:none!important}}
 </style>
 </head>
 <body>
@@ -1261,11 +1369,11 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
   <div class="scard sis">
     <div class="lab">Sister site</div>
     <div class="sw"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/></svg></span><span><b>Budgerigar Genetics</b><small>budgerigargenetics.com</small></span></div>
-    <p>Breed budgies as well? The same engine, rebuilt for budgerigar mutations, with the same pairing percentages and split notation you already read here.</p>
+    <p>Breed budgies too? Same engine, same pairing percentages, rebuilt for budgerigar mutations.</p>
     <div class="sfacts"><span>Free forever</span><span>No signup</span></div>
     <a class="btn" href="https://budgerigargenetics.com" target="_blank" rel="noopener">Open budgerigar calculator</a>
   </div>
-  <div class="scard"><div class="lab">Related guides</div><div class="glist"><a href="/blog/pallid-lovebird-genetics/"><i>01</i>Pallid Lovebird Genetics: Sex-Linked Inheritance Explained</a><a href="/blog/how-to-use-lovebird-genetics-calculator/"><i>02</i>How to Use the Lovebird Genetics Calculator: Step-by-Step</a><a href="/blog/aqua-parblue-yellowface-combinations/"><i>03</i>How to Breed the Rarest Lovebird Mutations: Aqua &amp; Parblue YellowFace</a><a href="/blog/lovebird-breeding-guide/"><i>04</i>Lovebird Breeding Guide: Pairing and Mutation Strategy</a><a href="/blog/mutations/"><i>05</i>All mutation guides</a></div></div>
+  <div class="scard"><div class="lab">Related guides</div><div class="glist"><a href="/blog/pallid-lovebird-genetics/"><i>01</i><span>Pallid Lovebird Genetics: Sex-Linked Inheritance Explained</span></a><a href="/blog/how-to-use-lovebird-genetics-calculator/"><i>02</i><span>How to Use the Lovebird Genetics Calculator: Step-by-Step</span></a><a class="glist-all" href="/blog/mutations/">See all mutation guides <span aria-hidden="true">&rarr;</span></a></div></div>
   <div class="scard"><div class="lab">Sourced from</div>
     <p style="margin:0">Every claim on this page is checked against Dirk Van den Abeele, <i>Lovebirds Compendium</i> (2016), and the Ornitho-Genetics VZW mutation list of 17 August 2025.</p></div>
 </aside></div>
