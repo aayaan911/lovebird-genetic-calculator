@@ -178,6 +178,12 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
 @media(max-width:1100px){.footer-cols{grid-template-columns:1fr 1fr 1fr;}}
 @media(max-width:900px){.footer-cols{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.footer-cols{grid-template-columns:1fr;}}
+/* the container follows the page shell exactly: 1480px + clamp gutter, block layout.
+   Legacy article CSS also styled .footer-inner as a flex row; this wins over it. */
+.site-footer .footer-inner{display:block;max-width:1480px;margin:0 auto;padding:0 clamp(16px,4vw,48px);align-items:initial;justify-content:initial;gap:0;flex-wrap:nowrap}
+.site-footer .footer-inner p{font-size:inherit;color:inherit}
+@media(max-width:768px){.site-footer .footer-inner{padding-left:clamp(16px,4vw,48px);padding-right:clamp(16px,4vw,48px)}}
+@media(max-width:760px){.site-footer .footer-inner{padding-left:16px;padding-right:16px}}
 </style>
 <footer class="site-footer">
   <div class="footer-inner">
