@@ -96,11 +96,11 @@
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--ctl-fill:#12795A;--ctl-on:#ffffff;--accent-strong:#12795A;
+:root{--ctl-fill:#2d6835;--ctl-on:#ffffff;--accent-strong:#2d6835;
   color-scheme:light;
-  --accent:#1D9E75;
-  --accent-dim:rgba(29,158,117,0.1);
-  --accent-border:rgba(29,158,117,0.25);
+  --accent:#4ca154;
+  --accent-dim:rgba(76,161,84,0.1);
+  --accent-border:rgba(76,161,84,0.25);
   --bg-page:#f7f7f5;
   --bg-card:#ffffff;
   --bg-input:#f2f2f0;
@@ -115,7 +115,7 @@
   --radius-btn:12px;
   --radius-sm:10px;
 }
-[data-theme="dark"]{--ctl-fill:#2BBE8E;--ctl-on:#08231B;--accent-strong:#5DCAA5;
+[data-theme="dark"]{--ctl-fill:#4ca154;--ctl-on:#06210B;--accent-strong:#4ca154;
   color-scheme:dark;
   --bg-page:#080808;
   --bg-card:#141414;
@@ -192,7 +192,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 /* ── CALLOUT BOXES ── */
 .key-box{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-sm);padding:18px 20px;margin:24px 0;}
 .key-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:8px;}
-.breeder-note{background:rgba(29,158,117,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
+.breeder-note{background:rgba(76,161,84,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
 .breeder-note-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:6px;}
 .breeder-note p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .key-box p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
@@ -285,12 +285,12 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-byline-name{font-size:13.5px;font-weight:700;color:var(--text-1);}
 .art-byline-role{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3);margin-top:3px;}
 .art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent-strong);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
-.art-follow:hover{background:rgba(29,158,117,0.18);}
+.art-follow:hover{background:rgba(76,161,84,0.18);}
 @media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
 
 /* AA text contrast: brand green is the surface colour; interactive text and
    filled buttons use the darker step. Dark surfaces flip it back to light. */
-footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#5DCAA5}
+footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#4ca154}
 </style>
 <style id="hdr-compact-fix">
 /* Shared 1100px page shell — same as blog index */
@@ -433,7 +433,7 @@ table.pairing-table td:first-child,table.compare-table td:first-child{
   color:var(--tbl-tx)!important;font-weight:600!important}
 .art-content tbody tr:hover td,.chart-table-wrap tbody tr:hover td,.tblwrap tbody tr:hover td{
   background:var(--tbl-head)!important}
-.pct,td.pct,.pct-badge,.art-content .pct{font-family:var(--mono,ui-monospace,monospace)!important;font-weight:700!important;color:var(--accent,#1D9E75)!important}
+.pct,td.pct,.pct-badge,.art-content .pct{font-family:var(--mono,ui-monospace,monospace)!important;font-weight:700!important;color:var(--accent,#4ca154)!important}
 .xrow td,.xrow th,.art-content .xrow td,table.pairing-table .xrow th{
   background:var(--tbl-head)!important;color:var(--tbl-tx)!important;font-weight:700!important;
   border-bottom:1px solid var(--tbl-bd)!important;text-transform:none!important;letter-spacing:0!important;font-size:13.5px!important}
@@ -536,7 +536,7 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
       </div>
 
       <div class="try-pairings"><div class="try-pairings-label">Try these pairings instantly</div><div class="try-pairings-row"><a class="try-chip" href="/?f=Green&fo=visual&m=Green&mo=normal">&rarr; Normal &times; Visual Opaline</a><a class="try-chip" href="/?m=Green&mo=split&f=Green&fo=normal">&rarr; Split Opaline &times; Normal</a><a class="try-chip" href="/?m=Green&mo=split&f=Green&fo=visual">&rarr; Split Opaline &times; Visual Opaline</a><a class="try-chip" href="/?m=Green&mo=visual&f=Green&fo=normal">&rarr; Visual Opaline &times; Normal</a></div></div>
-            <div style="margin:24px 0;padding:16px 20px;background:rgba(29,158,117,0.05);border:1px solid rgba(29,158,117,0.35);border-left:4px solid var(--accent,#1D9E75);border-radius:0 10px 10px 0;"><div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#1D9E75);margin-bottom:6px;">From the Lovebird Compendium</div><p style="margin:0;font-size:15px;line-height:1.7;color:var(--text-2,#c9c9c9);">Opaline is sex-linked recessive, which is what makes it so useful at the nest: because a hen carries only one Z chromosome, an Opaline female is always visual, never a hidden split, so her status is self-evident. Split males can be spotted by their larger tail spots. Opaline was confirmed in <em>Agapornis fischeri</em> via Hong Kong in 2010, then established in Indonesia (Lovebird Compendium, pp. 330 to 343).</p></div>
+            <div style="margin:24px 0;padding:16px 20px;background:rgba(76,161,84,0.05);border:1px solid rgba(76,161,84,0.35);border-left:4px solid var(--accent,#4ca154);border-radius:0 10px 10px 0;"><div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#4ca154);margin-bottom:6px;">From the Lovebird Compendium</div><p style="margin:0;font-size:15px;line-height:1.7;color:var(--text-2,#c9c9c9);">Opaline is sex-linked recessive, which is what makes it so useful at the nest: because a hen carries only one Z chromosome, an Opaline female is always visual, never a hidden split, so her status is self-evident. Split males can be spotted by their larger tail spots. Opaline was confirmed in <em>Agapornis fischeri</em> via Hong Kong in 2010, then established in Indonesia (Lovebird Compendium, pp. 330 to 343).</p></div>
       <h2 id="before-you-start">What You Need to Know Before Breeding Opaline</h2>
       <p>Opaline in <em>Agapornis fischeri</em> (Fischer's lovebird) is a <strong>sex-linked recessive</strong> mutation. Before setting up any Opaline pairing, you need to understand the two facts that control every outcome:</p>
       <ul>

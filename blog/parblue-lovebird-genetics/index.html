@@ -140,8 +140,8 @@
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--ctl-fill:#12795A;--ctl-on:#ffffff;--accent-strong:#12795A;color-scheme:light;--accent:#1D9E75;--accent-dim:rgba(29,158,117,0.1);--accent-border:rgba(29,158,117,0.25);--bg-page:#f7f7f5;--bg-card:#ffffff;--bg-input:#f2f2f0;--text-1:#0a0a0a;--text-2:#4a4a4a;--text-3:#888;--border:#e2e2de;--border-strong:#c8c8c4;--font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'DM Mono','Courier New',ui-monospace,monospace;--radius-card:20px;--radius-btn:12px;--radius-sm:10px;}
-[data-theme="dark"]{--ctl-fill:#2BBE8E;--ctl-on:#08231B;--accent-strong:#5DCAA5;color-scheme:dark;--bg-page:#080808;--bg-card:#141414;--bg-input:#1e1e1e;--text-1:#f0f0ee;--text-2:#a0a09a;--text-3:#606060;--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.16);}
+:root{--ctl-fill:#2d6835;--ctl-on:#ffffff;--accent-strong:#2d6835;color-scheme:light;--accent:#4ca154;--accent-dim:rgba(76,161,84,0.1);--accent-border:rgba(76,161,84,0.25);--bg-page:#f7f7f5;--bg-card:#ffffff;--bg-input:#f2f2f0;--text-1:#0a0a0a;--text-2:#4a4a4a;--text-3:#888;--border:#e2e2de;--border-strong:#c8c8c4;--font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'DM Mono','Courier New',ui-monospace,monospace;--radius-card:20px;--radius-btn:12px;--radius-sm:10px;}
+[data-theme="dark"]{--ctl-fill:#4ca154;--ctl-on:#06210B;--accent-strong:#4ca154;color-scheme:dark;--bg-page:#080808;--bg-card:#141414;--bg-input:#1e1e1e;--text-1:#f0f0ee;--text-2:#a0a09a;--text-3:#606060;--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.16);}
 html{scroll-behavior:smooth;}
 body{background:var(--bg-page);font-family:var(--font);font-size:16px;line-height:1.6;color:var(--text-1);-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
@@ -186,7 +186,7 @@ a{color:inherit;text-decoration:none;}
 a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important;}
 .key-box{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-sm);padding:18px 20px;margin:24px 0;}
 .key-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:8px;}
-.breeder-note{background:rgba(29,158,117,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
+.breeder-note{background:rgba(76,161,84,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
 .breeder-note-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:6px;}
 .breeder-note p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .key-box p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
@@ -225,7 +225,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .compare-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);}
 .compare-table tr:last-child td{border-bottom:none;}
 .compare-table td:first-child{font-weight:600;color:var(--text-1);}
-.tag-yes{color:#16a34a;font-weight:700;}
+.tag-yes{color:#4ca154;font-weight:700;}
 .tag-no{color:#dc2626;font-weight:700;}
 .calc-cta{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-card);padding:22px 24px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .calc-cta-text p{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:3px;}
@@ -268,12 +268,12 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-byline-name{font-size:13.5px;font-weight:700;color:var(--text-1);}
 .art-byline-role{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3);margin-top:3px;}
 .art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent-strong);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
-.art-follow:hover{background:rgba(29,158,117,0.18);}
+.art-follow:hover{background:rgba(76,161,84,0.18);}
 @media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
 
 /* AA text contrast: brand green is the surface colour; interactive text and
    filled buttons use the darker step. Dark surfaces flip it back to light. */
-footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#5DCAA5}
+footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#4ca154}
 </style>
 <style id="hdr-compact-fix">
 /* Shared 1100px page shell, same as blog index */
@@ -416,7 +416,7 @@ table.pairing-table td:first-child,table.compare-table td:first-child{
   color:var(--tbl-tx)!important;font-weight:600!important}
 .art-content tbody tr:hover td,.chart-table-wrap tbody tr:hover td,.tblwrap tbody tr:hover td{
   background:var(--tbl-head)!important}
-.pct,td.pct,.pct-badge,.art-content .pct{font-family:var(--mono,ui-monospace,monospace)!important;font-weight:700!important;color:var(--accent,#1D9E75)!important}
+.pct,td.pct,.pct-badge,.art-content .pct{font-family:var(--mono,ui-monospace,monospace)!important;font-weight:700!important;color:var(--accent,#4ca154)!important}
 .xrow td,.xrow th,.art-content .xrow td,table.pairing-table .xrow th{
   background:var(--tbl-head)!important;color:var(--tbl-tx)!important;font-weight:700!important;
   border-bottom:1px solid var(--tbl-bd)!important;text-transform:none!important;letter-spacing:0!important;font-size:13.5px!important}
@@ -511,14 +511,14 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
 
       
 
-      <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--surface,var(--bg-card));border-left:4px solid var(--accent,#1D9E75);border-radius:0 10px 10px 0;">
+      <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--surface,var(--bg-card));border-left:4px solid var(--accent,#4ca154);border-radius:0 10px 10px 0;">
         <strong>TL;DR</strong>
         <p style="margin:8px 0 0;">Parblue in Fischer's lovebirds (<em>Agapornis fischeri</em>) is the compound of the two blue-locus alleles, Blue 1 and Blue 2 (bl1 // bl2). The blue factor only partially reduces the yellow psittacofulvin, so a parblue looks like a soft sea-green to yellowish bird sitting between green and full blue. The fastest way to make it is <strong>Blue 1 &times; Blue 2, which gives 100% Parblue</strong>. Because parblue is a compound of two alleles, a true "split parblue" is really a green bird carrying one blue allele (Blue 1 or Blue 2).</p>
       </div>
 
       <div class="try-pairings"><div class="try-pairings-label">Try these pairings instantly</div><div class="try-pairings-row"><a class="try-chip" href="/?m=Blue%201&f=Blue%202">&rarr; Blue 1 &times; Blue 2 (makes 100% Parblue)</a><a class="try-chip" href="/?m=Parblue%20(B1B2)&f=Parblue%20(B1B2)">&rarr; Parblue &times; Parblue</a><a class="try-chip" href="/?m=Parblue%20(B1B2)&f=Green">&rarr; Parblue &times; Green</a><a class="try-chip" href="/?m=Parblue%20(B1B2)&f=Blue%201">&rarr; Parblue &times; Blue 1</a></div></div>
 
-      <div style="margin:24px 0;padding:16px 20px;background:rgba(29,158,117,0.05);border:1px solid rgba(29,158,117,0.35);border-left:4px solid var(--accent,#1D9E75);border-radius:0 10px 10px 0;"><div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#1D9E75);margin-bottom:6px;">From the Lovebird Compendium</div><p style="margin:0;font-size:15px;line-height:1.7;color:var(--text-2,#c9c9c9);">Van den Abeele documents the blue factor as a series of alleles at one locus rather than a single on/off gene. Blue 1 and Blue 2 are two of these alleles, and the blue factor reduces psittacofulvin (the yellow/red pigment) by different degrees. The bl1 // bl2 heterozygote, the parblue, keeps part of that psittacofulvin, which is why it reads as a partial blue rather than a pure blue (Lovebird Compendium, pp. 298 to 315).</p></div>
+      <div style="margin:24px 0;padding:16px 20px;background:rgba(76,161,84,0.05);border:1px solid rgba(76,161,84,0.35);border-left:4px solid var(--accent,#4ca154);border-radius:0 10px 10px 0;"><div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#4ca154);margin-bottom:6px;">From the Lovebird Compendium</div><p style="margin:0;font-size:15px;line-height:1.7;color:var(--text-2,#c9c9c9);">Van den Abeele documents the blue factor as a series of alleles at one locus rather than a single on/off gene. Blue 1 and Blue 2 are two of these alleles, and the blue factor reduces psittacofulvin (the yellow/red pigment) by different degrees. The bl1 // bl2 heterozygote, the parblue, keeps part of that psittacofulvin, which is why it reads as a partial blue rather than a pure blue (Lovebird Compendium, pp. 298 to 315).</p></div>
 
       <h2 id="what-is-parblue">What is the Parblue mutation in lovebirds?</h2>
       <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>Parblue is the Blue 1 + Blue 2 compound</strong> in Fischer's lovebirds. The blue factor partially removes the yellow psittacofulvin pigment instead of removing it fully, so a parblue looks like a soft sea-green or yellow-tinged bird sitting between a normal green and a full blue. It is not a separate gene, it is what appears when one Blue 1 allele and one Blue 2 allele land in the same bird.</p>
@@ -528,12 +528,12 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
       <h2 id="split-parblue">What is a "split parblue"?</h2>
       <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>A split parblue is a green-looking bird carrying one blue-locus allele</strong> (Blue 1 or Blue 2) hidden as a split. Because parblue itself needs two blue alleles, a bird with only one still looks green but passes that allele to about half of its chicks. It is written <strong>Green / Blue 1</strong>, a single slash, because that is a split.</p>
       <p>This trips up a lot of breeders. There is no single "parblue gene" to be split for. When a bird is described as "split parblue," what that really means is that the bird is a normal green carrying one blue allele. Pair two such splits carrying different blue alleles (one carrying Blue 1, one carrying Blue 2) and a portion of the chicks can inherit both, appearing as visual parblue.</p>
-      <div class="key-box" style="border-color:rgba(29,158,117,0.35);background:rgba(29,158,117,0.05);"><div class="key-box-label" style="color:var(--accent-strong);">Notation used on this site</div><p>A <strong>single slash</strong> means a <strong>split</strong>: one allele is hidden behind a dominant partner, as in Green / Blue 1 or Green / Aqua. A <strong>double slash</strong> means an <strong>allelic compound</strong>: two different alleles of the same gene sitting opposite each other and both expressing, as in bl1 // bl2 (Parblue), bl aq // bl1 (Aqua B1) or DEC / Ino. A homozygote is written with a single slash between two copies of the same allele, as in bl1 / bl1 (Blue 1).</p></div>
+      <div class="key-box" style="border-color:rgba(76,161,84,0.35);background:rgba(76,161,84,0.05);"><div class="key-box-label" style="color:var(--accent-strong);">Notation used on this site</div><p>A <strong>single slash</strong> means a <strong>split</strong>: one allele is hidden behind a dominant partner, as in Green / Blue 1 or Green / Aqua. A <strong>double slash</strong> means an <strong>allelic compound</strong>: two different alleles of the same gene sitting opposite each other and both expressing, as in bl1 // bl2 (Parblue), bl aq // bl1 (Aqua B1) or DEC / Ino. A homozygote is written with a single slash between two copies of the same allele, as in bl1 / bl1 (Blue 1).</p></div>
 
       <h2 id="how-to-breed-parblue">How do you breed a Parblue lovebird?</h2>
       <p class="snippet-answer" style="font-size:16px;line-height:1.7;color:var(--text-1);background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:6px 0 18px;"><strong>Pair Blue 1 &times; Blue 2 and you get 100% Parblue.</strong> Every chick inherits one Blue 1 allele from one parent and one Blue 2 allele from the other, which is the exact bl1 // bl2 compound that defines parblue. This is the single most reliable route and the reason many breeders keep both a Blue 1 and a Blue 2 bird in the aviary.</p>
       <p>If you already own a parblue, pairing it back to a pure Blue 1 gives 50% Parblue and 50% Blue 1, and to a pure Blue 2 gives 50% Parblue and 50% Blue 2. Parblue &times; Parblue gives 50% Parblue plus Blue 1 and Blue 2 birds. Pairing a parblue to a pure Green produces no visual parblue at all, only green chicks each carrying one blue allele (green split blue), because green is dominant to the blue factor.</p>
-      <div class="key-box" style="border-color:rgba(29,158,117,0.35);background:rgba(29,158,117,0.05);"><div class="key-box-label" style="color:var(--accent-strong);">The key move</div><p>Keep one good Blue 1 and one good Blue 2 in your program. Blue 1 &times; Blue 2 gives you a full clutch of parblue in a single pairing, no splits to chase and no waiting seasons.</p></div>
+      <div class="key-box" style="border-color:rgba(76,161,84,0.35);background:rgba(76,161,84,0.05);"><div class="key-box-label" style="color:var(--accent-strong);">The key move</div><p>Keep one good Blue 1 and one good Blue 2 in your program. Blue 1 &times; Blue 2 gives you a full clutch of parblue in a single pairing, no splits to chase and no waiting seasons.</p></div>
 
       <h2 id="pairings">All Parblue pairing outcomes (engine-verified)</h2>
       <p>Every percentage below is generated directly by the Lovebird Genetics calculator engine, base colour to base colour, with no extra mutations added. Tap any row to open it live.</p>
@@ -546,10 +546,10 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
       <h2 id="parblue-vs-blue-vs-aqua">Parblue vs Blue vs Aqua: how they differ</h2>
       <p>All three live at the same blue locus, and that locus carries four alleles: bl1 (Blue 1), bl2 (Blue 2), bl aq (Aqua) and bl tq (Turquoise). All of them reduce psittacofulvin, which is why they are so often confused. The difference is how much psittacofulvin each removes and which alleles are paired.</p>
       <table class="cmp-table" style="width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
-        <thead><tr style="background:rgba(29,158,117,0.08);"><th style="text-align:left;padding:10px 12px;">Type</th><th style="text-align:left;padding:10px 12px;">Genotype</th><th style="text-align:left;padding:10px 12px;">Look</th></tr></thead>
+        <thead><tr style="background:rgba(76,161,84,0.08);"><th style="text-align:left;padding:10px 12px;">Type</th><th style="text-align:left;padding:10px 12px;">Genotype</th><th style="text-align:left;padding:10px 12px;">Look</th></tr></thead>
         <tbody>
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;"><strong>Blue (1 or 2)</strong></td><td style="padding:10px 12px;">bl1 / bl1 or bl2 / bl2, homozygous for one allele</td><td style="padding:10px 12px;">Strongest psittacofulvin removal, clean blue and white</td></tr>
-        <tr style="border-top:1px solid var(--border);background:rgba(29,158,117,0.05);"><td style="padding:10px 12px;"><strong>Parblue</strong></td><td style="padding:10px 12px;">bl1 // bl2, compound of the two blue alleles</td><td style="padding:10px 12px;">Partial removal, soft sea-green to yellow, sits between green and blue</td></tr>
+        <tr style="border-top:1px solid var(--border);background:rgba(76,161,84,0.05);"><td style="padding:10px 12px;"><strong>Parblue</strong></td><td style="padding:10px 12px;">bl1 // bl2, compound of the two blue alleles</td><td style="padding:10px 12px;">Partial removal, soft sea-green to yellow, sits between green and blue</td></tr>
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;"><strong>Aqua</strong></td><td style="padding:10px 12px;">uses bl aq, one of the four alleles of this locus: bl aq // bl1 (Aqua B1), bl aq // bl2 (Aqua B2), bl aq / bl aq (Aqua Homo)</td><td style="padding:10px 12px;">Clean sea-green; Aqua Homo is the deepest</td></tr>
         </tbody>
       </table>

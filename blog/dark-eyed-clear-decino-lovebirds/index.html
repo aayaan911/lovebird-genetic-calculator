@@ -148,8 +148,8 @@
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{--ctl-fill:#12795A;--ctl-on:#ffffff;--accent-strong:#12795A;color-scheme:light;--accent:#1D9E75;--accent-dim:rgba(29,158,117,0.1);--accent-border:rgba(29,158,117,0.25);--bg-page:#f7f7f5;--bg-card:#ffffff;--bg-input:#f2f2f0;--text-1:#0a0a0a;--text-2:#4a4a4a;--text-3:#888;--border:#e2e2de;--border-strong:#c8c8c4;--font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'DM Mono','Courier New',ui-monospace,monospace;--radius-card:20px;--radius-btn:12px;--radius-sm:10px;}
-[data-theme="dark"]{--ctl-fill:#2BBE8E;--ctl-on:#08231B;--accent-strong:#5DCAA5;color-scheme:dark;--bg-page:#080808;--bg-card:#141414;--bg-input:#1e1e1e;--text-1:#f0f0ee;--text-2:#a0a09a;--text-3:#606060;--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.16);}
+:root{--ctl-fill:#2d6835;--ctl-on:#ffffff;--accent-strong:#2d6835;color-scheme:light;--accent:#4ca154;--accent-dim:rgba(76,161,84,0.1);--accent-border:rgba(76,161,84,0.25);--bg-page:#f7f7f5;--bg-card:#ffffff;--bg-input:#f2f2f0;--text-1:#0a0a0a;--text-2:#4a4a4a;--text-3:#888;--border:#e2e2de;--border-strong:#c8c8c4;--font:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'DM Mono','Courier New',ui-monospace,monospace;--radius-card:20px;--radius-btn:12px;--radius-sm:10px;}
+[data-theme="dark"]{--ctl-fill:#4ca154;--ctl-on:#06210B;--accent-strong:#4ca154;color-scheme:dark;--bg-page:#080808;--bg-card:#141414;--bg-input:#1e1e1e;--text-1:#f0f0ee;--text-2:#a0a09a;--text-3:#606060;--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.16);}
 html{scroll-behavior:smooth;}
 body{background:var(--bg-page);font-family:var(--font);font-size:16px;line-height:1.6;color:var(--text-1);-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
@@ -194,7 +194,7 @@ a{color:inherit;text-decoration:none;}
 a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important;}
 .key-box{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-sm);padding:18px 20px;margin:24px 0;}
 .key-box-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:8px;}
-.breeder-note{background:rgba(29,158,117,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
+.breeder-note{background:rgba(76,161,84,0.07);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:24px 0;}
 .breeder-note-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:6px;}
 .breeder-note p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
 .key-box p{font-size:14px;color:var(--text-2);line-height:1.65;margin:0;}
@@ -233,7 +233,7 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .compare-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);}
 .compare-table tr:last-child td{border-bottom:none;}
 .compare-table td:first-child{font-weight:600;color:var(--text-1);}
-.tag-yes{color:#16a34a;font-weight:700;}
+.tag-yes{color:#4ca154;font-weight:700;}
 .tag-no{color:#dc2626;font-weight:700;}
 .calc-cta{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius-card);padding:22px 24px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .calc-cta-text p{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:3px;}
@@ -276,12 +276,12 @@ a.calc-cta-btn,.calc-cta-btn{color:#fff !important;border-bottom:none !important
 .art-byline-name{font-size:13.5px;font-weight:700;color:var(--text-1);}
 .art-byline-role{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-3);margin-top:3px;}
 .art-follow{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent-strong);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .15s;}
-.art-follow:hover{background:rgba(29,158,117,0.18);}
+.art-follow:hover{background:rgba(76,161,84,0.18);}
 @media(max-width:560px){.art-meta-grid{grid-template-columns:1fr;}.art-byline{flex-wrap:wrap;}}
 
 /* AA text contrast: brand green is the surface colour; interactive text and
    filled buttons use the darker step. Dark surfaces flip it back to light. */
-footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#5DCAA5}
+footer,.footer-inner,.v3ft,.s-dark,.fbot,.footer-bar,.seo-band,.dark,[data-dark]{--accent-strong:#4ca154}
 </style>
 <style id="hdr-compact-fix">
 /* Shared 1100px page shell , same as blog index */
@@ -424,7 +424,7 @@ table.pairing-table td:first-child,table.compare-table td:first-child{
   color:var(--tbl-tx)!important;font-weight:600!important}
 .art-content tbody tr:hover td,.chart-table-wrap tbody tr:hover td,.tblwrap tbody tr:hover td{
   background:var(--tbl-head)!important}
-.pct,td.pct,.pct-badge,.art-content .pct{font-family:var(--mono,ui-monospace,monospace)!important;font-weight:700!important;color:var(--accent,#1D9E75)!important}
+.pct,td.pct,.pct-badge,.art-content .pct{font-family:var(--mono,ui-monospace,monospace)!important;font-weight:700!important;color:var(--accent,#4ca154)!important}
 .xrow td,.xrow th,.art-content .xrow td,table.pairing-table .xrow th{
   background:var(--tbl-head)!important;color:var(--tbl-tx)!important;font-weight:700!important;
   border-bottom:1px solid var(--tbl-bd)!important;text-transform:none!important;letter-spacing:0!important;font-size:13.5px!important}
@@ -516,7 +516,7 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
 
       <p>Dark Eyed Clear (DEC) is one of the oldest and most misunderstood mutations in Fischer's lovebirds, records go back to the 1930s, and it is still confused with Lutino, mislabelled, and faked in the market. This guide gives you the accurate genetics from Van den Abeele's Lovebird Compendium, the one tell that separates DEC from Lutino, what Decino really is, and every pairing verified against the book and our calculator.</p>
 
-      <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--surface,var(--bg-card));border-left:4px solid var(--accent,#1D9E75);border-radius:0 10px 10px 0;">
+      <div class="tldr-box" style="margin:28px 0;padding:20px 24px;background:var(--surface,var(--bg-card));border-left:4px solid var(--accent,#4ca154);border-radius:0 10px 10px 0;">
         <strong>TL;DR</strong>
         <p style="margin:8px 0 0;">DEC removes ~95% of the dark melanin, giving a mostly yellow bird with a light blue rump and <strong>dark eyes</strong> (Lutino has red eyes, that is the difference). DEC is autosomal recessive and an <strong>allele of the Ino gene</strong>. Its compound with Ino is <strong>DEC / Ino</strong> (white rump), which is not a separate mutation. DEC / Ino &times; Lutino gives 50% DEC / Ino + 50% Lutino.</p>
       </div>
@@ -528,7 +528,7 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
       <p style="font-size:13px;color:var(--text-3);margin:2px 0 18px;">&#10003; Every pairing, description and form on this page is verified against Dirk Van den Abeele's <em>Lovebird Compendium</em> (2016), pp. 374 to 385. Breeders write the DEC plus Ino bird as <strong>DEC / Ino</strong>, where the double slash marks two alleles of one gene rather than a split; the Compendium calls this same bird a DEC / Ino.</p>
       <p>Van den Abeele records the first dark eyed clear <em>Agapornis fischeri</em> as far back as the 1930s, which makes it likely one of the very first Fischer's mutations. The bird is primarily yellow, sometimes with a faint green hue or a few green spots that mostly fade after the first moult, and it keeps a light blue rump. The feet, nails and eyes stay dark. Genetic symbol: a<sup>dec</sup>.</p>
 
-      <div class="key-box" style="border-color:rgba(29,158,117,0.35);background:rgba(29,158,117,0.05);">
+      <div class="key-box" style="border-color:rgba(76,161,84,0.35);background:rgba(76,161,84,0.05);">
         <div class="key-box-label" style="color:var(--accent-strong);">From the Lovebird Compendium</div>
         <p>Dirk Van den Abeele documents Dark Eyed Clear as an autosomal recessive mutation removing roughly 95 percent of the eumelanin, giving a yellow bird with a light blue rump and dark eyes. It is an allele of the non-sex-linked (NSL) ino gene, the a-locus, so DEC, Ino and Pastel are all versions of the same gene (Lovebird Compendium, pp. 374 to 385).</p>
       </div>
@@ -536,10 +536,10 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
       <h2 id="dec-vs-lutino">DEC vs Lutino: it is all in the eyes</h2>
       <p>This is the mistake that costs breeders whole seasons. A DEC and a Lutino can look almost identical at a glance, both are yellow, but they are genetically different birds. The instant tell is the eye:</p>
       <table class="cmp-table" style="width:100%;border-collapse:collapse;margin:8px 0 22px;font-size:14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
-        <thead><tr style="background:rgba(29,158,117,0.08);"><th style="text-align:left;padding:10px 12px;">Feature</th><th style="text-align:left;padding:10px 12px;">Dark Eyed Clear (DEC)</th><th style="text-align:left;padding:10px 12px;">Lutino (Ino)</th></tr></thead>
+        <thead><tr style="background:rgba(76,161,84,0.08);"><th style="text-align:left;padding:10px 12px;">Feature</th><th style="text-align:left;padding:10px 12px;">Dark Eyed Clear (DEC)</th><th style="text-align:left;padding:10px 12px;">Lutino (Ino)</th></tr></thead>
         <tbody>
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;"><strong>Eyes</strong></td><td style="padding:10px 12px;">Dark</td><td style="padding:10px 12px;">Red</td></tr>
-        <tr style="border-top:1px solid var(--border);background:rgba(29,158,117,0.06);"><td style="padding:10px 12px;">Rump</td><td style="padding:10px 12px;">Light blue</td><td style="padding:10px 12px;">No blue</td></tr>
+        <tr style="border-top:1px solid var(--border);background:rgba(76,161,84,0.06);"><td style="padding:10px 12px;">Rump</td><td style="padding:10px 12px;">Light blue</td><td style="padding:10px 12px;">No blue</td></tr>
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;">Melanin reduction</td><td style="padding:10px 12px;">~95%</td><td style="padding:10px 12px;">~100%</td></tr>
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;">Inheritance</td><td style="padding:10px 12px;">Autosomal recessive (a-locus)</td><td style="padding:10px 12px;">Autosomal recessive (a-locus)</td></tr>
         </tbody>
@@ -554,17 +554,17 @@ table.pairing-table tr,table.compare-table tr{background:transparent!important}
       <p>In the calculator, you build a DEC / Ino by adding <strong>both DEC and Ino</strong> to the same bird. One alone stays pure DEC or pure Lutino.</p>
       <p>A DEC or DEC / Ino always carries its base colour, and it changes appearance completely depending on that base. This is where breeders get fooled, a DEC or DEC / Ino can look almost exactly like a Lutino, Albino or Creamino, and only the <strong>dark eyes</strong> give it away.</p>
       <table class="cmp-table" style="width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
-        <thead><tr style="background:rgba(29,158,117,0.08);"><th style="text-align:left;padding:10px 12px;">Base</th><th style="text-align:left;padding:10px 12px;">Colour</th><th style="text-align:left;padding:10px 12px;">Looks like, but with DARK eyes</th></tr></thead>
+        <thead><tr style="background:rgba(76,161,84,0.08);"><th style="text-align:left;padding:10px 12px;">Base</th><th style="text-align:left;padding:10px 12px;">Colour</th><th style="text-align:left;padding:10px 12px;">Looks like, but with DARK eyes</th></tr></thead>
         <tbody>
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;"><strong>Green DEC / Ino</strong></td><td style="padding:10px 12px;">Yellowish body</td><td style="padding:10px 12px;">Lutino</td></tr>
-        <tr style="border-top:1px solid var(--border);background:rgba(29,158,117,0.06);"><td style="padding:10px 12px;"><strong>Blue 1 / Blue 2 DEC / Ino</strong></td><td style="padding:10px 12px;">Nearly all white</td><td style="padding:10px 12px;">Albino</td></tr>
+        <tr style="border-top:1px solid var(--border);background:rgba(76,161,84,0.06);"><td style="padding:10px 12px;"><strong>Blue 1 / Blue 2 DEC / Ino</strong></td><td style="padding:10px 12px;">Nearly all white</td><td style="padding:10px 12px;">Albino</td></tr>
         <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;"><strong>Parblue DEC / Ino</strong></td><td style="padding:10px 12px;">Cream</td><td style="padding:10px 12px;">Creamino</td></tr>
         </tbody>
       </table>
       <p>Van den Abeele documents that DEC combined with the blue factor gives "a practically entirely white bird with dark eyes... called dark eyed clear blue" (Lovebird Compendium, p. 381). So a Blue DEC / Ino reads like an Albino and a Parblue DEC / Ino like a Creamino, but the eyes are dark, never red.</p>
       <p><strong>The DEC vs DEC / Ino tell:</strong> a pure DEC has a light blue rump, while a DEC / Ino has a <strong>white rump</strong>. That rump is how Van den Abeele separates the two in the nest. The calculator labels each bird by its base (Green DEC / Ino, Blue 1 DEC / Ino, Parblue DEC / Ino) so you always know exactly which one you produced.</p>
 
-      <div class="key-box" style="border-color:rgba(29,158,117,0.35);background:rgba(29,158,117,0.05);">
+      <div class="key-box" style="border-color:rgba(76,161,84,0.35);background:rgba(76,161,84,0.05);">
         <div class="key-box-label" style="color:var(--accent-strong);">Why does my "DEC" throw Lutinos?</div>
         <p>If a bird you bought as DEC produces Lutinos, it was never a pure DEC, it is a <strong>DEC / Ino</strong> (it carries one Ino allele). Because DEC and Ino are two versions of the same gene, a bird that "carries Ino" has one DEC allele and one Ino allele, which makes it a <strong>visible DEC / Ino, not a hidden split</strong>. A pure DEC (dec/dec) paired to green never produces a Lutino; a DEC / Ino paired to Ino does. The visual tell: a pure DEC has a <strong>light blue rump</strong>, a DEC / Ino has a <strong>white rump</strong> (Van den Abeele, Lovebird Compendium, pp. 377 to 380).</p>
       </div>
