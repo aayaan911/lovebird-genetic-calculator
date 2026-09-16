@@ -70,7 +70,7 @@
   --bg-input:#1e1e1e;
   --text-1:#f0f0ee;
   --text-2:#a0a09a;
-  --text-3:#606060;
+  --text-3:#8a8a8a;
   --border:rgba(255,255,255,0.08);
   --border-strong:rgba(255,255,255,0.16);
 }
@@ -282,8 +282,11 @@ html,body{overflow-x:clip;}
 
 .blog-hero p + p{margin-top:14px;}
 </style>
+<meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)"/><meta name="theme-color" content="#f5f4f1" media="(prefers-color-scheme: light)"/>
+<style id="skiplink">.skip{position:absolute;left:-9999px;top:8px;z-index:9999;background:#2d6835;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{left:8px;outline:2px solid #fff}</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="vbar" role="note" aria-label="Verified"><div class="vbar-inner"><span class="vbar-lg"><span class="vg">&#10003; The verified</span> Fischer's Lovebird Genetics Calculator, cross-checked against the <em>Lovebird Compendium</em> (2016)</span><span class="vbar-sm"><span class="vg">&#10003; Verified</span> against the <em>Lovebird Compendium</em> (2016)</span></div></div>
 <div class="header-wrap">
   <header class="site-header">
@@ -309,7 +312,7 @@ html,body{overflow-x:clip;}
   </header>
 </div>
 
-<div class="page">
+<main id="main"><div class="page">
   <nav class="crumb" aria-label="Breadcrumb">
     <a href="/">Home</a>
     <span class="sep">/</span>
@@ -323,11 +326,11 @@ html,body{overflow-x:clip;}
   </div>
 
   <div class="filter-row" role="list" aria-label="Filter articles by category">
-    <a class="ftab on" href="/blog/" role="listitem">All articles <span class="tab-count">38</span></a>
-    <a class="ftab" href="/blog/mutations/" role="listitem">Mutations <span class="tab-count">23</span></a>
-    <a class="ftab" href="/blog/pairings/" role="listitem">Pairings <span class="tab-count">5</span></a>
-    <a class="ftab" href="/blog/guides/" role="listitem">Guides &amp; Tools <span class="tab-count">4</span></a>
-    <a class="ftab" href="/blog/basics/" role="listitem">Genetics basics <span class="tab-count">6</span></a>
+    <a class="ftab on" href="/blog/" role="listitem">All articles <span class="tab-count">34</span></a>
+    <a class="ftab" href="/blog/mutations/" role="listitem">Mutations <span class="tab-count">24</span></a>
+    <a class="ftab" href="/blog/pairings/" role="listitem">Pairings <span class="tab-count">4</span></a>
+    <a class="ftab" href="/blog/guides/" role="listitem">Guides &amp; Tools <span class="tab-count">5</span></a>
+    <a class="ftab" href="/blog/basics/" role="listitem">Genetics basics <span class="tab-count">5</span></a>
   </div>
 
   <a class="featured-card" href="/blog/how-to-use-lovebird-genetics-calculator/" aria-label="Read: How to Use the Lovebird Genetics Calculator" data-category="guides">
@@ -789,7 +792,7 @@ html,body{overflow-x:clip;}
       </a>
     </div>
   </div>
-</div>
+</div></main>
 
 <!-- GLOBAL-FOOTER:START -->
 <style id="gfooter-css">

@@ -354,8 +354,8 @@
   --roster-ad:#296490;
   --seo-fg-strong:rgba(0,0,0,0.85);
   --seo-fg-mute:rgba(0,0,0,0.62);
-  --seo-fg-soft:rgba(0,0,0,0.62);
-  --seo-fg-faint:rgba(0,0,0,0.62);
+  --seo-fg-soft:rgba(0,0,0,0.70);
+  --seo-fg-faint:rgba(0,0,0,0.55);
   --seo-hair:rgba(0,0,0,0.10);
   --seo-hair-soft:rgba(0,0,0,0.10);
   --seo-card-bg:rgba(0,0,0,0.03);
@@ -376,7 +376,7 @@
   --op-color:#7dc882;
   --text-1:#f0f0ee;
   --text-2:#a0a09a;
-  --text-3:#606060;
+  --text-3:#8a8a8a;
   --border:rgba(255,255,255,0.08);
   --border-strong:rgba(255,255,255,0.16);
   --shadow-card:0 2px 8px rgba(0,0,0,0.4),0 8px 32px rgba(0,0,0,0.3);
@@ -394,9 +394,9 @@
   --roster-accent:#4ca154;
   --roster-ad:#7cb9e8;
   --seo-fg-strong:#f0f0ee;
-  --seo-fg-mute:#666;
-  --seo-fg-soft:#888;
-  --seo-fg-faint:#555;
+  --seo-fg-mute:#a0a09d;
+  --seo-fg-soft:#c0c0bd;
+  --seo-fg-faint:#8a8a87;
   --seo-hair:rgba(255,255,255,0.07);
   --seo-hair-soft:rgba(255,255,255,0.06);
   --seo-card-bg:rgba(255,255,255,0.04);
@@ -1452,8 +1452,10 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
 .mut-lnk{color:inherit;text-decoration:none;background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;padding-bottom:2px;transition:background-size 0.25s ease,color 0.18s;}
 .mut-lnk:hover{color:var(--accent-strong);background-size:100% 1.5px;}
 </style>
+<style id="skiplink">.skip{position:absolute;left:-9999px;top:8px;z-index:9999;background:#2d6835;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{left:8px;outline:2px solid #fff}</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- NOSCRIPT: Static content for search engine crawlers -->
 <noscript>
@@ -1529,7 +1531,7 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
 </section>
 
 <!-- APP -->
-<main class="app-main">
+<main class="app-main" id="main">
   <div class="main-grid">
     <div class="parents-col" id="pc"></div>
     <div class="rp" id="rc"></div>
@@ -1765,7 +1767,7 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
       </div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">18</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/pastel-lovebird-genetics/">Pastel</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">19</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/pale-lovebird-genetics/">Pale</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">SL</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">20</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/recessive-pied-lovebird-genetics/">Recessive Pied</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AR</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">21</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/dominant-pied-lovebird-genetics/">Dominant Pied</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AD</span></div><div style="display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--roster-cell);" role="listitem"><span style="font-family:var(--mono);font-size:11px;color:var(--roster-accent);min-width:22px;">22</span><span style="font-size:13px;color:var(--roster-name);"><a class="mut-lnk" href="/blog/slaty-lovebird-genetics/">Slaty</a></span><span style="margin-left:auto;font-size:10px;font-family:var(--mono);color:var(--roster-badge);letter-spacing:0.06em;">AD</span></div>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:28px;padding:10px 0;">
-      <span class="seo-mut-legend" style="font-size:11px;color:rgba(255,255,255,0.3);font-family:var(--mono);">BASE = Base color series &nbsp;·&nbsp; AR = Autosomal Recessive &nbsp;·&nbsp; SL = Sex-Linked Recessive &nbsp;·&nbsp; AD = Autosomal Dominant &nbsp;·&nbsp; AD-I = Autosomal Incomplete Dominant &nbsp;·&nbsp; SL-ID = Sex-Linked Incomplete Dominant</span>
+      <span class="seo-mut-legend" style="font-size:12px;color:rgba(255,255,255,0.65);font-family:var(--mono);">BASE = Base color series &nbsp;·&nbsp; AR = Autosomal Recessive &nbsp;·&nbsp; SL = Sex-Linked Recessive &nbsp;·&nbsp; AD = Autosomal Dominant &nbsp;·&nbsp; AD-I = Autosomal Incomplete Dominant &nbsp;·&nbsp; SL-ID = Sex-Linked Incomplete Dominant</span>
     </div>
 
     <p class="seo-eyebrow" style="margin-bottom:14px;">Trusted by Breeders In</p>
