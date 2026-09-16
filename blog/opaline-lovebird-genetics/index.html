@@ -991,6 +991,66 @@ html,body{overflow-x:hidden}
 .glist a,.rail a,.crumb a,.nl,.v3ft a,.rel-card{background-image:none!important;text-decoration:none!important}
 .glist a:hover span{color:var(--g)}
 @media(prefers-reduced-motion:reduce){.art-content a,.faq-a a{transition:none!important}}
+
+/* ══════════ MOBILE HEADER v5 ══════════ */
+.nav{flex-wrap:nowrap!important;min-width:0}
+.logo{min-width:0}
+.logo>span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.15}
+.nav .b-pri{white-space:nowrap!important;flex:none}
+.themebtn{flex:none}
+@media(max-width:820px){
+  .nav>span[style*="width:18px"]{display:none!important}
+}
+@media(max-width:560px){
+  .nav{gap:8px!important;height:56px!important}
+  .logo{font-size:14px!important;gap:8px!important}
+  .logo .mk{width:28px!important;height:28px!important}
+  .logo small{display:none!important}
+  .themebtn{width:38px!important;height:38px!important}
+  .themebtn svg{width:16px;height:16px}
+  .nav .b-pri{margin-left:6px!important;padding:9px 13px!important;font-size:13px!important;min-height:38px!important}
+}
+@media(max-width:400px){
+  .logo{font-size:13px!important}
+  .logo .mk{width:26px!important;height:26px!important}
+  .nav .b-pri{padding:9px 11px!important;font-size:12.5px!important}
+  .themebtn{width:36px!important;height:36px!important}
+}
+@media(max-width:340px){
+  .logo>span:last-child{display:none}
+}
+/* ══════════ SHELL GUTTER · content column === hero column ══════════ */
+.page-wrap>.shell,.page-wrap .shell{
+  padding-left:0!important;padding-right:0!important;
+  margin-left:0!important;margin-right:0!important;max-width:100%!important}
+
+/* ══════════ SPACING FIX v6 ══════════
+   The v3 heading rule used !important, which beats an inline style. The article
+   markup already says style="margin-top:0" on headings that open a boxed
+   section, so that intent was being overridden and the box gained ~46px of dead
+   space above its title. Honour the author's inline value, and zero the top
+   margin for any element that opens a box. */
+.art-content [style*="margin-top:0"],
+.art-content [style*="margin-top: 0"]{margin-top:0!important}
+.references-section>*:first-child,
+.faq-section>*:first-child,
+.related-section>*:first-child,
+.key-box>*:first-child,
+.warn-box>*:first-child,
+.breeder-note>*:first-child,
+.try-pairings>*:first-child,
+.calc-cta>*:first-child,
+.toc-box>*:first-child,
+.pairing-box>*:first-child,
+.art-content>*:first-child,
+.scard>*:first-child{margin-top:0!important;padding-top:0!important}
+.references-section>*:last-child,
+.key-box>*:last-child,
+.warn-box>*:last-child,
+.breeder-note>*:last-child,
+.faq-section>*:last-child{margin-bottom:0!important}
+/* boxed section headings sit closer to their own content than a page-level h2 */
+.references-section h2,.faq-section h2,.related-section h2{margin-bottom:14px!important}
 </style>
 </head>
 <body>
