@@ -1364,24 +1364,18 @@ a.glist-all:hover{color:var(--gh)}
 <style id="gfooter-css">
 .site-footer{background:#0a0a0a;padding:60px 0 0;font-family:var(--font);margin-top:auto;}
 .footer-inner{max-width:1480px;margin:0 auto;padding:0 clamp(16px,4vw,48px);}
-.footer-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-strong);text-align:center;margin-bottom:10px;display:block;}
-.footer-title{font-size:32px;font-weight:800;color:#f0f0ee;letter-spacing:-0.03em;text-align:center;margin-bottom:8px;}
-.footer-sub{font-size:14px;color:#555;text-align:center;margin-bottom:36px;}
-.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch;}
-.fcard{padding:28px;border:1px solid rgba(255,255,255,0.07);border-radius:20px;background:rgba(255,255,255,0.02);box-sizing:border-box;display:flex;flex-direction:column;}
-.footer-bar{margin-top:40px;border-top:1px solid rgba(255,255,255,0.06);padding:18px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .footer-cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:24px;margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-col-lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#4ca154;font-weight:700;margin:0 0 12px;}
 .footer-col>a{display:block;font-size:12.5px;padding:4px 0;color:rgba(255,255,255,0.6);text-decoration:none;}
 .footer-col>a:hover{color:var(--accent-strong);}
-@media(max-width:600px){.brand-cta-row{flex-wrap:nowrap;}.brand-cta-row .fcard-cta{flex:1 1 0;min-width:0;justify-content:center;padding-left:10px;padding-right:10px;font-size:11.5px;}}
+.footer-brand-name{font-size:14px;font-weight:700;color:#f0f0ee;margin:0 0 6px;}
+.footer-brand-sub{font-size:12px;color:#666;line-height:1.75;margin:0;}
+.footer-brand-fb{display:inline-block;margin-top:10px;font-size:12px;color:var(--accent-strong);text-decoration:none;font-weight:600;}
 .footer-legal{margin-top:22px;padding-top:16px;padding-bottom:16px;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);font-size:11px;color:#444;line-height:1.7;}
 @media(max-width:600px){.footer-cols{grid-template-columns:1fr;gap:24px;}}
-@media(max-width:768px){.site-header,.hero,.app-main,.footer-inner{padding-left:14px;padding-right:14px;}.footer-grid{grid-template-columns:1fr;gap:10px;}.fcard{padding:18px;}.site-footer{padding:40px 0 0;}.footer-title{font-size:22px;}.footer-bar{flex-direction:column;align-items:flex-start;gap:6px;}.footer-inner{max-width:100%;}}
+@media(max-width:768px){.site-header,.hero,.app-main,.footer-inner{padding-left:14px;padding-right:14px;}.site-footer{padding:40px 0 0;}.footer-inner{max-width:100%;}}
 @media(max-width:390px){/* Footer cards */
-  .site-footer{padding:32px 0 0;}.footer-title{font-size:20px;}.footer-eyebrow{margin-bottom:6px;}.fcard{padding:14px;}}
-.footer-bar a,.footer-bar-text a{color:var(--accent-strong);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
-.footer-bar a:hover,.footer-bar-text a:hover{opacity:0.8;}
-.u-ico .visitor{animation:uBreathe 3.6s ease-in-out infinite}
+  .site-footer{padding:32px 0 0;}}
 footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4ca154}
 .seo-inner a,.footer-col a,.footer-legal a{text-decoration:none;padding-bottom:2px;background-image:linear-gradient(currentColor,currentColor);background-size:0% 1.5px;background-repeat:no-repeat;background-position:left bottom;transition:background-size 0.25s ease;}
 .seo-inner a:hover,.footer-col a:hover,.footer-legal a:hover{background-size:100% 1.5px;}
@@ -1392,62 +1386,6 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
 </style>
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-eyebrow">The People Behind This Tool</span>
-    <p class="footer-title">This tool wouldn't exist without them</p>
-    <div class="footer-grid">
-      <div class="fcard">
-        <img class="fcard-avatar" src="/avatar-ayaan-96.webp" alt="Ayaan Shohan, creator of the Lovebird Genetics Calculator, KinBird Aviary" width="48" height="48" loading="lazy" decoding="async" style="object-fit:cover;">
-        <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:0;margin-bottom:0">
-          <span class="fcard-name">Ayaan Shohan</span>
-          <span class="fcard-role">Creator</span>
-        </div>
-        <p class="fcard-position">Owner of KinBird Aviary</p>
-        <p class="fcard-country"><img src="https://flagcdn.com/bd.svg" alt="Bangladesh" loading="lazy" style="height:0.85em;width:auto;vertical-align:-0.1em;border-radius:2px;margin:0 1px;display:inline-block;"> Bangladesh</p>
-        <p class="fcard-bio">Built this entire calculator from scratch, from the concept and genetics engine to the UI itself. For years, I watched breeders struggle with genetics. There was never a proper tool that actually thought the way real breeders do. So I decided to build one myself. Over the last 20 days and 30+ hours, I engineered every mutation, every pairing, and every edge case from the ground up, then tested it against real breeding logic and real-world outcomes to ensure the calculator reflects how real breeders think and work in practice. Every hour I spent building this, I kept thinking about the breeders on the other side of the screen. This is my way of giving back to the community that taught me everything I know. </p>
-        <div class="brand-cta-row" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;">
-          <a href="https://www.facebook.com/kinbird.aviary/" target="_blank" rel="noopener noreferrer" class="fcard-cta" style="margin-top:0;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            Follow KinBird Aviary
-          </a>
-          <a href="https://web.facebook.com/share/p/1B9fgbnFRS/" target="_blank" rel="noopener noreferrer" class="fcard-cta" style="margin-top:0;background:transparent;border:1px solid rgba(76,161,84,0.35);color:#4ca154;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Read the launch story
-          </a>
-        </div>
-      </div>
-      <div class="fcard">
-        <img class="fcard-avatar" src="/Dirk_Van_den_Abeele.jpg" alt="Dirk Van den Abeele, scientific reference for the Lovebird Genetics Calculator" width="250" height="320" loading="lazy" decoding="async" style="object-fit:cover;">
-        <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:0;margin-bottom:0">
-          <span class="fcard-name">Dirk Van den Abeele</span>
-          <span class="fcard-role">Scientific Reference</span>
-        </div>
-        <p class="fcard-position">Belgian aviculturist and ornithologist</p>
-        <p class="fcard-country"><img src="https://flagcdn.com/be.svg" alt="Belgium" loading="lazy" style="height:0.85em;width:auto;vertical-align:-0.1em;border-radius:2px;margin:0 1px;display:inline-block;"> Belgium</p>
-        <p class="fcard-bio">Belgian aviculturist and ornithologist, founder of Ornitho-Genetics VZW. His 2016 <a href="https://avianpublications.com/shop/lovebirds-compendium/" target="_blank" rel="noopener noreferrer" style="color:#4ca154;text-decoration:none;border-bottom:1px solid rgba(76,161,84,0.35);">Lovebird Compendium</a>, a 769-page scientific reference covering every known mutation, is the primary source this calculator's genetics engine was built and cross-referenced against. A member of MUTAVI Research &amp; Advice Group since 1999 and supervisor of the first complete genome mapping of Agapornis roseicollis. Without his decades of research, tools like this one simply would not exist.</p>
-        <a href="https://www.ogvzw.org/" target="_blank" rel="noopener noreferrer" class="fcard-cta">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          Ornitho-Genetics VZW
-        </a>
-      </div>
-      <div class="fcard">
-        <img class="fcard-avatar" src="/avatar-arifin-96.webp" alt="Arifin Sumon, lovebird genetics contributor, KinBird Aviary" width="48" height="48" loading="lazy" decoding="async" style="object-fit:cover;">
-        <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:0;margin-bottom:0">
-          <span class="fcard-name">Arifin Sumon</span>
-          <span class="fcard-role">Contributor</span>
-        </div>
-        <p class="fcard-country"><img src="https://flagcdn.com/bd.svg" alt="Bangladesh" loading="lazy" style="height:0.85em;width:auto;vertical-align:-0.1em;border-radius:2px;margin:0 1px;display:inline-block;"> Bangladesh</p>
-        <p class="fcard-bio">Widely regarded as one of Bangladesh's most experienced Fischer's lovebird geneticists, with over a decade of hands-on breeding experience across Opaline, Aqua, Pale Fallow, and rare mutation combinations. Cross-validated the calculator's sex-linked inheritance outcomes and reviewed complex multi-mutation edge cases. When breeders across Bangladesh encounter a pairing they can't work out, they ask him.</p>
-      </div>
-      <div class="fcard">
-        <img class="fcard-avatar" src="/avatar-adnan-96.webp" alt="Adnan Younus, lovebird genetics contributor, Aqua and Parblue specialist" width="48" height="48" loading="lazy" decoding="async" style="object-fit:cover;">
-        <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:0;margin-bottom:0">
-          <span class="fcard-name">Adnan Younus</span>
-          <span class="fcard-role">Contributor</span>
-        </div>
-        <p class="fcard-country"><img src="https://flagcdn.com/pk.svg" alt="Pakistan" loading="lazy" style="height:0.85em;width:auto;vertical-align:-0.1em;border-radius:2px;margin:0 1px;display:inline-block;"> Pakistan</p>
-        <p class="fcard-bio">One of Pakistan's leading specialists in Aqua and Parblue Fischer's lovebird genetics. Provided hands-on cross-validation for the calculator's Aqua series, Aqua B1, Aqua B2, Aqua Homo, and Parblue combinations, catching edge cases in multi-mutation pairings that pure theoretical modelling would have missed. His real-world verification is why the Aqua series results can be trusted.</p>
-      </div>
-    </div>
     <div class="footer-cols">
       <div class="footer-col">
         <p class="footer-brand-name">Lovebird Genetics Calculator</p>
