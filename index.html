@@ -1339,6 +1339,8 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 /* AA text contrast: brand green is the surface colour; interactive text and
    filled buttons use the darker step. Dark surfaces flip it back to light. */
 footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4ca154}
+
+
 </style>
 <style id="cbs-search-style">
 /* ── CUSTOM SELECT SEARCH ─────────────
@@ -2988,20 +2990,20 @@ function effectiveTraits(pid){
 const isM=pid==="p1";
 let traits=[...(isM?S.p1t:S.p2t)];
 const _mp=_AMB&&_AMB[pid];
-if(_mp)traits=traits.map(t=>(t&&_mp[t.id])?{id:_mp[t.id],status:t.status}:t);
+if(_mp)traits=traits.map(t=>{if(!t)return t;const v=_mp[t.id];if(!v)return t;if(v==="__NONE__")return null;if(v==="__SPLIT__")return{id:t.id,status:"split"};return{id:v,status:t.status};}).filter(Boolean);
 const op=isM?S.p1Op:S.p2Op;
-if(op!=="normal")traits.push({id:"Opaline",status:op});
+if(op!=="normal"){const ov=_mp&&_mp["Opaline"];if(ov==="__NONE__"){}else if(ov==="__SPLIT__")traits.push({id:"Opaline",status:"split"});else traits.push({id:"Opaline",status:op});}
 return traits;
 }
 function mkLabel(pp,pid){
-const tr=effectiveTraits(pid);const vis=[],spl=[];
-for(const t of tr){if(!t.id||t.id==="None")continue;if(_0xC8(t.id)){const b=_0xC6.find(x=>x.id===t.id);if(b)spl.push(b.label);}else{const m=_0xC9.find(x=>x.id===t.id);if(m){const isADshown=(m.type==="AD"||m.type==="SLD")&&(t.status==="SF"||t.status==="DF"||t.status==="visual"||t.status==="split");if(t.status==="visual"||isADshown)vis.push((m.type==="AD"||m.type==="SLD")?(t.status==="DF"?"DF "+m.label:"SF "+m.label):m.label);else spl.push(m.label);}}}
-let base=pp,fv=[...vis];const _INO={"":"Albino","Green":"Lutino","Parblue (B1B2)":"Creamino","Blue 1":"Albino","Blue 2":"Blue 2 Albino","Aqua B1":"Aqua B1 Ino","Aqua B2":"Aqua B2 Ino","Aqua Homo":"Aqua Homo Ino"};if(fv.includes("Ino")&&_INO[base]!==undefined){base=_INO[base];fv.splice(fv.indexOf("Ino"),1);}let l=base;if(fv.length)l+=" "+fv.join(" ");if(spl.length)l+=" / "+spl.join(" / ");return l;
+const tr=effectiveTraits(pid);const vis=[],spl=[],poss=[];
+for(const t of tr){if(!t.id||t.id==="None")continue;if(_0xC8(t.id)){const b=_0xC6.find(x=>x.id===t.id);if(b)spl.push(b.label);}else{const m=_0xC9.find(x=>x.id===t.id);if(m){if(t.status==="poss"){poss.push(m.label);continue;}const isADshown=(m.type==="AD"||m.type==="SLD")&&(t.status==="SF"||t.status==="DF"||t.status==="visual"||t.status==="split");if(t.status==="visual"||isADshown)vis.push((m.type==="AD"||m.type==="SLD")?(t.status==="DF"?"DF "+m.label:"SF "+m.label):m.label);else spl.push(m.label);}}}
+let base=pp,fv=[...vis];const _INO={"":"Albino","Green":"Lutino","Parblue (B1B2)":"Creamino","Blue 1":"Albino","Blue 2":"Blue 2 Albino","Aqua B1":"Aqua B1 Ino","Aqua B2":"Aqua B2 Ino","Aqua Homo":"Aqua Homo Ino"};if(fv.includes("Ino")&&_INO[base]!==undefined){base=_INO[base];fv.splice(fv.indexOf("Ino"),1);}let l=base;if(fv.length)l+=" "+fv.join(" ");if(spl.length)l+=" / "+spl.join(" / ");if(poss.length)l+=" // "+poss.join(" // ");return l;
 }
 function defSt(type){return type==="AD"||type==="SLD"?"SF":"visual";}
 function getSO(type,sex){
-if(type==="AR")return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split"}];
-if(type==="SL"){if(sex==="female")return[{v:"visual",l:"Visual"}];return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split"}];}
+if(type==="AR")return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split"},{v:"poss",l:"// Split"}];
+if(type==="SL"){if(sex==="female")return[{v:"visual",l:"Visual"}];return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split"},{v:"poss",l:"// Split"}];}
 if(type==="AD")return[{v:"SF",l:"SF"},{v:"DF",l:"DF"}];
 if(type==="SLD"){if(sex==="female")return[{v:"visual",l:"Visual"}];return[{v:"SF",l:"SF"},{v:"DF",l:"DF"}];}
 return[];
@@ -3041,6 +3043,7 @@ const isSet=val!=="normal";
 return `<select id="p1-opaline" class="op-sel js-cbs cbs-op-flavor${isSet?' op-set':''}">
 <option value="normal"${val==="normal"?' selected':''}>Fischer</option>
 <option value="split"${val==="split"?' selected':''}>Split Opaline</option>
+<option value="poss"${val==="poss"?' selected':''} title="Possible split: not yet confirmed, test breeding settles it">// Split Opaline</option>
 <option value="visual"${val==="visual"?' selected':''}>Opaline</option>
 </select>`;
 }
@@ -3071,7 +3074,7 @@ if(adInc.length)tOpts+=`<optgroup label="Autosomal Incomplete Dominant">${_adOpt
 if(adUnk.length)tOpts+=`<optgroup label="Dominant">${_adOpt(adUnk)}</optgroup>`;
 let ssSel="";
 if(isBs)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}"><option value="split">/ Split</option></select>`;
-else if(mut&&sOpts.length)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${sOpts.map(o=>`<option value="${o.v}"${t.status===o.v?' selected':''}>${o.l}</option>`).join('')}</select>`;
+else if(mut&&sOpts.length)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}" title="/ Split = confirmed split. // Split = possible split, not yet confirmed, a test breeding settles it.">${sOpts.map(o=>`<option value="${o.v}"${t.status===o.v?' selected':''}${o.v==='poss'?' title="Possible split: not yet confirmed, test breeding settles it"':''}>${o.l}</option>`).join('')}</select>`;
 else{const defOpts=[{v:'visual',l:'Visual'},{v:'split',l:'/ Split'}];ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${defOpts.map(o=>`<option value="${o.v}"${(t.status===o.v||(!t.status&&o.v==='visual'))?'selected':''}>  ${o.l}</option>`).join('')}</select>`;}
 const mutHint=(tid!=='None'&&!isBs&&MUT_INFO[tid])?`<p class="mut-hint">${MUT_INFO[tid]}</p>`:'';
 return `<div class="tr"><select aria-label="Mutation ${i+1}" class="js-cbs cbs-sm-flavor ${tid!=='None'?'filled':''}" data-pid="${pid}" data-idx="${i}" data-role="trait" data-cbs-placeholder="Select mutation">${tOpts}</select>${ssSel}<button class="rm" data-pid="${pid}" data-idx="${i}" aria-label="Remove mutation" title="Remove">×</button></div>${mutHint}`;
@@ -3117,7 +3120,7 @@ return `<div class="pcard">
 
 var GUIDE_MAP=[['Yellow Face','/blog/yellow-face-lovebird-genetics/','Yellow Face'],['DEC','/blog/dark-eyed-clear-decino-lovebirds/','DEC / Ino'],['Aqua','/blog/aqua-mutation-in-lovebirds/','Aqua'],['Opaline','/blog/opaline-lovebird-genetics/','Opaline'],['Bronze','/blog/bronze-fallow-lovebird-genetics/','Bronze Fallow'],['Cinnamon','/blog/cinnamon-lovebird-genetics/','Cinnamon'],['Pale Fallow','/blog/pale-fallow-vs-dun-fallow/','Pale Fallow'],['Dun Fallow','/blog/pale-fallow-vs-dun-fallow/','Dun Fallow'],['Dilute','/blog/dilute-lovebird-genetics/','Dilute'],['Violet','/blog/violet-lovebird-genetics/','Violet'],['Creamino','/blog/lutino-albino-lovebird-genetics/','Creamino'],['Albino','/blog/lutino-albino-lovebird-genetics/','Albino'],['Lutino','/blog/lutino-albino-lovebird-genetics/','Lutino'],['Ino','/blog/lutino-albino-lovebird-genetics/','Ino'],['Parblue','/blog/aqua-parblue-yellowface-combinations/','Parblue'],['Blue','/blog/blue-lovebird-genetics/','Blue'],['Pallid','/blog/pallid-lovebird-genetics/','Pallid'],['Pastel','/blog/pastel-lovebird-genetics/','Pastel'],['Slaty','/blog/slaty-lovebird-genetics/','Slaty'],['Euwing','/blog/euwing-greywing-misty-lovebirds/','Euwing'],['Misty','/blog/euwing-greywing-misty-lovebirds/','Misty'],['Greywing','/blog/euwing-greywing-misty-lovebirds/','Greywing'],['Dominant Pied','/blog/dominant-pied-lovebird-genetics/','Dominant Pied'],['Recessive Pied','/blog/recessive-pied-lovebird-genetics/','Recessive Pied'],['Red Factor','/blog/red-factor-lovebird-genetics/','Red Factor']];
 function GB_LINK(u,l){return '<a href="'+u+'"><svg class="gc-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19a2 2 0 0 1 2-2h7V4H5a2 2 0 0 0-2 2z"/><path d="M21 19a2 2 0 0 0-2-2h-7V4h7a2 2 0 0 1 2 2z"/></svg><span class="gc-name">'+l+'</span><span class="gc-arrow">&rsaquo;</span></a>';}
-function guideBox(res){var names=[];if(res&&res.combined)res.combined.forEach(function(x){names.push(x.name);});if(res&&res.slMut){['maleOffspring','femaleOffspring'].forEach(function(k){(res.slMut[k]||[]).forEach(function(o){names.push(o.name);});});}if(res&&res.adMuts)res.adMuts.forEach(function(am){(am.offspring||[]).forEach(function(x){if(x&&x.name)names.push(x.name);});});var j=names.join(' '),seen={},links=[];if(res&&res.slMut){seen['/blog/opaline-lovebird-genetics/#zw']=1;links.push(GB_LINK('/blog/opaline-lovebird-genetics/#zw','What Z and W mean (sex chromosomes)'));}var jNoFallow=j.split('Pale Fallow').join('');if(jNoFallow.indexOf('Pale')!==-1&&!seen['/blog/pale-lovebird-genetics/']){seen['/blog/pale-lovebird-genetics/']=1;links.push(GB_LINK('/blog/pale-lovebird-genetics/','Pale guide'));}for(var i=0;i<GUIDE_MAP.length;i++){var k=GUIDE_MAP[i][0],u=GUIDE_MAP[i][1],l=GUIDE_MAP[i][2];if(j.indexOf(k)!==-1&&!seen[u]){seen[u]=1;links.push('<a href="'+u+'"><svg class="gc-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19a2 2 0 0 1 2-2h7V4H5a2 2 0 0 0-2 2z"/><path d="M21 19a2 2 0 0 0-2-2h-7V4h7a2 2 0 0 1 2 2z"/></svg><span class="gc-name">'+l+' guide</span><span class="gc-arrow">&rsaquo;</span></a>');}}var lbl='Learn more about these mutations';if(!links.length){lbl='Explore the mutation guides';links.push(GB_LINK('/blog/mutations/','All lovebird mutation guides'));links.push(GB_LINK('/blog/lovebird-pairing-outcomes/','Every pairing outcome'));links.push(GB_LINK('/blog/what-is-a-split-lovebird/','What is a split lovebird'));}return '<div class="guide-box"><p class="guide-box-lbl">'+lbl+'</p><div class="guide-box-links">'+links.join('')+'</div></div>';}
+function guideBox(res){var names=[];if(res&&res.combined)res.combined.forEach(function(x){names.push(x.name);});if(res&&res.slMut){['maleOffspring','femaleOffspring'].forEach(function(k){(res.slMut[k]||[]).forEach(function(o){names.push(o.name);});});}if(res&&res.adMuts)res.adMuts.forEach(function(am){(am.offspring||[]).forEach(function(x){if(x&&x.name)names.push(x.name);});});var j=names.join(' '),seen={},links=[];if(res&&res.slMut){seen['/blog/opaline-lovebird-genetics/#zw']=1;links.push(GB_LINK('/blog/opaline-lovebird-genetics/#zw','What Z and W mean (sex chromosomes)'));}try{var _hp=((S.p1t||[]).some(function(t){return t&&t.status==='poss';})||(S.p2t||[]).some(function(t){return t&&t.status==='poss';})||S.p1Op==='poss'||S.p2Op==='poss');if(_hp){seen['/blog/what-is-a-split-lovebird/#possible-split']=1;links.push(GB_LINK('/blog/what-is-a-split-lovebird/#possible-split','Possible split (//) and test breeding, explained'));}}catch(e){}var jNoFallow=j.split('Pale Fallow').join('');if(jNoFallow.indexOf('Pale')!==-1&&!seen['/blog/pale-lovebird-genetics/']){seen['/blog/pale-lovebird-genetics/']=1;links.push(GB_LINK('/blog/pale-lovebird-genetics/','Pale guide'));}for(var i=0;i<GUIDE_MAP.length;i++){var k=GUIDE_MAP[i][0],u=GUIDE_MAP[i][1],l=GUIDE_MAP[i][2];if(j.indexOf(k)!==-1&&!seen[u]){seen[u]=1;links.push('<a href="'+u+'"><svg class="gc-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19a2 2 0 0 1 2-2h7V4H5a2 2 0 0 0-2 2z"/><path d="M21 19a2 2 0 0 0-2-2h-7V4h7a2 2 0 0 1 2 2z"/></svg><span class="gc-name">'+l+' guide</span><span class="gc-arrow">&rsaquo;</span></a>');}}var lbl='Learn more about these mutations';if(!links.length){lbl='Explore the mutation guides';links.push(GB_LINK('/blog/mutations/','All lovebird mutation guides'));links.push(GB_LINK('/blog/lovebird-pairing-outcomes/','Every pairing outcome'));links.push(GB_LINK('/blog/what-is-a-split-lovebird/','What is a split lovebird'));}return '<div class="guide-box"><p class="guide-box-lbl">'+lbl+'</p><div class="guide-box-links">'+links.join('')+'</div></div>';}
 function buildOCards(items,max,startIdx=0){
 return items.map((r,i)=>{
 const nm=r.name||r.label||'';
@@ -3152,22 +3155,29 @@ function _ambCopy(txt){
    complete separate nests. They are never averaged together. */
 function ambState(){
   const hit=[];
-  (S.p1t||[]).forEach(t=>{if(t&&_AMBQ(t.id))hit.push({side:"p1",id:t.id});});
-  (S.p2t||[]).forEach(t=>{if(t&&_AMBQ(t.id))hit.push({side:"p2",id:t.id});});
-  if(!hit.length||hit.length>2||!S.p1p||!S.p2p)return null;
+  const _isP=t=>t&&t.status==="poss"&&t.id&&t.id!=="None"&&!_0xC8(t.id);
+  (S.p1t||[]).forEach(t=>{if(t&&_AMBQ(t.id))hit.push({side:"p1",id:t.id,kind:"blue"});else if(_isP(t))hit.push({side:"p1",id:t.id,kind:"poss"});});
+  (S.p2t||[]).forEach(t=>{if(t&&_AMBQ(t.id))hit.push({side:"p2",id:t.id,kind:"blue"});else if(_isP(t))hit.push({side:"p2",id:t.id,kind:"poss"});});
+  if(S.p1Op==="poss")hit.push({side:"p1",id:"Opaline",kind:"poss"});
+  if(S.p2Op==="poss")hit.push({side:"p2",id:"Opaline",kind:"poss"});
+  if(!hit.length||hit.length>3||!S.p1p||!S.p2p)return null;
   const combos=[],pick=[];
   (function build(i){
     if(i===hit.length){combos.push(pick.slice());return;}
-    _0xCA[hit[i].id].forEach(o=>{pick.push({side:hit[i].side,id:hit[i].id,opt:o});build(i+1);pick.pop();});
+    const opts=hit[i].kind==="poss"?["__SPLIT__","__NONE__"]:_0xCA[hit[i].id];
+    opts.forEach(o=>{pick.push({side:hit[i].side,id:hit[i].id,kind:hit[i].kind,opt:o});build(i+1);pick.pop();});
   })(0);
   const _lbl=o=>(_0xC6.find(b=>b.id===o)||{}).label||o;
+  const _mlbl=id=>((_0xC9.find(m=>m.id===id)||{}).label)||id;
   const scen=[];
   combos.forEach(c=>{
     _AMB={p1:{},p2:{}};
     c.forEach(x=>{_AMB[x.side][x.id]=x.opt;});
     const res=_0xB1(S.p1p,effectiveTraits("p1"),S.p2p,effectiveTraits("p2"));
     _AMB=null;
-    const parts=c.map(x=>({side:x.side,who:x.side==="p1"?"cock":"hen",label:_lbl(x.opt)}));
+    const parts=c.map(x=>{const who=x.side==="p1"?"cock":"hen";
+      if(x.kind==="poss"){const L=_mlbl(x.id);return{side:x.side,who,kind:"poss",id:x.id,opt:x.opt,label:L,txt:(x.opt==="__SPLIT__"?"/ split ":"not split ")+L};}
+      const L=_lbl(x.opt);return{side:x.side,who,kind:"blue",id:x.id,opt:x.opt,label:L,txt:"/ split "+L};});
     const sig=_ambLines(res).join("|");
     const ex=scen.find(o=>o.sig===sig);
     if(ex){ex.alts.push(parts);return;}
@@ -3175,19 +3185,32 @@ function ambState(){
   });
   scen.forEach(sc=>{
     sc.parts=sc.alts[0];
-    sc.text=sc.alts.map(ps=>ps.map(p=>`${p.who} / split ${p.label}`).join(" \u00D7 ")).join(" or ");
+    sc.text=sc.alts.map(ps=>ps.map(p=>`${p.who} ${p.txt}`).join(" \u00D7 ")).join(" or ");
   });
-  return {multi:hit.length>1,who:hit[0].side==="p1"?"cock":"hen",scen};
+  const tests=[];
+  hit.filter(h=>h.kind==="poss").forEach(h=>{
+    const L=_mlbl(h.id);
+    const sc=scen.find(x=>x.alts.some(ps=>ps.some(p=>p.kind==="poss"&&p.id===h.id&&p.side===h.side&&p.opt==="__SPLIT__")));
+    if(!sc)return;
+    const r=sc.res;let rows=[];
+    if(r.slMut){rows=[...(r.slMut.maleOffspring||[]),...(r.slMut.femaleOffspring||[])];}
+    else rows=(r.combined||[]);
+    const vis=rows.filter(x=>{const v=String(x.name||"").split(" / ")[0].split(" // ")[0];return v.indexOf(L)!==-1;}).reduce((a,x)=>a+(x.pct||0),0);
+    const q=Math.max(0,1-vis/100);
+    const doubt=n=>Math.round(100*Math.pow(q,n)/(Math.pow(q,n)+1));
+    tests.push({who:h.side==="p1"?"cock":"hen",label:L,p:Math.round(vis*10)/10,d5:doubt(5),d10:doubt(10)});
+  });
+  return {multi:hit.length>1,who:hit[0].side==="p1"?"cock":"hen",scen,tests};
 }
 function renderAmbResults(amb,p1L,p2L){
   const SC=amb.scen;
   const hdr=`<div class="rh"><div class="rh-left">${BAR_ICO}<h3 class="rt">Predicted Offspring</h3></div></div>`;
   const pairBox=`<div class="pair-box"><span class="pair-lbl">Pairing</span><div class="pair-txt" style="flex-direction:column;gap:3px;align-items:center;"><span style="text-align:center"><span class="gtag" style="font-weight:700">1.0 </span>${p1L}</span><span style="color:rgba(255,255,255,0.5);font-size:16px;font-weight:700;">×</span><span style="text-align:center"><span class="rtag" style="font-weight:700">0.1 </span>${p2L}</span></div></div>`;
-  const hOne=ps=>ps.map(p=>`<span class="${p.side==='p1'?'gtag':'rtag'}">${p.side==='p1'?'1.0':'0.1'}</span> / split ${p.label}`).join(' \u00D7 ');
+  const hOne=ps=>ps.map(p=>`<span class="${p.side==='p1'?'gtag':'rtag'}">${p.side==='p1'?'1.0':'0.1'}</span> ${p.txt}`).join(' \u00D7 ');
   const stk=sc=>(amb.multi&&sc.alts.length>1)?' amb-stack':'';
   const hLbl=sc=>amb.multi
     ? sc.alts.map(ps=>`<span class="amb-alt">${hOne(ps)}</span>`).join('<span class="amb-or">or</span>')
-    : `If / split ${sc.parts[0].label}`;
+    : `If ${sc.parts[0].txt}`;
   const grp=(sc,n)=>`<div class="sl-grp-hdr amb-grp"><span class="amb-pill${stk(sc)?' amb-pill-tall':''}"><span class="amb-n">${n}</span><span class="amb-hlbl${amb.multi?'':' rtag'}${stk(sc)}">${hLbl(sc)}</span></span><div class="sl-line"></div></div>`;
   _PART='body';const bodies=SC.map(sc=>renderResults(sc.res,p1L,p2L));
   _PART='sum';const sums=SC.map(sc=>renderResults(sc.res,p1L,p2L));
@@ -3322,7 +3345,7 @@ render();
 });
 });
 const op1=document.getElementById('p1-opaline');
-if(op1)op1.addEventListener('change',e=>{track('opaline_selected',{parent:'father',status:e.target.value});S.p1Op=e.target.value;trackPairing();render();});
+if(op1)op1.addEventListener('change',e=>{track('opaline_selected',{parent:'father',status:e.target.value});if(e.target.value==='poss'){try{track('possible_split_selected',{parent:'father',trait:'Opaline'});}catch(x){}}S.p1Op=e.target.value;trackPairing();render();});
 const op2=document.getElementById('p2-opaline');
 if(op2)op2.addEventListener('change',e=>{track('opaline_selected',{parent:'mother',status:e.target.value});S.p2Op=e.target.value;trackPairing();render();});
 document.querySelectorAll('.add-btn').forEach(b=>b.addEventListener('click',()=>{
@@ -3350,6 +3373,7 @@ document.querySelectorAll('.ss').forEach(sel=>sel.addEventListener('change',()=>
 const pid=sel.dataset.pid,idx=parseInt(sel.dataset.idx),traits=pid==='p1'?S.p1t:S.p2t;
 const parent=pid==='p1'?'father':'mother';
 track('trait_status_changed',{parent,trait:traits[idx]?.id,status:sel.value});
+if(sel.value==='poss'){try{track('possible_split_selected',{parent,trait:traits[idx]?.id});if(typeof window.clarity==='function'){window.clarity('set','possible_split','yes');window.clarity('upgrade','possible_split');}}catch(e){}}
 traits[idx]={...traits[idx],status:sel.value};
 trackPairing();
 render();
