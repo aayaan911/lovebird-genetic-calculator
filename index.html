@@ -1455,6 +1455,7 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
 .mut-lnk:hover{color:var(--accent-strong);background-size:100% 1.5px;}
 </style>
 <style id="skiplink">.skip{position:absolute;left:-9999px;top:8px;z-index:9999;background:#2d6835;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none}.skip:focus{left:8px;outline:2px solid #fff}</style>
+<style id="cls-reserve">#pc:empty{min-height:965px}#rc:empty{min-height:429px}@media(max-width:768px){#pc:empty{min-height:900px}#rc:empty{min-height:220px}}</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -3345,7 +3346,7 @@ render();
 });
 });
 const op1=document.getElementById('p1-opaline');
-if(op1)op1.addEventListener('change',e=>{track('opaline_selected',{parent:'father',status:e.target.value});if(e.target.value==='poss'){try{track('possible_split_selected',{parent:'father',trait:'Opaline'});}catch(x){}}S.p1Op=e.target.value;trackPairing();render();});
+if(op1)op1.addEventListener('change',e=>{track('opaline_selected',{parent:'father',status:e.target.value});if(e.target.value==='poss'){try{track('possible_split_selected',{parent:'father',trait:'Opaline'});if(typeof window.clarity==='function'){window.clarity('set','possible_split','yes');window.clarity('set','possible_split_trait','Opaline');window.clarity('upgrade','possible_split');}}catch(x){}}S.p1Op=e.target.value;trackPairing();render();});
 const op2=document.getElementById('p2-opaline');
 if(op2)op2.addEventListener('change',e=>{track('opaline_selected',{parent:'mother',status:e.target.value});S.p2Op=e.target.value;trackPairing();render();});
 document.querySelectorAll('.add-btn').forEach(b=>b.addEventListener('click',()=>{
@@ -3373,7 +3374,7 @@ document.querySelectorAll('.ss').forEach(sel=>sel.addEventListener('change',()=>
 const pid=sel.dataset.pid,idx=parseInt(sel.dataset.idx),traits=pid==='p1'?S.p1t:S.p2t;
 const parent=pid==='p1'?'father':'mother';
 track('trait_status_changed',{parent,trait:traits[idx]?.id,status:sel.value});
-if(sel.value==='poss'){try{track('possible_split_selected',{parent,trait:traits[idx]?.id});if(typeof window.clarity==='function'){window.clarity('set','possible_split','yes');window.clarity('upgrade','possible_split');}}catch(e){}}
+if(sel.value==='poss'){try{track('possible_split_selected',{parent,trait:traits[idx]?.id});if(typeof window.clarity==='function'){window.clarity('set','possible_split','yes');window.clarity('set','possible_split_trait',String(traits[idx]?.id||''));window.clarity('upgrade','possible_split');}}catch(e){}}
 traits[idx]={...traits[idx],status:sel.value};
 trackPairing();
 render();
