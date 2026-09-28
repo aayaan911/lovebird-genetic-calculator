@@ -112,3 +112,4 @@ Allow: /
 
 # ---------- Sitemap ----------
 Sitemap: https://lovebirdgenetics.com/sitemap.xml
+Sitemap: https://lovebirdgenetics.com/image-sitemap.xml
