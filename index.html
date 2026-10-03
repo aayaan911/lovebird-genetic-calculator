@@ -1334,7 +1334,7 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .u-ico .visitor{animation:uBreathe 3.6s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.u-ico svg *{animation:none!important;opacity:1!important}.u-ico .helix,.u-ico .page{stroke-dasharray:none!important;stroke-dashoffset:0!important}.u-ico .ring{stroke-dashoffset:32!important}}
 @media(max-width:860px){.usage-row{grid-template-columns:1fr 1fr;}.u-cell{padding:20px 15px;}.u-ico{margin-bottom:22px;}.u-num{font-size:30px;}}
-@media(max-width:540px){.usage-row{grid-template-columns:1fr;gap:10px;}.u-ico{margin-bottom:14px;}.u-num{font-size:28px;}.u-lbl{font-size:12.5px;}}
+@media(max-width:540px){.usage-row{grid-template-columns:1fr 1fr;gap:10px;}.u-cell{padding:16px 12px;}.u-ico{margin-bottom:14px;}.u-num{font-size:24px;}.u-lbl{font-size:12px;}}
 
 /* AA text contrast: brand green is the surface colour; interactive text and
    filled buttons use the darker step. Dark surfaces flip it back to light. */
@@ -3004,9 +3004,9 @@ let base=pp,fv=[...vis];const _INO={"":"Albino","Green":"Lutino","Parblue (B1B2)
 function defSt(type){return type==="AD"||type==="SLD"?"SF":"visual";}
 function getSO(type,sex){
 if(type==="AR")return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split"},{v:"poss",l:"// Split"}];
-if(type==="SL"){if(sex==="female")return[{v:"visual",l:"Visual"}];return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split"},{v:"poss",l:"// Split"}];}
+if(type==="SL"){if(sex==="female")return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split",dis:1},{v:"poss",l:"// Split",dis:1}];return[{v:"visual",l:"Visual"},{v:"split",l:"/ Split"},{v:"poss",l:"// Split"}];}
 if(type==="AD")return[{v:"SF",l:"SF"},{v:"DF",l:"DF"}];
-if(type==="SLD"){if(sex==="female")return[{v:"visual",l:"Visual"}];return[{v:"SF",l:"SF"},{v:"DF",l:"DF"}];}
+if(type==="SLD"){if(sex==="female")return[{v:"visual",l:"SF"},{v:"DF",l:"DF",dis:1}];return[{v:"SF",l:"SF"},{v:"DF",l:"DF"}];}
 return[];
 }
 
@@ -3043,7 +3043,7 @@ function buildOpalineMaleSel(val){
 const isSet=val!=="normal";
 return `<select id="p1-opaline" class="op-sel js-cbs cbs-op-flavor${isSet?' op-set':''}">
 <option value="normal"${val==="normal"?' selected':''}>Fischer</option>
-<option value="split"${val==="split"?' selected':''}>Split Opaline</option>
+<option value="split"${val==="split"?' selected':''}>/ Split Opaline</option>
 <option value="poss"${val==="poss"?' selected':''} title="Possible split: not yet confirmed, test breeding settles it">// Split Opaline</option>
 <option value="visual"${val==="visual"?' selected':''}>Opaline</option>
 </select>`;
@@ -3052,6 +3052,8 @@ function buildOpalineFemaleSel(val){
 const isSet=val!=="normal";
 return `<select id="p2-opaline" class="op-sel js-cbs cbs-op-flavor${isSet?' op-set':''}">
 <option value="normal"${val==="normal"?' selected':''}>Fischer</option>
+<option value="split" disabled title="Hens cannot be split for a sex-linked mutation">/ Split Opaline</option>
+<option value="poss" disabled title="Hens cannot be split for a sex-linked mutation">// Split Opaline</option>
 <option value="visual"${val==="visual"?' selected':''}>Opaline</option>
 </select>`;
 }
@@ -3075,8 +3077,8 @@ if(adInc.length)tOpts+=`<optgroup label="Autosomal Incomplete Dominant">${_adOpt
 if(adUnk.length)tOpts+=`<optgroup label="Dominant">${_adOpt(adUnk)}</optgroup>`;
 let ssSel="";
 if(isBs)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}"><option value="split">/ Split</option></select>`;
-else if(mut&&sOpts.length)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}" title="/ Split = confirmed split. // Split = possible split, not yet confirmed, a test breeding settles it.">${sOpts.map(o=>`<option value="${o.v}"${t.status===o.v?' selected':''}${o.v==='poss'?' title="Possible split: not yet confirmed, test breeding settles it"':''}>${o.l}</option>`).join('')}</select>`;
-else{const defOpts=[{v:'visual',l:'Visual'},{v:'split',l:'/ Split'}];ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${defOpts.map(o=>`<option value="${o.v}"${(t.status===o.v||(!t.status&&o.v==='visual'))?'selected':''}>  ${o.l}</option>`).join('')}</select>`;}
+else if(mut&&sOpts.length)ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}" title="/ Split = confirmed split. // Split = possible split, not yet confirmed, a test breeding settles it.">${sOpts.map(o=>`<option value="${o.v}"${t.status===o.v&&!o.dis?' selected':''}${o.dis?(o.v==='DF'?' disabled title="A hen has one Z chromosome, so she can never be DF"':' disabled title="Hens cannot be split for a sex-linked mutation"'):(o.v==='poss'?' title="Possible split: not yet confirmed, test breeding settles it"':'')}>${o.l}</option>`).join('')}</select>`;
+else{const defOpts=[{v:'visual',l:'Visual'},{v:'split',l:'/ Split'},{v:'poss',l:'// Split'}];ssSel=`<select class="ss js-cbs cbs-xs-flavor" data-pid="${pid}" data-idx="${i}">${defOpts.map(o=>`<option value="${o.v}"${(t.status===o.v||(!t.status&&o.v==='visual'))?'selected':''}>  ${o.l}</option>`).join('')}</select>`;}
 const mutHint=(tid!=='None'&&!isBs&&MUT_INFO[tid])?`<p class="mut-hint">${MUT_INFO[tid]}</p>`:'';
 return `<div class="tr"><select aria-label="Mutation ${i+1}" class="js-cbs cbs-sm-flavor ${tid!=='None'?'filled':''}" data-pid="${pid}" data-idx="${i}" data-role="trait" data-cbs-placeholder="Select mutation">${tOpts}</select>${ssSel}<button class="rm" data-pid="${pid}" data-idx="${i}" aria-label="Remove mutation" title="Remove">×</button></div>${mutHint}`;
 }
