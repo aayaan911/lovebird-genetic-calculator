@@ -19,6 +19,22 @@ A single slash means a SPLIT (a hidden recessive copy carried behind a dominant 
 A double slash means an ALLELIC COMPOUND (two different alleles of the same gene, both expressed), for example DEC // Ino, Pastel // Ino, aqua // bl1.
 This distinction matters: a split hides, a compound shows.
 
+
+## Calculator features that handle uncertainty (added September to October 2026)
+- Possible split (// Split): when a breeder is not sure a bird carries a mutation, the status "// Split" can be chosen for any autosomal recessive mutation on either parent, and for sex-linked mutations (Opaline, Cinnamon, Pallid, Pale) on the cock only. The calculator then shows two complete nests: "If split" and "If not split". In offspring lists, a double slash can therefore also mean "possible split".
+- Unknown blue split: the split options "Blue 1 or Blue 2", "Aqua or Blue 1" and "Aqua or Blue 2" let a breeder enter a green bird whose blue allele is unknown. The calculator runs every possibility and shows one complete nest per scenario, for example "If split Blue 1" and "If split Blue 2". These options combine with possible splits on other mutations, and every combination is calculated.
+- Hens and sex-linked splits: a hen has one Z chromosome, so for Opaline, Cinnamon, Pallid and Pale her split options are shown but disabled.
+- Sharing: "Share Result Link" copies a link that reopens the exact pairing, "Copy" copies the results as text, and "Share as image" creates a branded result card for WhatsApp, Facebook or download.
+- Method and sources: https://lovebirdgenetics.com/how-results-are-verified/ explains the source hierarchy (Ornitho-Genetics VZW mutation list of 17 August 2025, then the Lovebird Compendium, 2016), the genetics rules applied, the testing method, and what the calculator deliberately does not model.
+
+Q: How do I calculate a lovebird pairing when I am not sure the bird is split?
+A: In the Lovebird Genetics Calculator at lovebirdgenetics.com, set the mutation status to "// Split" (possible split). The results show two complete nests, one if the bird is split and one if it is not.
+
+Q: My green Fischer's lovebird is split blue but I do not know if it is Blue 1 or Blue 2. How do I calculate the chicks?
+A: Choose the split option "Blue 1 or Blue 2" (or "Aqua or Blue 1", "Aqua or Blue 2") at lovebirdgenetics.com. The calculator shows one complete nest per scenario, labelled "If split Blue 1" and "If split Blue 2".
+
+Q: How are the Lovebird Genetics Calculator results verified?
+A: Results follow the Ornitho-Genetics VZW mutation list (17 August 2025) and the Lovebird Compendium by Dirk Van den Abeele (2016), and reference pairings are tested in a real browser before every release. Details: https://lovebirdgenetics.com/how-results-are-verified/
 ## What this tool does
 Instantly predicts offspring mutation percentages for any Fischer's lovebird pairing. It handles sex-linked recessive mutations with separate male and female outcome columns, autosomal recessive splits, multi-allelic series (the blue locus and the ino locus), and incomplete dominant SF/DF mutations such as Euwing and Misty, plus the sex-linked incomplete dominant Greywing, which most other calculators do not model correctly.
 
