@@ -3071,7 +3071,7 @@ return `<select id="p2-opaline" class="op-sel js-cbs cbs-op-flavor${isSet?' op-s
 }
 function buildTraitRow(pid,i,t,used,yfP,isGr,usedBS,sex){
 const tid=t.id||"None";
-const avAR=_0xC9.filter(m=>m.type==="AR"&&(m.id===tid||!used.includes(m.id))&&!(yfP&&m.id==="YellowFace"));
+const _AR_ORD=["YellowFace","DunFallow","BronzeFallow","RedFactor","Dilute","PaleFallow","Ino","Dec","Pastel","RecPied"];const avAR=_0xC9.filter(m=>m.type==="AR"&&(m.id===tid||!used.includes(m.id))&&!(yfP&&m.id==="YellowFace")).sort((x,y)=>{const i=_AR_ORD.indexOf(x.id),j=_AR_ORD.indexOf(y.id);return (i<0?99:i)-(j<0?99:j);});
 const avSL=_0xC9.filter(m=>m.type==="SL"&&m.id!=="Opaline"&&(m.id===tid||!used.includes(m.id))&&!(m.id==="Pale"&&used.includes("Pallid"))&&!(m.id==="Pallid"&&used.includes("Pale")));
 const avSLD=_0xC9.filter(m=>m.type==="SLD"&&(m.id===tid||!used.includes(m.id)));
 const avAD=_0xC9.filter(m=>m.type==="AD"&&(m.id===tid||!used.includes(m.id)));
