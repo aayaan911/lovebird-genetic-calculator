@@ -59,7 +59,7 @@
   "datePublished":"2026-04-01",
   "dateModified":"2026-09-01",
   "softwareVersion":"2.0",
-  "featureList":["Instant offspring mutation prediction for any Fischer's lovebird pairing","Sex-linked recessive mutations with separate male and female offspring columns","SF/DF dominant support: Euwing and Misty (autosomal) plus Greywing (sex-linked dominant)","Full Aqua series: Aqua B1, Aqua B2, and Aqua Homo","Up to 6 simultaneous mutation traits per parent","Free with no account required and no personal information collected"],
+  "featureList":["Instant offspring mutation prediction for any Fischer's lovebird pairing","Sex-linked recessive mutations with separate male and female offspring columns","SF/DF dominant support: Euwing and Misty (autosomal) plus Greywing (sex-linked dominant)","Full Aqua series: Aqua B1, Aqua B2, and Aqua Homo","Up to 6 simultaneous mutation traits per parent","Possible split (// Split) input: shows two complete nests, if split and if not split", "Unknown blue split input (Blue 1 or Blue 2, Aqua or Blue 1, Aqua or Blue 2) with one complete nest per scenario", "Share any result as a branded image card for WhatsApp or Facebook, or as a link that reopens the exact pairing", "Free with no account required and no personal information collected"],
   "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
   "author":{"@type":"Person","name":"Ayaan Shohan","jobTitle":"Owner","url":"https://www.facebook.com/kinbird.aviary/","worksFor":{"@type":"Organization","name":"KinBird Aviary","url":"https://lovebirdgenetics.com/"}}
 }
@@ -2968,6 +2968,7 @@ const S={p1p:"",p1t:[],p1Op:"visual",p2p:"",p2t:[],p2Op:"visual"};
 let copied=false,linkedCopied=false,_autoScrollDone=false;
 
 /* ─── URL STATE ─────────────────────────────────── */
+try{if(new URLSearchParams(location.search).get('utm_source')==='card')setTimeout(()=>{track('share_card_scan',{});try{if(typeof window.clarity==='function'){window.clarity('set','share_card','scan_visit');}}catch(e){}},0);}catch(e){}
 function updateURL(){
   try{
     const p=new URLSearchParams();
@@ -3479,35 +3480,47 @@ async function _lbgDrawCard(d){
   const SANS="'DM Sans',system-ui,sans-serif",MONO="'DM Mono','JetBrains Mono',monospace",G='#4ca154',R='#e5737a';
   try{await Promise.all([document.fonts.load("800 40px 'DM Sans'"),document.fonts.load("500 20px 'DM Mono'"),document.fonts.load("700 20px 'DM Mono'")]);}catch(e){}
   x.fillStyle='#0f130f';x.fillRect(0,0,W,H);
-  let g=x.createRadialGradient(W*0.88,90,0,W*0.88,90,520);g.addColorStop(0,'rgba(76,161,84,.28)');g.addColorStop(1,'rgba(76,161,84,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
-  g=x.createRadialGradient(W*0.2,H*0.85,0,W*0.2,H*0.85,700);g.addColorStop(0,'rgba(45,104,53,.40)');g.addColorStop(1,'rgba(45,104,53,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+  let g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#0c110c');g.addColorStop(.55,'#101810');g.addColorStop(1,'#0b120c');x.fillStyle=g;x.fillRect(0,0,W,H);
+  g=x.createRadialGradient(W*0.9,70,0,W*0.9,70,680);g.addColorStop(0,'rgba(76,161,84,.42)');g.addColorStop(.45,'rgba(76,161,84,.14)');g.addColorStop(1,'rgba(76,161,84,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+  g=x.createRadialGradient(W*0.12,H*0.9,0,W*0.12,H*0.9,820);g.addColorStop(0,'rgba(45,104,53,.55)');g.addColorStop(.5,'rgba(45,104,53,.18)');g.addColorStop(1,'rgba(45,104,53,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+  g=x.createRadialGradient(W*0.5,H*0.5,H*0.35,W*0.5,H*0.5,H*0.8);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.35)');x.fillStyle=g;x.fillRect(0,0,W,H);
   x.strokeStyle='rgba(255,255,255,.035)';x.lineWidth=1;for(let i=0;i<W;i+=54){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke();}for(let j=0;j<H;j+=54){x.beginPath();x.moveTo(0,j);x.lineTo(W,j);x.stroke();}
   const P=72;
   await new Promise(res=>{const im=new Image();im.onload=()=>{const h=62,w=h*im.width/im.height||58;x.drawImage(im,P,58,w,h);res();};im.onerror=res;im.src='/logo-icon.svg';});
   x.fillStyle='#fff';x.font=`800 38px ${SANS}`;x.textBaseline='alphabetic';x.fillText('Lovebird Genetics',P+80,94);
-  x.fillStyle=G;x.font=`500 17px ${MONO}`;x.fillText('KINBIRD AVIARY',P+82,120);
-  x.font=`700 17px ${MONO}`;const pill='PAIRING RESULT',pw=x.measureText(pill).width+40;x.strokeStyle='rgba(76,161,84,.55)';x.lineWidth=2;x.beginPath();if(x.roundRect)x.roundRect(W-P-pw,66,pw,44,22);else x.rect(W-P-pw,66,pw,44);x.stroke();x.fillStyle=G;x.fillText(pill,W-P-pw+20,95);
+  x.fillStyle=G;x.font=`500 17px ${MONO}`;x.fillText('BY KINBIRD AVIARY',P+82,120);
+  x.font=`700 17px ${MONO}`;const pill='ISSUED '+new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase(),pw=x.measureText(pill).width+40;x.strokeStyle='rgba(76,161,84,.55)';x.lineWidth=2;x.beginPath();if(x.roundRect)x.roundRect(W-P-pw,66,pw,44,22);else x.rect(W-P-pw,66,pw,44);x.stroke();x.fillStyle=G;x.fillText(pill,W-P-pw+20,95);
   let y=200;const maxW=W-2*P;
-  const parent=(lbl,col,name)=>{x.fillStyle=col;x.font=`700 20px ${MONO}`;x.fillText(lbl,P,y);y+=50;x.fillStyle='#fff';x.font=`800 46px ${SANS}`;_lbgWrap(x,name,maxW).slice(0,2).forEach(l=>{x.fillText(l,P,y);y+=56;});};
-  parent('1.0  COCK',G,d.p1L);x.fillStyle='rgba(255,255,255,.45)';x.font=`700 34px ${SANS}`;x.fillText('×',P,y+2);y+=48;parent('0.1  HEN',R,d.p2L);
-  y+=8;x.fillStyle='rgba(255,255,255,.10)';x.fillRect(P,y,maxW,2);y+=44;
+  const parent=(lbl,col,name)=>{x.font=`700 22px ${MONO}`;const lw=x.measureText(lbl).width+32,ph=40,py=y-28;x.fillStyle=col==='#e5737a'?'rgba(229,115,122,.16)':'rgba(76,161,84,.18)';x.beginPath();if(x.roundRect)x.roundRect(P,py,lw,ph,8);else x.rect(P,py,lw,ph);x.fill();x.strokeStyle=col;x.lineWidth=2;x.stroke();x.fillStyle=col;x.fillText(lbl,P+16,y);y+=58;x.fillStyle='#fff';x.font=`800 46px ${SANS}`;_lbgWrap(x,name,maxW).slice(0,2).forEach(l=>{x.fillText(l,P,y);y+=56;});};
+  parent('1.0  COCK',G,d.p1L);{const base=y-56,bt=base+98,cy=(base+bt)/2;x.strokeStyle='rgba(255,255,255,.12)';x.lineWidth=2;x.beginPath();x.moveTo(P+52,cy);x.lineTo(P+maxW,cy);x.stroke();x.fillStyle='rgba(76,161,84,.16)';x.beginPath();x.arc(P+22,cy,22,0,7);x.fill();x.strokeStyle='rgba(255,255,255,.55)';x.beginPath();x.arc(P+22,cy,22,0,7);x.stroke();x.fillStyle='#fff';x.font=`800 30px ${SANS}`;x.textAlign='center';x.textBaseline='middle';x.fillText('×',P+22,cy+1);x.textAlign='left';x.textBaseline='alphabetic';y=bt+28;}parent('0.1  HEN',R,d.p2L);
+  y+=20;x.fillStyle=G;x.font=`700 20px ${MONO}`;x.fillText('PAIRING RESULT',P,y+6);const lw0=x.measureText('PAIRING RESULT').width;x.fillStyle='rgba(255,255,255,.55)';x.font=`500 18px ${MONO}`;x.fillText('· chance of each chick',P+lw0+14,y+6);y+=28;
   const items=[];d.secs.forEach(s=>{if(s.title)items.push({k:'t',t:s.title});s.items.forEach(i=>items.push(i));});
-  const yEnd=1170;let fs=40;const est=f=>items.reduce((a,i)=>a+(i.k==='row'?f*1.5:i.k==='t'?f*1.4:f*1.3),0);while(fs>24&&est(fs)>yEnd-y)fs-=2;
-  const colW=fs*3.6;let shown=0;
-  for(let n=0;n<items.length;n++){const it=items[n];const need=it.k==='row'?fs*1.5:fs*1.35;if(y+need>yEnd){const left=items.slice(n).filter(i=>i.k==='row').length;if(left){x.fillStyle='rgba(255,255,255,.6)';x.font=`500 ${Math.round(fs*0.7)}px ${MONO}`;x.fillText(`+ ${left} more outcome${left>1?'s':''} on lovebirdgenetics.com`,P,y+fs*0.6);}break;}
-    if(it.k==='t'){x.fillStyle=G;x.font=`700 ${Math.round(fs*0.62)}px ${MONO}`;x.fillText(it.t.toUpperCase(),P,y+fs*0.7);y+=fs*1.35;}
-    else if(it.k==='m'||it.k==='f'){const col=it.k==='m'?G:R;x.fillStyle=col;x.beginPath();x.arc(P+9,y+fs*0.45,8,0,7);x.fill();x.font=`700 ${Math.round(fs*0.6)}px ${MONO}`;x.fillText(it.k==='m'?'1.0 MALES':'0.1 FEMALES',P+30,y+fs*0.65);y+=fs*1.3;}
-    else{x.fillStyle=G;x.font=`700 ${fs}px ${MONO}`;const pt=it.pct+'%';x.fillText(pt,P+colW-x.measureText(pt).width-24,y+fs);x.fillStyle='#fff';x.font=`600 ${fs}px ${SANS}`;let nm=it.name;const mw=maxW-colW;while(x.measureText(nm).width>mw&&nm.length>4)nm=nm.slice(0,-2);if(nm!==it.name)nm=nm.slice(0,-1)+'…';x.fillText(nm,P+colW,y+fs);y+=fs*1.5;shown++;}}
-  x.fillStyle='rgba(255,255,255,.10)';x.fillRect(P,1196,maxW,2);
-  x.fillStyle='rgba(255,255,255,.7)';x.font=`500 22px ${SANS}`;x.fillText('Try any pairing free',P,1245);
-  x.fillStyle=G;x.font=`800 40px ${SANS}`;x.fillText('lovebirdgenetics.com',P,1292);
-  x.fillStyle='rgba(255,255,255,.55)';x.font=`500 17px ${MONO}`;const v1='Verified against the',v2='Lovebird Compendium (2016)';x.fillText(v1,W-P-x.measureText(v1).width,1250);x.fillText(v2,W-P-x.measureText(v2).width,1278);
+  const yEnd=1136,L='rgba(76,161,84,.45)',HB='rgba(76,161,84,.10)';let fs=40;const est=f=>items.reduce((a,i)=>a+(i.k==='row'?f*1.6:f*1.3),0);while(fs>24&&est(fs)>yEnd-y)fs-=2;
+  const pad=Math.round(fs*0.5);x.font=`700 ${fs}px ${MONO}`;const colW=Math.max(...items.filter(i=>i.k==='row').map(i=>x.measureText(i.pct+'%').width),x.measureText('00.0%').width)+pad*2;
+  const yT=y;const hl=yy=>x.fillRect(P,yy,maxW,2);x.fillStyle=L;
+  for(let n=0;n<items.length;n++){const it=items[n];const need=it.k==='row'?fs*1.6:fs*1.3;if(y+need>yEnd){const left=items.slice(n).filter(i=>i.k==='row').length;if(left){x.fillStyle=L;hl(y);x.fillStyle='rgba(255,255,255,.6)';x.font=`500 ${Math.round(fs*0.7)}px ${MONO}`;x.fillText(`+ ${left} more outcome${left>1?'s':''} on lovebirdgenetics.com`,P,y+fs*1.1);}break;}
+    x.fillStyle=L;hl(y);
+    if(it.k==='t'||it.k==='m'||it.k==='f'){const h=fs*1.3;x.fillStyle=HB;x.fillRect(P,y+2,maxW,h-2);const col=it.k==='f'?R:G;let tx=P+pad;if(it.k!=='t'){x.fillStyle=col;x.beginPath();x.arc(P+pad+8,y+h/2,8,0,7);x.fill();tx+=30;}x.fillStyle=col;x.font=`700 ${Math.round(fs*0.6)}px ${MONO}`;x.fillText(it.k==='t'?it.t.toUpperCase():it.k==='m'?'1.0 MALES':'0.1 FEMALES',tx,y+h/2+fs*0.21);y+=h;}
+    else{const h=fs*1.6,bl=y+h/2+fs*0.36;x.fillStyle=L;x.fillRect(P+colW,y,2,h);x.fillStyle=G;x.font=`700 ${fs}px ${MONO}`;const pt=it.pct+'%';x.fillText(pt,P+colW-pad-x.measureText(pt).width,bl);x.fillStyle='#fff';x.font=`600 ${fs}px ${SANS}`;let nm=it.name;const mw=maxW-colW-pad*2;while(x.measureText(nm).width>mw&&nm.length>4)nm=nm.slice(0,-2);if(nm!==it.name)nm=nm.slice(0,-1)+'…';x.fillText(nm,P+colW+pad,bl);y+=h;}}
+  x.fillStyle=L;hl(y);x.fillRect(P,yT,2,y-yT+2);x.fillRect(P+maxW-2,yT,2,y-yT+2);
+  x.fillStyle='rgba(255,255,255,.10)';x.fillRect(P,1156,maxW,2);
+  let tx=P;
+  try{if(!window.qrcode)await new Promise((res,rej)=>{const sc=document.createElement('script');sc.src='/js/qr.min.js';sc.onload=res;sc.onerror=rej;document.head.appendChild(sc);});
+    const qs=(location.search?location.search+'&':'?')+'utm_source=card';const u='https://lovebirdgenetics.com'+location.pathname+qs.replace(/%3A/gi,':').replace(/%2C/gi,',').replace(/%28/g,'(').replace(/%29/g,')');
+    const q=qrcode(0,'L');q.addData(u);q.make();const n=q.getModuleCount(),ms=Math.max(3,Math.floor(132/n)),pd=10,B=n*ms+2*pd,qy=1174+Math.round((150-B)/2);
+    x.fillStyle='#fff';x.beginPath();if(x.roundRect)x.roundRect(P,qy,B,B,10);else x.rect(P,qy,B,B);x.fill();x.fillStyle='#0f130f';
+    for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))x.fillRect(P+pd+k*ms,qy+pd+r*ms,ms,ms);
+    tx=P+B+26;}catch(e){}
+  x.fillStyle='rgba(255,255,255,.7)';x.font=`500 22px ${SANS}`;x.fillText('Try any pairing free',tx,1236);
+  x.fillStyle=G;x.font=`800 40px ${SANS}`;x.fillText('lovebirdgenetics.com',tx,1284);
+  x.fillStyle='rgba(255,255,255,.55)';x.font=`500 17px ${MONO}`;const vv=['Verified against the','Lovebird Compendium','by Dirk Van den Abeele (2016)'];if(window.__lbgDate)vv.push(new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase());const vy=1252-(vv.length-1)*13;vv.forEach((v,i)=>{if(i===2){x.fillStyle='rgba(255,255,255,.78)';}if(i===3){x.fillStyle=G;}x.fillText(v,W-P-x.measureText(v).width,vy+i*27);});
   g=x.createLinearGradient(0,0,W,0);g.addColorStop(0,'#2d6835');g.addColorStop(1,'#4ca154');x.fillStyle=g;x.fillRect(0,H-10,W,10);
   return c;
 }
+function _lbgCl(ev,tag){try{if(typeof window.clarity==='function'){if(ev)window.clarity('event',ev);window.clarity('set','share_card',tag);window.clarity('upgrade','share_card');}}catch(e){}}
 async function _lbgCard(p1L,p2L){
   const d=_lbgCardData(p1L,p2L);if(!d)return;
-  track('share_card_opened',{pairing:p1L+' × '+p2L});
+  track('share_card_opened',{pairing:p1L+' × '+p2L});_lbgCl(null,'opened');
   const cv=await _lbgDrawCard(d);const url='https://lovebirdgenetics.com'+location.pathname+location.search;
   const blob=await new Promise(r=>cv.toBlob(r,'image/png'));const file=new File([blob],'lovebird-pairing.png',{type:'image/png'});
   const durl=URL.createObjectURL(blob);const msg=`Lovebird pairing: 1.0 ${p1L} × 0.1 ${p2L}\nSee every outcome: ${url}`;
@@ -3515,7 +3528,7 @@ async function _lbgCard(p1L,p2L){
   const ov=document.createElement('div');ov.className='lbg-sc-ov';ov.setAttribute('role','dialog');ov.setAttribute('aria-label','Share result as image');
   ov.innerHTML=`<div class="lbg-sc"><button type="button" class="lbg-sc-x" aria-label="Close">×</button><img src="${durl}" alt="Pairing result card"><div class="lbg-sc-btns">${canFile?'<button type="button" data-m="native" class="lbg-sc-main">Share image</button>':''}<a data-m="whatsapp" href="https://wa.me/?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">WhatsApp</a><a data-m="facebook" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener">Facebook</a><a data-m="download" href="${durl}" download="lovebird-pairing.png">Download</a></div><p class="lbg-sc-hint">In the Facebook or Messenger app, long-press the image to save it.</p></div>`;
   const close=()=>{ov.remove();setTimeout(()=>URL.revokeObjectURL(durl),60000);};
-  ov.addEventListener('click',e=>{if(e.target===ov||e.target.closest('.lbg-sc-x')){close();return;}const b=e.target.closest('[data-m]');if(!b)return;const m=b.getAttribute('data-m');track('share_card_action',{method:m});if(m==='native'){e.preventDefault();navigator.share({files:[file],text:msg}).catch(()=>{});}});
+  ov.addEventListener('click',e=>{if(e.target===ov||e.target.closest('.lbg-sc-x')){close();return;}const b=e.target.closest('[data-m]');if(!b)return;const m=b.getAttribute('data-m');track('share_card_action',{method:m});_lbgCl('share_card_'+m,m);if(m==='native'){e.preventDefault();navigator.share({files:[file],text:msg}).then(()=>{track('share_card_action',{method:'native_done'});_lbgCl('share_card_native_done','shared');}).catch(()=>{});}});
   document.addEventListener('keydown',function k(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',k);}});
   document.body.appendChild(ov);
 }
