@@ -1019,6 +1019,17 @@ select.filled{background-color:var(--bg-input-filled);border-color:var(--border-
 .sum-hr{height:1px;background:rgba(255,255,255,0.07);margin-bottom:12px;}
 .sum-inner{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:16px 18px;}
 .sum-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;}
+.img-share-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:12px 0 0;padding:14px 16px;border:0;border-radius:12px;background:#4ca154;color:#0f130f;font:700 15px var(--font,'DM Sans',sans-serif);cursor:pointer;}
+.img-share-btn:hover{filter:brightness(1.08);}
+.lbg-sc-ov{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;padding:16px;}
+.lbg-sc{position:relative;width:100%;max-width:420px;max-height:100%;overflow:auto;background:#151a15;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;}
+.lbg-sc img{display:block;width:100%;height:auto;border-radius:10px;}
+.lbg-sc-x{position:absolute;top:6px;right:8px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:22px;line-height:1;cursor:pointer;z-index:1;}
+.lbg-sc-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+.lbg-sc-btns a,.lbg-sc-btns button{display:flex;align-items:center;justify-content:center;padding:12px;border-radius:10px;border:1px solid rgba(76,161,84,.45);background:transparent;color:#e8f0e8;font:600 14px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.lbg-sc-btns .lbg-sc-main{grid-column:1/-1;background:#4ca154;border-color:#4ca154;color:#0f130f;font-weight:700;}
+.lbg-sc-btns>[data-m]:last-child:nth-child(odd){grid-column:1/-1;}
+.lbg-sc-hint{margin:10px 0 0;font:500 12px 'DM Sans',sans-serif;color:rgba(255,255,255,.6);text-align:center;}
 .sum-top-btns{display:flex;align-items:center;gap:6px;flex-shrink:0;}
 @media(max-width:360px){
   .sum-top{flex-direction:column;align-items:flex-start;}
@@ -1547,12 +1558,12 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
     <div class="trust-band">
       <p class="trust-eyebrow">Why breeders trust it</p>
       <h2 class="trust-h2">The most accurate Fischer's lovebird calculator</h2>
-      <p class="trust-sub">Breeders in 162 countries plan their pairings here, and every result is cross-checked against the definitive scientific reference.</p>
+      <p class="trust-sub">Breeders in over 100 countries plan their pairings here, and every result is cross-checked against the definitive scientific reference.</p>
       <div class="usage-row">
-        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><rect x="2.6" y="4.2" width="18.8" height="15.6" rx="2.2"/><path d="M2.6 8.2h18.8"/><path class="ln" d="M6.4 12h11.2"/><path class="ln ln2" d="M6.4 15h8"/><path class="ln ln3" d="M6.4 18h5"/></svg></span><p class="u-num" data-count="53000" data-sep="1">53,000</p><p class="u-lbl">Page views every month</p></div>
-        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><circle cx="9.2" cy="8" r="3.2"/><path d="M2.8 19.8a6.4 6.4 0 0 1 12.8 0"/><g class="visitor"><path d="M16.6 5.4a3.2 3.2 0 0 1 0 5.4"/><path d="M18.2 19.8a6.4 6.4 0 0 0-2.5-5.1"/></g></svg></span><p class="u-num" data-count="6300" data-sep="1">6,300</p><p class="u-lbl">Visits from 2,400 breeders</p></div>
-        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse class="mer" cx="12" cy="12" rx="4.2" ry="9"/></svg></span><p class="u-num" data-count="162">162</p><p class="u-lbl">Countries reached</p></div>
-        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" opacity=".22"/><circle class="ring" cx="12" cy="12" r="9" pathLength="100" transform="rotate(-90 12 12)" stroke-linecap="round"/><path d="M8.4 12.2l2.6 2.6 4.7-5.2"/></svg></span><p class="u-num" data-count="68" data-suffix="%">68%</p><p class="u-lbl">Complete a full pairing</p></div>
+        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><rect x="2.6" y="4.2" width="18.8" height="15.6" rx="2.2"/><path d="M2.6 8.2h18.8"/><path class="ln" d="M6.4 12h11.2"/><path class="ln ln2" d="M6.4 15h8"/><path class="ln ln3" d="M6.4 18h5"/></svg></span><p class="u-num" data-count="38500" data-sep="1">38,500</p><p class="u-lbl">Pairings calculated every month</p></div>
+        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><circle cx="9.2" cy="8" r="3.2"/><path d="M2.8 19.8a6.4 6.4 0 0 1 12.8 0"/><g class="visitor"><path d="M16.6 5.4a3.2 3.2 0 0 1 0 5.4"/><path d="M18.2 19.8a6.4 6.4 0 0 0-2.5-5.1"/></g></svg></span><p class="u-num" data-count="7100" data-sep="1">7,100</p><p class="u-lbl">Visits from 2,200 breeders</p></div>
+        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse class="mer" cx="12" cy="12" rx="4.2" ry="9"/></svg></span><p class="u-num" data-count="174">174</p><p class="u-lbl">Countries reached on Google</p></div>
+        <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" opacity=".22"/><circle class="ring" cx="12" cy="12" r="9" pathLength="100" transform="rotate(-90 12 12)" stroke-linecap="round"/><path d="M8.4 12.2l2.6 2.6 4.7-5.2"/></svg></span><p class="u-num" data-count="69" data-suffix="%">69%</p><p class="u-lbl">Complete a full pairing</p></div>
         <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><path class="helix" pathLength="100" d="M8 3c0 4 8 6 8 9s-8 5-8 9"/><path class="helix helix2" pathLength="100" d="M16 3c0 4-8 6-8 9s8 5 8 9"/><path class="rung" d="M9 6h6"/><path class="rung rung2" d="M8.5 9h7"/><path class="rung rung3" d="M8.5 15h7"/><path class="rung rung4" d="M9 18h6"/></svg></span><p class="u-num" data-count="22">22</p><p class="u-lbl">Mutation groups: Aqua YF, Bronze Fallow, Pallid</p></div>
         <div class="u-cell"><span class="trust-ico u-ico"><svg viewBox="0 0 24 24"><path class="page" pathLength="100" d="M4 5.5A2 2 0 0 1 6 4h5v15H6a2 2 0 0 0-2 1.5z"/><path class="page page2" pathLength="100" d="M20 5.5A2 2 0 0 0 18 4h-5v15h5a2 2 0 0 1 2 1.5z"/></svg></span><p class="u-num">2016</p><p class="u-lbl">Checked against Van den Abeele's <em>Compendium</em></p></div>
       </div>
@@ -1715,7 +1726,7 @@ footer,.footer-inner,.footer-bar,.seo-band,.rp,.result-panel{--accent-strong:#4c
       </div>
       <div class="seo-block">
         <h3>Used Worldwide</h3>
-        <p>This lovebird genetic calculator is used by breeders in 162 countries worldwide, across South Asia, Southeast Asia, the Middle East, Europe and the Americas. Whether you are a lovebird breeder in Pakistan, Bangladesh, India, Indonesia, or the Philippines, the tool works the same everywhere. No account needed, no language barrier. Open it on any phone or computer, anywhere in the world.</p>
+        <p>This lovebird genetic calculator is used by breeders in over 100 countries worldwide, across South Asia, Southeast Asia, the Middle East, Europe and the Americas. Whether you are a lovebird breeder in Pakistan, Bangladesh, India, Indonesia, or the Philippines, the tool works the same everywhere. No account needed, no language barrier. Open it on any phone or computer, anywhere in the world.</p>
       </div>
       <div class="seo-block" style="grid-column:1/-1;">
         <h3>Why Sapphire and Mottle Are Not Included</h3>
@@ -3453,6 +3464,60 @@ if(lbtn)lbtn.addEventListener('click',()=>{
     }
   }catch(e){}
 });
+try{const _sb=document.querySelector('#rc .sum-box');if(_sb&&!document.getElementById('ibtn')){const b=document.createElement('button');b.id='ibtn';b.type='button';b.className='img-share-btn';b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg>Share as image';_sb.after(b);b.addEventListener('click',()=>_lbgCard(p1L,p2L));}}catch(e){}
+}
+function _lbgCardData(p1L,p2L){
+  const _a=ambState();const secs=[];
+  const parse=lines=>{const out=[];lines.forEach(l=>{const t=l.trim();const m=t.match(/^- ([\d.]+)%\s+(.*)$/);if(m)out.push({k:'row',pct:m[1],name:m[2]});else if(/Males/.test(t))out.push({k:'m'});else if(/Females/.test(t))out.push({k:'f'});});return out;};
+  if(_a){_a.scen.forEach(sc=>secs.push({title:'If '+sc.text,items:parse(_ambLines(sc.res))}));}
+  else{const r=_0xB1(S.p1p,effectiveTraits("p1"),S.p2p,effectiveTraits("p2"));if(!r)return null;secs.push({title:'',items:parse(_ambLines(r))});}
+  return {p1L,p2L,secs};
+}
+function _lbgWrap(ctx,text,maxW){const words=String(text).split(' ');const lines=[];let cur='';for(const w of words){const t=cur?cur+' '+w:w;if(ctx.measureText(t).width>maxW&&cur){lines.push(cur);cur=w;}else cur=t;}if(cur)lines.push(cur);return lines;}
+async function _lbgDrawCard(d){
+  const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+  const SANS="'DM Sans',system-ui,sans-serif",MONO="'DM Mono','JetBrains Mono',monospace",G='#4ca154',R='#e5737a';
+  try{await Promise.all([document.fonts.load("800 40px 'DM Sans'"),document.fonts.load("500 20px 'DM Mono'"),document.fonts.load("700 20px 'DM Mono'")]);}catch(e){}
+  x.fillStyle='#0f130f';x.fillRect(0,0,W,H);
+  let g=x.createRadialGradient(W*0.88,90,0,W*0.88,90,520);g.addColorStop(0,'rgba(76,161,84,.28)');g.addColorStop(1,'rgba(76,161,84,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+  g=x.createRadialGradient(W*0.2,H*0.85,0,W*0.2,H*0.85,700);g.addColorStop(0,'rgba(45,104,53,.40)');g.addColorStop(1,'rgba(45,104,53,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(255,255,255,.035)';x.lineWidth=1;for(let i=0;i<W;i+=54){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke();}for(let j=0;j<H;j+=54){x.beginPath();x.moveTo(0,j);x.lineTo(W,j);x.stroke();}
+  const P=72;
+  await new Promise(res=>{const im=new Image();im.onload=()=>{const h=62,w=h*im.width/im.height||58;x.drawImage(im,P,58,w,h);res();};im.onerror=res;im.src='/logo-icon.svg';});
+  x.fillStyle='#fff';x.font=`800 38px ${SANS}`;x.textBaseline='alphabetic';x.fillText('Lovebird Genetics',P+80,94);
+  x.fillStyle=G;x.font=`500 17px ${MONO}`;x.fillText('KINBIRD AVIARY',P+82,120);
+  x.font=`700 17px ${MONO}`;const pill='PAIRING RESULT',pw=x.measureText(pill).width+40;x.strokeStyle='rgba(76,161,84,.55)';x.lineWidth=2;x.beginPath();if(x.roundRect)x.roundRect(W-P-pw,66,pw,44,22);else x.rect(W-P-pw,66,pw,44);x.stroke();x.fillStyle=G;x.fillText(pill,W-P-pw+20,95);
+  let y=200;const maxW=W-2*P;
+  const parent=(lbl,col,name)=>{x.fillStyle=col;x.font=`700 20px ${MONO}`;x.fillText(lbl,P,y);y+=50;x.fillStyle='#fff';x.font=`800 46px ${SANS}`;_lbgWrap(x,name,maxW).slice(0,2).forEach(l=>{x.fillText(l,P,y);y+=56;});};
+  parent('1.0  COCK',G,d.p1L);x.fillStyle='rgba(255,255,255,.45)';x.font=`700 34px ${SANS}`;x.fillText('×',P,y+2);y+=48;parent('0.1  HEN',R,d.p2L);
+  y+=8;x.fillStyle='rgba(255,255,255,.10)';x.fillRect(P,y,maxW,2);y+=44;
+  const items=[];d.secs.forEach(s=>{if(s.title)items.push({k:'t',t:s.title});s.items.forEach(i=>items.push(i));});
+  const yEnd=1170;let fs=40;const est=f=>items.reduce((a,i)=>a+(i.k==='row'?f*1.5:i.k==='t'?f*1.4:f*1.3),0);while(fs>24&&est(fs)>yEnd-y)fs-=2;
+  const colW=fs*3.6;let shown=0;
+  for(let n=0;n<items.length;n++){const it=items[n];const need=it.k==='row'?fs*1.5:fs*1.35;if(y+need>yEnd){const left=items.slice(n).filter(i=>i.k==='row').length;if(left){x.fillStyle='rgba(255,255,255,.6)';x.font=`500 ${Math.round(fs*0.7)}px ${MONO}`;x.fillText(`+ ${left} more outcome${left>1?'s':''} on lovebirdgenetics.com`,P,y+fs*0.6);}break;}
+    if(it.k==='t'){x.fillStyle=G;x.font=`700 ${Math.round(fs*0.62)}px ${MONO}`;x.fillText(it.t.toUpperCase(),P,y+fs*0.7);y+=fs*1.35;}
+    else if(it.k==='m'||it.k==='f'){const col=it.k==='m'?G:R;x.fillStyle=col;x.beginPath();x.arc(P+9,y+fs*0.45,8,0,7);x.fill();x.font=`700 ${Math.round(fs*0.6)}px ${MONO}`;x.fillText(it.k==='m'?'1.0 MALES':'0.1 FEMALES',P+30,y+fs*0.65);y+=fs*1.3;}
+    else{x.fillStyle=G;x.font=`700 ${fs}px ${MONO}`;const pt=it.pct+'%';x.fillText(pt,P+colW-x.measureText(pt).width-24,y+fs);x.fillStyle='#fff';x.font=`600 ${fs}px ${SANS}`;let nm=it.name;const mw=maxW-colW;while(x.measureText(nm).width>mw&&nm.length>4)nm=nm.slice(0,-2);if(nm!==it.name)nm=nm.slice(0,-1)+'…';x.fillText(nm,P+colW,y+fs);y+=fs*1.5;shown++;}}
+  x.fillStyle='rgba(255,255,255,.10)';x.fillRect(P,1196,maxW,2);
+  x.fillStyle='rgba(255,255,255,.7)';x.font=`500 22px ${SANS}`;x.fillText('Try any pairing free',P,1245);
+  x.fillStyle=G;x.font=`800 40px ${SANS}`;x.fillText('lovebirdgenetics.com',P,1292);
+  x.fillStyle='rgba(255,255,255,.55)';x.font=`500 17px ${MONO}`;const v1='Verified against the',v2='Lovebird Compendium (2016)';x.fillText(v1,W-P-x.measureText(v1).width,1250);x.fillText(v2,W-P-x.measureText(v2).width,1278);
+  g=x.createLinearGradient(0,0,W,0);g.addColorStop(0,'#2d6835');g.addColorStop(1,'#4ca154');x.fillStyle=g;x.fillRect(0,H-10,W,10);
+  return c;
+}
+async function _lbgCard(p1L,p2L){
+  const d=_lbgCardData(p1L,p2L);if(!d)return;
+  track('share_card_opened',{pairing:p1L+' × '+p2L});
+  const cv=await _lbgDrawCard(d);const url='https://lovebirdgenetics.com'+location.pathname+location.search;
+  const blob=await new Promise(r=>cv.toBlob(r,'image/png'));const file=new File([blob],'lovebird-pairing.png',{type:'image/png'});
+  const durl=URL.createObjectURL(blob);const msg=`Lovebird pairing: 1.0 ${p1L} × 0.1 ${p2L}\nSee every outcome: ${url}`;
+  const canFile=!!(navigator.canShare&&navigator.canShare({files:[file]}));
+  const ov=document.createElement('div');ov.className='lbg-sc-ov';ov.setAttribute('role','dialog');ov.setAttribute('aria-label','Share result as image');
+  ov.innerHTML=`<div class="lbg-sc"><button type="button" class="lbg-sc-x" aria-label="Close">×</button><img src="${durl}" alt="Pairing result card"><div class="lbg-sc-btns">${canFile?'<button type="button" data-m="native" class="lbg-sc-main">Share image</button>':''}<a data-m="whatsapp" href="https://wa.me/?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">WhatsApp</a><a data-m="facebook" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener">Facebook</a><a data-m="download" href="${durl}" download="lovebird-pairing.png">Download</a></div><p class="lbg-sc-hint">In the Facebook or Messenger app, long-press the image to save it.</p></div>`;
+  const close=()=>{ov.remove();setTimeout(()=>URL.revokeObjectURL(durl),60000);};
+  ov.addEventListener('click',e=>{if(e.target===ov||e.target.closest('.lbg-sc-x')){close();return;}const b=e.target.closest('[data-m]');if(!b)return;const m=b.getAttribute('data-m');track('share_card_action',{method:m});if(m==='native'){e.preventDefault();navigator.share({files:[file],text:msg}).catch(()=>{});}});
+  document.addEventListener('keydown',function k(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',k);}});
+  document.body.appendChild(ov);
 }
 const TRASH_ICO=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>`;
 /* ─── GENERALIZED CUSTOM DROPDOWN (delegated, survives re-renders) ───
